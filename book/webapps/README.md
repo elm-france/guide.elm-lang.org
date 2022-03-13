@@ -1,13 +1,12 @@
-# Web Apps
+# Applications web
 
-So far we have been creating Elm programs with `Browser.element`, allowing us to take over a single node in a larger application. This is great for _introducing_ Elm at work (as described [here](https://elm-lang.org/blog/how-to-use-elm-at-work)) but what happens after that? How can we use Elm more extensively?
+Jusqu'à présent, nous avons créé des programmes Elm avec `Browser.element`, qui nous permet de contrôler un élément HTML au sein d'une application plus grande. C'est très bien pour _commencer_ à utiliser Elm au travail (comme expliqué [ici - lien en anglais](https://elm-lang.org/blog/how-to-use-elm-at-work)), mais après ? Comment généraliser l'utilisation de Elm ?
 
-In this chapter, we will learn how to create a “web app” with a bunch of different pages that all integrate nicely with each other, but we must start by controlling a single page.
+Dans ce chapitre, nous allons voir comment créer une application web avec tout un tas de pages qui s'intègrent parfaitement les unes avec les autres. Mais, avant ça, voyons comment contrôler une seule page.
 
+## Contrôler le Document
 
-## Control the Document
-
-The first step is to switch to starting programs with [`Browser.document`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#document):
+Tout d'abord, nous allons désormais démarrer notre programme avec [`Browser.document`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#document) :
 
 ```elm
 document :
@@ -19,7 +18,7 @@ document :
   -> Program flags model msg
 ```
 
-The arguments are almost exactly the same as `Browser.element`, except for the `view` function. Rather than returning an `Html` value, you return a [`Document`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#Document) like this:
+Les arguments sont presque les mêmes que pour `Browser.element`, à l'exception de la fonction `view`. Plutôt que de retourner du `Html`, elle retourne maintenant un [`Document`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#Document) de ce type :
 
 ```elm
 type alias Document msg =
@@ -28,24 +27,24 @@ type alias Document msg =
   }
 ```
 
-This gives you control over the `<title>` and the `<body>` of the document. Perhaps your program downloads some data and that helps you determine a more specific title. Now you can just change it in your `view` function!
+Cela permet de contrôler la balise `<title>` et le `<body>` du docuement. Par exemple, selon les données téléchargées par notre application, peut-être que nous voudrons afficher un titre de page plus spécifique. Il nous suffira de le changer dans notre fonction `view` !
 
 
-## Serve the Page
+## Servir la page
 
-The compiler produces HTML by default, so you can compile your code like this:
+Le compilateur produit du HTML par défaut ; il suffit donc de compiler le code comme ceci :
 
 ```bash
 elm make src/Main.elm
 ```
 
-The output will be a file named `index.html` that you can serve like any other HTML file. That works fine, but you can get a bit more flexibility by (1) compiling Elm to JavaScript and (2) making your own custom HTML file. To take that path, you compile like this:
+Le résultat sera un fichier nommé `index.html` que nous pourrons servir comme n'importe quel autre fichier HTML. Cette méthode fonctionne très bien ! On peut néanmoins obtenir un peu plus de flexibilité en (1) compilant Elm vers Javascript et (2) créant un fichier HTML personnalisé. Pour ce faire, on lance le compilateur comme ceci :
 
 ```bash
 elm make src/Main.elm --output=main.js
 ```
 
-This will produce `main.js` which you can load from a custom HTML file like this:
+Cela va produire un fichier `main.js`, que l'on peut alors référencer dans un fichier HTML, comme ceci :
 
 ```html
 <!DOCTYPE HTML>
@@ -53,7 +52,7 @@ This will produce `main.js` which you can load from a custom HTML file like this
 <head>
   <meta charset="UTF-8">
   <title>Main</title>
-  <link rel="stylesheet" href="whatever-you-want.css">
+  <link rel="stylesheet" href="mon-style.css">
   <script src="main.js"></script>
 </head>
 <body>
@@ -62,10 +61,10 @@ This will produce `main.js` which you can load from a custom HTML file like this
 </html>
 ```
 
-This HTML is pretty simple. You load whatever you need in the `<head>` and you initialize your Elm program in the `<body>`. The Elm program will take it from there and render everything.
+Ce fichier HTML est très simple. On charge ce dont on a besoin dans la balise `<head>` et on initialise le programme Elm dans le `<body>`. Le programme Elm s'occupe du reste et affiche l'application entière !
 
-Either way, now you have some HTML that you can send to browsers. You can get that HTML to people with free services like [GitHub Pages](https://pages.github.com/) or [Netlify](https://www.netlify.com/), or maybe you make your own server and run a VPS with a service like [Digital Ocean](https://m.do.co/c/c47faa1916d2). Whatever works for you! You just need a way to get HTML into a browser.
+Quelle que soit la méthode choisie, on dispose maintenant d'un fichier HTML, lisible par les navigateurs. Pour donner accès à ce HTML, on peut utiliser des services gratuits comme [GitHub Pages](https://pages.github.com/) ou [Netlify](https://www.netlify.com/), ou bien monter son propre serveur sur un VPS avec un service comme [OVH](https://www.ovhcloud.com/fr/vps/) ou [Digital Ocean](https://m.do.co/c/c47faa1916d2). Peu importe, du moment qu'on peut rendre notre HTML accessible à un navigateur !
 
-> **Note 1:** Creating custom HTML is helpful if you are doing something custom with CSS. Many people use projects like [`rtfeldman/elm-css`](https://package.elm-lang.org/packages/rtfeldman/elm-css/latest/) to handle all of their styles from within Elm, but maybe you are working in a team where there is lots of predefined CSS. Maybe the team is even using one of those CSS preprocessors. That is all fine. Just load the final CSS file in the `<head>` of your HTML file.
+> **Note 1:** Créer un fichier HTML personnalisé est utile si on a besoin de contrôler les fichiers CSS. De nombreuses équipes utilisent des projets comme [`rtfeldman/elm-css`](https://package.elm-lang.org/packages/rtfeldman/elm-css/latest/) ou [`mdgriffith/elm-ui`](https://package.elm-lang.org/packages/mdgriffith/elm-ui/latest/) pour gérer leurs styles depuis Elm, mais si votre équipe utilise beaucoup de CSS déjà écrit, ou des préprocesseurs CSS, aucun problème : il suffit de référencer le fichier CSS final dans la valise `<head>` du fichier HTML.
 >
-> **Note 2:** The Digital Ocean link above is a referral link, so if you sign up through that and end up using the service, we get a $25 credit towards our hosting costs for `elm-lang.org` and `package.elm-lang.org`.
+> **Note 2:** Le lien Digital Ocean ci-dessus est sponsorisé : si vous l'utilisez pour créer un compte et vous abonner, nous obtenons 25 $ de crédit sur les frais d'hébergement de `elm-lang.org` et `package.elm-lang.org`.

@@ -1,24 +1,24 @@
 # Navigation
 
-We just saw how to serve one page, but say we are making a website like `package.elm-lang.org`. It has a bunch of pages (e.g. [search](https://package.elm-lang.org/), [README](https://package.elm-lang.org/packages/elm/core/latest/), [docs](https://package.elm-lang.org/packages/elm/core/latest/Maybe)) that all work differently. How does it do that?
+Nous venons de voir comment servir une seule page, mais mettons que nous soyons en train de faire un site comme `package.elm-lang.org`. Il se compose de nombreuses pages (par exemple : [search](https://package.elm-lang.org/), [README](https://package.elm-lang.org/packages/elm/core/latest/), [docs](https://package.elm-lang.org/packages/elm/core/latest/Maybe)) qui fonctionnent toutes différemment. Comment fonctionne-t-il ?
 
 
-## Multiple Pages
+## Plusieurs pages
 
-The simple way would be to serve a bunch of different HTML files. Going to the home page? Load new HTML. Going to `elm/core` docs? Load new HTML. Going to `elm/json` docs? Load new HTML.
+Pour faire simple, on pourrait servir plusieurs fichiers HTML. On va sur la page d'accueil ? On charge un HTML. On va sur la page de documentation de `elm/core` ? On charge un HTML. Sur la doc de `elm/json` ? On charge un HTML.
 
-Until Elm 0.19, that is exactly what the package website did! It works. It is simple. But it has some weaknesses:
+Avant Elm 0.19, c'est exactement ce que faisait le site `package.elm-lang.org`. Ça marche bien, c'est simple, mais ça a quelques inconvénients :
 
-1. **Blank Screens.** The screen goes white every time you load new HTML. Can we do a nice transition instead?
-2. **Redundant Requests.** Each package has a single `docs.json` file, but it gets loaded each time you visit a module like [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) or [`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe). Can we share the data between pages somehow?
-3. **Redundant Code.** The home page and the docs share a lot of functions, like `Html.text` and `Html.div`. Can this code be shared between pages?
+1. **Des écrans vides.** L'écran se vide et reste blanc le temps de charger le nouvel HTML. Ça serait bien d'avoir des transitions, plutôt !
+2. **Requêtes redondantes.** Chaque paquet dispose d'un unique fichier `docs.json`, mais il est chargé à chaque fois qu'on va sur la page d'un module du paquet, comme [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) ou [`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe). Il faudrait pouvoir partager des données entre pages.
+3. **Code redondant.** La page d'accueil et la documentation partagent de nombreuses fonctions, comme `Html.text` et `Html.div`. Est-ce qu'on pourrait partager ce code entre pages ?
 
-We can improve all three cases! The basic idea is to only load HTML once, and then be a bit tricky to handle URL changes.
+Ces trois problèmes peuvent être résolus ! Il suffit de ne charger du HTML qu'une fois, et de se débrouiller avec les changements d'URL.
 
 
-## Single Page
+## Une seule page
 
-Instead of creating our program with `Browser.element` or `Browser.document`, we can create a [`Browser.application`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#application) to avoid loading new HTML when the URL changes:
+Plutôt que de créer notre programme avec `Browser.element` ou `Browser.document`, nous allons utiliser [`Browser.application`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#application) pour éviter de charger du HTML à chaque changement d'URL :
 
 ```elm
 application :
@@ -32,16 +32,15 @@ application :
   -> Program flags model msg
 ```
 
-It extends the functionality of `Browser.document` in three important scenarios.
+Ce programme ajoute des fonctionnalités à `Browser.document` dans trois scénarios importants.
 
-**When the application starts**, `init` gets the current [`Url`][u] from the browsers navigation bar. This allows you to show different things depending on the `Url`.
+**Quand l'application démarre**, `init` reçoit l'[`Url`][u] actuelle depuis la barre d'adresse du navigateur. Cela permet d'afficher des choses différentes selon l'`Url`.
 
-**When someone clicks a link**, like `<a href="/home">Home</a>`, it is intercepted as a [`UrlRequest`][ur]. So instead of loading new HTML with all the downsides, `onUrlRequest` creates a message for your `update` where you can decide exactly what to do next. You can save scroll position, persist data, change the URL yourself, etc.
+**Quand quelqu'un clique sur un lien**, comme `<a href="/accueil">Accueil</a>`, le clic est intercepté et transformé en [`UrlRequest`][ur]. Plutôt que de charger du nouveau HTML, avec tous les inconvénients déjà mentionnés, `onUrlRequest` crée un message pour la fonction `update` qui permet de décider exactement ce que l'on souhaite faire. Cela peut être d'enregistrer la position du scroll, persister de la donnée, modifier l'URL programmatiquement, etc.
 
-**When the URL changes**, the new `Url` is sent to `onUrlChange`.
-The resulting message goes to `update` where you can decide how to show the new page.
+**Quand l'URL change**, la nouvelle `Url` est envoyée à `onUrlChange`. Le message résultant est envoyé à `update`, où l'on peut décider quoi montrer pour cette nouvelle page.
 
-So rather than loading new HTML, these three additions give you full control over URL changes. Let’s see it in action!
+Ensemble, ces trois ajouts permettent d'avoir le contrôle complet sur les changements d'URL. Voyons ce que ça donne à l'usage !
 
 [u]: https://package.elm-lang.org/packages/elm/url/latest/Url#Url
 [ur]: https://package.elm-lang.org/packages/elm/browser/latest/Browser#UrlRequest
@@ -50,9 +49,9 @@ So rather than loading new HTML, these three additions give you full control ove
 [bnl]: https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#load
 
 
-## Example
+## Exemple
 
-We will start with the baseline `Browser.application` program. It just keeps track of the current URL. Skim through the code now! Pretty much all of the new and interesting stuff happens in the `update` function, and we will get into those details after the code:
+Commençons avec le programme `Browser.application` le plus simple : il ne fait que garder trace de l'URL actuelle. Ne vous attardez pas sur le code : il n'y a rien de très intéressant, à part dans la fonction `update`, et nous la verrons en détail après le code.
 
 
 ```elm
@@ -137,11 +136,11 @@ view : Model -> Browser.Document Msg
 view model =
   { title = "URL Interceptor"
   , body =
-      [ text "The current URL is: "
+      [ text "L'URL actuelle est : "
       , b [] [ text (Url.toString model.url) ]
       , ul []
-          [ viewLink "/home"
-          , viewLink "/profile"
+          [ viewLink "/accueil"
+          , viewLink "/profil"
           , viewLink "/reviews/the-century-of-the-self"
           , viewLink "/reviews/public-opinion"
           , viewLink "/reviews/shah-of-shahs"
@@ -155,12 +154,12 @@ viewLink path =
   li [] [ a [ href path ] [ text path ] ]
 ```
 
-The `update` function can handle either `LinkClicked` or `UrlChanged` messages. There is a lot of new stuff in the `LinkClicked` branch, so we will focus on that first!
+La fonction `update` traite des messages `LinkClicked` ou `UrlChanged`. Il y a beaucoup de choses nouvelles dans la branche `LinkClicked`, alors commençons par ça !
 
 
 ## `UrlRequest`
 
-Whenever someone clicks a link like `<a href="/home">/home</a>`, it produces a `UrlRequest` value:
+Quand on clique sur lien comme `<a href="/accueil">/accueil</a>`, cela produit une valeur de type `UrlRequest` :
 
 ```elm
 type UrlRequest
@@ -168,16 +167,16 @@ type UrlRequest
   | External String
 ```
 
-The `Internal` variant is for any link that stays on the same domain. So if you are browsing `https://example.com`, internal links include things like `settings#privacy`, `/home`, `https://example.com/home`, and `//example.com/home`.
+La variante `Internal` s'applique aux liens qui restent dans le même domaine que l'application. Par exemple, si notre application est sur `https://exemple.fr`, les liens suivants sont des liens internes : `parametres#confidentialite`, `/accueil`, `https://exemple.fr/accueil`, et `//exemple.fr/home`.
 
-The `External` variant is for any link that goes to a different domain. Links like `https://elm-lang.org/examples`, `https://static.example.com`, and `http://example.com/home` all go to a different domain. Notice that changing the protocol from `https` to `http` is considered a different domain!
+La variante `External` concerne les liens qui pointent vers un domaine différent. Les liens `https://elm-lang.org/examples`, `https://static.exemple.fr`, and `http://exemple.fr/accueil` pointent tous vers un domaine différent. Notez que passer du protocole `https` à `http` est considéré comme un changement de domaine !
 
-Whichever link someone presses, our example program is going to create a `LinkClicked` message and send it to the `update` function. That is where we see most of the interesting new code!
+Quel que soit le type de lien cliqué, notre programme d'exemple va créer un message `LinkClicked` et l'envoyer à la fonction `update`. C'est là que se trouve le code le plus intéressant !
 
 
 ### `LinkClicked`
 
-Most of our `update` logic is deciding what to do with these `UrlRequest` values:
+La majeure partie de la logique de notre `update` consiste à décider quoi faire des valeurs `UrlRequest` :
 
 ```elm
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -197,32 +196,30 @@ update msg model =
       )
 ```
 
-The particularly interesting functions are `Nav.load` and `Nav.pushUrl`. These are both from the [`Browser.Navigation`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation) module which is all about changing the URL in different ways. We are using the two most common functions from that module:
+Les fonctions `Nav.load` et `Nav.pushUrl` sont particulièrement intéressantes : elles sont toutes les deux issues du module [`Browser.Navigation`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation) qui contient tout un tas de manières de changer l'URL dans la barre d'adresse. Ici, nous utilisons les deux plus communes :
 
-- [`load`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#load) loads all new HTML. It is equivalent to typing the URL into the URL bar and pressing enter. So whatever is happening in your `Model` will be thrown out, and a whole new page is loaded.
-- [`pushUrl`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#pushUrl) changes the URL, but does not load new HTML. Instead it triggers a `UrlChanged` message that we handle ourselves! It also adds an entry to the “browser history” so things work normal when people press the `BACK` or `FORWARD` buttons.
+- [`load`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#load) charge du nouveau HTML. C'est comme si on tapait l'URL dans la barre d'adresse et qu'on appuyait sur Entrée. Cela signifie que notre `Model` n'est pas conservé et qu'une toute nouvelle page est chargée.
+- [`pushUrl`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#pushUrl) change l'URL mais, au lieu de charger du nouveau HTML, déclenche un message `UrlChanged` auquel on peut réagir ! Cela ajoute également une nouvelle entrée dans l'historique de navigation, pour que l'application se comporte correctement avec les boutons `Précédent` et `Suivant`.
 
-So looking back at the `update` function, we can understand how it all fits together a bit better now. When the user clicks a `https://elm-lang.org` link, we get an `External` message and use `load` to load new HTML from those servers. But when the user clicks a `/home` link, we get an `Internal` message and use `pushUrl` to change the URL _without_ loading new HTML!
+Si l'on revient à notre fonction `update`, on voit maintenant comment tout s'articule : quand l'utilisateur clique sur un lien `https://elm-lang.org`, on obtient un message `External` et on utilise `load` pour charger du nouveau HTML depuis le serveur demandé. Mais si l'utilisateur clique sur le lien `/accueil`, alors on obtient un message `Internal` et on utilise `pushUrl` pour modifier l'URL _sans_ charger du nouveau HTML.
 
-> **Note 1:** Both `Internal` and `External` links are producing commands immediately in our example, but that is not required! When someone clicks an `External` link, maybe you want to save textbox content to your database before navigating away. Or when someone clicks an `Internal` link, maybe you want to use [`getViewport`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewport) to save the scroll position in case they navigate `BACK` later. That is all possible! It is a normal `update` function, and you can delay the navigation and do whatever you want.
+> **Note 1:** Dans notre exemple, les liens `Internal` et `External` produisent tous les deux des commandes immédiatement, mais ce n'est pas obligatoire ! Quand une personne clique sur un lien `External`, on peut par exemple vouloir enregistrer le contenu d'un champ texte dans notre base de données avant qu'elle ne quitte la page. Ou bien, quand une personne clique sur un lien `Internal`, on peut vouloir utiliser [`getViewport`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewport) pour enregistrer la position de son défilement, au cas où elle clique sur `Précédent`. Tout est possible ! Il s'agit d'un message envoyé à la fonction `update`, et on peut faire tout ce qu'on veut avant de procéder au changement de page.
 >
-> **Note 2:** If you want to restore “what they were looking at” when they come `BACK`, scroll position is not perfect. If they resize their browser or reorient their device, it could be off by quite a lot! So it is probably better to save “what they were looking at” instead. Maybe that means using [`getViewportOf`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewportOf) to figure out exactly what is on screen at the moment. The particulars depend on how your application works exactly, so I cannot give exact advice!
+> **Note 2:** Si vous cherchez à afficher "ce que la personne regardait" au cas où elle clique sur `Précédent`, la position de son défilement n'est pas si utile que ça. Si la personne a redimensionné son navigateur ou changé l'orientation de son appareil, cela pourrait ne plus du tout correspondre ! Il vaut sans doute mieux chercher à enregistrer directement ce qu'elle était en train de regarder, par exemple en utilisant [`getViewportOf`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewportOf) pour savoir ce qui est affiché à l'écran à ce moment-là. Tout ça dépend beaucoup de votre application, difficile pour moi de donner un conseil plus précis !
 
 
 ## `UrlChanged`
 
-There are a couple ways to get `UrlChanged` messages. We just saw that `pushUrl` produces them, but pressing the browser `BACK` and `FORWARD` buttons produce them as well. And like I was saying in the notes a second ago, when you get a `LinkClicked` message, the `pushUrl` command may not be given immediately.
+Il existe plusieurs manières d'obtenir des messages `UrlChanged`. On vient de voir que `pushUrl` en produit, mais les boutons `Précédent` et `Suivant` du navigateur en produisent également. Par ailleurs, comme on vient de le voir plus haut, ce n'est pas parce qu'un message `LinkClicked` est reçu que la commande `pushUrl` va être appelée immédiatement.
 
-So the nice thing about having a separate `UrlChanged` message is that it does not matter how or when the URL changed. All you need to know is that it did!
+C'est pourquoi il est très utile d'avoir un message `UrlChanged` indépendant : peu importe quand et par qui l'URL a changé, ce qui compte, c'est qu'elle a changé !
 
-We are just storing the new URL in our example here, but in a real web app, you need to parse the URL to figure out what content to show. That is what the next page is all about!
+Dans notre exemple basique, on se content de stocker la nouvelle URL dans le `Model`, mais dans une vraie application web, on devrait parser l'URL pour déduire la page à afficher. C'est ce dont nous allons parler ensuite !
 
-
-
-> **Note:** I skipped talking about [`Nav.Key`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#Key) to try to focus on more important concepts. But I will explain here for those who are interested!
+> **Note:** Je n'ai pas mentionné [`Nav.Key`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#Key) pour nous concentrer sur les concepts importants, mais je vais en parler ici pour ceux que cela intéresse !
 >
-> A navigation `Key` is needed to create navigation commands (like `pushUrl`) that change the URL. You only get access to a `Key` when you create your program with `Browser.application`, guaranteeing that your program is equipped to detect these URL changes. If `Key` values were available in other kinds of programs, unsuspecting programmers would be sure to run into some [annoying bugs][bugs] and learn a bunch of techniques the hard way!
+> Une `Key` (`Clef`) de navigation est requise pour pouvoir créer des commandes de navigation (comme `pushUrl`) qui modifient l'URL. La `Key` est obtenue uniquement lors de la création du programme via `Browser.application`, pour garantir que le programme est équipé pour détecter les changements d'URL. Si les `Key` étaient accessible à d'autres programmes qu'`application`, les développeuses et développeurs se retrouveraient confrontés à des [bugs pénibles][bugs] et devraient se débrouiller tant bien que mal pour découvrir les bonnes techniques.
 >
-> As a result of all that, we have a line in our `Model` for our `Key`. A relatively low price to pay to help everyone avoid an extremely subtle category of problems!
+> Pour ces raisons, il faut garder une `Key` dans notre `Model`. C'est un prix plutôt faible à payer pour s'économiser toute une catégorie de problèmes complexes !
 
 [bugs]: https://github.com/elm/browser/blob/1.0.0/notes/navigation-in-elements.md
