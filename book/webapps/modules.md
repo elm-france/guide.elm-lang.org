@@ -62,15 +62,15 @@ module Main exposing (..)
 > Ça facilite la vie aux débutants en Elm qui ne travaillent que dans un fichier. On ne va pas les embêter avec le système de module dès leur premier jour, les pauvres !
 
 
-## Growing Modules
+## Faire grossir ses modules
 
 Au fur et à mesure que votre application gagnera en complexité, vous ajouterez du code dans vos modules. C'est parfaitement normal pour des modules Elm de faire de 400 à 1 000 lignes, comme je l'explique dans [The Life of a File (en anglais)](https://youtu.be/XpDsk374LDE). Mais, quand on a plusieurs modules, comment choisir _dans lequel_ ajouter ce code ?
 
 J'applique le raisonnement suivant, selon si le code en question est :
 
-- **Unique** &mdash; Si la logique n'apparaît qu'à un seul endroit, je crée une fonction utilitaire que j'écris aussi près que possible de l'endroit où elle est utilisée. Éventuellement, j'ajoute un en-tête dans les commentaires, du genre `-- APERÇU D'UN POST` pour clarifier que les fonctions suivantes sont utilisées pour l'aperçu d'un post.
-- **Similar** &mdash; Say we want to show `Post` previews on the home page and on the auteur pages. On the home page, we want to emphasize the interesting contenu, so we want longer snippets. But on the auteur page, we want to emphasize the breadth of contenu, so we want to focus on titres. These cases are _similar_, not the same, so we go back to the **unique** heuristic. Just write the logic separately.
-- **The Same** &mdash; At some point we will have a bunch of **unique** code. That is fine! But perhaps we find that some definitions contain logic that is _exactly_ the same. Break out a helper function for that logic! If all the uses are in one module, no need to do anything more. Maybe put a comment header like `-- READ TIME` if you really want.
+- **Spécifique** &mdash; Si la logique n'apparaît qu'à un seul endroit, je crée une fonction utilitaire que j'écris aussi près que possible de l'endroit où elle est utilisée. Éventuellement, j'ajoute un en-tête en commentaire, du genre `-- APERÇU D'UN POST` pour clarifier que les fonctions suivantes sont utilisées pour l'aperçu d'un post.
+- **Similaire** &mdash; Disons qu'on veut montrer l'aperçu des `Post`s sur la page d'accueil et sur les pages des auteurs. Sur la page d'accueil, on va vouloir mettre le contenu en avant, avec des extraits plus longs. Sur une page d'auteur, par contre, on va vouloir insister sur la diversité des sujets, et insister sur les titres. Ces deux situations sont _similaires_, mais différentes : dans ce cas-là, on les traite comme du code _spécifique_ et on écrit le code à part.
+- **Identique** &mdash; À un moment, on va avoir tout un tas de code **unique**. Tout va bien ! Mais on va peut-être se rendre compte que certaines fonctions contiennent de la logique qui est _identique_. C'est le moment parfait d'extraire une fonction utilitaire pour cette logique. Si cette logique n'est utilisée que dans ce module, il n'y a rien d'autre à faire. Éventuellement, ajouter un en-tête en commentaire pour dire `-- TEMPS DE LECTURE`, si vous y tenez.
 
 These heuristics are all about making helper functions within a single file. You only want to create a new module when a bunch of these helper functions all center around a specific custom type. For example, you start by creating a `Page.auteur` module, and do not create a `Post` module until the helper functions start piling up. At that point, creating a new module should make your code feel easier to navigate and understand. If it does not, go back to the version that was clearer. More modules is not more better! Take the path that keeps the code simple and clear.
 
