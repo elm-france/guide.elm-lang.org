@@ -214,11 +214,11 @@ Il existe plusieurs manières d'obtenir des messages `UrlChanged`. On vient de v
 
 C'est pourquoi il est très utile d'avoir un message `UrlChanged` indépendant : peu importe quand et par qui l'URL a changé, ce qui compte, c'est qu'elle a changé !
 
-Dans notre exemple basique, on se content de stocker la nouvelle URL dans le `Model`, mais dans une vraie application web, on devrait parser l'URL pour déduire la page à afficher. C'est ce dont nous allons parler ensuite !
+Dans notre exemple basique, on se contente de stocker la nouvelle URL dans le `Model`, mais dans une vraie application web, on devrait parser l'URL pour déduire la page à afficher. C'est ce dont nous allons parler ensuite !
 
 > **Note:** Je n'ai pas mentionné [`Nav.Key`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#Key) pour nous concentrer sur les concepts importants, mais je vais en parler ici pour ceux que cela intéresse !
 >
-> Une `Key` (`Clef`) de navigation est requise pour pouvoir créer des commandes de navigation (comme `pushUrl`) qui modifient l'URL. La `Key` est obtenue uniquement lors de la création du programme via `Browser.application`, pour garantir que le programme est équipé pour détecter les changements d'URL. Si les `Key` étaient accessible à d'autres programmes qu'`application`, les développeuses et développeurs se retrouveraient confrontés à des [bugs pénibles][bugs] et devraient se débrouiller tant bien que mal pour découvrir les bonnes techniques.
+> Une `Key` (`Clef`) de navigation est requise pour pouvoir créer des commandes de navigation (comme `pushUrl`) qui modifient l'URL. La `Key` est obtenue uniquement lors de la création du programme via `Browser.application`, pour garantir que le programme est équipé pour détecter les changements d'URL. Si les `Key` étaient accessibles à d'autres programmes qu'`application`, les développeuses et développeurs se retrouveraient confrontés à des [bugs pénibles][bugs] et devraient se débrouiller tant bien que mal pour découvrir les bonnes techniques.
 >
 > Pour ces raisons, il faut garder une `Key` dans notre `Model`. C'est un prix plutôt faible à payer pour s'économiser toute une catégorie de problèmes complexes !
 

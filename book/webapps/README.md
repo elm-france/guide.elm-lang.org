@@ -27,7 +27,7 @@ type alias Document msg =
   }
 ```
 
-Cela permet de contrôler la balise `<title>` et le `<body>` du docuement. Par exemple, selon les données téléchargées par notre application, peut-être que nous voudrons afficher un titre de page plus spécifique. Il nous suffira de le changer dans notre fonction `view` !
+Cela permet de contrôler la balise `<title>` et le `<body>` du document. Par exemple, selon les données téléchargées par notre application, peut-être que nous voudrons afficher un titre de page plus spécifique. Il nous suffira de le changer dans notre fonction `view` !
 
 
 ## Servir la page
@@ -65,6 +65,6 @@ Ce fichier HTML est très simple. On charge ce dont on a besoin dans la balise `
 
 Quelle que soit la méthode choisie, on dispose maintenant d'un fichier HTML, lisible par les navigateurs. Pour donner accès à ce HTML, on peut utiliser des services gratuits comme [GitHub Pages](https://pages.github.com/) ou [Netlify](https://www.netlify.com/), ou bien monter son propre serveur sur un VPS avec un service comme [OVH](https://www.ovhcloud.com/fr/vps/) ou [Digital Ocean](https://m.do.co/c/c47faa1916d2). Peu importe, du moment qu'on peut rendre notre HTML accessible à un navigateur !
 
-> **Note 1:** Créer un fichier HTML personnalisé est utile si on a besoin de contrôler les fichiers CSS. De nombreuses équipes utilisent des projets comme [`rtfeldman/elm-css`](https://package.elm-lang.org/packages/rtfeldman/elm-css/latest/) ou [`mdgriffith/elm-ui`](https://package.elm-lang.org/packages/mdgriffith/elm-ui/latest/) pour gérer leurs styles depuis Elm, mais si votre équipe utilise beaucoup de CSS déjà écrit, ou des préprocesseurs CSS, aucun problème : il suffit de référencer le fichier CSS final dans la valise `<head>` du fichier HTML.
+> **Note 1:** Créer un fichier HTML personnalisé est utile si on a besoin de contrôler les fichiers CSS. De nombreuses équipes utilisent des projets comme [`rtfeldman/elm-css`](https://package.elm-lang.org/packages/rtfeldman/elm-css/latest/) ou [`mdgriffith/elm-ui`](https://package.elm-lang.org/packages/mdgriffith/elm-ui/latest/) pour gérer leurs styles depuis Elm, mais si votre équipe utilise beaucoup de CSS déjà écrit, ou des préprocesseurs CSS, aucun problème : il suffit de référencer le fichier CSS final dans la balise `<head>` du fichier HTML.
 >
 > **Note 2:** Le lien Digital Ocean ci-dessus est sponsorisé : si vous l'utilisez pour créer un compte et vous abonner, nous obtenons 25 $ de crédit sur les frais d'hébergement de `elm-lang.org` et `package.elm-lang.org`.
