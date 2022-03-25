@@ -30,7 +30,7 @@ Les exemples sont tous disponibles dans l'éditeur en ligne:
 
 [![online editor](try.png)](https://elm-lang.org/try)
 
-Cet éditeur montre des conseils dans le coin supérieur gauche:
+Cet éditeur montre des conseils dans le coin supérieur gauche :
 
 <video id="hints-video" width="360" height="180" autoplay loop style="margin: 0.55em 0 1em 2em;" onclick="var v = document.getElementById('hints-video'); v.paused ? (v.play(), v.style.opacity = 1) : (v.pause(), v.style.opacity = 0.5)">
   <source src="hints.mp4" type="video/mp4">
