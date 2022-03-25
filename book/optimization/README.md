@@ -1,10 +1,9 @@
 # Optimization
 
-There are two major types of optimization in Elm. Optimizing performance and optimizing asset size:
+Il y deux types d'optimisation majeurs en Elm : l'optimisation de performance et l'optimisation de la taille des ressources.
 
-- **Performance** &mdash; The slowest thing in browsers is the DOM. By a huge margin. I have done a lot of profiling to speed up Elm applications, and most things have no noticeable impact. Using better data structures? Negligible. Caching the results of computations in my model? Negligible _and_ my code is worse now. The only thing that makes a big difference is using `Html.Lazy` and `Html.Keyed` to do fewer DOM operations.
+- **Performance** &mdash; Le DOM est ce qu'il y a de plus lent dans la navigateur, et de loin. J'ai profilé beaucoup d'application Elm afin de les accélérer, mais la plupart des solutions ont un impact limité. Utiliser de meilleures structures de données ? Négligeable. Mettre en cache des resultats de calcul dans le modèle ? Négligeable _et_ le code est pire désormais. Seul l'usage de `Html.Lazy` et `Html.Keyed` a un impact significatif sur les performances en réduisant le nombre d'opérations sur le DOM.
 
-- **Asset Size** &mdash; Running in browsers means we have to care about download times. The smaller we can get our assets, the faster they load on mobile devices and slow internet connections. This is probably more important than any of the performance optimizations you will do! Fortunately, the Elm compiler does a really good job of making your code as small as possible, so you do not need to do a bunch of work making your code confusing to get decent outcomes here.
+- **Taille des ressources** &mdash; Le fonctionnement dans un navigateur implique une considération particulière envers les temps de chargement. Plus la taille des ressources est réduite, plus leur chargement sera rapide sur mobile ou avec une connexion internet réduite. Cela aura vraisemblablement plus d'importance que n'importe quelle autre type d'optimisation. Fort heureusement, le compilateur Elm est capable de rendre le code le plus compact possible sans effort supplémentaire du développeur.
 
-Both are important though, so this chapter will go through how this all works!
-
+Chacune de ces optimisations est importante. Ce chapitre en détaillera leur fonctionnement.
