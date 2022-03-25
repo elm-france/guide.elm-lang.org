@@ -12,7 +12,7 @@ Les programmes Elm ressemblent toujours à ça:
 
 ![Diagram of The Elm Architecture](buttons.svg)
 
-Ce programme Elm produit du HTML afin d'être afficher à l'écran, et l'ordinateur émet des messages au sujet de ce qu'il se passe. "Ils ont cliqué sur un boutton!".
+Ce programme Elm produit du HTML afin d'être affiché à l'écran, et l'ordinateur émet ensuite en retour des messages au sujet de ce qu'il se passe. "Ils ont cliqué sur un bouton !".
 
 Mais que ce passe-t-il au sein d'un programme Elm ? Celui-ci est toujours fait de trois parties:
 
