@@ -22,7 +22,7 @@ Mais que ce passe-t-il au sein d'un programme Elm ? Celui-ci est toujours fait d
 
 Ces trois concepts sont le cœur de **L'Architecture Elm**.
 
-Les quelques exemples qui suivent, montrent comment utiliser ce modèle pour des interactions avec l'utilisateur via des bouttons et champs texte. Ils rendront cela plus concret!
+Les quelques exemples qui suivent, montrent comment utiliser ce modèle pour des interactions avec l'utilisateur via des boutons et champs texte. Ils rendront cela plus concret !
 
 ## Utilisez les exemples
 
