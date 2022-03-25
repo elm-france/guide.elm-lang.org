@@ -36,4 +36,4 @@ Cet éditeur montre des conseils dans le coin supérieur gauche :
   <source src="hints.mp4" type="video/mp4">
 </video>
 
-N'hésitez pas à suivre ces conseils si vous rencontrez des difficultés!
+N'hésitez pas à suivre ces conseils si vous rencontrez des difficultés !
