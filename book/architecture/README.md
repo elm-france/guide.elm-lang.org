@@ -4,7 +4,7 @@ L'architecture Elm — The Elm Architecture (TEA) en anglais — est une façon 
 
 Cette architecture semble emergée naturellement avec Elm. Plutôt que le fruit d'une invention, il s'agit davantage de la découverte par les premiers développeurs Elm de la même structure basique au sein de leurs codes. 
 
-Ainsi l'architecture Elm est aisée avec Elm, mais peut être utile à tout projet front-end. En fait, des projets tels que Redux ont été inspirés par l'architecture Elm, et vous pouvez donc l'avoir déjà vue ailleurs. 
+Évidemment, l'Architecture Elm est facile à réaliser avec Elm, mais elle peut être utile à tout projet front-end. En fait, des projets tels que Redux ont été inspirés par l'architecture Elm, et il est donc possible que vous en ayez déjà vu des dérivées ailleurs. Le fait est que, même si vous ne pouvez pas encore utiliser Elm au travail, vous tirerez beaucoup de bénéfices de l'utilisation d'Elm et de la compréhension de son modèle.
 
 ## Le modèle de base
 
