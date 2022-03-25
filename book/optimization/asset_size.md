@@ -1,41 +1,41 @@
-# Asset Size
+# Taille des ressources
 
-The only thing that is slower than touching the DOM is talking to servers. Especially for folks on mobile phones with slow internet. So you can optimize your code all day with `Html.Lazy` and `Html.Keyed`, but your application will still feel slow if it loads slowly!
+La seule chose plus lente que de manipuler le DOM est la communication entre serveurs, en particulier pour les usagers mobiles ou avec une connexion limitée. Vous pouvez passer du temps à optimiser votre code avec `Htlm.Lazy` et `Html.Keyed`, votre application restera aussi lente que son chargement.
 
-A great way to improve is to send fewer bits. For example, if a 122kb asset can become a 9kb asset, it will load faster! We get results like that by using the following techniques:
+Celui-ci peut être améliorer grandement en transférant moins d'octets. Par exemple, si la taille d'une ressource de 122ko peut-être réduite à 9ko, alors son chargement sera accéléré! Ce genre de résultats peut être obtenu en utilisant les techniques suivantes :
 
-- **Compilation.** The Elm compiler can perform optimizations like dead code elimination and record field renaming. So it can cut unused code and shorten record field names like `userStatus` in the generated code.
-- **Minification.** In the JavaScript world, there are tools called “minifiers” that do a bunch of transformations. They shorten variables. They inline. They convert `if` statements to ternary operators. They turn `'\u0041'` to `'A'`. Anything to save a few bits!
-- **Compression.** Once you have gotten the code as small as possible, you can use a compression algorithm like gzip to shrink it even further. It does particularly well with keywords like `function` and `return` that you just cannot get rid of in the code itself.
+- **Compilation.** Le compilateur Elm peut réaliser des optimisations comme l'élimination de code mort ou le renommage d'attributs. Il peut retirer le code non utilisé et raccourcir les noms d'attribut comme `userStatus` dans le code généré.
+- **Minification.** Dans l'univers JavaScript, il existe des outils appelés "minifiers" qui réalisent des transformations diverses : ils raccourcissent des variables, génèrent du code en ligne, traduisent des instructions `if` en opérateur ternaire, ou encore convertissent `'\u0041'` en `'A'`. Tout ce qui peut économiser quelques octets!
+- **Compression.** Une fois le code raccourci au maximum, il est possible d'utiliser un algorithme de compression comme gzip pour en réduire la taille. C'est particulièrement efficace pour les mots-clés tels que `function` et `return` dont il est impossible de se débarrasser dans le code lui-même.
 
-Elm makes it pretty easy to get all this set up for your project. No need for some complex build system. It is just two terminal commands!
+Elm facilite la mise en place de tout ça dans votre projet, sans recours à un système de construction complexe. Il suffit de deux commandes depuis le terminal!
 
 
 ## Instructions
 
-Step one is to compile with the `--optimize` flag. This does things like shortening record field names.
+La première étape consiste à compiler avec l'option `--optimize`. C'est elle qui réalise les optimisations comme le renommage d'attributs.
 
-Step two is to minify the resulting JavaScript code. I use a minifier called `uglifyjs`, but you can use a different one if you want. The neat thing about `uglifyjs` is all its special flags. These flags unlock optimizations that are unreliable in normal JS code, but thanks to the design of Elm, they are totally safe for us!
+La seconde étape est de minifier le code JavaScript produit. J’utilise `uglifyjs`, mais libre à vous d'utiliser un autre outil. L'intérêt d'`uglifyjs` réside dans ses options spéciales. Celles-ci débloquent des optimisations d'ordinaire peu fiables sur du code JavaScript standard, mais qui s'avèrent très efficace sur le code généré par Elm grâce à sa conception.
 
-Putting those together, we can optimize `src/Main.elm` with two terminal commands:
+En combinant ces deux étapes, optimiser `src/Main.elm` revient à exécuter:
 
 ```bash
 elm make src/Main.elm --optimize --output=elm.js
 uglifyjs elm.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output elm.min.js
 ```
 
-After this you will have an `elm.js` and a smaller `elm.min.js` file!
+En sortie, vous obtiendrez un fichier `elm.js` et plus petit fichier `elm.min.js`!
 
-> **Note 1:** `uglifyjs` is called twice there. First to `--compress` and second to `--mangle`. This is necessary! Otherwise `uglifyjs` will ignore our `pure_funcs` flag.
+> **Note 1:** `uglifyjs` est exécuté deux fois ici. D'abord avec l'option `--compress`, puis avec l'option `--mangle`. Sans cela, `uglifyjs` ignorera l'option `pure_funcs`.
 >
-> **Note 2:** If the `uglifyjs` command is not available in your terminal, you can run the command `npm install uglify-js --global` to download it. If you do not have `npm` either, you can get it with [nodejs](https://nodejs.org/).
+> **Note 2:** Si `uglifyjs` n'est pas disponible dans votre terminal, il est possible de l'installer avec `npm install uglify-js --global`. Si `npm` n'est pas non plus disponible, obtenez le avec [nodejs](https://nodejs.org/).
 
 
 ## Scripts
 
-It is hard to remember all those flags for `uglifyjs`, so it is probably better to write a script that does this.
+Étant donné qu'il est difficile de se rappeler toutes les options à utiliser pour `uglifyjs`, nous vous recommandons d'écrire un script.
 
-Say we want a bash script that produces `elm.js` and `elm.min.js` files. On Mac or Linux, we can define `optimize.sh` like this:
+Dans l'hypothèse où nous voulons un script Bash qui produise les fichiers `elm.js` et `elm.min.js`, nous pouvons définir `optimize.sh` pour MacOS ou Linux comme ci-dessous :
 
 ```bash
 #!/bin/sh
@@ -54,7 +54,7 @@ echo "Minified size:$(wc $min -c) bytes  ($min)"
 echo "Gzipped size: $(gzip $min -c | wc -c) bytes"
 ```
 
-Now if I run `./optimize.sh src/Main.elm` on my [TodoMVC](https://github.com/evancz/elm-todomvc) code, I see something like this in the terminal:
+En lançant `./optimize.sh src/Main.elm` sur l'application [TodoMVC](https://github.com/evancz/elm-todomvc), j'obtiens le résultat suivant :
 
 ```
 Compiled size:  122297 bytes  (elm.js)
@@ -62,13 +62,13 @@ Minified size:   24123 bytes  (elm.min.js)
 Gzipped size:     9148 bytes
 ```
 
-Pretty neat! We only need to send about 9kb to get this program to people!
+Plutôt correct ! Seulement 9ko à transférer à l'utilisateur.
 
-The important commands here are `elm` and `uglifyjs` which work on any platform, so it should not be too tough to do something similar on Windows.
+Les commandes importantes sont ici `elm` et `uglifyjs`, qui sont toutes deux disponibles sur toutes les plateformes. Il ne devrait donc pas y avoir de difficultés à faire fonctionner ce script sous Windows.
 
 
-## Advice
+## Conseils
 
-I recommend writing a `Browser.application` and compiling to a single JavaScript file as we have seen here. It will get downloaded (and cached) when people first visit. Elm creates quite small files compared to the popular competitors, as you can see [here](https://elm-lang.org/blog/small-assets-without-the-headache), so this strategy can take you quite far.
+Il est recommandé d'écrire une `Browser.application` et de la compiler en un seul fichier JavaScript comme détaillé précédemment. Celui-ci sera téléchargé (et mis en cache) dès la première visite. Elm génère des fichiers plutôt compacts par rapport à ses concurrents, comme présenté [ici](https://elm-lang.org/blog/small-assets-without-the-headache). Cette stratégie peut donc vous mener loin.
 
-> **Note:** In theory, it is possible to get even smaller assets with Elm. It is not possible right now, but if you are working on 50k lines of Elm or more, we would like to learn about your situation as part of a user study. More details [here](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)!
+> **Note:** En théorie, il serait possible d'obtenir des ressources encore plus compacts avec Elm. Ce n'est pas possible pour le moment, mais, si vous travaillez sur des bases de code Elm supérieures à 50k lignes, nous serions intéressés par vos retours d'expérience. Pour plus d'informations, c'est par [ici](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)!
