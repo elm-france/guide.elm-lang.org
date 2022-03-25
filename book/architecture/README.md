@@ -1,4 +1,4 @@
-# L'architecture de Elm
+# L'Architecture Elm
 
 L'architecture Elm — The Elm Architecture (TEA) en anglais — est une façon d'architecturer des programmes interactifs comme des applications web ou des jeux.
 
