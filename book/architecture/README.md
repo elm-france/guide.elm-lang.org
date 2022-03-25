@@ -14,7 +14,7 @@ Les programmes Elm ressemblent toujours à ça:
 
 Ce programme Elm produit du HTML afin d'être affiché à l'écran, et l'ordinateur émet ensuite en retour des messages au sujet de ce qu'il se passe. "Ils ont cliqué sur un bouton !".
 
-Mais que ce passe-t-il au sein d'un programme Elm ? Celui-ci est toujours fait de trois parties:
+Mais que ce passe-t-il au sein d'un programme Elm ? Celui-ci est toujours fait de trois parties :
 
   * **Model** &mdash; (le modèle) l'état de l'application
   * **View** &mdash; (la vue) une manière de transformer cet état en HTML,
