@@ -3,7 +3,7 @@
 <html lang="" >
     <head>
         <meta charset="UTF-8">
-        <title>Type Aliases · An Introduction to Elm</title>
+        <title>Les alias de types · An Introduction to Elm</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 3.7.1">
@@ -206,7 +206,7 @@
                 <a href="type_aliases.html">
             
                     
-                    Type Aliases
+                    Les alias de types
             
                 </a>
             
@@ -707,7 +707,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Type Aliases</a>
+        <a href=".." >Les alias de types</a>
     </h1>
 </div>
 
@@ -722,38 +722,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="type-aliases">Type Aliases</h1>
-<p>Type annotations can start to get long. This might be a real problem if you have records with many fields! This is the core motivation for type aliases. A <strong>type alias</strong> is a shorter name for a type. For example, you could create a <code>User</code> alias like this:</p>
+                                <h1 id="les-alias-de-type">Les alias de type</h1>
+<p>Les annotations peuvent devenir très longues, particulièrement si vous avez des <a href="../bases_du_langage.html#records"><em>records</em></a> contenant de nombreux champs ! C&apos;est pour répondre à ce problème que les <em>alias</em> ont été conçus. Un <strong>alias de type</strong> est en quelque sorte un diminutif pour ce dernier, permettant de le référencer en utilisant un nom plus court. Par exemple, vous pourriez créer un alias <code>User</code> de cette façon :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">User</span> =
   { name : <span class="hljs-type">String</span>
   , age : <span class="hljs-type">Int</span>
   }
 </code></pre>
-<p>Rather than writing the whole record type all the time, we can just say <code>User</code> instead. This helps us write type annotations that are easier to read:</p>
-<pre><code class="lang-elm"><span class="hljs-comment">-- WITH ALIAS</span>
+<p>Plutôt que d&apos;écrire explicitement le type explicite du record tout le temps, on peut juste le référencer en utilisant <code>User</code>, ce qui nous permet d&apos;écrire des annotations beaucoup plus simples à lire :</p>
+<pre><code class="lang-elm"><span class="hljs-comment">-- AVEC ALIAS</span>
 
 <span class="hljs-title">isOldEnoughToVote</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">Bool</span>
 <span class="hljs-title">isOldEnoughToVote</span> user =
   user.age &gt;= <span class="hljs-number">18</span>
 
 
-<span class="hljs-comment">-- WITHOUT ALIAS</span>
+<span class="hljs-comment">-- SANS ALIAS</span>
 
 <span class="hljs-title">isOldEnoughToVote</span> : { name : <span class="hljs-type">String</span>, age : <span class="hljs-type">Int</span> } -&gt; <span class="hljs-type">Bool</span>
 <span class="hljs-title">isOldEnoughToVote</span> user =
   user.age &gt;= <span class="hljs-number">18</span>
 </code></pre>
-<p>These two definitions are equivalent, but the one with a type alias is shorter and easier to read. So all we are doing is making an <strong>alias</strong> for a long type.</p>
-<h2 id="models">Models</h2>
-<p>It is extremely common to use type aliases when designing a model. When we were learning about The Elm Architecture, we saw a model like this:</p>
+<p>Ces deux déclarations sont équivalentes, mais celle utilisant un alias est plus courte et plus simple à lire. Ici nous utilisons simplement un <strong>alias</strong> en replacement d&apos;un type plus long.</p>
+<h2 id="modèles">Modèles</h2>
+<p>Il est très courant d&apos;utiliser des alias de type quand on crée un modèle. Quand on a étudié l&apos;Architecture Elm, on a vu un modèle de ce type :</p>
 <pre><code>type alias Model =
   { name : String
   , password : String
   , passwordAgain : String
   }
-</code></pre><p>The main benefit of using a type alias for this is when we write the type annotations for the <code>update</code> and <code>view</code> functions. Writing <code>Msg -&gt; Model -&gt; Model</code> is so much nicer than the fully expanded version! It has the added benefit that we can add fields to our model without needing to change any type annotations.</p>
-<h2 id="record-constructors">Record Constructors</h2>
-<p>When you create a type alias specifically for a record, it also generates a <strong>record constructor</strong>. So if we define a <code>User</code> type alias, we can start building records like this:</p>
+</code></pre><p>L&apos;utilisation d&apos;un alias de type se révèle particulièrement intéressante à l&apos;heure d&apos;écrire les annotations de nos fonctions <code>update</code> et <code>view</code>. Écrire <code>Msg -&gt; Model -&gt; Model</code> est tellement plus simple et confortable que de recopier la forme exhaustive… En plus, si nous ajoutons ou modifions les champs de notre modèle, nous n&apos;avons pas besoin de mettre à jours nos annotations.</p>
+<h2 id="constructeurs-de-record">Constructeurs de record</h2>
+<p>Quand vous créez un alias de record, cela génère du même coup un <strong>constructeur de record</strong>. Donc si vous définissez un alias de type <code>User</code>, on peut commencer à construire les records correspondants comme ceci :</p>
 <p><div class="elm-repl show-types">
 [
     {
@@ -777,9 +777,9 @@
     }
 ]
 </div></p>
-<p>Try creating another user or creating a type alias of your own ⬆️</p>
-<p>Note that the order of arguments in the record constructor match the order of fields in the type alias!</p>
-<p>And again, <strong>this is only for records.</strong> Making type aliases for other types will not result in a constructor.</p>
+<p>Essayez de créer un autre <code>User</code>, puis de créer votre propre alias ⬆️</p>
+<p>Notez que l&apos;ordre des arguments passés au constructeur de record correspond à l&apos;ordre des champs dans l&apos;alias de type !</p>
+<p>Encore une fois, ceci n&apos;est <strong>valable que pour les records.</strong> Créer des alias pour d&apos;autres types ne fournira pas de constructeur.</p>
 
                                 
                                 </section>
@@ -823,7 +823,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Type Aliases","level":"1.4.2","depth":2,"next":{"title":"Custom Types","level":"1.4.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"previous":{"title":"Lire les types","level":"1.4.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/type_aliases.md","mtime":"2022-03-10T16:18:43.039Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T11:12:17.457Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Les alias de types","level":"1.4.2","depth":2,"next":{"title":"Custom Types","level":"1.4.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"previous":{"title":"Lire les types","level":"1.4.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/type_aliases.md","mtime":"2022-03-26T13:43:06.114Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T13:45:35.390Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
