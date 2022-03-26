@@ -17,7 +17,7 @@ Lorsque vous créez un fichier HTML, vous écrivez du HTML directement comme ça
 </div>
 ```
 
-Vous pouvez y pensez comme produisant cette structure DOM en coulisses:
+On peut y penser comme produisant cette structure DOM en coulisses:
 
 ![](diagrams/dom.svg)
 
@@ -26,7 +26,7 @@ Les boîtes noires représentent des objets DOM lourds avec des centaines d'attr
 
 ## Qu'est-ce que le _Virtual DOM_ ?
 
-Si vous créez un fichier Elm, vous utiliseriez plutôt `elm/html` pour avoir un code ressemblant à :
+Si vous créez un fichier Elm, vous utiliserez plutôt `elm/html` pour avoir ce genre de code :
 
 ```elm
 viewChairAlts : List String -> Html msg
@@ -41,72 +41,73 @@ viewAlt chairAlt =
   li [] [ text chairAlt ]
 ```
 
-Vous pouvez penser à `viewChairAlts ["seiza","chabudai"]` comme produisant en coulisse une structure “Virtual DOM” :
+
+On peut voir `viewChairAlts ["seiza","chabudai"]` comme produisant en coulisse la structure de “DOM Virtuel“ suivante :
 
 ![](diagrams/vdom.svg)
 
-Les boîtes blanches représentent des objets Javascripts légers. Ils contiennent uniquement les attributs que vous spécifiez. Leur création n'engendredront jamais de calculs pour redessiner et réarranger la page. En bref, comparés aux noeuds DOM, ils sont beaucoup moins chers à allouer !
+Les boîtes blanches représentent des objets JavaScript légers. Ils contiennent uniquement les attributs que vous spécifiez. Leur création n'engendredra jamais de calculs pour redessiner et réarranger la page. En bref, comparés aux nœuds DOM, ils sont beaucoup moins chers à allouer !
 
-## Render
+## _Render_
 
-If we are always working with these virtual nodes in Elm, how does it get converted to the DOM we see on screen? When an Elm program starts, it goes like this:
+Si nous travaillons toujours avec ces nœuds virtuels en Elm, comment sont-ils convertis vers le DOM affiché à l'écran ? Au démarrage d'un programme Elm, il se passe les choses suivantes:
 
-- Call `init` to get the initial `Model`.
-- Call `view` to get the initial virtual nodes.
+- appel à `init` pour avoir le `Model` initial,
+- appel à `view` pour avoir les nœuds virtuels initiaux.
 
-Now that we have virtual nodes, we make an exact replica in the real DOM:
+Maintenant que nous avons les nœuds virtuels, on en produit une réplique exacte dans le DOM réel:
 
 ![](diagrams/render.svg)
 
-Great! But what about when things change? Redoing the whole DOM on every frame does not work, so what do we do instead?
+Super ! Mais que se passe-t-il lorsqu'il y a du changement ? Re-construire le DOM en entier à chaque _frame_ ne fonctionne pas, que pouvons nous donc faire à la place ?
 
 
-## Diffing
+## _Diffing_
 
-Once we have the initial DOM, we switch to working primarily with virtual nodes instead. Whenever the `Model` changes, we run `view` again. From there, we “diff” the resulting virtual nodes to figure out how to touch the DOM as little as possible.
+Une fois qu'on a le DOM initial, on travaillera principalement sur les nœuds virtuels. À chaque fois que le `Model` change, on exécute `view` à nouveau. À partir de là, on calcule le _“diff”_ sur les nœuds virtuels obtenus afin de trouver comment toucher au DOM le moins possible.
 
-So imagine our `Model` gets a new chair alternative, and we want to add a new `li` node for it. Behind the scenes, Elm diffs the **current** virtual nodes and the **next** virtual nodes to detect any changes:
+Supposons par exemple qu'une nouvelle alternative aux chaises soit listée dans notre `Model` ; nous voulons alors ajouter un nouveau nœud `li` pour elle. En coulisses, Elm calcule le _diff_ entre les nœuds virtuels **actuels** et les **suivants** pour détecter le moindre changement :
 
 ![](diagrams/diff.svg)
 
-It noticed that a third `li` was added. I marked it in green. Elm now knows exactly how to modify the real DOM to make it match. Just insert that new `li`:
+Elm a remarqué qu'un troisième `li` a été ajouté. Je l'ai marqué en vert. Elm sait maintenant exactement comment modifier le DOM réel pour le faire correspondre. Il faut juste insérer ce nouveau `li` :
 
 ![](diagrams/patch.svg)
 
-This diffing process makes it possible to touch the DOM as little as possible. And if no differences are found, we do not need to touch the DOM at all! So this process helps minimize the renders and reflows that need to happen.
+Ce processus de _diff_ permet de modifier le DOM le moins possible. Et si aucune différence n'est détectée, on ne touche pas du tout au DOM ! Donc ce processus minimise le besoin de redessiner et réarranger le contenu de la page.
 
-But can we do even less work?
+Mais peut-on faire encore moins de calculs?
 
 
 ## `Html.Lazy`
 
-The [`Html.Lazy`](https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/) module makes it possible to not even build the virtual nodes! The core idea is the `lazy` function:
+Le module [`Html.Lazy`](https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/) permet de ne même pas construire les nœuds virtuels ! L'idée principale est la fonction `lazy` (NdT: _"lazy"_ signifie "paresseux" en anglais) :
 
 ```elm
 lazy : (a -> Html msg) -> a -> Html msg
 ```
 
-Going back to our chair example, we called `viewChairAlts ["seiza","chabudai"]`, but we could just as easily have called `lazy viewChairAlts ["seiza","chabudai"]` instead. The lazy version allocates a single “lazy” node like this:
+Revenons sur notre exemple de chaises, on avait appelé `viewChairAlts ["seiza","chabudai"]`, mais nous aurions pu appeler `lazy viewChairAlts ["seiza","chabudai"]` à la place. La version paresseuse alloue alors un seul nœud “paresseux“ :
 
 ![](diagrams/lazy.svg)
 
-The node just keeps a reference to the function and arguments. Elm can put the function and arguments together to generate the whole structure if needed, but it is not always needed!
+Le nœud garde juste une référence vers la fonction et les arguments. Elm peut recombiner la fonction et les arguments pour générer toute la structure si nécessaire, mais ce n'est pas toujours nécessaire !
 
-One of the cool things about Elm is the “same input, same output” guarantee for functions. So whenever we run into two “lazy” nodes while diffing virtual nodes, we ask is the function the same? Are the arguments the same? If they are all the same, we know the resulting virtual nodes are the same as well! **So we can skip building the virtual nodes entirely!** If any of them have changed, we can build the virtual nodes and do a normal diff.
+Un des trucs cool avec Elm est cette garantie des fonctions: “même entrée, même sortie“. Donc à chaque fois qu'on rencontre deux nœuds “paresseux“ dans le calcul du _diff_ des nœuds virtuels, on se demande: la fonction est-elle la même ? les arguments sont-ils les mêmes ? S'ils sont tous identiques, on sait que les nœuds virtuels résultants seront également les mêmes ! **Donc on peut entièrement économiser la construction des nœuds virtuels !** Si l'un d'eux a changé, on peut construire le nœud virtuel et faire un _diff_ normal.
 
-> **Note:** When are two values “the same” though? To optimize for performance, we use JavaScript’s `===` operator behind the scenes:
+> **Note:** à quelle condition deux valeurs sont-elles “les mêmes“? Pour optimiser les performances, on utilise l'opérateur `===` de JavaScript en coulisses :
 >
-> - Structural equality is used for `Int`, `Float`, `String`, `Char`, and `Bool`.
-> - Reference equality is used for records, lists, custom types, dictionaries, etc.
+> - L'égalité structurelle est utilisée pour `Int`, `Float`, `String`, `Char` et `Bool`.
+> - L'égalité référentielle est utilisée pour les _records_, listes, _custom types_, dictionnaires, etc.
 >
-> Structural equality means that `4` is the same as `4` no matter how you produced those values. Reference equality means the actual pointer in memory has to be the same. Using reference equality is always cheap `O(1)`, even when the data structure has thousands or millions of entries. So this is mostly about making sure that using `lazy` will never slow your code down a bunch by accident. All the checks are super cheap!
+> L'égalité structurelle signifie que `4` est la même chose que `4` peu importe comment vous avez produit ces valeurs. L'égalité référentielle signifie que le pointeur en mémoire doit être le même. Utiliser l'égalité référentielle est toujours peu coûteux (en  `O(1)`), même si la structure de données contient des milliers ou millions d'éléments. Tout cela est fait pour s'assurer qu'utiliser `lazy` ne va jamais ralentir énormément votre code par accident. Toutes les vérifications sont vraiment peu coûteuses !
 
 
 ## Usage
 
-The ideal place to put a lazy node is at the root of your application. Many applications are set up to have distinct visual regions like headers, sidebars, search results, etc. And when people are messing with one, they are very rarely messing with the others. This creates really natural lines for `lazy` calls!
+Le lieu idéal pour utiliser un nœud paresseux est à la racine de votre application. De nombreuses applications ont plusieurs régions visuelles distinctes comme des _headers_, _sidebars_, résultats de recherche, etc. Et quand on change une région, on change rarement les autres. Cela appelle naturellement l'utilisation de `lazy` !
 
-For example, in [my TodoMVC implementation](https://github.com/evancz/elm-todomvc/), the `view` is defined like this:
+Par exemple, dans [mon implémentation de TodoMVC](https://github.com/evancz/elm-todomvc/), la fonction `view` est définie par:
 
 ```elm
 view : Model -> Html Msg
@@ -125,14 +126,14 @@ view model =
     ]
 ```
 
-Notice that the text input, entries, and controls are all in separate lazy nodes. So I can type however many characters I want in the input without ever building virtual nodes for the entries or controls. They are not changing! So the first tip is **try to use lazy nodes at the root of your application.**
+Remarquez que le champ de texte, les entrées et les contrôles sont dans des nœuds paresseux séparés. Donc je peux taper autant de lettres que je veux dans mon champ de texte sans jamais construire le nœud virtuel pour les entrées ou les contrôles. Ils ne changent pas ! Donc le premier conseil est **essayez d'utiliser des nœuds paresseux à la racine de votre application**.
 
-It can also be useful to use lazy in long lists of items. In the TodoMVC app, it is all about adding entries to your todo list. You could conceivably have hundreds of entries, but they change very infrequently. This is a great candidate for laziness! By switching `viewEntry entry` to `lazy viewEntry entry` we can skip a bunch of allocation that is very rarely useful. So the second tip is **try to use lazy nodes on repeated structures where each individual item changes infrequently.**
+Il peut également être intéressant d'utiliser `lazy` dans de longues listes d'éléments. Dans l'application TodoMVC, il est seulement question d'ajouter des entrées dans notre _todo list_. On peut raisonnablement envisager des centaines d'entrées, mais elles changent très rarement. Il s'agit donc d'un bon candidat pour `lazy` ! En transformant `viewEntry entry` en `lazy viewEntry entry` on peut éviter un paquet d'allocations qui sont rarement utiles. Donc le second conseil est **essayez d'utiliser des nœuds paresseux sur les structures répétitives où chaque élément ne change que rarement**.
 
 
-## Summary
+## Résumé
 
-Touching the DOM is way more expensive than anything that happens in a normal user interface. Based on my benchmarking, you can do whatever you want with fancy data structures, but in the end it only matters how much you successfully use `lazy`.
+Modifier le DOM est bien plus coûteux que n'importe quelle autre opération dans une interface graphique normale. D'après mes tests de performance, vous pouvez faire ce que vous voulez avec des structures de données complexes, mais à la fin, la seule chose importante est votre degré de succès dans l'utilisation de `lazy`.
 
-On the next page, we will learn a technique to use `lazy` even more!
+Dans la prochaine page, nous verrons une technique pour utiliser `lazy` encore plus !
 
