@@ -723,14 +723,14 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="pattern-matching">Pattern Matching</h1>
-<p>On the previous page, we learned how to create <a href="custom_types.html">custom types</a> with the <code>type</code> keyword. Our primary example was a <code>User</code> in a chat room:</p>
+<p>Nous venons d&apos;apprendre à créer des <a href="custom_types.html">types personnalisés</a> avec le mot-clé <code>type</code>. Notre exemple principal était un type <code>User</code> dans un salon de discussion :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
   = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
   | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
 </code></pre>
-<p>Regulars have a name and age, whereas visitors only have a name. So we have our custom type, but how do we actually use it?</p>
+<p>Les usagers de type <code>Regular</code> ont un identifiant et un âge, tandis que ceux de type <code>Visitor</code> n&apos;ont qu&apos;un identifiant. Nous avons personnalisé notre type, mais comment pouvons-nous l&apos;utiliser concrètement ?</p>
 <h2 id="case"><code>case</code></h2>
-<p>Say we want a <code>toName</code> function that decides on a name to show for each <code>User</code>. We need to use a <code>case</code> expression:</p>
+<p>Si nous voulons une fonction permettant de choisir l&apos;identifiant à afficher pour un <code>User</code> donné, nous avons besoin d&apos;utiliser une expression <code>case..of</code> :</p>
 <pre><code class="lang-elm"><span class="hljs-title">toName</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">String</span>
 <span class="hljs-title">toName</span> user =
   <span class="hljs-keyword">case</span> user <span class="hljs-keyword">of</span>
@@ -743,10 +743,10 @@
 <span class="hljs-comment">-- toName (Regular &quot;Thomas&quot; 44) == &quot;Thomas&quot;</span>
 <span class="hljs-comment">-- toName (Visitor &quot;kate95&quot;)    == &quot;kate95&quot;</span>
 </code></pre>
-<p>The <code>case</code> expression allows us to branch based on which variant we happen to see, so whether we see Thomas or Kate, we always know how to show their name.</p>
-<p>And if we try invalid arguments like <code>toName (Visitar &quot;kate95&quot;)</code> or <code>toName Anonymous</code>, the compiler tells us about it immediately. This means many simple mistakes can be fixed in seconds, rather than making it to users and costing a lot more time overall.</p>
-<h2 id="wild-cards">Wild Cards</h2>
-<p>The <code>toName</code> function we just defined works great, but notice that the <code>age</code> is not used in the implementation? When some of the associated data is unused, it is common to use a “wild card” instead of giving it a name:</p>
+<p>L&apos;expression <code>case..of</code> nous permet de distinguer chaque variante, de façon à pouvoir afficher le nom de Kate ou de Thomas quel que soit le statut de leur compte.</p>
+<p>Et si nous essayons de passer des arguments invalides comme  <code>toName (Visitor &quot;kate95&quot;)</code> ou <code>toName Anonymous</code>, le compilateur nous le signale immédiatement. Cela veut dire que ce genre d&apos;erreurs mineures peuvent être réglées en quelque secondes, plutôt que d&apos;attendre que le problème survienne en production et prenne beaucoup plus de temps à régler au final.</p>
+<h2 id="jokers">Jokers</h2>
+<p>La fonction <code>toName</code> que nous venons de définir fonctionne très bien, mais on se rend compte que la valeur <code>age</code> n&apos;est pas utilisée. Dans pareil cas, quand une donnée associée n&apos;est pas utilisée, il est courant d&apos;utiliser un “joker” plutôt que de lui donner un nom :</p>
 <pre><code class="lang-elm"><span class="hljs-title">toName</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">String</span>
 <span class="hljs-title">toName</span> user =
   <span class="hljs-keyword">case</span> user <span class="hljs-keyword">of</span>
@@ -756,7 +756,7 @@
     <span class="hljs-type">Visitor</span> name -&gt;
       name
 </code></pre>
-<p>The <code>_</code> acknowledges the data there, but also saying explicitly that nobody is using it.</p>
+<p>Le caractère <code>_</code> atteste que la donnée est présente, mais explicite le fait que personne ne l&apos;utilise.</p>
 
                                 
                                 </section>
@@ -800,7 +800,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pattern Matching","level":"1.4.4","depth":2,"next":{"title":"Gestion d'erreur","level":"1.5","depth":1,"path":"error_handling/README.md","ref":"error_handling/README.md","articles":[{"title":"Maybe","level":"1.5.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},{"title":"Result","level":"1.5.2","depth":2,"path":"error_handling/result.md","ref":"error_handling/result.md","articles":[]}]},"previous":{"title":"Types personnalisés","level":"1.4.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/pattern_matching.md","mtime":"2022-03-10T16:18:43.039Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T17:15:41.197Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pattern Matching","level":"1.4.4","depth":2,"next":{"title":"Gestion d'erreur","level":"1.5","depth":1,"path":"error_handling/README.md","ref":"error_handling/README.md","articles":[{"title":"Maybe","level":"1.5.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},{"title":"Result","level":"1.5.2","depth":2,"path":"error_handling/result.md","ref":"error_handling/result.md","articles":[]}]},"previous":{"title":"Types personnalisés","level":"1.4.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/pattern_matching.md","mtime":"2022-03-26T17:33:54.756Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T17:35:15.394Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
