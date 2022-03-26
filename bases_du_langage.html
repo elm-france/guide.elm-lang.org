@@ -1,0 +1,1123 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Bases du langage · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="architecture/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="bases_du_langage.html">
+            
+                <a href="bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="architecture/">
+            
+                <a href="architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="architecture/buttons.html">
+            
+                <a href="architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="architecture/text_fields.html">
+            
+                <a href="architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="architecture/forms.html">
+            
+                <a href="architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="types/">
+            
+                <a href="types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="types/reading_types.html">
+            
+                <a href="types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="types/type_aliases.html">
+            
+                <a href="types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="types/custom_types.html">
+            
+                <a href="types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="types/pattern_matching.html">
+            
+                <a href="types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="error_handling/">
+            
+                <a href="error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="error_handling/maybe.html">
+            
+                <a href="error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="error_handling/result.html">
+            
+                <a href="error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="effects/">
+            
+                <a href="effects/">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="effects/http.html">
+            
+                <a href="effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="effects/json.html">
+            
+                <a href="effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="effects/random.html">
+            
+                <a href="effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="effects/time.html">
+            
+                <a href="effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="install/">
+            
+                <a href="install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="install/editor.html">
+            
+                <a href="install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="install/elm.html">
+            
+                <a href="install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="interop/">
+            
+                <a href="interop/">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="interop/flags.html">
+            
+                <a href="interop/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="interop/ports.html">
+            
+                <a href="interop/ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="interop/custom_elements.html">
+            
+                <a href="interop/custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="interop/limits.html">
+            
+                <a href="interop/limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="webapps/">
+            
+                <a href="webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="webapps/navigation.html">
+            
+                <a href="webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="webapps/url_parsing.html">
+            
+                <a href="webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="webapps/modules.html">
+            
+                <a href="webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="webapps/structure.html">
+            
+                <a href="webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="optimization/">
+            
+                <a href="optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="optimization/lazy.html">
+            
+                <a href="optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="optimization/keyed.html">
+            
+                <a href="optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="optimization/asset_size.html">
+            
+                <a href="optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="next_steps.html">
+            
+                <a href="next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="appendix/types_as_sets.html">
+            
+                <a href="appendix/types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="appendix/types_as_bits.html">
+            
+                <a href="appendix/types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="appendix/function_types.html">
+            
+                <a href="appendix/function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Bases du langage</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="bases-du-langage">Bases du langage</h1>
+<p>Commençons par nous familiariser avec le code Elm !</p>
+<p>L&apos;objectif est de vous familiariser avec les <strong>valeurs</strong> et les <strong>fonctions</strong> afin que vous soyez plus confiant dans la lecture du code Elm lorsque nous aborderons des exemples plus importants par la suite.</p>
+<h2 id="valeurs">Valeurs</h2>
+<p>Le plus petit bloc de construction dans Elm est appelé une <strong>valeur</strong>. Cela inclut des choses comme <code>42</code>, <code>True</code>, et <code>&quot;Hello !&quot;</code>.</p>
+<p>Commençons par regarder les nombres :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;input&quot;: &quot;1 + 1&quot;,
+        &quot;value&quot;: &quot;\u001b[95m2\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;number&quot;
+    }
+]
+</div></p>
+<p>Tous les exemples de cette page sont interactifs. Cliquez sur la boîte noire au dessus ⬆️ et le curseur devrait commencer à clignoter. Tapez <code>2 + 2</code> et appuyez sur la touche <em>Entrée</em>. Le résultat devrait être &quot;4&quot;. Vous devriez pouvoir interagir avec tous les exemples de cette page de la même manière !</p>
+<p>Essayez de taper des choses comme <code>30 * 60 * 1000</code> et <code>2 ^ 4</code>. Cela devrait fonctionner comme une calculatrice !</p>
+<p>Faire des maths, c&apos;est symapthique, mais c&apos;est étonnamment rare dans la plupart des programmes ! Il est beaucoup plus courant de travailler avec des <strong>chaînes de caractères</strong> comme ceci :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;input&quot;: &quot;\&quot;hello\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;hello\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;\&quot;butter\&quot; ++ \&quot;fly\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;butterfly\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    }
+]
+</div></p>
+<p>Essayez d&apos;assembler quelques chaînes de caractères avec l&apos;opérateur <code>(++)</code> ⬆️</p>
+<p>Ces valeurs primitives deviennent plus intéressantes quand on commence à écrire des fonctions pour les transformer !</p>
+<blockquote>
+<p><strong>Note:</strong> Vous pouvez en apprendre plus sur les opérateurs comme  <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics#+" target="_blank"><code>(+)</code></a> et <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics#/" target="_blank"><code>(/)</code></a> et <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics#++" target="_blank"><code>(++)</code></a> dans la documentation du module <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics" target="_blank"><code>Basics</code></a>. Ça vaudra la peine de lire toute la documentation de ce paquet à un moment donné !</p>
+</blockquote>
+<h2 id="fonctions">Fonctions</h2>
+<p>Une <strong>fonction</strong> est une manière de transformer des valeurs. Elle prend en entrée une valeur et en produit une autre en sortie.</p>
+<p>Par exemple, voici une fonction <code>greet</code> qui prend en entrée un et nom et dit bonjour :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;greet&quot;,
+        &quot;input&quot;: &quot;greet name =\n  \&quot;Hello \&quot; ++ name ++ \&quot;!\&quot;\n&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String -&gt; String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;greet \&quot;Alice\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;Hello Alice!\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;greet \&quot;Bob\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;Hello Bob!\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    }
+]
+</div></p>
+<p>Essayer de dire bonjour à quelqu&apos;un d&apos;autre, comme <code>&quot;Stokely&quot;</code> ou <code>&quot;Kwame&quot;</code> ⬆️</p>
+<p>Les valeurs passées en entrée de la fonction sont généralement appelée <strong>arugments</strong>, on pourrait alors dire que «<code>greet</code> est une fonction qui prend un argument ».</p>
+<p>Maintenant que la politesse peut être mise de côté, que diriez-vous d&apos;une fonction qui prend <em>deux</em> arguments ?</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;madlib&quot;,
+        &quot;input&quot;: &quot;madlib animal adjective =\n  \&quot;The ostentatious \&quot; ++ animal ++ \&quot; wears \&quot; ++ adjective ++ \&quot; shorts.\&quot;\n&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String -&gt; String -&gt; String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;madlib \&quot;cat\&quot; \&quot;ergonomic\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;The ostentatious cat wears ergonomic shorts.\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;madlib (\&quot;butter\&quot; ++ \&quot;fly\&quot;) \&quot;metallic\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;The ostentatious butterfly wears metallic shorts.\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    }
+]
+</div></p>
+<p>Essayez de passer deux arguments à la fonction <code>madlib</code> ⬆️</p>
+<p>Notez comment nous avons utilisé des parenthèses pour grouper <code>&quot;butter&quot; ++ &quot;fly&quot;</code> ensemble dans le deuxième exemple. Chaque argument doit être une valeur primitive comme <code>&quot;cat&quot;</code> ou doit obligatoirement se trouver entre parenthèses !</p>
+<blockquote>
+<p><strong>Note:</strong> Les personnes venant de langages comme Javascript pourraient être suprises par l&apos;aspect différent qu&apos;ont les foncitons :</p>
+<pre><code>madlib &quot;cat&quot; &quot;ergonomic&quot;                  -- Elm
+madlib(&quot;cat&quot;, &quot;ergonomic&quot;)                // JavaScript
+
+madlib (&quot;butter&quot; ++ &quot;fly&quot;) &quot;metallic&quot;      -- Elm
+madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // JavaScript
+</code></pre><p>Ça peut paraître surprenant au début, mais ce style permet d&apos;utiliser moins de parenthèses et de virgules. Il donne une sensation de propreté et de minimalisme au langage une fois que vous y êtes habitué !</p>
+</blockquote>
+<h2 id="expressions-if">Expressions If</h2>
+<p>Lorsque que l&apos;on veut obtenir un comportement conditionnel en Elm, on utilise une expression <code>if</code>.</p>
+<p>Faisons une nouvelle fonction <code>greet</code> qui respecte à sa juste valeur le président Abraham Lincoln :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;greet&quot;,
+        &quot;input&quot;: &quot;greet name =\n  if name == \&quot;Abraham Lincoln\&quot; then\n    \&quot;Greetings Mr. President!\&quot;\n  else\n    \&quot;Hey!\&quot;\n&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String -&gt; String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;greet \&quot;Tom\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;Hey!\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;greet \&quot;Abraham Lincoln\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;Greetings Mr. President!\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    }
+]
+</div></p>
+<p>Il y a sûrement d&apos;autres cas à gérer, mais on va dire que c&apos;est suffisant comme ça pour l&apos;instant !</p>
+<h2 id="listes">Listes</h2>
+<p>Les listes sont une des structures de données les plus courantes en Elm. Elles contiennent une séquence de choses similaires, comme les tableaux en JavaScript</p>
+<p>Les listes peuvent contenir plusieurs valeurs. Ces valeurs doivent toutes avoir le même type. Voici quelques exemples qui utilisent des fonctions du module <a href="https://package.elm-lang.org/packages/elm/core/latest/List" target="_blank"><code>List</code></a> :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;names&quot;,
+        &quot;input&quot;: &quot;names =\n  [ \&quot;Alice\&quot;, \&quot;Bob\&quot;, \&quot;Chuck\&quot; ]\n&quot;,
+        &quot;value&quot;: &quot;[\u001b[93m\&quot;Alice\&quot;\u001b[0m,\u001b[93m\&quot;Bob\&quot;\u001b[0m,\u001b[93m\&quot;Chuck\&quot;\u001b[0m]&quot;,
+        &quot;type_&quot;: &quot;List String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;List.isEmpty names&quot;,
+        &quot;value&quot;: &quot;\u001b[96mFalse\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;Bool&quot;
+    },
+    {
+        &quot;input&quot;: &quot;List.length names&quot;,
+        &quot;value&quot;: &quot;\u001b[95m3\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;List.reverse names&quot;,
+        &quot;value&quot;: &quot;[\u001b[93m\&quot;Chuck\&quot;\u001b[0m,\u001b[93m\&quot;Bob\&quot;\u001b[0m,\u001b[93m\&quot;Alice\&quot;\u001b[0m]&quot;,
+        &quot;type_&quot;: &quot;List String&quot;
+    },
+    {
+        &quot;add-decl&quot;: &quot;numbers&quot;,
+        &quot;input&quot;: &quot;numbers =\n  [4,3,2,1]\n&quot;,
+        &quot;value&quot;: &quot;[\u001b[95m4\u001b[0m,\u001b[95m3\u001b[0m,\u001b[95m2\u001b[0m,\u001b[95m1\u001b[0m]&quot;,
+        &quot;type_&quot;: &quot;List number&quot;
+    },
+    {
+        &quot;input&quot;: &quot;List.sort numbers&quot;,
+        &quot;value&quot;: &quot;[\u001b[95m1\u001b[0m,\u001b[95m2\u001b[0m,\u001b[95m3\u001b[0m,\u001b[95m4\u001b[0m]&quot;,
+        &quot;type_&quot;: &quot;List number&quot;
+    },
+    {
+        &quot;add-decl&quot;: &quot;increment&quot;,
+        &quot;input&quot;: &quot;increment n =\n  n + 1\n&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;number -&gt; number&quot;
+    },
+    {
+        &quot;input&quot;: &quot;List.map increment numbers&quot;,
+        &quot;value&quot;: &quot;[\u001b[95m5\u001b[0m,\u001b[95m4\u001b[0m,\u001b[95m3\u001b[0m,\u001b[95m2\u001b[0m]&quot;,
+        &quot;type_&quot;: &quot;List number&quot;
+    }
+]
+</div></p>
+<p>Essayez de construire votre propre liste et d&apos;utiliser des fonction comme <code>List.length</code> ⬆️</p>
+<p>Et n&apos;oubliez pas : tous les éléments d&apos;une liste doivent avoir le même type !</p>
+<h2 id="tuples">Tuples</h2>
+<p>Les tuples sont un autre type de structure de données utile. Un tuple peut contenir deux ou trois valeurs et chaque valeur peut être de n&apos;importe quel type. Il est classiquement utilisé lorsque l&apos;on veut retourner plus d&apos;une valeur dans une fonction. La fonction suivante prend un nom et retourne un message à l&apos;utilisateur :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;isGoodName&quot;,
+        &quot;input&quot;: &quot;isGoodName name =\n  if String.length name &lt;= 20 then\n    (True, \&quot;name accepted!\&quot;)\n  else\n    (False, \&quot;name was too long; please limit it to 20 characters\&quot;)\n&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String -&gt; ( Bool, String )&quot;
+    },
+    {
+        &quot;input&quot;: &quot;isGoodName \&quot;Tom\&quot;&quot;,
+        &quot;value&quot;: &quot;(\u001b[96mTrue\u001b[0m, \u001b[93m\&quot;name accepted!\&quot;\u001b[0m)&quot;,
+        &quot;type_&quot;: &quot;( Bool, String )&quot;
+    }
+]
+</div></p>
+<p>Ça peu être pratique, mais lorsque les choses commencent à se compliquer, il est souvent préférable d&apos;utiliser des <em>records</em> au lieux des tuples.</p>
+<h2 id="records">Records</h2>
+<p>Un <em><strong>record</strong></em> peut contenir plusieurs valeurs, et chaque valeur est associée à un nom.</p>
+<p>Voici un <em>record</em> qui représente l&apos;économiste britannique John A. Hobson :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;john&quot;,
+        &quot;input&quot;: &quot;john =\n  { first = \&quot;John\&quot;\n  , last = \&quot;Hobson\&quot;\n  , age = 81\n  }\n&quot;,
+        &quot;value&quot;: &quot;{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\&quot;John\&quot;\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\&quot;Hobson\&quot;\u001b[0m }&quot;,
+        &quot;type_&quot;: &quot;{ age : number, first : String, last : String }&quot;
+    },
+    {
+        &quot;input&quot;: &quot;john.last&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;Hobson\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    }
+]
+</div></p>
+<p>Nous avons défini un <em>record</em> avec trois <strong>champs</strong> qui contiennent des informations au sujet du nom et de l&apos;âge de John.</p>
+<p>Essayez d&apos;accéder à d&apos;autres champs comme <code>john.age</code> ⬆️</p>
+<p>Vous pouvez aussi accéder aux champs d&apos;un <em>record</em> en utilisant une « fonction d&apos;accès à un champ » comme ceci :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;john&quot;,
+        &quot;input&quot;: &quot;john = { first = \&quot;John\&quot;, last = \&quot;Hobson\&quot;, age = 81 }&quot;,
+        &quot;value&quot;: &quot;{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\&quot;John\&quot;\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\&quot;Hobson\&quot;\u001b[0m }&quot;,
+        &quot;type_&quot;: &quot;{ age : number, first : String, last : String }&quot;
+    },
+    {
+        &quot;input&quot;: &quot;.last john&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;Hobson\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;List.map .last [john,john,john]&quot;,
+        &quot;value&quot;: &quot;[\u001b[93m\&quot;Hobson\&quot;\u001b[0m,\u001b[93m\&quot;Hobson\&quot;\u001b[0m,\u001b[93m\&quot;Hobson\&quot;\u001b[0m]&quot;,
+        &quot;type_&quot;: &quot;List String&quot;
+    }
+]
+</div></p>
+<p>Il est souvent utile de <strong>mettre à jour</strong> les valeurs d&apos;un <em>record</em> :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;john&quot;,
+        &quot;input&quot;: &quot;john = { first = \&quot;John\&quot;, last = \&quot;Hobson\&quot;, age = 81 }&quot;,
+        &quot;value&quot;: &quot;{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\&quot;John\&quot;\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\&quot;Hobson\&quot;\u001b[0m }&quot;,
+        &quot;type_&quot;: &quot;{ age : number, first : String, last : String }&quot;
+    },
+    {
+        &quot;input&quot;: &quot;{ john | last = \&quot;Adams\&quot; }&quot;,
+        &quot;value&quot;: &quot;{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\&quot;John\&quot;\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\&quot;Adams\&quot;\u001b[0m }&quot;,
+        &quot;type_&quot;: &quot;{ age : number, first : String, last : String }&quot;
+    },
+    {
+        &quot;input&quot;: &quot;{ john | age = 22 }&quot;,
+        &quot;value&quot;: &quot;{ \u001b[37mage\u001b[0m = \u001b[95m22\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\&quot;John\&quot;\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\&quot;Hobson\&quot;\u001b[0m }&quot;,
+        &quot;type_&quot;: &quot;{ age : number, first : String, last : String }&quot;
+    }
+]
+</div></p>
+<p>Si vous vouliez prononcer ces expressions à haute voix, vous diriez quelque chose comme cela : « Je veux une nouvelle version de John pour laquelle son nom est Adams », ou « john dont l&apos;âge est 22 ».</p>
+<p>Notez que lorsque nous mettons à jour des champs de <code>john</code>, nous créons un tout nouveau <em>record</em> : ça n&apos;écrase pas celui qui existe déjà. Elm rend cette opération efficace en partageant le maximum de contenu possible. Si vous mettez à jour un champs sur dix, le nouveau <em>record</em> va partager les neuf valeurs qui n&apos;ont pas été modifiées.</p>
+<p>Une fonction pour mettre à jour d&apos;âge ressemblerait à quelque chose comme cela :</p>
+<p><div class="elm-repl">
+[
+    {
+        &quot;add-decl&quot;: &quot;celebrateBirthday&quot;,
+        &quot;input&quot;: &quot;celebrateBirthday person =\n  { person | age = person.age + 1 }\n&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;{ a | age : number } -&gt; { a | age : number }&quot;
+    },
+    {
+        &quot;add-decl&quot;: &quot;john&quot;,
+        &quot;input&quot;: &quot;john = { first = \&quot;John\&quot;, last = \&quot;Hobson\&quot;, age = 81 }&quot;,
+        &quot;value&quot;: &quot;{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\&quot;John\&quot;\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\&quot;Hobson\&quot;\u001b[0m }&quot;,
+        &quot;type_&quot;: &quot;{ age : number, first : String, last : String }&quot;
+    },
+    {
+        &quot;input&quot;: &quot;celebrateBirthday john&quot;,
+        &quot;value&quot;: &quot;{ \u001b[37mage\u001b[0m = \u001b[95m82\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\&quot;John\&quot;\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\&quot;Hobson\&quot;\u001b[0m }&quot;,
+        &quot;type_&quot;: &quot;{ age : number, first : String, last : String }&quot;
+    }
+]
+</div></p>
+<p>Mettre à jour les champs des <em>records</em> de cette manière est très courant, nous verrons donc beaucoup d&apos;autres exemples dans la section suivante !</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="architecture/" class="navigation navigation-next " aria-label="Next page: The Elm Architecture">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Bases du langage","level":"1.2","depth":1,"next":{"title":"The Elm Architecture","level":"1.3","depth":1,"path":"architecture/README.md","ref":"architecture/README.md","articles":[{"title":"Buttons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},{"title":"Text Fields","level":"1.3.2","depth":2,"path":"architecture/text_fields.md","ref":"architecture/text_fields.md","articles":[]},{"title":"Forms","level":"1.3.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"bases_du_langage.md","mtime":"2022-03-15T14:42:29.507Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

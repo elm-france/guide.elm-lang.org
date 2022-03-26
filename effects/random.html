@@ -1,0 +1,990 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Random · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="time.html" />
+    
+    
+    <link rel="prev" href="json.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="http.html">
+            
+                <a href="http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="json.html">
+            
+                <a href="json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="random.html">
+            
+                <a href="random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="time.html">
+            
+                <a href="time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Random</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="valeurs-aléatoires">Valeurs aléatoires</h1>
+<p>Jusqu&apos;à présent, nous n&apos;avons vu que des commandes pour effectuer des requêtes HTTP, mais nous pouvons commander d&apos;autres choses également, comme générer des valeurs aléatoires ! Nous allons donc créer une application qui lance des dés et produit un nombre aléatoire entre 1 et 6.</p>
+<p>Cliquez sur le bouton bleu &quot;Edit&quot; pour voir cet exemple en action. Générez quelques nombres aléatoires, et regardez le code pour essayer de comprendre comment cela fonctionne. <strong>Cliquez sur le bouton bleu maintenant !</strong></p>
+<div class="edit-link"><a href="https://elm-lang.org/examples/numbers" target="_blank">Edit</a></div>
+
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
+<span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
+<span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (..)
+<span class="hljs-keyword">import</span> Random
+
+
+
+<span class="hljs-comment">-- MAIN</span>
+
+
+<span class="hljs-title">main</span> =
+  <span class="hljs-type">Browser</span>.element
+    { init = init
+    , update = update
+    , subscriptions = subscriptions
+    , view = view
+    }
+
+
+
+<span class="hljs-comment">-- MODEL</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
+  { dieFace : <span class="hljs-type">Int</span>
+  }
+
+
+<span class="hljs-title">init</span> : () -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">init</span> _ =
+  ( <span class="hljs-type">Model</span> <span class="hljs-number">1</span>
+  , <span class="hljs-type">Cmd</span>.none
+  )
+
+
+
+<span class="hljs-comment">-- UPDATE</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
+  = <span class="hljs-type">Roll</span>
+  | <span class="hljs-type">NewFace</span> <span class="hljs-type">Int</span>
+
+
+<span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">update</span> msg model =
+  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Roll</span> -&gt;
+      ( model
+      , <span class="hljs-type">Random</span>.generate <span class="hljs-type">NewFace</span> (<span class="hljs-type">Random</span>.int <span class="hljs-number">1</span> <span class="hljs-number">6</span>)
+      )
+
+    <span class="hljs-type">NewFace</span> newFace -&gt;
+      ( <span class="hljs-type">Model</span> newFace
+      , <span class="hljs-type">Cmd</span>.none
+      )
+
+
+
+<span class="hljs-comment">-- SUBSCRIPTIONS</span>
+
+
+<span class="hljs-title">subscriptions</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Sub</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">subscriptions</span> model =
+  <span class="hljs-type">Sub</span>.none
+
+
+
+<span class="hljs-comment">-- VIEW</span>
+
+
+<span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">view</span> model =
+  div []
+    [ h1 [] [ text (<span class="hljs-type">String</span>.fromInt model.dieFace) ]
+    , button [ onClick <span class="hljs-type">Roll</span> ] [ text <span class="hljs-string">&quot;Roll&quot;</span> ]
+    ]
+</code></pre>
+<p>La nouveauté ici est la commande émise dans la fonction <code>update</code> :</p>
+<pre><code class="lang-elm"><span class="hljs-type">Random</span>.generate <span class="hljs-type">NewFace</span> (<span class="hljs-type">Random</span>.int <span class="hljs-number">1</span> <span class="hljs-number">6</span>)
+</code></pre>
+<p>La génération de valeurs aléatoires fonctionne un peu différemment que dans des langages comme JavaScript, Python, Java, etc. Voyons donc comment cela fonctionne dans Elm !</p>
+<h2 id="générateurs-aléatoires">Générateurs aléatoires</h2>
+<p>Nous utilisons le paquet <a href="https://package.elm-lang.org/packages/elm/random/latest" target="_blank"><code>elm/random</code></a> pour cela. Le module <a href="https://package.elm-lang.org/packages/elm/random/latest/Random" target="_blank"><code>Random</code></a> en particulier.</p>
+<p>L&apos;idée de base est que nous avons un <code>Generator</code> aléatoire qui décrit <em>comment</em> générer une valeur aléatoire. Par exemple :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Random
+
+<span class="hljs-title">probability</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Float</span>
+<span class="hljs-title">probability</span> =
+  <span class="hljs-type">Random</span>.float <span class="hljs-number">0</span> <span class="hljs-number">1</span>
+
+<span class="hljs-title">roll</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Int</span>
+<span class="hljs-title">roll</span> =
+  <span class="hljs-type">Random</span>.int <span class="hljs-number">1</span> <span class="hljs-number">6</span>
+
+<span class="hljs-title">usuallyTrue</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Bool</span>
+<span class="hljs-title">usuallyTrue</span> =
+  <span class="hljs-type">Random</span>.weighted (<span class="hljs-number">80</span>, <span class="hljs-type">True</span>) [ (<span class="hljs-number">20</span>, <span class="hljs-type">False</span>) ]
+</code></pre>
+<p>Nous avons donc ici trois générateurs aléatoires. Le générateur <code>roll</code> dit qu&apos;il produira un <code>Int</code>, et plus précisément, qu&apos;il produira un entier entre <code>1</code> et <code>6</code> inclus. De même, le générateur <code>usuallyTrue</code> dit qu&apos;il produira un <code>Bool</code>, et plus précisément, qu&apos;il sera vrai 80% du temps.</p>
+<p>En réalité, nous ne sommes pas encore en train de générer les valeurs. Nous décrivons simplement <em>comment</em> les générer. À partir de là, vous pouvez utiliser <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#generate" target="_blank"><code>Random.generate</code></a> pour la transformer en commande :</p>
+<pre><code class="lang-elm"><span class="hljs-title">generate</span> : (a -&gt; msg) -&gt; <span class="hljs-type">Generator</span> a -&gt; <span class="hljs-type">Cmd</span> msg
+</code></pre>
+<p>Lorsque la commande est exécutée, le <code>Generator</code> produit une valeur, qui est ensuite transformée en un message pour votre fonction <code>update</code>. Ainsi, dans notre exemple, le <code>Generator</code> produit une valeur entre 1 et 6, et la transforme en un message comme <code>NewFace 1</code> ou <code>NewFace 4</code>. C&apos;est tout ce que nous avons besoin de savoir pour obtenir nos lancers de dés aléatoires, mais les générateurs peuvent faire beaucoup plus !</p>
+<h2 id="combiner-des-générateurs">Combiner des générateurs</h2>
+<p>Une fois que nous avons des générateurs simples comme <code>probability</code> et <code>usuallyTrue</code>, nous pouvons commencer à les assembler avec des fonctions comme <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#map3" target="_blank"><code>map3</code></a>. Imaginons que nous voulions créer une simple machine à sous. Nous pourrions créer un générateur comme celui-ci :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Random
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Symbol</span> = <span class="hljs-type">Cherry</span> | <span class="hljs-type">Seven</span> | <span class="hljs-type">Bar</span> | <span class="hljs-type">Grapes</span>
+
+<span class="hljs-title">symbol</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Symbol</span>
+<span class="hljs-title">symbol</span> =
+  <span class="hljs-type">Random</span>.uniform <span class="hljs-type">Cherry</span> [ <span class="hljs-type">Seven</span>, <span class="hljs-type">Bar</span>, <span class="hljs-type">Grapes</span> ]
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Spin</span> =
+  { one : <span class="hljs-type">Symbol</span>
+  , two : <span class="hljs-type">Symbol</span>
+  , three : <span class="hljs-type">Symbol</span>
+  }
+
+<span class="hljs-title">spin</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Spin</span>
+<span class="hljs-title">spin</span> =
+  <span class="hljs-type">Random</span>.map3 <span class="hljs-type">Spin</span> symbol symbol symbol
+</code></pre>
+<p>Nous créons d&apos;abord <code>Symbol</code> pour décrire les images qui peuvent apparaître sur la machine à sous. Nous créons ensuite un générateur aléatoire qui génère chaque symbole avec une probabilité égale.</p>
+<p>À partir de là, nous utilisons <code>map3</code> pour les combiner dans un nouveau générateur <code>spin</code>. Il est dit de générer trois symboles et de les combiner en un <code>Spin</code>.</p>
+<p>Ce qui est important ici est que, à partir de petits blocs de construction, nous pouvons créer un <code>Generator</code> qui décrit un comportement assez complexe. Ensuite, dans notre application, il suffit de dire quelque chose comme <code>Random.generate NewSpin spin</code>&quot; pour obtenir la prochaine valeur aléatoire.</p>
+<blockquote>
+<p><strong>Exercices:</strong> Voici quelques idées pour rendre le code d&apos;exemple de cette page un peu plus intéressant !</p>
+<ul>
+<li>Au lieu de montrer un nombre, montrez la face du dé sous forme d&apos;image.</li>
+<li>Au lieu d&apos;afficher une image de la face d&apos;un dé, utilisez <a href="https://package.elm-lang.org/packages/elm/svg/latest/" target="_blank"><code>elm/svg</code></a> pour la dessiner vous-même.</li>
+<li>Créez un dé pondéré avec <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#weighted" target="_blank"><code>Random.weighted</code></a>.</li>
+<li>Ajoutez un deuxième dé et faites-les lancer en même temps.</li>
+<li>Faites en sorte que les dés se retournent de manière aléatoire avant de choisir une valeur finale.</li>
+</ul>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="json.html" class="navigation navigation-prev " aria-label="Previous page: JSON">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="time.html" class="navigation navigation-next " aria-label="Next page: Time">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Random","level":"1.6.3","depth":2,"next":{"title":"Time","level":"1.6.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"previous":{"title":"JSON","level":"1.6.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/random.md","mtime":"2022-03-25T16:21:13.438Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

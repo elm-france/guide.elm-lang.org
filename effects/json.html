@@ -1,0 +1,1097 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>JSON · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="random.html" />
+    
+    
+    <link rel="prev" href="http.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="http.html">
+            
+                <a href="http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="json.html">
+            
+                <a href="json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="random.html">
+            
+                <a href="random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="time.html">
+            
+                <a href="time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >JSON</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="json">JSON</h1>
+<p>Nous venons de voir un exemple qui utilise HTTP pour obtenir le contenu d&apos;un livre. C&apos;est très bien, mais un grand nombre de serveurs renvoient des données dans un format spécial appelé JavaScript Object Notation, ou JSON en abrégé.</p>
+<p>L&apos;exemple suivant montre donc comment récupérer des données JSON, ce qui nous permet d&apos;appuyer sur un bouton pour afficher des GIFs de chats aléatoires. Cliquez sur le bouton bleu &quot;Edit&quot; et regardez un peu le programme. Essayez de ne pas regarder uniquement les chats ! <strong>Cliquez sur le bouton bleu maintenant !</strong></p>
+<div class="edit-link"><a href="https://elm-lang.org/examples/cat-gifs" target="_blank">Edit</a></div>
+
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
+<span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
+<span class="hljs-keyword">import</span> Html.Attributes <span class="hljs-keyword">exposing</span> (..)
+<span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (..)
+<span class="hljs-keyword">import</span> Http
+<span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, string)
+
+
+
+<span class="hljs-comment">-- MAIN</span>
+
+
+<span class="hljs-title">main</span> =
+  <span class="hljs-type">Browser</span>.element
+    { init = init
+    , update = update
+    , subscriptions = subscriptions
+    , view = view
+    }
+
+
+
+<span class="hljs-comment">-- MODEL</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Model</span>
+  = <span class="hljs-type">Failure</span>
+  | <span class="hljs-type">Loading</span>
+  | <span class="hljs-type">Success</span> <span class="hljs-type">String</span>
+
+
+<span class="hljs-title">init</span> : () -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">init</span> _ =
+  (<span class="hljs-type">Loading</span>, getRandomCatGif)
+
+
+
+<span class="hljs-comment">-- UPDATE</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
+  = <span class="hljs-type">MorePlease</span>
+  | <span class="hljs-type">GotGif</span> (<span class="hljs-type">Result</span> <span class="hljs-type">Http</span>.<span class="hljs-type">Error</span> <span class="hljs-type">String</span>)
+
+
+<span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">update</span> msg model =
+  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+    <span class="hljs-type">MorePlease</span> -&gt;
+      (<span class="hljs-type">Loading</span>, getRandomCatGif)
+
+    <span class="hljs-type">GotGif</span> result -&gt;
+      <span class="hljs-keyword">case</span> result <span class="hljs-keyword">of</span>
+        <span class="hljs-type">Ok</span> url -&gt;
+          (<span class="hljs-type">Success</span> url, <span class="hljs-type">Cmd</span>.none)
+
+        <span class="hljs-type">Err</span> _ -&gt;
+          (<span class="hljs-type">Failure</span>, <span class="hljs-type">Cmd</span>.none)
+
+
+
+<span class="hljs-comment">-- SUBSCRIPTIONS</span>
+
+
+<span class="hljs-title">subscriptions</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Sub</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">subscriptions</span> model =
+  <span class="hljs-type">Sub</span>.none
+
+
+
+<span class="hljs-comment">-- VIEW</span>
+
+
+<span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">view</span> model =
+  div []
+    [ h2 [] [ text <span class="hljs-string">&quot;Random Cats&quot;</span> ]
+    , viewGif model
+    ]
+
+
+<span class="hljs-title">viewGif</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">viewGif</span> model =
+  <span class="hljs-keyword">case</span> model <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Failure</span> -&gt;
+      div []
+        [ text <span class="hljs-string">&quot;I could not load a random cat for some reason. &quot;</span>
+        , button [ onClick <span class="hljs-type">MorePlease</span> ] [ text <span class="hljs-string">&quot;Try Again!&quot;</span> ]
+        ]
+
+    <span class="hljs-type">Loading</span> -&gt;
+      text <span class="hljs-string">&quot;Loading...&quot;</span>
+
+    <span class="hljs-type">Success</span> url -&gt;
+      div []
+        [ button [ onClick <span class="hljs-type">MorePlease</span>, style <span class="hljs-string">&quot;display&quot;</span> <span class="hljs-string">&quot;block&quot;</span> ] [ text <span class="hljs-string">&quot;More Please!&quot;</span> ]
+        , img [ src url ] []
+        ]
+
+
+
+<span class="hljs-comment">-- HTTP</span>
+
+
+<span class="hljs-title">getRandomCatGif</span> : <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">getRandomCatGif</span> =
+  <span class="hljs-type">Http</span>.get
+    { url = <span class="hljs-string">&quot;https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&amp;tag=cat&quot;</span>
+    , expect = <span class="hljs-type">Http</span>.expectJson <span class="hljs-type">GotGif</span> gifDecoder
+    }
+
+
+<span class="hljs-title">gifDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">String</span>
+<span class="hljs-title">gifDecoder</span> =
+  field <span class="hljs-string">&quot;data&quot;</span> (field <span class="hljs-string">&quot;image_url&quot;</span> string)
+</code></pre>
+<p>Cet exemple est assez similaire au précédent :</p>
+<ul>
+<li><code>init</code> nous fait démarrer dans l&apos;état <code>Loading</code>, avec une commande pour obtenir un GIF de chat aléatoire.</li>
+<li><code>update</code> gère le message <code>GotGif</code> à chaque fois qu&apos;un nouveau GIF est disponible. Quoi qu&apos;il se passe ici, nous n&apos;avons pas de commandes supplémentaires. Il gère également le message <code>MorePlease</code> lorsque quelqu&apos;un appuie sur le bouton, émettant une commande pour obtenir plus de chats aléatoires.</li>
+<li><code>view</code> vous montre les chats !</li>
+</ul>
+<p>La principale différence réside dans la définition de <code>getRandomCatGif</code>. Au lieu d&apos;utiliser <code>Http.expectString</code>, nous sommes passés à <code>Http.expectJson</code>. Quel est le problème avec ça ?</p>
+<h2 id="json">JSON</h2>
+<p>Lorsque vous demandez à <a href="https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&amp;tag=cat" target="_blank"><code>api.giphy.com</code></a> un GIF de chat au hasard, leur serveur produit une grosse chaîne de JSON comme celle-ci :</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;data&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;gif&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;l2JhxfHWMBWuDMIpi&quot;</span>,
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;cat love GIF by The Secret Life Of Pets&quot;</span>,
+    <span class="hljs-string">&quot;image_url&quot;</span>: <span class="hljs-string">&quot;https://media1.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif&quot;</span>,
+    <span class="hljs-string">&quot;caption&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    ...
+  },
+  <span class="hljs-string">&quot;meta&quot;</span>: {
+    <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;OK&quot;</span>,
+    <span class="hljs-string">&quot;response_id&quot;</span>: <span class="hljs-string">&quot;5b105e44316d3571456c18b3&quot;</span>
+  }
+}
+</code></pre>
+<p>Nous n&apos;avons aucune garantie sur quelconque de ces informations. Le serveur peut changer les noms des champs, et les champs peuvent avoir des types différents dans des situations différentes. C&apos;est un monde sauvage !</p>
+<p>En JavaScript, l&apos;approche consiste à transformer le JSON en objets JavaScript et à espérer que tout se passe bien. Mais s&apos;il y a une faute de frappe ou des données inattendues, vous obtenez une exception d&apos;exécution quelque part dans votre code. Le code était-il mauvais ? Les données étaient-elles erronées ? Il est temps de commencer à creuser pour le découvrir !</p>
+<p>Dans Elm, nous validons le JSON avant qu&apos;il n&apos;entre dans notre programme. Ainsi, si les données ont une structure inattendue, nous l&apos;apprenons immédiatement. Il n&apos;y a aucun moyen pour de mauvaises données de se faufiler et de provoquer une exception d&apos;exécution trois fichiers plus loin. Ceci est rendu possible grâce aux décodeurs JSON.</p>
+<h2 id="décodeurs-json">Décodeurs JSON</h2>
+<p>Disons que nous avons du JSON :</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tom&quot;</span>,
+    <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">42</span>
+}
+</code></pre>
+<p>Nous devons le faire passer par un <code>Decoder</code> pour accéder à des informations spécifiques. Ainsi, si nous voulons obtenir l&apos;<code>&quot;age&quot;</code>, nous ferons passer le JSON par un <code>Decoder Int</code> qui décrit exactement comment accéder à cette information :</p>
+<p><img src="diagrams/int.svg" alt></p>
+<p>Si tout se passe bien, nous obtenons un <code>Int</code> de l&apos;autre côté ! Et si nous voulions le champ <code>&quot;name&quot;</code>, nous ferions passer le JSON par un <code>Decoder String</code> qui décrit exactement comment y accéder :</p>
+<p><img src="diagrams/string.svg" alt></p>
+<p>Si tout se passe bien, nous obtenons un <code>String</code> de l&apos;autre côté !</p>
+<p>Mais comment créer des décodeurs comme celui-ci ?</p>
+<h2 id="construction-des-blocs">Construction des blocs</h2>
+<p>Le paquet <a href="https://package.elm-lang.org/packages/elm/json/latest/" target="_blank"><code>elm/json</code></a> nous donne le module <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode" target="_blank"><code>Json.Decode</code></a>. Il est rempli de petits décodeurs que nous pouvons assembler.</p>
+<p>Ainsi, pour obtenir <code>&quot;age&quot;</code> à partir de <code>{ &quot;name&quot; : &quot;Tom&quot;, &quot;age&quot; : 42 }</code>, nous devons créer un décodeur comme celui-ci :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, int)
+
+<span class="hljs-title">ageDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">Int</span>
+<span class="hljs-title">ageDecoder</span> =
+  field <span class="hljs-string">&quot;age&quot;</span> int
+
+ <span class="hljs-comment">-- int : Decoder Int</span>
+ <span class="hljs-comment">-- field : String -&gt; Decoder a -&gt; Decoder a</span>
+</code></pre>
+<p>La fonction <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#field" target="_blank"><code>field</code></a> prend deux arguments :</p>
+<ol>
+<li><code>String</code> — un nom de champ. Nous demandons donc un objet avec un champ <code>&quot;age&quot;</code>.</li>
+<li><code>Decoder a</code> — un décodeur à essayer ensuite. Donc si le champ <code>&quot;age&quot;</code> existe, nous allons essayer ce décodeur sur la valeur qu&apos;il contient.</li>
+</ol>
+<p>Ainsi, <code>field &quot;age&quot; int</code> demande un champ <code>&quot;age&quot;</code>, et s&apos;il existe, il exécute le <code>Decoder Int</code> pour essayer d&apos;extraire un entier.</p>
+<p>Nous faisons à peu près la même chose pour extraire le champ <code>&quot;name&quot;</code> :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, string)
+
+<span class="hljs-title">nameDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">String</span>
+<span class="hljs-title">nameDecoder</span> =
+  field <span class="hljs-string">&quot;name&quot;</span> string
+
+<span class="hljs-comment">-- string : Decoder String</span>
+</code></pre>
+<p>Dans ce cas, nous demandons un objet avec un champ <code>&quot;name&quot;</code>, et s&apos;il existe, nous voulons que la valeur soit un <code>String</code>.</p>
+<h2 id="imbriquer-des-décodeurs">Imbriquer des décodeurs</h2>
+<p>Vous vous rappelez des données de <code>api.giphy.com</code> ?</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;data&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;gif&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;l2JhxfHWMBWuDMIpi&quot;</span>,
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;cat love GIF by The Secret Life Of Pets&quot;</span>,
+    <span class="hljs-string">&quot;image_url&quot;</span>: <span class="hljs-string">&quot;https://media1.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif&quot;</span>,
+    <span class="hljs-string">&quot;caption&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    ...
+  },
+  <span class="hljs-string">&quot;meta&quot;</span>: {
+    <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;OK&quot;</span>,
+    <span class="hljs-string">&quot;response_id&quot;</span>: <span class="hljs-string">&quot;5b105e44316d3571456c18b3&quot;</span>
+  }
+}
+</code></pre>
+<p>Nous voulions accéder à <code>response.data.image_url</code> pour afficher un GIF aléatoire. Eh bien, nous avons les outils pour le faire maintenant !</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, string)
+
+<span class="hljs-title">gifDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">String</span>
+<span class="hljs-title">gifDecoder</span> =
+  field <span class="hljs-string">&quot;data&quot;</span> (field <span class="hljs-string">&quot;image_url&quot;</span> string)
+</code></pre>
+<p>C&apos;est la définition exacte de <code>gifDecoder</code> que nous avons utilisée dans notre programme d&apos;exemple ci-dessus ! Y a-t-il un champ <code>&quot;data&quot;</code> ? Est-ce que cette valeur a un champ <code>&quot;image_url&quot;</code> ? Est-ce que cette valeur est une chaîne de caractères ? Toutes nos attentes sont écrites explicitement, ce qui nous permet d&apos;extraire en toute sécurité des valeurs Elm à partir du JSON.</p>
+<h2 id="combiner-des-décodeurs">Combiner des décodeurs</h2>
+<p>C&apos;est tout ce dont nous avions besoin pour notre exemple HTTP, mais les décodeurs peuvent faire plus ! Par exemple, que faire si nous voulons <em>deux</em> champs ? Nous assemblons les décodeurs avec <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2" target="_blank"><code>map2</code></a> :</p>
+<pre><code class="lang-elm"><span class="hljs-title">map2</span> : (a -&gt; b -&gt; value) -&gt; <span class="hljs-type">Decoder</span> a -&gt; <span class="hljs-type">Decoder</span> b -&gt; <span class="hljs-type">Decoder</span> value
+</code></pre>
+<p>Cette fonction prend en entrée deux décodeurs. Elle les essaie tous les deux et combine leurs résultats. Nous pouvons donc maintenant combiner deux décodeurs différents :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, map2, field, string, int)
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Person</span> =
+  { name : <span class="hljs-type">String</span>
+  , age : <span class="hljs-type">Int</span>
+  }
+
+<span class="hljs-title">personDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">Person</span>
+<span class="hljs-title">personDecoder</span> =
+  map2 <span class="hljs-type">Person</span>
+      (field <span class="hljs-string">&quot;name&quot;</span> string)
+      (field <span class="hljs-string">&quot;age&quot;</span> int)
+</code></pre>
+<p>Ainsi, si nous utilisions <code>personDecoder</code> sur <code>{ &quot;name&quot; : &quot;Tom&quot;, &quot;age&quot; : 42 }</code>, nous obtiendrions une valeur Elm de ce type : <code>Personne &quot;Tom&quot; 42</code>.</p>
+<p>Si nous voulions vraiment entrer dans l&apos;esprit des décodeurs, nous définirions <code>personDecoder</code> comme <code>map2 Person nameDecoder ageDecoder</code> en utilisant nos définitions précédentes. Il faut toujours construire ses décodeurs à partir de blocs plus petits !</p>
+<h2 id="prochaines-étapes">Prochaines étapes</h2>
+<p>Il y a un grand nombre de fonctions importantes dans <code>Json.Decode</code> que nous n&apos;avons pas couvertes ici :</p>
+<ul>
+<li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#bool" target="_blank"><code>bool</code></a> : <code>Decoder Bool</code></li>
+<li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#list" target="_blank"><code>list</code></a> : <code>Decoder a -&gt; Decoder (List a)</code></li>
+<li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#dict" target="_blank"><code>dict</code></a> : <code>Decoder a -&gt; Decoder (Dict String a)</code></li>
+<li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#oneOf" target="_blank"><code>oneOf</code></a> : <code>List (Decoder a) -&gt; Decoder a</code></li>
+</ul>
+<p>Il existe donc des moyens d&apos;extraire toutes sortes de structures de données. La fonction <code>oneOf</code> est particulièrement utile pour du JSON bordélique. Par exemple, parfois vous obtenez un <code>Int</code> et d&apos;autres fois vous obtenez une <code>String</code> contenant des chiffres. Tellement pénible !</p>
+<p>Il y a aussi <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map3" target="_blank"><code>map3</code></a>, <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4" target="_blank"><code>map4</code></a>, et quelques autres pour gérer les objets avec plus de deux champs. Mais lorsque vous commencez à travailler avec des objets JSON de plus grande taille, cela vaut la peine de consulter <a href="https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest" target="_blank"><code>NoRedInk/elm-json-decode-pipeline</code></a>. Les types y sont un peu plus sophistiqués, mais certaines personnes les trouvent beaucoup plus faciles à lire et à utiliser.</p>
+<blockquote>
+<p><strong>Fait amusant : </strong> J&apos;ai entendu un tas d&apos;histoires de personnes qui ont trouvé des bugs dans leur code <em>serveur</em> lorsqu&apos;ils sont passés de JS à Elm. Les décodeurs que les personnes écrivent finissent par fonctionner comme une phase de validation, attrapant des trucs bizarres dans les valeurs JSON. Ainsi, lorsque NoRedInk est passé de React à Elm, cela a révélé quelques bugs dans leur code Ruby !</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="http.html" class="navigation navigation-prev " aria-label="Previous page: HTTP">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="random.html" class="navigation navigation-next " aria-label="Next page: Random">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"JSON","level":"1.6.2","depth":2,"next":{"title":"Random","level":"1.6.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},"previous":{"title":"HTTP","level":"1.6.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/json.md","mtime":"2022-03-25T16:21:13.437Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

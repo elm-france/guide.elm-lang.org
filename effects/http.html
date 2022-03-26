@@ -1,0 +1,988 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>HTTP · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="json.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="http.html">
+            
+                <a href="http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="json.html">
+            
+                <a href="json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="random.html">
+            
+                <a href="random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="time.html">
+            
+                <a href="time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >HTTP</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="http">HTTP</h1>
+<p>Il est souvent utile de récupérer des informations ailleurs sur Internet.</p>
+<p>Par exemple, imaginons que nous voulions charger le texte complet de <em>Public Opinion</em> de Walter Lippmann. Publié en 1922, ce livre offre une perspective historique sur la montée des médias de masse et ses implications pour la démocratie. Pour ce qui nous amène ici, nous allons nous concentrer sur la façon d&apos;utiliser le paquetage <a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a> pour charger ce livre dans notre programme !</p>
+<p>Cliquez sur le bouton bleu &quot;Edit&quot; pour regarder ce programme dans l&apos;éditeur en ligne. Vous verrez probablement l&apos;écran afficher &quot;Loading...&quot; avant que le livre complet n&apos;apparaisse. <strong>Cliquez sur le bouton bleu maintenant !</strong></p>
+<div class="edit-link"><a href="https://elm-lang.org/examples/book" target="_blank">Edit</a></div>
+
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
+<span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, text, pre)
+<span class="hljs-keyword">import</span> Http
+
+
+
+<span class="hljs-comment">-- MAIN</span>
+
+
+<span class="hljs-title">main</span> =
+  <span class="hljs-type">Browser</span>.element
+    { init = init
+    , update = update
+    , subscriptions = subscriptions
+    , view = view
+    }
+
+
+
+<span class="hljs-comment">-- MODEL</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Model</span>
+  = <span class="hljs-type">Failure</span>
+  | <span class="hljs-type">Loading</span>
+  | <span class="hljs-type">Success</span> <span class="hljs-type">String</span>
+
+
+<span class="hljs-title">init</span> : () -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">init</span> _ =
+  ( <span class="hljs-type">Loading</span>
+  , <span class="hljs-type">Http</span>.get
+      { url = <span class="hljs-string">&quot;https://elm-lang.org/assets/public-opinion.txt&quot;</span>
+      , expect = <span class="hljs-type">Http</span>.expectString <span class="hljs-type">GotText</span>
+      }
+  )
+
+
+
+<span class="hljs-comment">-- UPDATE</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
+  = <span class="hljs-type">GotText</span> (<span class="hljs-type">Result</span> <span class="hljs-type">Http</span>.<span class="hljs-type">Error</span> <span class="hljs-type">String</span>)
+
+
+<span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">update</span> msg model =
+  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+    <span class="hljs-type">GotText</span> result -&gt;
+      <span class="hljs-keyword">case</span> result <span class="hljs-keyword">of</span>
+        <span class="hljs-type">Ok</span> fullText -&gt;
+          (<span class="hljs-type">Success</span> fullText, <span class="hljs-type">Cmd</span>.none)
+
+        <span class="hljs-type">Err</span> _ -&gt;
+          (<span class="hljs-type">Failure</span>, <span class="hljs-type">Cmd</span>.none)
+
+
+
+<span class="hljs-comment">-- SUBSCRIPTIONS</span>
+
+
+<span class="hljs-title">subscriptions</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Sub</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">subscriptions</span> model =
+  <span class="hljs-type">Sub</span>.none
+
+
+
+<span class="hljs-comment">-- VIEW</span>
+
+
+<span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">view</span> model =
+  <span class="hljs-keyword">case</span> model <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Failure</span> -&gt;
+      text <span class="hljs-string">&quot;I was unable to load your book.&quot;</span>
+
+    <span class="hljs-type">Loading</span> -&gt;
+      text <span class="hljs-string">&quot;Loading...&quot;</span>
+
+    <span class="hljs-type">Success</span> fullText -&gt;
+      pre [] [ text fullText ]
+</code></pre>
+<p>Certaines parties du code ci-dessus devraient vous être familières grâce aux précédents exemples de l&apos;Architecture Elm. Nous avons toujours un <code>Model</code> de notre application. Nous avons toujours un <code>update</code> qui répond aux messages. Nous avons toujours une function <code>view</code> qui montre le tout à l&apos;écran.</p>
+<p>Les nouvelles parties étendent le principe de base que nous avions vu précédemment avec des changements dans <code>init</code> et dans <code>update</code> et l&apos;ajout de <code>subscription</code>.</p>
+<h2 id="init"><code>init</code></h2>
+<p>La fonction <code>init</code> décrit comment initialiser le programme :</p>
+<pre><code class="lang-elm"><span class="hljs-title">init</span> : () -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">init</span> _ =
+  ( <span class="hljs-type">Loading</span>
+  , <span class="hljs-type">Http</span>.get
+      { url = <span class="hljs-string">&quot;https://elm-lang.org/assets/public-opinion.txt&quot;</span>
+      , expect = <span class="hljs-type">Http</span>.expectString <span class="hljs-type">GotText</span>
+      }
+  )
+</code></pre>
+<p>Comme toujours, nous devons produire le <code>Model</code> initial, mais maintenant nous produisons aussi une <strong>commande</strong> de ce que nous voulons faire immédiatement. Cette commande produira finalement un <code>Msg</code> qui sera envoyé à la fonction <code>update</code>.</p>
+<p>Le site web de notre livre commence dans l&apos;état <code>Loading</code>, et nous voulons récupérer le texte complet de notre livre. Lorsque l&apos;on fait une requête GET avec <a href="https://package.elm-lang.org/packages/elm/http/latest/Http#get" target="_blank"><code>Http.get</code></a>, on spécifie l&apos;<code>url</code> des données que l&apos;on veut récupérer, et on spécifie ce que l&apos;on attend (<code>expect</code>) de ces données. Dans notre cas, l&apos;<code>url</code> pointe vers des données sur le site web d&apos;Elm, et nous nous attendons (<code>expect</code>) à ce que ce soit une grande <code>String</code> que nous pouvons montrer à l&apos;écran.</p>
+<p>La ligne <code>Http.expectString GotText</code> indique un peu plus que juste le fait que nous <em>attendons</em> (<code>expect</code>) un <code>String</code>. Elle dit aussi que lorsque nous recevons une réponse, elle doit être transformée en un message <code>GotText</code> :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
+  = <span class="hljs-type">GotText</span> (<span class="hljs-type">Result</span> <span class="hljs-type">Http</span>.<span class="hljs-type">Error</span> <span class="hljs-type">String</span>)
+
+<span class="hljs-comment">-- GotText (Ok &quot;The Project Gutenberg EBook of ...&quot;)</span>
+<span class="hljs-comment">-- GotText (Err Http.NetworkError)</span>
+<span class="hljs-comment">-- GotText (Err (Http.BadStatus 404))</span>
+</code></pre>
+<p>Remarquez que nous utilisons le type <code>Result</code> que nous avons déjà utilisé quelques sections auparavant. Cela nous permet de prendre en compte les éventuels échecs de notre fonction <code>update</code>. En parlant de fonctions <code>update</code>...</p>
+<blockquote>
+<p><strong>Note:</strong> Si vous vous demandez pourquoi <code>init</code> est une fonction (et pourquoi nous en ignorons l&apos;argument), nous en parlerons dans le prochain chapitre sur l&apos;interopérabilité JavaScript ! (Aperçu : l&apos;argument nous permet d&apos;obtenir des informations venant de JavaScript à l&apos;initialisation).</p>
+</blockquote>
+<h2 id="update"><code>update</code></h2>
+<p>Notre fonction <code>update</code> renvoie également un peu plus d&apos;informations :</p>
+<pre><code class="lang-elm"><span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">update</span> msg model =
+  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+    <span class="hljs-type">GotText</span> result -&gt;
+      <span class="hljs-keyword">case</span> result <span class="hljs-keyword">of</span>
+        <span class="hljs-type">Ok</span> fullText -&gt;
+          (<span class="hljs-type">Success</span> fullText, <span class="hljs-type">Cmd</span>.none)
+
+        <span class="hljs-type">Err</span> _ -&gt;
+          (<span class="hljs-type">Failure</span>, <span class="hljs-type">Cmd</span>.none)
+</code></pre>
+<p>En regardant la signature du type de la fonction, nous voyons que nous ne retournons pas seulement un modèle mis à jour. Nous produisons également une <strong>commande</strong> de ce que nous voulons qu&apos;Elm fasse.</p>
+<p>En ce qui concerne l&apos;implémentation, nous faisons du <em>pattern matching</em> sur les messages comme habituellement. Quand un message <code>GotText</code> arrive, nous inspectons le <code>Result</code> de notre requête HTTP et mettons à jour notre modèle selon qu&apos;il s&apos;agisse d&apos;un succès ou d&apos;un échec. La nouveauté est que nous fournissons également une commande.</p>
+<p>Ainsi, dans le cas où nous avons obtenu le texte complet avec succès, nous disons <code>Cmd.none</code> pour indiquer qu&apos;il n&apos;y a plus de travail à faire car nous avons déjà obtenu le texte complet !</p>
+<p>Et dans le cas où il y a une erreur, nous disons également <code>Cmd.none</code> et nous abandonnons. Le texte du livre n&apos;a pas été chargé. Si nous voulions être plus fantaisistes, nous pourrions faire un <em>pattern matching</em> sur le <a href="https://package.elm-lang.org/packages/elm/http/latest/Http#Error" target="_blank"><code>Http.Error</code></a> et réessayer la requête si nous obtenons un timeout ou autre.</p>
+<p>Ce qu&apos;il faut retenir, c&apos;est que quelle que soit la façon dont nous décidons de mettre à jour notre modèle, nous sommes également libres d&apos;émettre de nouvelles commandes. J&apos;ai besoin de plus de données ! Je veux un nombre aléatoire ! Etc.</p>
+<h2 id="subscription"><code>subscription</code></h2>
+<p>L&apos;autre nouveauté de ce programme est la fonction <code>subscription</code>. Elle vous permet de regarder le <code>Model</code> et de décider si vous voulez vous abonner à certaines informations. Dans notre exemple, nous disons <code>Sub.none</code> pour indiquer que nous n&apos;avons pas besoin de nous abonner à quoi que ce soit, mais nous verrons bientôt un exemple d&apos;horloge où nous voulons nous abonner à l&apos;heure actuelle !</p>
+<h2 id="résumé">Résumé</h2>
+<p>Lorsque nous créons un programme avec <code>Browser.element</code>, nous mettons en place un système comme celui-ci :</p>
+<p><img src="diagrams/element.svg" alt></p>
+<p>Nous avons la possibilité d&apos;émettre des <strong>commandes</strong> depuis <code>init</code> et <code>update</code>. Cela nous permet de faire des choses comme des requêtes HTTP lorsque le besoin s&apos;en fait sentir. Nous avons également la possibilité de nous <strong>abonner</strong> (<strong>subscribe</strong>) à des informations intéressantes. (Nous verrons un exemple d&apos;abonnement plus tard !)</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Commands and Subscriptions">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="json.html" class="navigation navigation-next " aria-label="Next page: JSON">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.6.1","depth":2,"next":{"title":"JSON","level":"1.6.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"previous":{"title":"Commands and Subscriptions","level":"1.6","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"HTTP","level":"1.6.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},{"title":"JSON","level":"1.6.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"Random","level":"1.6.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.6.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/http.md","mtime":"2022-03-25T16:21:13.437Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

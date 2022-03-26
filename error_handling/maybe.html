@@ -1,0 +1,950 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Maybe · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="result.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="maybe.html">
+            
+                <a href="maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="result.html">
+            
+                <a href="result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Maybe</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="maybe">Maybe</h1>
+<p>Plus vous travaillez avec Elm, plus vous verrez le type <a href="https://package.elm-lang.org/packages/elm-lang/core/latest/Maybe#Maybe" target="_blank"><code>Maybe</code></a> employé très fréquemment. Sa définition est celle-ci :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Maybe</span> a
+  = <span class="hljs-type">Just</span> a
+  | <span class="hljs-type">Nothing</span>
+
+<span class="hljs-comment">-- Just 3.14 : Maybe Float</span>
+<span class="hljs-comment">-- Just &quot;hi&quot; : Maybe String</span>
+<span class="hljs-comment">-- Just True : Maybe Bool</span>
+<span class="hljs-comment">-- Nothing   : Maybe a</span>
+</code></pre>
+<p>C&apos;est un type comportant deux variantes ; soit vous obtenez “juste” une valeur (<code>Just</code>), soit vous n&apos;en obtenez aucune (<code>Nothing</code>). Le type générique <code>a</code> vous permet d&apos;utiliser <code>Maybe Float</code> ou <code>Maybe String</code> en fonction du besoin.</p>
+<p>Cela peut s&apos;avérer très utile dans deux scénarios : les fonctions partielles et les champs optionnels.</p>
+<h2 id="fonctions-partielles">Fonctions partielles</h2>
+<p>Parfois vous avez besoin d&apos;une fonction qui renvoie un résultat pour certaines valeurs mais pas pour d&apos;autres. Beaucoup de gens rencontrent ce problèmes avec <a href="https://package.elm-lang.org/packages/elm-lang/core/latest/String#toFloat" target="_blank"><code>String.toFloat</code></a> en essayant de convertir une saisie utilisateur en nombre flottant. Regardons cela :</p>
+<p><div class="elm-repl show-types">
+[
+  {
+    &quot;input&quot;: &quot;String.toFloat&quot;,
+    &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+    &quot;type_&quot;: &quot;String -&gt; Maybe Float&quot;
+  },
+  {
+    &quot;input&quot;: &quot;String.toFloat \&quot;3.1415\&quot;&quot;,
+    &quot;value&quot;: &quot;\u001b[96mJust\u001b[0m \u001b[95m3.1415\u001b[0m&quot;,
+    &quot;type_&quot;: &quot;Maybe Float&quot;
+  },
+  {
+    &quot;input&quot;: &quot;String.toFloat \&quot;abc\&quot;&quot;,
+    &quot;value&quot;: &quot;\u001b[96mNothing\u001b[0m&quot;,
+    &quot;type_&quot;: &quot;Maybe Float&quot;
+  }
+]
+</div></p>
+<p>Essayez d&apos;appeler <code>String.toFloat</code> avec d&apos;autres chaînes de caractères pour voir ce qui se passe ⬆️</p>
+<p>Toutes les chaînes de caractères ne sont pas interpretables comme nombre, ce que modélise cette fonction explicitement. Est-ce que cette chaîne correspond à un nombre ? <em>Maybe!</em> (peut-être). Nous pouvons <em>pattern-matcher</em> la valeur résultante pour savoir si on a réussi cette conversion ou pas.</p>
+<blockquote>
+<p><strong>Exercice :</strong> Nous avons écrit un <a href="https://ellie-app.com/bJSMQz9tydqa1" target="_blank">petit programme</a> qui permet de convertir des températures exprimées en degrés Celsius vers Fahrenheit. Essayez de refactorer la vue (<code>view</code>) de différentes façons. Est-ce que vous arrivez à mettre une bordure rouge autour du champ de saisie lorsque la valeur qu&apos;il contient est invalide ? Pouvez-vous ajouter d&apos;autres conversions ? Fahrenheit en Celsius ? Pouces en Mètres ?</p>
+</blockquote>
+<h2 id="champs-optionnels">Champs optionnels</h2>
+<p>Une autre utilisation commune de <code>Maybe</code> est la gestion des champs optionnels dans les <em>records</em>.</p>
+<p>Par exemple, imaginons une application de réseau social. Connecter les utilisateurs, gérer leur amitié, … Vous connaissez la chanson. <em>The Onion</em>, journal satirique américain, a bien mis en lumière l&apos;un de nos vrais buts cachés dès 2011 : <a href="https://www.theonion.com/cias-facebook-program-dramatically-cut-agencys-costs-1819594988" target="_blank">récolter autant de données personnelles que possible pour la CIA</a> (article en anglais). Et si nous voulons <em>toutes</em> les données de nos utilisateurs, nous avons besoin de les inciter à les fournir graduellement, en ajoutant des fonctionnalités qui les encouragent à partager de plus en plus d&apos;informations personnelles au fil du temps.</p>
+<p>Commençons avec un modèle simple pour décrire nos utilisateurs ; ils doivent avoir un <em>nom</em>, mais on va rendre le champs <em>âge</em> optionnel.</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">User</span> =
+  { name : <span class="hljs-type">String</span>
+  , age : <span class="hljs-type">Maybe</span> <span class="hljs-type">Int</span>
+  }
+</code></pre>
+<p>Maintenant disons qu&apos;Alice crée un compte, mais décide de ne pas fournir son âge :</p>
+<pre><code class="lang-elm"><span class="hljs-title">alice</span> : <span class="hljs-type">User</span>
+<span class="hljs-title">alice</span> =
+  { name = <span class="hljs-string">&quot;Alice&quot;</span>, age = <span class="hljs-type">Nothing</span> }
+</code></pre>
+<p>Du coup, les amis d&apos;Alice ne peuvent pas lui souhaiter un bon anniversaire. On se demande s&apos;ils tiennent <em>vraiment</em> à elle… Peu après, Bernard crée à son tour un profil et <em>donne</em> son âge :</p>
+<pre><code class="lang-elm"><span class="hljs-title">bernard</span> : <span class="hljs-type">User</span>
+<span class="hljs-title">bernard</span> =
+  { name = <span class="hljs-string">&quot;Bernard&quot;</span>, age = <span class="hljs-type">Just</span> <span class="hljs-number">24</span> }
+</code></pre>
+<p>Parfait, ça sera vraiment cool le jour de son anniversaire. Mais plus important, Bernard fait désormais partie d&apos;une cohorte démographique très intéressante, pour le plus grand bonheur des annonceurs.</p>
+<p>Ok, maintenant que nous avons des utilisateurs, comment pouvons nous essayer de leur vendre de l&apos;alcool sans tomber sous le coup de la loi ? Les gens seraient probablement furieux si on essayait de viser les mineurs, donc assurons-nous de ne pas le faire :</p>
+<pre><code class="lang-elm"><span class="hljs-title">canBuyAlcohol</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">Bool</span>
+<span class="hljs-title">canBuyAlcohol</span> user =
+  <span class="hljs-keyword">case</span> user.age <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Nothing</span> -&gt;
+      <span class="hljs-type">False</span>
+
+    <span class="hljs-type">Just</span> age -&gt;
+      age &gt;= <span class="hljs-number">18</span>
+</code></pre>
+<p>Notez que le type <code>Maybe</code> nous force à pattern matcher l&apos;âge de l&apos;utilisateur. Il est actuellement impossible d&apos;écrire du code qui ne traiterait pas le cas d&apos;un utilisateur dont on ne connaît pas l&apos;âge. Elm le garantit ! Nous pouvons désormais vendre de l&apos;alcool sereinement, certains que nous ne le ferons pas à des mineurs directement. Juste aux majeurs.</p>
+<h2 id="éviter-la-surutilisation">Éviter la surutilisation</h2>
+<p>Ce type <code>Maybe</code> est vraiment pratique, mais il a des limites. Les débutants s&apos;enthousiasment facilement pour <code>Maybe</code> et commencent à en mettre partout, alors même qu&apos;un type personnalisé aurait plus de sens.</p>
+<p>Par exemple, imaginons une application de fitness dans laquelle on pourrait rivaliser avec nos amis. On commencerait par importer la liste de nos amis, mais on pourrait charger plus d&apos;informations de santé à leur propos plus tard. Vous pourriez être tenté de modéliser ça ainsi :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Friend</span> =
+  { name : <span class="hljs-type">String</span>
+  , age : <span class="hljs-type">Maybe</span> <span class="hljs-type">Int</span>
+  , height : <span class="hljs-type">Maybe</span> <span class="hljs-type">Float</span>
+  , weight : <span class="hljs-type">Maybe</span> <span class="hljs-type">Float</span>
+  }
+</code></pre>
+<p>Toutes les informations sont là, mais vous ne modélisez pas concrètement comment votre application fonctionne. Cela serait plus précis ainsi :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Friend</span>
+  = <span class="hljs-type">Less</span> <span class="hljs-type">String</span>
+  | <span class="hljs-type">More</span> <span class="hljs-type">String</span> <span class="hljs-type">Info</span>
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Info</span> =
+  { age : <span class="hljs-type">Int</span>
+  , height : <span class="hljs-type">Float</span>
+  , weight : <span class="hljs-type">Float</span>
+  }
+</code></pre>
+<p>Ce nouveau modèle explicite bien mieux la logique applicative sous-jacente.  Il n&apos;y a que deux situations possibles : soit vous avez juste le nom, soit vous avez le nom et tout un tas d&apos;autres informations associées. Dans le code de votre vue, vous ne vous préoccupez plus que de savoir si vous affichez la version <code>Less</code> ou <code>More</code> d&apos;un profil. Vous n&apos;avez plus à vous poser des questions du type “que se passe t-il si j&apos;ai un <code>age</code> mais pas de <code>weight</code> ?”, parce que c&apos;est n&apos;est plus possible avec notre type plus strict !</p>
+<p>Retenez simplement que si vous utilisez <code>Maybe</code> partout, ça peut valoir le coup d&apos;examiner vos définitions de <code>type</code> et <code>type alias</code> pour voir si vous ne pourriez pas trouver des représentations plus précises. Ça donne généralement de jolis refactors dans vos udpates et vues !</p>
+<blockquote>
+<h2 id="aparté--du-côté-de-chez-null">Aparté : du côté de chez <code>null</code></h2>
+<p>L&apos;inventeur des références nulles (<em><code>null</code> references</em> en anglais), Tony Hoare, les a décrites ainsi:</p>
+<blockquote>
+<p>Je l’appelle mon erreur à un milliard de dollars. En 1965, je concevais le premier système de typage complet pour un langage orienté objet et je n&apos;ai pas pu résister à ajouter la référence nulle, simplement parce que c&apos;était si facile à implémenter. Ceci a conduit à un nombre incalculable d&apos;erreurs, vulnérabilités, plantages système… qui ont probablement causé des dommages d&apos;un milliard de dollars dans les quarante dernières années.</p>
+</blockquote>
+<p>Cette conception rend les échecs <strong>implicites</strong>. À chaque fois que vous pensez avoir une <code>String</code>, vous pouvez tout aussi bien avoir un <code>null</code> à la place. Devriez-vous vérifier ? Est-ce que la personne qui vous a fournit cette valeur l&apos;a vérifiée ? Peut-être que ça se passera bien ? Tant pis, on verra plus tard !</p>
+<p>Elm évite ce problème complètement en n&apos;implémentant pas <code>null</code>. À la place, nous utilisons des types comme <code>Maybe</code> pour rendre les cas d&apos;erreur <strong>explicites</strong>. De cette façon, il n&apos;y a jamais de surprises : une <code>String</code> est toujours une <code>String</code>, et quand vous voyez un <code>Maybe String</code>, le compilateur s&apos;assure que les deux variantes — <code>Just str</code> et <code>Nothing</code> — sont traitées. De cette façon, vous conservez la même flexibilité qu&apos;en utilisant <code>null</code>, mais sans les plantages surprise.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Error Handling">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="result.html" class="navigation navigation-next " aria-label="Next page: Result">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Maybe","level":"1.5.1","depth":2,"next":{"title":"Result","level":"1.5.2","depth":2,"path":"error_handling/result.md","ref":"error_handling/result.md","articles":[]},"previous":{"title":"Error Handling","level":"1.5","depth":1,"path":"error_handling/README.md","ref":"error_handling/README.md","articles":[{"title":"Maybe","level":"1.5.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},{"title":"Result","level":"1.5.2","depth":2,"path":"error_handling/result.md","ref":"error_handling/result.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"error_handling/maybe.md","mtime":"2022-03-16T16:25:44.399Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

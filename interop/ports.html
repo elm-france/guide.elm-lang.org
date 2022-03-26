@@ -1,0 +1,1070 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Ports · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="custom_elements.html" />
+    
+    
+    <link rel="prev" href="flags.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="flags.html">
+            
+                <a href="flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.2" data-path="ports.html">
+            
+                <a href="ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="custom_elements.html">
+            
+                <a href="custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="limits.html">
+            
+                <a href="limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Ports</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ports">Ports</h1>
+<p>Les ports autorisent la communication entre Elm et JavaScript. Ils sont par exemple couramment utilisés pour gérer les <a href="https://github.com/elm-community/js-integration-examples/tree/master/websockets" target="_blank"><code>WebSockets</code></a> et <a href="https://github.com/elm-community/js-integration-examples/tree/master/localStorage" target="_blank"><code>localStorage</code></a>.</p>
+<p>Examinons plus particulièrement le cas des <code>WebSockets</code> :</p>
+<h2 id="les-ports-en-javascript">Les ports en JavaScript</h2>
+<p>Le code HTML ci-dessous, très similaire aux exemples précédents, s&apos;est vu ajouté un peu de JavaScript. Nous initialisons une connexion à <code>wss://echo.websocket.org</code> qui répondra systématiquement la même chose que ce que nous lui envoyons (très pratique pour tester ou déboguer son code !). Si vous lancez la <a href="https://ellie-app.com/8yYgw7y7sM2a1" target="_blank">démo interactive</a>, vous constaterez que nous ne sommes pas très loin d&apos;obtenir le socle minimal d&apos;un salon de discussion en ligne :</p>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">HTML</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Elm + Websockets<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;elm.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myapp&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
+
+<span class="hljs-comment">// Démarrer l&apos;application</span>
+<span class="hljs-keyword">var</span> app = Elm.Main.init({
+    <span class="hljs-attr">node</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;myapp&apos;</span>)
+});
+
+<span class="hljs-comment">// Créer la WebSocket.</span>
+<span class="hljs-keyword">var</span> socket = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">&apos;wss://echo.websocket.org&apos;</span>);
+
+<span class="hljs-comment">// Quand une commande déclenche le port `sendMessage`, nous envoyons le message</span>
+<span class="hljs-comment">// au travers de la WebSocket.</span>
+app.ports.sendMessage.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    socket.send(message);
+});
+
+<span class="hljs-comment">// Quand un message arrive sur notre WebSocket, nous le passons au port de réception.</span>
+socket.addEventListener(<span class="hljs-string">&quot;message&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+    app.ports.messageReceiver.send(event.data);
+});
+
+<span class="hljs-comment">// Si vous souhaitez utiliser une librairie JavaScript pour gérer votre connexion</span>
+<span class="hljs-comment">// à la WebSocket, remplacez le code JavaScript par votre propre implémentation.</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>Comme dans les autres exemples de ce chapitre, nous invoquons <code>Elm.Main.init()</code>, cependant nous exploitons désormais l&apos;objet contenu dans la variable <code>app</code>:</p>
+<ul>
+<li>Nous envoyons des messages par le biais du port <code>sendMessage</code> ;</li>
+<li>Nous recevons les nouveaux messages entrants grâce au port <code>messageReceiver</code>.</li>
+</ul>
+<p>Ces ports sont, vous vous en doutez, implémentés en Elm.</p>
+<h2 id="les-ports-côté-elm">Les ports, côté Elm</h2>
+<p>Portons notre attention sur les lignes qui utilisent le mot-clé <code>port</code> dans le module ci-dessous : c&apos;est de cette façon que nous déclarons les ports que nous venons de mettre en œuvre en JavaScript.</p>
+<pre><code class="lang-elm">port module Main exposing (..)
+
+import Browser
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events exposing (..)
+import Json.Decode as D
+
+
+
+-- MAIN
+
+
+main : Program () Model Msg
+main =
+  Browser.element
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
+
+
+
+
+-- PORTS
+
+
+port sendMessage : String -&gt; Cmd msg
+port messageReceiver : (String -&gt; msg) -&gt; Sub msg
+
+
+
+-- MODEL
+
+
+type alias Model =
+  { draft : String
+  , messages : List String
+  }
+
+
+init : () -&gt; ( Model, Cmd Msg )
+init flags =
+  ( { draft = &quot;&quot;, messages = [] }
+  , Cmd.none
+  )
+
+
+
+-- UPDATE
+
+
+type Msg
+  = DraftChanged String
+  | Send
+  | Recv String
+
+
+-- Le port `sendMessage` est invoqué quand les utilisateurs appuient sur
+-- la touche Entrée ou cliquent le bouton &quot;Send&quot; (Envoyer)
+-- Inspectez le fichier index.html pour voir comment JavaScript envoie
+-- les données sur la WebSocket.
+--
+update : Msg -&gt; Model -&gt; ( Model, Cmd Msg )
+update msg model =
+  case msg of
+    DraftChanged draft -&gt;
+      ( { model | draft = draft }
+      , Cmd.none
+      )
+
+    Send -&gt;
+      ( { model | draft = &quot;&quot; }
+      , sendMessage model.draft
+      )
+
+    Recv message -&gt;
+      ( { model | messages = model.messages ++ [message] }
+      , Cmd.none
+      )
+
+
+
+-- SUBSCRIPTIONS
+
+
+-- Ici on souscrit au port `messageReceiver` pour écouter les messages entrants
+-- envoyés depuis JavaScript. Inspectez le fichier index.html pour voir comment
+-- c&apos;est câblé en JavaScript.
+--
+subscriptions : Model -&gt; Sub Msg
+subscriptions _ =
+  messageReceiver Recv
+
+
+
+-- VIEW
+
+
+view : Model -&gt; Html Msg
+view model =
+  div []
+    [ h1 [] [ text &quot;Echo Chat&quot; ]
+    , ul []
+        (List.map (\msg -&gt; li [] [ text msg ]) model.messages)
+    , input
+        [ type_ &quot;text&quot;
+        , placeholder &quot;Draft&quot;
+        , onInput DraftChanged
+        , on &quot;keydown&quot; (ifIsEnter Send)
+        , value model.draft
+        ]
+        []
+    , button [ onClick Send ] [ text &quot;Send&quot; ]
+    ]
+
+
+
+-- DETECT ENTER
+
+
+ifIsEnter : msg -&gt; D.Decoder msg
+ifIsEnter msg =
+  D.field &quot;key&quot; D.string
+    |&gt; D.andThen (\key -&gt; if key == &quot;Enter&quot; then D.succeed msg else D.fail &quot;some other key&quot;)
+</code></pre>
+<p>Notez la déclaration <code>port module</code> au lieu de <code>module</code> sur la première ligne, qui autorise la définition de ports dans le module.</p>
+<p>Examinons plus précisément l&apos;implémentation Elm des ports <code>sendMessage</code> and <code>messageReceiver</code>.</p>
+<h2 id="messages-sortants-cmd">Messages sortants (<code>Cmd</code>)</h2>
+<p>Le port <code>sendMessage</code> permet d&apos;envoyer des messages au-delà de notre conteneur applicatif Elm, typiquement à l&apos;environnement JavaScript de la page HTML qui l&apos;accueille.</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">port</span> sendMessage : String -&gt; Cmd msg
+</code></pre>
+<p>Ici nous envoyons des valeurs de type <code>String</code>, mais nous pourrions tout aussi bien envoyer n&apos;importe quel autre type compatible avec les <em>flags</em>. Nous avons déjà évoqué ces types précédemment, mais vous pouvez également inspecter cet <a href="https://ellie-app.com/8yYddD6HRYJa1" target="_blank">exemple de mise en œuvre de <code>localStorage</code></a> pour voir comment envoyer une valeur de type <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Encode#Value" target="_blank"><code>Json.Encode.Value</code></a> à JavaScript.</p>
+<p>Nous pouvons appeler <code>sendMessage</code> comme n&apos;importe quelle autre fonction. Si votre fonction <code>update</code> retourne une commande <code>sendMessage &quot;bonjour&quot;</code>, elle sera reçue du côté de JavaScript :</p>
+<pre><code class="lang-javascript">app.ports.sendMessage.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(message); <span class="hljs-comment">// &quot;bonjour&quot;</span>
+    socket.send(message);
+});
+</code></pre>
+<p>Ce code JavaScript souscrit à tous les messages sortants et les envoie sur la socket. Les méthodes <code>subscribe</code> et <code>unsubscribe</code> vous permettent de souscrire à de multiples fonctions et de résilier la souscription à une fonction par référence, mais une approche simple et statique suffira la majeur partie du temps.</p>
+<p>Nous vous recommandons également d&apos;envoyer des messages sortants <em>riches</em> plutôt que d&apos;implémenter de multiples ports individuels. Cela peut impliquer de définir un type spécifique permettant de modéliser l&apos;ensemble des informations que vous souhaitez transmettre à JavaScript, en utilisant <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Encode" target="_blank"><code>Json.Encode</code></a> pour le sérialiser et l&apos;envoyer à une souscription unique côté JS. De nombreux utilisateurs apprécient la meilleure <a href="https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pr%C3%A9occupations" target="_blank">séparation des responsabilités</a> que cette approche procure.</p>
+<h2 id="messages-entrants-sub">Messages entrants (<code>Sub</code>)</h2>
+<p>Le port <code>messageReceiver</code> nous permet d&apos;écouter l&apos;arrivée de nouveaux messages entrants.</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">port</span> messageReceiver : (<span class="hljs-type">String</span> -&gt; msg) -&gt; Sub msg
+</code></pre>
+<p>Ici nous recevons des valeurs de type <code>String</code>, mais comme dans le cas des messages sortants, nous pourrions décider de recevoir des messages de tout autre type compatible pouvant être importés via les <em>flags</em> ou les messages sortants.</p>
+<p>Comme pour les messages sortants, nous pouvons invoquer <code>messageReceiver</code> comme n&apos;importe quelle autre fonction. Ici, nous appelons <code>messageReceiver Recv</code> au moment de définir nos souscriptions pour intercepter tous les messages entrants provenant de JavaScript, nous permettant de recevoir des messages comme <code>Recv &quot;comment ça va ?&quot;</code> dans notre fonction <code>update</code>.</p>
+<p>Côté JavaScript, nous sommes capables d&apos;envoyer des données à ce port à n&apos;importe quel moment :</p>
+<pre><code class="lang-javascript">socket.addEventListener(<span class="hljs-string">&quot;message&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(event.data); <span class="hljs-comment">// &quot;comment ça va ?&quot;</span>
+    app.ports.messageReceiver.send(event.data);
+});
+</code></pre>
+<p>Dans cet exemple, nous envoyons à Elm des données à chaque fois que la WebSocket en reçoit… Mais nous pourrions tout à fait décider d&apos;en envoyer pour d&apos;autres raisons, à d&apos;autres moments. Par exemple, si nous recevons des messages d&apos;une autre source de données, il suffit d&apos;appeler le port en lui passant ces données en argument !</p>
+<h2 id="notes">Notes</h2>
+<p><strong>Les ports ont pour but de créer des frontières fortes !</strong> N&apos;essayez surtout pas de créer autant de ports que de fonctions JavaScript dont vous avez besoin. Même si vous adorez Elm et souhaitez tout implémenter en Elm quel qu&apos;en soit le coût, les ports ne sont pas faits pour ça. Questionnez plutôt à quel domaine revient la gestion d&apos;état, et utilisez un ou deux ports pour dialoguer avec lui si besoin. Face à un scénario complexe, vous pouvez simuler des valeurs de type <code>Msg</code> en envoyant des données JavaScript comme <code>{ tag: &quot;active-users-changed&quot;, list: ... }</code>, pour lesquelles vous disposeriez d&apos;un tag pour chaque variante d&apos;informations susceptible d&apos;être envoyée.</p>
+<p>Voici quelques conseils simples et pièges courants à éviter :</p>
+<ul>
+<li><p><strong>Il est recommandé d&apos;envoyer des valeurs de type <code>Json.Encode.Value</code> aux ports.</strong> Comme pour les <em>flags</em>, <a href="flags.html#verifying-flags">certains types de base</a> peuvent passer à travers les ports. Cela date du temps où les décodeurs JSON n&apos;existaient pas encore.</p>
+</li>
+<li><p><strong>Tous les ports doivent être déclarés dans un <code>port module</code>.</strong> Il est par ailleurs préférable de déclarer tous vos ports dans un module unique afin d&apos;accéder simplement à l&apos;intégralité de son interface.</p>
+</li>
+<li><p><strong>Les ports sont destinés aux applications.</strong> Il n&apos;est possible d&apos;exposer un module de ports que dans une application, pas dans un package. De cette façon, les auteurs d&apos;applications bénéficient d&apos;une souplesse totale, mais les packages restent intégralement écrits en Elm. Nous pensons que c&apos;est ce qui permet de garantir la meilleure fiabilité de l&apos;écosystème sur le long terme, et nous développons nos arguments en ce sens <a href="limits.html">dans la section suivante</a>.</p>
+</li>
+<li><p><strong>Les ports non exploités peuvent être supprimés.</strong> Elm dispose d&apos;une <a href="https://fr.wikipedia.org/wiki/R%C3%A9usinage_de_code#Suppression_du_code_mort" target="_blank">stratégie d&apos;elimination de code mort</a> agressive qui supprimera les ports qui ne sont jamais invoqués par le code Elm. Le compilateur ne sait jamais ce qui se passe en JavaScript, donc commencez toujours par développer vos ports en Elm avant de les exploiter en JavaScript.</p>
+</li>
+</ul>
+<p>Nous espérons que ces informations vous aideront à introduire Elm dans votre existant JavaScript ! Ce n&apos;est certes pas aussi enthousiasmant que de tout réécrire en Elm <em>from scratch</em>, mais l&apos;histoire nous a montré que c&apos;est une approche souvent plus efficace.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="flags.html" class="navigation navigation-prev " aria-label="Previous page: Flags">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="custom_elements.html" class="navigation navigation-next " aria-label="Next page: Custom Elements">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Ports","level":"1.8.2","depth":2,"next":{"title":"Custom Elements","level":"1.8.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},"previous":{"title":"Flags","level":"1.8.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"interop/ports.md","mtime":"2022-03-11T14:27:57.294Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

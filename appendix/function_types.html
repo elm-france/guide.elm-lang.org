@@ -1,0 +1,937 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Function Types · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="types_as_bits.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="types_as_sets.html">
+            
+                <a href="types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="types_as_bits.html">
+            
+                <a href="types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12.3" data-path="function_types.html">
+            
+                <a href="function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Function Types</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="types-de-fonctions">Types de fonctions</h1>
+<p>Lorsque vous parcourez des paquets tels que <a href="https://package.elm-lang.org/packages/elm/core/latest/" target="_blank"><code>elm/core</code></a> et <a href="https://package.elm-lang.org/packages/elm/html/latest/" target="_blank"><code>elm/html</code></a>, vous verrez certainement des fonctions avec plusieurs flèches. Par exemple :</p>
+<pre><code class="lang-elm"><span class="hljs-type">String</span>.repeat : <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-type">String</span>.join : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">List</span> <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
+</code></pre>
+<p>Pourquoi tant de flèches ? Qu&apos;est-ce qui se passe ici ?!</p>
+<h2 id="les-parenthèses-cachées">Les parenthèses cachées</h2>
+<p>Cela devient plus clair lorsque vous voyez toutes les parenthèses. Par exemple, il est également valide d&apos;écrire le type de <code>String.repeat</code> comme ceci :</p>
+<pre><code class="lang-elm"><span class="hljs-type">String</span>.repeat : <span class="hljs-type">Int</span> -&gt; (<span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>)
+</code></pre>
+<p>C&apos;est une fonction qui prend un <code>Int</code> et produit ensuite <em>une autre</em> fonction. Voyons cela en action :</p>
+<p><div class="elm-repl show-types">
+[
+    {
+        &quot;input&quot;: &quot;String.repeat&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;Int -&gt; String -&gt; String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;String.repeat 4&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String -&gt; String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;String.repeat 4 \&quot;ha\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;hahahaha\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;String.join&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String -&gt; List String -&gt; String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;String.join \&quot;|\&quot;&quot;,
+        &quot;value&quot;: &quot;\u001b[36m&lt;function&gt;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;List String -&gt; String&quot;
+    },
+    {
+        &quot;input&quot;: &quot;String.join \&quot;|\&quot; [\&quot;red\&quot;,\&quot;yellow\&quot;,\&quot;green\&quot;]&quot;,
+        &quot;value&quot;: &quot;\u001b[93m\&quot;red|yellow|green\&quot;\u001b[0m&quot;,
+        &quot;type_&quot;: &quot;String&quot;
+    }
+]
+</div></p>
+<p>Donc, conceptuellement, <strong>chaque fonction accepte un seul argument.</strong> Elle peut renvoyer une autre fonction qui accepte un argument. Etc. À un moment donné, elle cessera de renvoyer des fonctions.</p>
+<p>Nous <em>pourrions</em> toujours mettre les parenthèses pour indiquer que c&apos;est ce qui se passe réellement, mais cela commence à devenir assez lourd lorsque vous avez plusieurs arguments. C&apos;est la même logique que derrière l&apos;écriture <code>4 * 2 + 5 * 3</code> au lieu de <code>(4 * 2) + (5 * 3)</code>. Cela signifie qu&apos;il y a un peu plus à apprendre, mais c&apos;est tellement courant que cela en vaut la peine.</p>
+<p>D&apos;accord, mais à quoi sert cette fonctionnalité à la base ? Pourquoi ne pas faire <code>(Int, String) -&gt; String</code> et donner tous les arguments en même temps ?</p>
+<h2 id="application-partielle">Application partielle</h2>
+<p>C&apos;est assez courant d&apos;utiliser la fonction <code>List.map</code> dans les programmes Elm :</p>
+<pre><code class="lang-elm"><span class="hljs-type">List</span>.map : (a -&gt; b) -&gt; <span class="hljs-type">List</span> a -&gt; <span class="hljs-type">List</span> b
+</code></pre>
+<p>Elle prend deux arguments : une fonction et une liste. À partir de là, elle transforme chaque élément de la liste avec cette fonction. Voici quelques exemples :</p>
+<ul>
+<li><code>List.map String.reverse [&quot;part&quot;,&quot;are&quot;] == [&quot;trap&quot;,&quot;era&quot;]</code></li>
+<li><code>List.map String.length [&quot;part&quot;,&quot;are&quot;] == [4,3]</code></li>
+</ul>
+<p>Maintenant, rappelez-vous comment <code>String.repeat 4</code> avait juste le type <code>String -&gt; String</code> ? Eh bien, cela signifie que nous pouvons écrire :</p>
+<ul>
+<li><code>List.map (String.repeat 2) [&quot;ha&quot;,&quot;choo&quot;] == [&quot;haha&quot;,&quot;choochoo&quot;]</code></li>
+</ul>
+<p>L&apos;expression <code>(String.repeat 2)</code> est une fonction <code>String -&gt; String</code>, donc on peut l&apos;utiliser directement. Nul besoin d&apos;écrire <code>(\str -&gt; String.repeat 2 str)</code>.</p>
+<p>Elm utilise également la convention selon laquelle <strong>la structure des données est toujours le dernier argument</strong> dans l&apos;écosystème. Cela signifie que les fonctions sont généralement conçues avec cette utilisation possible à l&apos;esprit, ce qui en fait une technique assez courante.</p>
+<p>Maintenant, il est important de se rappeler que <strong>cela peut être surutilisé !</strong> C&apos;est parfois pratique et clair, mais je trouve qu&apos;il vaut mieux l&apos;utiliser avec modération. Je recommande donc de toujours extraire les fonctions utilitaires au top-level lorsque les choses deviennent même <em>un peu</em> compliquées. De cette façon, elle a un nom clair, les arguments sont nommés et il est facile de tester cette nouvelle fonction utilitaire. Dans notre exemple, cela signifie créer :</p>
+<pre><code class="lang-elm"><span class="hljs-comment">-- List.map redoublement [&quot;ha&quot;,&quot;choo&quot;]</span>
+
+<span class="hljs-title">redoublement</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">redoublement</span> string =
+  <span class="hljs-type">String</span>.repeat <span class="hljs-number">2</span> string
+</code></pre>
+<p>Ce cas est vraiment simple, mais (1) il est maintenant plus clair que je m&apos;intéresse au phénomène linguistique connu sous le nom de <a href="https://fr.wikipedia.org/wiki/Redoublement_(linguistique" target="_blank">redoublement</a>) et (2) ce sera assez facile d&apos;ajouter une nouvelle logique à <code>redoublement</code> au fur et à mesure que mon programme évolue. Peut-être qu&apos;il me faudra un <a href="https://fr.wikipedia.org/wiki/Redoublement_(linguistique" target="_blank">redoublement expressif</a>#Redoublement_expressif) à un moment donné ?</p>
+<p>En d&apos;autres termes, <strong>si votre application partielle devient longue, faites-en une fonction utilitaire.</strong> Et si elle est multiligne, elle devrait <em>absolument</em> être transformée en une fonction utilitaire au top-level ! Ce conseil s&apos;applique également à l&apos;utilisation des fonctions anonymes.</p>
+<blockquote>
+<p><strong>Remarque :</strong> Si vous vous retrouvez avec &quot;trop de&quot; fonctions lorsque vous utilisez ce conseil, je vous conseille d&apos;utiliser des commentaires tels que &quot;-- REDOUBLEMENT&quot; pour donner un aperçu des cinq ou dix fonctions suivantes. Comme à la vieille école! Je l&apos;ai montré avec les commentaires <code>-- UPDATE</code> et <code>-- VIEW</code> dans les exemples précédents, mais c&apos;est une technique générique que j&apos;utilise dans tout mon code. Et si vous craignez que les fichiers ne deviennent trop longs avec ce conseil, je vous recommande de regarder <a href="https://youtu.be/XpDsk374LDE" target="_blank">La vie d&apos;un fichier](https://youtu.be/XpDsk374LDE) (en anglais) !of a File</a>!</p>
+</blockquote>
+<h2 id="pipelines">Pipelines</h2>
+<p>Elm a également un <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics#|&gt;" target="_blank">opérateur pipe</a> qui repose sur une application partielle. Par exemple, supposons que nous ayons une fonction <code>assainir</code> pour transformer la saisie de l&apos;utilisateur en nombres entiers :</p>
+<pre><code class="lang-elm"><span class="hljs-comment">-- AVANT</span>
+<span class="hljs-title">assainir</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Maybe</span> <span class="hljs-type">Int</span>
+<span class="hljs-title">assainir</span> input =
+  <span class="hljs-type">String</span>.toInt (<span class="hljs-type">String</span>.trim input)
+</code></pre>
+<p>On peut la réécrire de la sorte :</p>
+<pre><code class="lang-elm"><span class="hljs-comment">-- APRÈS</span>
+<span class="hljs-title">assainir</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Maybe</span> <span class="hljs-type">Int</span>
+<span class="hljs-title">assainir</span> input =
+  input
+    |&gt; <span class="hljs-type">String</span>.trim
+    |&gt; <span class="hljs-type">String</span>.toInt
+</code></pre>
+<p>Ainsi, dans ce &quot;pipeline&quot;, nous transmettons la saisie à <code>String.trim</code>, puis celle-ci est transmise à <code>String.toInt</code>.</p>
+<p>C&apos;est bien car cela permet une lecture &quot;de gauche à droite&quot; que beaucoup de gens aiment, mais <strong>les pipelines peuvent être surutilisés !</strong> Lorsque vous avez trois ou quatre étapes, le code devient souvent plus clair si vous extrayez une fonction utilitaire au top-level. De cette sorte, la transformation a un nom. Les arguments sont nommés. Elle a une annotation de type. C&apos;est beaucoup plus auto-documenté de cette façon, et vos coéquipiers et votre futur vous l&apos;apprécieront ! Tester la logique devient également plus facile.</p>
+<blockquote>
+<p><strong>Remarque :</strong> Personnellement, je préfère le <code>AVANT</code>, mais c&apos;est peut-être simplement parce que j&apos;ai appris la programmation fonctionnelle avec des langages sans pipelines !</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="types_as_bits.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Types as Bits">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Function Types","level":"1.12.3","depth":2,"previous":{"title":"Types as Bits","level":"1.12.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/function_types.md","mtime":"2022-03-25T16:21:13.435Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

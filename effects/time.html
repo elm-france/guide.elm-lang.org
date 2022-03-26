@@ -1,0 +1,988 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Time · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../install/" />
+    
+    
+    <link rel="prev" href="random.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="http.html">
+            
+                <a href="http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="json.html">
+            
+                <a href="json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="random.html">
+            
+                <a href="random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.4" data-path="time.html">
+            
+                <a href="time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Time</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="temps">Temps</h1>
+<p>Nous allons maintenant fabriquer une horloge numérique. (L&apos;analogique sera un exercice !)</p>
+<p>Jusqu&apos;à présent, nous nous sommes concentrés sur les commandes. Avec les exemples HTTP et les exemples de génération de nombres aléatoires, nous avons demandé à Elm de faire un travail spécifique immédiatement, mais c&apos;est une sorte de modèle bizarre pour une horloge. Nous voulons <em>toujours</em> connaître l&apos;heure actuelle. C&apos;est là que les <strong>abonnements</strong> (<em>subscriptions</em>) entrent en jeu !</p>
+<p>Commencez par cliquer sur le bouton bleu &quot;Edit&quot; et regardez un peu le code dans l&apos;éditeur en ligne.</p>
+<div class="edit-link"><a href="https://elm-lang.org/examples/time" target="_blank">Edit</a></div>
+
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
+<span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
+<span class="hljs-keyword">import</span> Task
+<span class="hljs-keyword">import</span> Time
+
+
+
+<span class="hljs-comment">-- MAIN</span>
+
+
+<span class="hljs-title">main</span> =
+  <span class="hljs-type">Browser</span>.element
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
+
+
+
+<span class="hljs-comment">-- MODEL</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
+  { zone : <span class="hljs-type">Time</span>.<span class="hljs-type">Zone</span>
+  , time : <span class="hljs-type">Time</span>.<span class="hljs-type">Posix</span>
+  }
+
+
+<span class="hljs-title">init</span> : () -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">init</span> _ =
+  ( <span class="hljs-type">Model</span> <span class="hljs-type">Time</span>.utc (<span class="hljs-type">Time</span>.millisToPosix <span class="hljs-number">0</span>)
+  , <span class="hljs-type">Task</span>.perform <span class="hljs-type">AdjustTimeZone</span> <span class="hljs-type">Time</span>.here
+  )
+
+
+
+<span class="hljs-comment">-- UPDATE</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
+  = <span class="hljs-type">Tick</span> <span class="hljs-type">Time</span>.<span class="hljs-type">Posix</span>
+  | <span class="hljs-type">AdjustTimeZone</span> <span class="hljs-type">Time</span>.<span class="hljs-type">Zone</span>
+
+
+
+<span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
+<span class="hljs-title">update</span> msg model =
+  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Tick</span> newTime -&gt;
+      ( { model | time = newTime }
+      , <span class="hljs-type">Cmd</span>.none
+      )
+
+    <span class="hljs-type">AdjustTimeZone</span> newZone -&gt;
+      ( { model | zone = newZone }
+      , <span class="hljs-type">Cmd</span>.none
+      )
+
+
+
+<span class="hljs-comment">-- SUBSCRIPTIONS</span>
+
+
+<span class="hljs-title">subscriptions</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Sub</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">subscriptions</span> model =
+  <span class="hljs-type">Time</span>.every <span class="hljs-number">1000</span> <span class="hljs-type">Tick</span>
+
+
+
+<span class="hljs-comment">-- VIEW</span>
+
+
+<span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">view</span> model =
+  <span class="hljs-keyword">let</span>
+    hour   = <span class="hljs-type">String</span>.fromInt (<span class="hljs-type">Time</span>.toHour   model.zone model.time)
+    minute = <span class="hljs-type">String</span>.fromInt (<span class="hljs-type">Time</span>.toMinute model.zone model.time)
+    second = <span class="hljs-type">String</span>.fromInt (<span class="hljs-type">Time</span>.toSecond model.zone model.time)
+  <span class="hljs-keyword">in</span>
+  h1 [] [ text (hour ++ <span class="hljs-string">&quot;:&quot;</span> ++ minute ++ <span class="hljs-string">&quot;:&quot;</span> ++ second) ]
+</code></pre>
+<p>Les nouveaux éléments proviennent tous du paquet <a href="https://package.elm-lang.org/packages/elm/time/latest/" target="_blank"><code>elm/time</code></a>. Passons en revue ces éléments !</p>
+<h2 id="timeposix-et-timezone"><code>Time.Posix</code> et <code>Time.Zone</code></h2>
+<p>Pour bien travailler avec le temps en programmation, nous avons besoin de trois concepts différents :</p>
+<ul>
+<li><strong>Le temps humain</strong> — C&apos;est ce que vous voyez sur les horloges (8h du matin) ou sur les calendriers (3 mai). Super ! Mais si mon appel téléphonique est à 8 heures du matin à Boston, quelle heure est-il pour mon ami à Vancouver ? S&apos;il est à 8 heures à Tokyo, est-ce que c&apos;est le même jour à New York ? (Non !) Donc, entre les <a href="https://fr.wikipedia.org/wiki/Fuseau_horaire" target="_blank">fuseaux horaires</a> basés sur des frontières politiques en constante évolution et l&apos;utilisation incohérente de l&apos;<a href="https://fr.wikipedia.org/wiki/Heure_d%27%C3%A9t%C3%A9" target="_blank">heure d&apos;été</a>, le temps humain ne devrait jamais être stocké dans votre <code>Model</code> ou votre base de données ! Il ne sert qu&apos;à l&apos;affichage !</li>
+</ul>
+<ul>
+<li><strong>Le temps POSIX</strong> — Avec le temps POSIX, l&apos;endroit où vous vivez ou la période de l&apos;année n&apos;ont pas d&apos;importance. Il s&apos;agit simplement du nombre de secondes écoulées depuis un moment arbitraire (en 1970). Où que vous alliez sur Terre, le temps POSIX est le même.</li>
+</ul>
+<ul>
+<li><strong>Fuseaux horaires</strong> — Un fuseau horaire (<em>time zone</em>) est un ensemble de données qui vous permet de transformer le temps POSIX en temps humain. Ce n&apos;est <em>pas</em> juste <code>UTC-7</code> ou <code>UTC+3</code> cependant ! Les fuseaux horaires sont bien plus compliqués qu&apos;un simple décalage ! Chaque fois que [la Floride passe en heure d&apos;été pour toujours][floride] ou que <a href="https://en.wikipedia.org/wiki/Time_in_Samoa" target="_blank">les Samoa passent de UTC-11 à UTC+13</a>, une pauvre âme ajoute une note à la <a href="https://fr.wikipedia.org/wiki/Tz_database" target="_blank">base de données des fuseaux horaires de l&apos;IANA</a>. Cette base de données est chargée sur chaque ordinateur, et entre l&apos;heure POSIX et tous les cas particuliers de la base de données, il devient possible de calculer l&apos;heure humaine !</li>
+</ul>
+<p>Donc pour montrer une heure à un être humain, vous devez toujours connaître <code>Time.Posix</code> et <code>Time.Zone</code>. Et c&apos;est tout ! Donc, tous ces trucs de &quot;temps humain&quot; sont pour la fonction <code>view</code>, pas pour le <code>Model</code>. En fait, vous pouvez le voir dans notre <code>view</code> :</p>
+<pre><code class="lang-elm"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">view</span> model =
+  <span class="hljs-keyword">let</span>
+    hour   = <span class="hljs-type">String</span>.fromInt (<span class="hljs-type">Time</span>.toHour   model.zone model.time)
+    minute = <span class="hljs-type">String</span>.fromInt (<span class="hljs-type">Time</span>.toMinute model.zone model.time)
+    second = <span class="hljs-type">String</span>.fromInt (<span class="hljs-type">Time</span>.toSecond model.zone model.time)
+  <span class="hljs-keyword">in</span>
+  h1 [] [ text (hour ++ <span class="hljs-string">&quot;:&quot;</span> ++ minute ++ <span class="hljs-string">&quot;:&quot;</span> ++ second) ]
+</code></pre>
+<p>La fonction <a href="https://package.elm-lang.org/packages/elm/time/latest/Time#toHour" target="_blank"><code>Time.toHour</code></a> prend <code>Time.Zone</code> et <code>Time.Posix</code> et nous renvoie un <code>Int</code> de <code>0</code> à <code>23</code> indiquant l&apos;heure qu&apos;il est dans <em>votre</em> fuseau horaire.</p>
+<p>Il y a beaucoup plus d&apos;informations sur la gestion des temps dans le README de <a href="https://package.elm-lang.org/packages/elm/time/latest/" target="_blank"><code>elm/time</code></a>. Lisez-le absolument avant d&apos;en faire plus avec la gestion du temps ! Surtout si vous travaillez avec des planifications, des calendriers, etc.</p>
+<h2 id="subscriptions"><code>subscriptions</code></h2>
+<p>Ok, mais comment obtenir notre <code>Time.Posix</code> ? Avec une <strong>souscription</strong> !</p>
+<pre><code class="lang-elm"><span class="hljs-title">subscriptions</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Sub</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">subscriptions</span> model =
+  <span class="hljs-type">Time</span>.every <span class="hljs-number">1000</span> <span class="hljs-type">Tick</span>
+</code></pre>
+<p>Nous utilisons la fonction <a href="https://package.elm-lang.org/packages/elm/time/latest/Time#every" target="_blank"><code>Time.every</code></a> :</p>
+<pre><code class="lang-elm"><span class="hljs-title">every</span> : <span class="hljs-type">Float</span> -&gt; (<span class="hljs-type">Time</span>.<span class="hljs-type">Posix</span> -&gt; msg) -&gt; <span class="hljs-type">Sub</span> msg
+</code></pre>
+<p>Elle prend deux arguments :</p>
+<ol>
+<li>Un interval de temps en millisecondes. Nous spécifions <code>1000</code> qui signifie chaque seconde. Mais nous pourrions aussi spécifier <code>60 * 1000</code> pour chaque minute ou <code>5 * 60 * 1000</code> pour chaque cinq minutes.</li>
+<li>Un fonction qui transforme le temps actuel en <code>Msg</code>. Ainsi, chaque seconde, le temps actuel va être transformé en un <code>Tick &lt;time&gt;</code> pour notre fonction <code>update</code>.</li>
+</ol>
+<p>C&apos;est le fonctionnement de base de n&apos;importe quelle souscription. Vous donnez une configuration et vous décrivez comment produite des valeurs de type <code>Msg</code>. Pas si mal !</p>
+<h2 id="taskperform"><code>Task.perform</code></h2>
+<p>Obtenir <code>Time.Zone</code> est un peu plus compliqué. Notre programme a créé une <strong>commande</strong> avec :</p>
+<pre><code class="lang-elm"><span class="hljs-type">Task</span>.perform <span class="hljs-type">AdjustTimeZone</span> <span class="hljs-type">Time</span>.here
+</code></pre>
+<p>Parcourir la documentation de <a href="https://package.elm-lang.org/packages/elm/core/latest/Task" target="_blank"><code>Task</code></a> est la meilleure façon de comprendre cette ligne. Les documentations sont écrites pour expliquer les nouveaux concepts, et je pense que ce serait une trop grande digression que d&apos;inclure une moindre version de cette information ici. L&apos;idée est simplement que nous commandons au runtime de nous donner le <code>Time.Zone</code> où que le code soit exécuté.</p>
+<blockquote>
+<p><strong>Exercices:</strong></p>
+<ul>
+<li>Ajouter un bouton pour mettre l&apos;horloge en pause, en désactivant l&apos;abonnement <code>Time.every</code>.</li>
+<li>Rendre l&apos;horloge numérique plus jolie. Peut-être ajouter quelques attributs <a href="https://package.elm-lang.org/packages/elm/html/latest/Html-Attributes#style" target="_blank"><code>style</code></a>.</li>
+<li>Utilisez <a href="https://package.elm-lang.org/packages/elm/svg/latest/" target="_blank"><code>elm/svg</code></a> pour créer une horloge analogique avec une trotteuse rouge !</li>
+</ul>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="random.html" class="navigation navigation-prev " aria-label="Previous page: Random">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../install/" class="navigation navigation-next " aria-label="Next page: Installation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Time","level":"1.6.4","depth":2,"next":{"title":"Installation","level":"1.7","depth":1,"path":"install/README.md","ref":"install/README.md","articles":[{"title":"Code Editor","level":"1.7.1","depth":2,"path":"install/editor.md","ref":"install/editor.md","articles":[]},{"title":"Elm","level":"1.7.2","depth":2,"path":"install/elm.md","ref":"install/elm.md","articles":[]}]},"previous":{"title":"Random","level":"1.6.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/time.md","mtime":"2022-03-25T16:21:13.438Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

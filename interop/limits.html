@@ -1,0 +1,880 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Limits · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../webapps/" />
+    
+    
+    <link rel="prev" href="custom_elements.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="flags.html">
+            
+                <a href="flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="ports.html">
+            
+                <a href="ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="custom_elements.html">
+            
+                <a href="custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.4" data-path="limits.html">
+            
+                <a href="limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Limits</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="limites-dinteropérabilité-entre-elm-et-javascript">Limites d&apos;interopérabilité entre Elm et JavaScript</h1>
+<p>Beaucoup de langages de programmation disposent d&apos;une Interface d&apos;Invocation Distante (<em>Foreign Function Interface</em>, ou FFI) permettant d&apos;invoquer des fonctions d&apos;un langage hôte. Par exemple, Scala et Clojure peuvent appeler des fonctions Java directement, Python et Haskell des fonctions C, etc.</p>
+<p><strong>Elm ne dispose pas de ce type d&apos;interfaçage traditionnel avec JavaScript.</strong> Il n&apos;est pas possible d&apos;appeler des fonctions JavaScript arbitraires directement depuis le code Elm. C&apos;est cette intransigeance que beaucoup d&apos;aficionados apprécient en Elm, mais elle peut aussi déstabiliser ! Si vous envisagez d&apos;exploiter Elm pour un usage commercial, nous vous invitons à étudier de façon approfondie <a href="https://github.com/elm-community/js-integration-examples" target="_blank">ces exemples d&apos;interopérabilité</a> pour vous assurer que les <em>flags</em>, les <em>ports</em> et les <em>custom elements</em> sont à même de couvrir l&apos;ensemble de vos besoins.</p>
+<p>Pourquoi Elm a t-il opéré ce choix quand d&apos;autres langages offrent un interfaçage plus direct ?</p>
+<h2 id="compromis">Compromis</h2>
+<p>Les <em>ports</em> sont en quelque sorte un <em>accident</em> dans l&apos;histoire des langages de programmation. Il y a deux stratégies principales d&apos;interopérabilité, mais Elm n&apos;en applique aucune des deux :</p>
+<ol>
+<li><p><strong>Rétrocompatibilité totale.</strong> Par exemple, C++ est un sur-ensemble de C, et TypeScript est un sur-ensemble de JavaScript. C&apos;est l&apos;approche la plus permissive, qui a maintes fois prouvé son efficacité : par définition, tout le monde utilise déjà votre langage.</p>
+</li>
+<li><p><strong>L&apos;Interfaçage d&apos;Invocation Distante (<em>Foreign Function Interface</em>, ou FFI)</strong> qui permet l&apos;interfaçage direct avec les fonctions du langage hôte. Par exemple, Scala et Clojure peuvent invoquer des fonctions Java directement, comme Python et Haskell peuvent le faire en C. Encore une fois, c&apos;est très efficace.</p>
+</li>
+</ol>
+<p>Ces stratégies sont très attrayantes sous le prisme de <strong>l&apos;adoption</strong> et de la <strong>flexibilité</strong> d&apos;usage, mais elles ne conviennent pas pour Elm pour deux raisons principales :</p>
+<ol>
+<li><p><strong>La perte de garanties.</strong> Un des atouts majeurs de Elm est qu&apos;en l&apos;adoptant, toute une catégorie de problèmes courants ne vous concernent plus. Il n&apos;y a plus d&apos;exceptions à intercepter, les fonctions ne peuvent plus altérer les données de façon surprenante. Nous pensons que c&apos;est le cœur de valeur de Elm comparativement à d&apos;autres langages alternatifs ; par contre, si nous introduisions le fait de pouvoir appeler JavaScript directement… tous ces avantages disparaîtraient instantanément. Est-ce que ce paquet lève des exceptions ? Quand ? Transformera t-il les valeurs que je lui fournis ? Dois-je surveiller cela ? Est-ce que le paquet produit des <a href="https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique" target="_blank">effets de bord</a>) ? Enverra t-il des données vers un serveur tiers ? Enregistrera t-il les mots de passe de mes utilisateurs ? Un nombre important de développeurs ont été conquis par la plateforme justement pour éviter d&apos;avoir à se poser ces questions.</p>
+</li>
+<li><p><strong>Le submergement de paquets.</strong> Il y a une grosse demande de portage direct d&apos;APIs JavaScript en Elm. Dans les deux années précédent la première version de <code>elm/html</code>, nous sommes certains que quelqu&apos;un aurait voulu contribuer une intégration de jQuery si c&apos;était possible. C&apos;est déjà arrivé dans le monde des langages fonctionnels générant du JavaScript qui ont une approche traditionnelle de l&apos;interopérabilité. De nos observations, le <em>submergement</em> de paquets est quelque chose de courant dans les langages compilant vers JavaScript. La pression n&apos;est pas aussi forte en Python par exemple, nous supposons donc que c&apos;est probablement lié à l&apos;histoire et la culture unique de l&apos;écosystème JavaScript.</p>
+</li>
+</ol>
+<p>Au regard de ces compromis, les <em>ports</em> et les <em>custom elements</em> sont intéressants car ils permettent d&apos;exploiter JavaScript sans compromettre les avantages de Elm. Parfait ! Côté inconvénients, Elm ne peut donc pas directement s&apos;appuyer sur l&apos;écosystème de libraries JavaScript pour bénéficier de sa visibilité et publier beaucoup de paquets rapidement. À moyen terme, c&apos;est une bénédiction :</p>
+<ol>
+<li><p><strong>Les paquets sont conçus pour Elm.</strong> Au fur et à mesure que les membres de la communauté montent en compétence, expérimentent et découvrent de nouvelles façons de faire, nous voyons arriver des innovations dans le domaine de la mise en page et de la visualisation de données qui fonctionnent très bien avec l&apos;architecture Elm et l&apos;écosystème général. Et ce n&apos;est qu&apos;un début !</p>
+</li>
+<li><p><strong>Le code est portable.</strong> Si un jour le compilateur arrive à générer des instructions x86 ou WebAssembly, l&apos;écosystème Elm existant continuera de fonctionner de façon transparente, mais plus rapidement ! La délégation aux <em>ports</em> de la communication avec JavaScript garantit que tous les paquets sont intégralement écrits en Elm, et Elm lui-même a été conçu de sorte que d&apos;autres compilateurs ciblant autre chose que JavaScript soient viables.</p>
+</li>
+<li><p><strong>Les paquets sont mieux sécurisés.</strong> Les langages comme JavaScript ont de sérieux soucis de sécurité avec leur paquets. Vols <a href="https://www.bleepingcomputer.com/news/security/compromised-javascript-package-caught-stealing-npm-credentials/" target="_blank">d&apos;identifiants</a> ou de <a href="https://winbuzzer.com/2020/01/14/microsoft-discovers-an-npm-package-thats-been-stealing-unix-user-data-xcxwbn/" target="_blank">clés d&apos;API</a> sont courants, infligeant un coût de vérification permanent des paquets publiés et utilisés. Est-ce que ce paquet ajoute un <em>keylogger</em> à l&apos;objet <code>window</code> ? Les paquets Elm garantissent que des familles entières de failles sont rendues tout simplement inexploitables, réduisant drastiquement les charges d&apos;analyse et de sécurisation des projets.</p>
+</li>
+<li><p><strong>Les optimisations sont facilitées.</strong> Le style de code généré a évolué significativement au gré des versions par le passé. Par exemple, la <a href="https://elm-lang.org/news/small-assets-without-the-headache" target="_blank">version 0.19</a> a permis de réduire la taille des fichiers générés de façon spectaculaire en (1) générant du code mieux adapté à la minification JavaScript et (2) en utilisant des représentation de types personnalisés dépendant du niveau d&apos;optimisation souhaité. Nous espérons que cela évoluera vers une meilleure fragmentation de code si on arrive à trouver une façon encore plus optimale de gérer l&apos;application partielle. De plus, le compilateur, s&apos;appuyant sur la notion de <em>pureté</em>, pourrait à terme déplacer du code de façon encore plus agressive que d&apos;autres compilateurs devant composer avec ces contraintes. Figer notre capacité à jouer sur ces facteurs d&apos;optimisation rendrait l&apos;opération tout simplement impossible.</p>
+</li>
+</ol>
+<p>Elm a donc choisi d&apos;emprunter un chemin long et difficile, mais les langages sont conçus pour durer 30 ans ou plus. Ils doivent assurer un support aux équipes et entreprises pendant des décennies, et quand nous imaginons à quoi Elm ressemblera dans 20 ou 30 ans, les compromis que nous avons fait avec les <em>ports</em> semblent très prometteurs ! Si ce sujet vous intéresse, la conférence <a href="https://youtu.be/uGlzRt-FYto" target="_blank">“What is Success?” d&apos;Evan</a> explore cet aspect stratégique des choses.</p>
+<p>À nouveau, emprunter ce chemin peut sembler décourageant à certains. Il existe beaucoup d&apos;autres langages alternatifs qui ont une approche FFI plus traditionnelle, et nous vous encourageons à les considérer si vous pensez qu&apos;elle a plus de sens pour vous. Est-ce que leur écosystème est cohérent ? Obtenez-vous des exceptions à l&apos;exécution plus souvent ? C&apos;est possible, mais peut-être que la souplesse supplémentaire apportée justifiera ce choix pour vous. Nous vous encourageons sincèrement à examiner attentivement les <a href="https://github.com/elm-community/js-integration-examples" target="_blank">exemples d&apos;interopérabilité</a> avec JavaScript pour décider si les <em>flags</em>, <em>ports</em> et <em>custom elements</em> sont à même de couvrir tous vos besoins. C&apos;est particulièrement important si vous envisagez d&apos;exploiter Elm pour un usage commercial !</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="custom_elements.html" class="navigation navigation-prev " aria-label="Previous page: Custom Elements">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../webapps/" class="navigation navigation-next " aria-label="Next page: Web Apps">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Limits","level":"1.8.4","depth":2,"next":{"title":"Web Apps","level":"1.9","depth":1,"path":"webapps/README.md","ref":"webapps/README.md","articles":[{"title":"Navigation","level":"1.9.1","depth":2,"path":"webapps/navigation.md","ref":"webapps/navigation.md","articles":[]},{"title":"URL Parsing","level":"1.9.2","depth":2,"path":"webapps/url_parsing.md","ref":"webapps/url_parsing.md","articles":[]},{"title":"Modules","level":"1.9.3","depth":2,"path":"webapps/modules.md","ref":"webapps/modules.md","articles":[]},{"title":"Structure","level":"1.9.4","depth":2,"path":"webapps/structure.md","ref":"webapps/structure.md","articles":[]}]},"previous":{"title":"Custom Elements","level":"1.8.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"interop/limits.md","mtime":"2022-03-17T13:27:15.670Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

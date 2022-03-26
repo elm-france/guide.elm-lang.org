@@ -1,0 +1,912 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Types as Bits · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.7.1">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="function_types.html" />
+    
+    
+    <link rel="prev" href="types_as_sets.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../bases_du_langage.html">
+            
+                <a href="../bases_du_langage.html">
+            
+                    
+                    Bases du langage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    Buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    Text Fields
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    Forms
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    Types
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    Reading Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    Type Aliases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    Custom Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    Pattern Matching
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    Error Handling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    Commands and Subscriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    Code Editor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScript Interop
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    Ports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    Custom Elements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Web Apps
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URL Parsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    Optimization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    Minification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Appendix
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="types_as_sets.html">
+            
+                <a href="types_as_sets.html">
+            
+                    
+                    Types as Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12.2" data-path="types_as_bits.html">
+            
+                <a href="types_as_bits.html">
+            
+                    
+                    Types as Bits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="function_types.html">
+            
+                <a href="function_types.html">
+            
+                    
+                    Function Types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Types as Bits</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="les-types-sous-formes-de-bits">Les types sous formes de bits</h1>
+<p>Il y a plein de sortes de types en Elm :</p>
+<ul>
+<li><code>Bool</code></li>
+<li><code>Int</code></li>
+<li><code>String</code></li>
+<li><code>(Int, Int)</code></li>
+<li><code>Maybe Int</code></li>
+<li>...</li>
+</ul>
+<p>Nous en avons une compréhension conceptuelle à présent, mais comment sont-ils compris par un ordinateur ? Comment est-ce que <code>Maybe Int</code> est stocké sur le disque dur ?</p>
+<h2 id="bits">Bits</h2>
+<p>Un <strong>bit</strong> est une petite boite qui a deux états. Zéro ou un. Allumé ou éteint. La mémoire d&apos;un ordinateur est une séquence de bits super longue.</p>
+<p>Ok, donc nous avons un gros tas de 0s et de 1s. Maintenant il nous faut <em>tout</em> représenter avec ça !</p>
+<h2 id="bool"><code>Bool</code></h2>
+<p>Une valeur <code>Bool</code> peut être soit <code>True</code> ou <code>False</code>. Ça correspond exactement à un bit !</p>
+<h2 id="int"><code>Int</code></h2>
+<p>Une valeur <code>Int</code> est un nombre entier comme <code>0</code>, <code>1</code>, <code>2</code>, etc. On ne peut pas stocker ça dans un seul bit, donc la seule autre solution est d&apos;utiliser plusieurs bits. Donc, normalement, un <code>Int</code> serait une séquence de bits, comme ceux-ci :</p>
+<pre><code>00000000
+00000001
+00000010
+00000011
+...
+</code></pre><p>Nous pouvons attribuer arbitrairement un sens à chacune de ces séquences. Alors peut-être que <code>00000000</code> est zéro et <code>00000001</code> est un. Génial ! Nous pouvons simplement commencer à attribuer des numéros aux séquences de bits dans l&apos;ordre croissant. Mais nous finirons par manquer de bits...</p>
+<p>Avec un rapide calcul, huit bits n&apos;autorisent que (2^8 = 256) nombres. Qu&apos;en est-il des nombres totalement acceptables comme 9000 et 8004 ?</p>
+<p>La réponse est simplement d&apos;ajouter plus de bits. Pendant longtemps, les gens ont utilisé 32 bits. Cela a permis (2^32 = 4 294 967 296) nombres qui couvrent les types de nombres auxquels les humains pensent généralement. De nos jours, les ordinateurs prennent en charge les nombres entiers 64 bits, permettant (2^64 = 18 446 744 073 709 551 616) nombres. C&apos;est beaucoup !</p>
+<blockquote>
+<p><strong>Remarque :</strong> Si vous êtes curieux de savoir comment fonctionne l&apos;addition, consultez <a href="https://fr.wikipedia.org/wiki/Compl%C3%A9ment_%C3%A0_deux" target="_blank">le complément à deux</a>. Il explique que les numéros ne sont pas attribués arbitrairement aux séquences de bits. Afin de rendre l&apos;addition aussi rapide que possible, cette façon particulière d&apos;attribuer des nombres fonctionne très bien.</p>
+</blockquote>
+<h2 id="string"><code>String</code></h2>
+<p>La chaîne <code>&quot;abc&quot;</code> est la séquence de caractères <code>a</code> <code>b</code> <code>c</code>, nous allons donc commencer par essayer de représenter les caractères sous forme de bits.</p>
+<p>L&apos;une des premières méthodes d&apos;encodage des caractères s&apos;appelle <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange" target="_blank">ASCII</a>. Tout comme avec les nombres entiers, ils ont décidé de lister un tas de séquences de bits et de commencer à attribuer des valeurs arbitrairement :</p>
+<pre><code>00000000
+00000001
+00000010
+00000011
+...
+</code></pre><p>Ainsi, chaque caractère devait tenir sur huit bits, ce qui signifie que seuls 256 caractères pouvaient être représentés ! Mais si vous ne vous souciez que de l&apos;anglais, cela fonctionne plutôt bien. Vous devez couvrir 26 lettres minuscules, 26 lettres majuscules et 10 chiffres. Ça fait 62. Il reste beaucoup de place pour les symboles et autres trucs bizarres. Vous pouvez voir ce qu&apos;ils ont obtenu <a href="https://ascii.cl/" target="_blank">ici</a>.</p>
+<p>On s&apos;est fait une bonne idée pour les caractères, mais comment l&apos;ordinateur saura-t-il où se termine la <code>String</code> et où commence la donnée suivante ? Ce ne sont que des bits. Les caractères ressemblent vraiment à des valeurs <code>Int</code> ! Nous avons donc besoin d&apos;un moyen de marquer la fin.</p>
+<p>De nos jours, les langages ont tendance à le faire en stockant la <strong>longueur</strong> de la chaîne. Ainsi, une chaîne comme <code>&quot;hello&quot;</code> pourrait ressembler à <code>5</code> <code>h</code> <code>e</code> <code>l</code> <code>l</code> <code>o</code> en mémoire. Vous savez donc qu&apos;une <code>String</code> commence toujours par 32 bits représentant la longueur. Et que la longueur soit 0 ou 9000, vous savez exactement où s&apos;arrêtent les caractères.</p>
+<blockquote>
+<p><strong>Remarque :</strong> À un moment donné, les gens ont voulu d&apos;autres langues que l&apos;anglais. Cet effort a finalement abouti au codage <a href="https://fr.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8</a>. C&apos;est vraiment génial en fait, et je vous encourage à en apprendre davantage. Il s&apos;avère que « obtenir le 5e caractère » est plus difficile qu&apos;il n&apos;y paraît !</p>
+</blockquote>
+<h2 id="int-int"><code>(Int, Int)</code></h2>
+<p>Qu&apos;en est-il des tuples ? Eh bien, <code>(Int, Int)</code> correspond à deux valeurs <code>Int</code>, et chacune est une séquence de bits. Mettons simplement ces deux séquences l&apos;une à côté de l&apos;autre en mémoire restons-en là !</p>
+<h2 id="types-personnalisés">Types personnalisés</h2>
+<p>Un type personnalisé consiste à combiner différents types. Ces différents types peuvent avoir toutes sortes de formes différentes. Nous allons commencer par le type <code>Couleur</code> :</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Couleur</span> = <span class="hljs-type">Rouge</span> | <span class="hljs-type">Jaune</span> | <span class="hljs-type">Vert</span>
+</code></pre>
+<p>Nous pouvons attribuer un numéro à chaque cas : <code>Rouge = 0</code>, <code>Jaune = 1</code> et <code>Vert = 2</code>. Nous pouvons maintenant utiliser la représentation <code>Int</code>. Ici, nous n&apos;avons besoin que de deux bits pour couvrir tous les cas possibles, donc &apos;00&apos; est rouge, &apos;01&apos; est jaune, &apos;10&apos; est vert et &apos;11&apos; est inutilisé.</p>
+<p>Mais qu&apos;en est-il des types personnalisés contenant des données supplémentaires ? Comme <code>Maybe Int</code> ? L&apos;approche typique consiste à mettre de côté quelques bits pour &quot;étiqueter&quot; les données, afin que nous puissions décider que &quot;Nothing = 0&quot; et &quot;Just = 1&quot;. Voici quelques exemples:</p>
+<ul>
+<li><code>Nothing</code> = <code>0</code></li>
+<li><code>Just 12</code> = <code>1</code> <code>00001100</code></li>
+<li><code>Just 16</code> = <code>1</code> <code>00010000</code></li>
+</ul>
+<p>Une expression <code>case</code> regarde toujours cette &quot;étiquette&quot; avant de décider quoi faire ensuite. Si elle voit un <code>0</code>, elle sait qu&apos;il n&apos;y a plus de données. Si elle voit un <code>1</code>, elle sait qu&apos;il est suivi d&apos;une séquence de bits représentant les données.</p>
+<p>Cette idée d&apos;&quot;étiquette&quot; revient à placer la longueur au début des valeurs <code>String</code>. Les valeurs peuvent être de tailles différentes, mais le code peut toujours déterminer où elles commencent et se terminent.</p>
+<h2 id="résumé">Résumé</h2>
+<p>Au bout du compte, toutes les valeurs doivent être représentées en bits. Cette page donne un aperçu approximatif de la façon dont cela fonctionne réellement.</p>
+<p>Normalement, il n&apos;y a pas vraiment de raison d&apos;y penser, mais j&apos;ai trouvé cela utile pour approfondir ma compréhension des types personnalisés et des expressions <code>case</code>. J&apos;espère que cela vous sera également utile !</p>
+<blockquote>
+<p><strong>Remarque :</strong> Si vous pensez que cela est intéressant, il peut être amusant d&apos;en savoir plus sur le processus de <a href="https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique" target="_blank">&quot;rammasse-miette&quot;</a>). J&apos;ai trouvé que <a href="http://gchandbook.org/" target="_blank">The Garbage Collection Handbook</a> (en anglais) est une excellente mine d&apos;informations sur le sujet !</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="types_as_sets.html" class="navigation navigation-prev " aria-label="Previous page: Types as Sets">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="function_types.html" class="navigation navigation-next " aria-label="Next page: Function Types">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Types as Bits","level":"1.12.2","depth":2,"next":{"title":"Function Types","level":"1.12.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]},"previous":{"title":"Types as Sets","level":"1.12.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/types_as_bits.md","mtime":"2022-03-25T16:21:13.436Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-26T10:46:48.062Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
