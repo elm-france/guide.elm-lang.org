@@ -180,7 +180,7 @@ Cette fonction compare les deux mots de passe saisis. S'ils correspondent, un me
 
 Ces fonctions utilitaires montrent l'avantage d'avoir une bibliothèque HTML écrite en Elm. Il est possible d'intégrer ce code directement dans la fonction `view`, mais écrire des fonctions séparées est normal en Elm, même pour la partie visuelle. Si le code devient difficile à comprendre, peut-être vaut-il mieux le décomposer en plusieurs fonctions utilitaires. 
 
-> **Exercices:** Regardez cette [exemple](https://elm-lang.org/examples/forms) sur l'éditeur en ligne. Essayez d'ajouter les caractéristiques suivantes à la fonction utilitaire `viewValidation`:
+> **Exercices:** Regardez cet [exemple](https://elm-lang.org/examples/forms) sur l'éditeur en ligne. Essayez d'ajouter les caractéristiques suivantes à la fonction utilitaire `viewValidation`:
 >
 >  - Vérifiez que le mot de passe saisi contient plus de 8 caractères.
 >  - S'assurer que le mot de passe contient un mélange de caractères majuscules, minuscules, et numériques.
