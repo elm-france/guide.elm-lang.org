@@ -102,7 +102,7 @@ type alias Model =
   }
 ```
 
-Il est préférable de démarrer avec un modèle minimal, même s'il ne contient qu'un attribut, suivi de l'écriture des fonctions `view` et `update`. Ces étapes révèlent souvent les modifications supplémentaires à apporter au modèle. Cette construction progressive du modèle permet d'avoir un programme fonctionnel tout au long du développement. Toutes les caractéristiques ne sont pas encore présentes, mais chaque chose en son temps.
+Il est préférable de démarrer avec un modèle minimal, même s'il ne contient qu'un seul champ, suivi de l'écriture des fonctions `view` et `update`. Ces étapes révèlent souvent les modifications supplémentaires à apporter au modèle. Cette construction progressive du modèle permet d'avoir un programme fonctionnel tout au long du développement. Toutes les caractéristiques ne sont pas encore présentes, mais chaque chose en son temps.
 
 ## Update
 
