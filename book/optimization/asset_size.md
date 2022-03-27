@@ -4,7 +4,7 @@ La seule chose plus lente que de manipuler le DOM est la communication entre ser
 
 Celui-ci peut être améliorer grandement en transférant moins d'octets. Par exemple, si la taille d'une ressource de 122ko peut-être réduite à 9ko, alors son chargement sera accéléré! Ce genre de résultats peut être obtenu en utilisant les techniques suivantes :
 
-- **Compilation.** Le compilateur Elm peut réaliser des optimisations comme l'élimination de code mort ou le renommage d'attributs. Il peut retirer le code non utilisé et raccourcir les noms d'attribut comme `userStatus` dans le code généré.
+- **Compilation.** Le compilateur Elm peut réaliser des optimisations comme l'élimination de code mort ou le renommage de champs. Il peut retirer le code non utilisé et raccourcir les noms de champs comme `userStatus` dans le code généré.
 - **Minification.** Dans l'univers JavaScript, il existe des outils appelés "minifiers" qui réalisent des transformations diverses : ils raccourcissent des variables, génèrent du code en ligne, traduisent des instructions `if` en opérateur ternaire, ou encore convertissent `'\u0041'` en `'A'`. Tout ce qui peut économiser quelques octets!
 - **Compression.** Une fois le code raccourci au maximum, il est possible d'utiliser un algorithme de compression comme gzip pour en réduire la taille. C'est particulièrement efficace pour les mots-clés tels que `function` et `return` dont il est impossible de se débarrasser dans le code lui-même.
 
@@ -13,7 +13,7 @@ Elm facilite la mise en place de tout ça dans votre projet, sans recours à un 
 
 ## Instructions
 
-La première étape consiste à compiler avec l'option `--optimize`. C'est elle qui réalise les optimisations comme le renommage d'attributs.
+La première étape consiste à compiler avec l'option `--optimize`. C'est elle qui réalise les optimisations comme le renommage de champs.
 
 La seconde étape est de minifier le code JavaScript produit. J’utilise `uglifyjs`, mais libre à vous d'utiliser un autre outil. L'intérêt d'`uglifyjs` réside dans ses options spéciales. Celles-ci débloquent des optimisations d'ordinaire peu fiables sur du code JavaScript standard, mais qui s'avèrent très efficace sur le code généré par Elm grâce à sa conception.
 
