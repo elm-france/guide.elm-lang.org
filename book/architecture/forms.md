@@ -176,7 +176,7 @@ viewValidation model =
     div [ style "color" "red" ] [ text "Passwords do not match!" ]
 ```
 
-Cette fonction compare les deux mots de passe saisis. S'ils correspondent, un message positif s'affiche en vert. S'ils diffèrent, un message d'aide s'affiche en rouge.
+Cette fonction compare les deux mots de passe saisis. S'ils correspondent, un message de confirmation s'affiche en vert. S'ils diffèrent, un message d'erreur s'affiche en rouge.
 
 Ces fonctions utilitaires montrent l'avantage d'avoir une bibliothèque HTML écrite en Elm. Il est possible d'intégrer ce code directement dans la fonction `view`, mais écrire des fonctions séparées est normal en Elm, même pour la partie visuelle. Si le code devient difficile à comprendre, peut-être vaut-il mieux le décomposer en plusieurs fonctions utilitaires. 
 
