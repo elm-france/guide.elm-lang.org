@@ -2,7 +2,7 @@
 
 Maintenant, construisons un formulaire basique avec des attributs pour le nom, le mot de passe et la vérification du mot de passe. Nous implémenterons une étape de validation qui vérifiera que les mots de passe saisis sont identiques. 
 
-Le code du programme est disponible ci-dessous. Vous pouvez cliquer sur le bouton bleu "Edit" pour le modifier dans l'éditeur en ligne. Essayer d'introduire une typo pour afficher des messages d'erreur. Par exemple, en saisissant incorrectement un attribut comme `password` ou une fonction comme `placeholder`. **Allez-y, cliquez sur le bouton bleu !**
+Le code du programme est disponible ci-dessous. Vous pouvez cliquer sur le bouton bleu "Éditer" pour le modifier avec l'éditeur en ligne. Essayez d'introduire une coquille pour afficher des messages d'erreur. Par exemple, en saisissant incorrectement le champ `password` ou la fonction `placeholder`. **Allez-y, cliquez sur le bouton bleu !**
 
 <div class="edit-link"><a href="https://elm-lang.org/examples/forms">Edit</a></div>
 
