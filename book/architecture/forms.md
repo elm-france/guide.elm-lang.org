@@ -106,7 +106,7 @@ Il est préférable de démarrer avec un modèle minimal, même s'il ne contient
 
 ## Update
 
-Nous avons souvent une bonne intuition de ce à quoi la mise à jour du modèle va ressembler. Nous aurons besoin de changer les valeurs des trois attributs du modèle, ce qui nécessite la définition d'un message pour chacun.
+Nous avons souvent une bonne intuition de ce à quoi la mise à jour du modèle va ressembler. Nous aurons besoin de changer les valeurs des trois champs du modèle, ce qui nécessite la définition d'un message pour chacun.
 
 ```elm
 type Msg
