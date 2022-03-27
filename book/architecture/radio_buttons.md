@@ -1,10 +1,10 @@
-# Radio Buttons
+# Boutons radio
 
 ---
-#### Follow along in the [online editor](https://elm-lang.org/examples/radio-buttons).
+#### Suivez l'exemple sur l'[éditeur en ligne](https://elm-lang.org/examples/radio-buttons).
 ---
 
-Say you have a website that is primarily about reading, like this guide! You may want to have a way to choose between small, medium, and large fonts so your readers can customize it for their preferences. In that case, you will want some HTML like this:
+Imaginez un site web concentré sur la lecture, comme ce guide ! Dans ces circonstances, il est désirable d'offrir le choix entre différentes tailles de police (petite, moyenne ou grande) pour que vos lecteurs puissent l'ajuster selon leurs préférences. Ce qui peut se traduire par le code HTML suivant :
 
 ```html
 <fieldset>
@@ -14,7 +14,9 @@ Say you have a website that is primarily about reading, like this guide! You may
 </fieldset>
 ```
 
-Just like in the checkbox example from the previous page, this will let people choose the one they want, and using `<label>` means they get a much bigger area they can click on. Like always, we start with our `Model`. This one is kind of interesting because we can use [union types](../types/union_types.md) to make it very reliable!
+Tout comme l'exemple des boîtes à cocher, ce code permet d'exposer un choix à l'utilisateur. L'usage de `<label>` offrant une plus grande surface sur laquelle l'utilisateur peut cliquer.
+
+Comme d'habitude, nous commençons par la définition du modèle. Celui-ci est intéressant car il utilise une [union de types](../types/union_types.md) pour plus de fiabilité.
 
 ```elm
 type alias Model =
@@ -25,11 +27,11 @@ type alias Model =
 type FontSize = Small | Medium | Large
 ```
 
-This means there are exactly three possible font sizes: `Small`, `Medium`, and `Large`. It is impossible to have any other value in our `fontSize` field. If you are coming from JavaScript, you know their alternative is to use strings or numbers and just hope that there is never a typo or mistake. You *could* use values like that in Elm, but why open yourself up to bugs for no reason?!
+Une taille de police de type `FontSize` peut prendre exactement trois valeurs : `Small`, `Medium` et `Large`. Le champ `fontSize` ne peut donc prendre aucune autre valeur. En JavaScript, l'alternative est d'utiliser une valeur de type string ou number et de compter sur l'absence de coquilles ou d'erreurs. Rien ne vous empêche d'utiliser ces mêmes valeurs en Elm, au risque de s'exposer à des bugs inutilement.
 
-> **Note:** You should always be looking for opportunities to use union types in your data. The best way to avoid invalid states is to make them impossible to represent in the first place!
+> **Note :** Essayez de privilégier au maximum l'usage des unions de type pour vos modélisations. Le meilleur moyen d'éviter les états invalides reste de rendre impossible leur représentation !
 
-Alright, now we need to `update` our model. In this case we just want to switch between font sizes as the user toggles the radio buttons:
+Maintenant, il faut pouvoir mettre à jour le modèle dans la fonction `update` quand l'utilisateur choisit une taille de police différente via les boutons radio :
 
 ```elm
 type Msg
@@ -42,7 +44,7 @@ update msg model =
       { model | fontSize = newFontSize }
 ```
 
-Now we need to describe how to show our `Model` on screen. First let&rsquo;s see the one where we put all our code in one function and repeat ourselves a bunch of times:
+Maintenant, il nous faut décrire comment afficher le modèle à l'écran. Tout d'abord, voici une version du code où la logique est répétée plusieurs fois au sein de le fonction `view` :
 
 ```elm
 view : Model -> Html Msg
@@ -66,7 +68,7 @@ view model =
     ]
 ```
 
-That is kind of a mess! The best thing to do is to start making helper functions (not components!). We see some repetition in the radio buttons, so we will start there.
+Le code peut être factorisé dans des fonctions réutilisables (et non des composants !). Commençons par la répétition de logique des boutons radio.
 
 ```elm
 view : Model -> Html Msg
@@ -88,7 +90,7 @@ radio msg name =
     ]
 ```
 
-Our `view` function is quite a bit easier to read now. Great!
+Après factorisation, la fonction `view` est devenue bien plus lisible !
 
 If that is the only chunk of radio buttons on your page, you are done. But perhaps you have a couple sets of radio buttons. For example, this guide not only lets you set font size, but also color scheme and whether you use a serif or sans-serif font. Each of those can be implemented as a set of radio buttons, so we could do a bit more refactoring, like this:
 
