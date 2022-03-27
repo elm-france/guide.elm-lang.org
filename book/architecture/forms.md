@@ -183,7 +183,7 @@ Ces fonctions utilitaires montrent l'avantage d'avoir une bibliothèque HTML éc
 > **Exercices:** Regardez cet [exemple](https://elm-lang.org/examples/forms) sur l'éditeur en ligne. Essayez d'ajouter les caractéristiques suivantes à la fonction utilitaire `viewValidation`:
 >
 >  - Vérifiez que le mot de passe saisi contient plus de 8 caractères.
->  - S'assurer que le mot de passe contient un mélange de caractères majuscules, minuscules, et numériques.
+>  - Assurez-vous que le mot de passe contienne un mélange de caractères majuscules, minuscules, et numériques.
 >
 > Utilisez les fonctionnalités du module [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) pour résoudre ces exercices !
 >
