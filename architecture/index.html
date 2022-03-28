@@ -722,31 +722,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="the-elm-architecture">The Elm Architecture</h1>
-<p>The Elm Architecture is a pattern for architecting interactive programs, like webapps and games.</p>
-<p>This architecture seems to emerge naturally in Elm. Rather than someone inventing it, early Elm programmers kept discovering the same basic patterns in their code. It was kind of spooky to see people ending up with well-architected code without planning ahead!</p>
-<p>So The Elm Architecture is easy in Elm, but it is useful in any front-end project. In fact, projects like Redux have been inspired by The Elm Architecture, so you may have already seen derivatives of this pattern. Point is, even if you ultimately cannot use Elm at work yet, you will get a lot out of using Elm and internalizing this pattern.</p>
-<h2 id="the-basic-pattern">The Basic Pattern</h2>
-<p>Elm programs always look something like this:</p>
+                                <h1 id="larchitecture-elm">L&apos;Architecture Elm</h1>
+<p>L&apos;architecture Elm — The Elm Architecture (TEA) en anglais — est une façon d&apos;architecturer des programmes interactifs comme des applications web ou des jeux.</p>
+<p>Cette architecture semble émerger naturellement avec Elm. Plutôt que le fruit d&apos;une invention, il s&apos;agit davantage de la découverte par les premiers développeurs Elm de la même structure basique au sein de leur code. C&apos;était un peu bizarre de voir les gens se retrouver avec du code architecturé de la même manière sans en avoir discuté ensemble avant !</p>
+<p>Évidemment, l&apos;Architecture Elm est facile à réaliser avec Elm, mais elle peut être utile à tout projet front-end. En fait, des projets tels que Redux ont été inspirés par l&apos;architecture Elm, et il est donc possible que vous en ayez déjà vu des dérivées ailleurs. Le fait est que, même si vous ne pouvez pas encore utiliser Elm au travail, vous tirerez beaucoup de bénéfices de l&apos;utilisation d&apos;Elm et de la compréhension de son modèle.</p>
+<h2 id="le-modèle-de-base">Le modèle de base</h2>
+<p>Les programmes Elm ressemblent toujours à ça:</p>
 <p><img src="buttons.svg" alt="Diagram of The Elm Architecture"></p>
-<p>The Elm program produces HTML to show on screen, and then the computer sends back messages of what is going on. &quot;They clicked a button!&quot;</p>
-<p>What happens within the Elm program though? It always breaks into three parts:</p>
+<p>Ce programme Elm produit du HTML afin d&apos;être affiché à l&apos;écran, et l&apos;ordinateur émet ensuite en retour des messages au sujet de ce qu&apos;il se passe. &quot;Ils ont cliqué sur un bouton !&quot;.</p>
+<p>Mais que ce passe-t-il au sein d&apos;un programme Elm ? Celui-ci est toujours fait de trois parties :</p>
 <ul>
-<li><strong>Model</strong> — the state of your application</li>
-<li><strong>View</strong> — a way to turn your state into HTML</li>
-<li><strong>Update</strong> — a way to update your state based on messages</li>
+<li><strong>Model</strong> — (le modèle) l&apos;état de l&apos;application</li>
+<li><strong>View</strong> — (la vue) une manière de transformer cet état en HTML,</li>
+<li><strong>Update</strong> — une manière de transformer cet état à partir des messages reçus.</li>
 </ul>
-<p>These three concepts are the core of <strong>The Elm Architecture</strong>.</p>
-<p>The next few examples are going to show how to use this pattern for user input, like buttons and text fields. It will make this much more concrete!</p>
-<h2 id="follow-along">Follow Along</h2>
-<p>The examples are all available in the online editor:</p>
+<p>Ces trois concepts sont le cœur de <strong>L&apos;Architecture Elm</strong>.</p>
+<p>Les quelques exemples qui suivent, montrent comment utiliser ce modèle pour des interactions avec l&apos;utilisateur via des boutons et champs texte. Ils rendront cela plus concret !</p>
+<h2 id="suivez-les-exemples">Suivez les exemples</h2>
+<p>Les exemples sont tous disponibles dans l&apos;éditeur en ligne:</p>
 <p><a href="https://elm-lang.org/try" target="_blank"><img src="try.png" alt="online editor"></a></p>
-<p>This editor shows hints in the top left corner:</p>
+<p>Cet éditeur montre des conseils dans le coin supérieur gauche :</p>
 <video id="hints-video" width="360" height="180" autoplay loop style="margin: 0.55em 0 1em 2em;" onclick="var v = document.getElementById(&apos;hints-video&apos;); v.paused ? (v.play(), v.style.opacity = 1) : (v.pause(), v.style.opacity = 0.5)">
   <source src="hints.mp4" type="video/mp4">
 </video>
 
-<p>Be sure to try out the hints if you run into something confusing!</p>
+<p>N&apos;hésitez pas à suivre ces conseils si vous rencontrez des difficultés !</p>
 
                                 
                                 </section>
@@ -790,7 +790,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"L'Architecture Elm","level":"1.3","depth":1,"next":{"title":"Boutons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},"previous":{"title":"Bases du langage","level":"1.2","depth":1,"path":"bases_du_langage.md","ref":"bases_du_langage.md","articles":[]},"articles":[{"title":"Boutons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},{"title":"Champs texte","level":"1.3.2","depth":2,"path":"architecture/text_fields.md","ref":"architecture/text_fields.md","articles":[]},{"title":"Formulaires","level":"1.3.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/README.md","mtime":"2022-03-10T16:18:43.027Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-28T08:27:22.842Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"L'Architecture Elm","level":"1.3","depth":1,"next":{"title":"Boutons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},"previous":{"title":"Bases du langage","level":"1.2","depth":1,"path":"bases_du_langage.md","ref":"bases_du_langage.md","articles":[]},"articles":[{"title":"Boutons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},{"title":"Champs texte","level":"1.3.2","depth":2,"path":"architecture/text_fields.md","ref":"architecture/text_fields.md","articles":[]},{"title":"Formulaires","level":"1.3.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/README.md","mtime":"2022-03-28T08:51:06.366Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-28T08:51:14.235Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
