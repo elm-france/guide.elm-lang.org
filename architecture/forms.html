@@ -722,9 +722,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="forms">Forms</h1>
-<p>Now we will make a rudimentary form. It has a field for your name, a field for your password, and a field to verify that password. We will also do some very simple validation to check if the passwords match.</p>
-<p>I included the full program below. Click the blue &quot;Edit&quot; button to mess with it in the online editor. Try introducing a typo to see some error messages. Try misspelling a record field like <code>password</code> or a function like <code>placeholder</code>. <strong>Click the blue button now!</strong></p>
+                                <h1 id="formulaires">Formulaires</h1>
+<p>Maintenant, construisons un formulaire basique comportant des champs pour le nom, le mot de passe et la vérification du mot de passe. Nous implémenterons une étape de validation qui vérifiera que les mots de passe saisis sont identiques.</p>
+<p>Le code du programme est disponible ci-dessous. Vous pouvez cliquer sur le bouton bleu &quot;Éditer&quot; pour le modifier avec l&apos;éditeur en ligne. Essayez d&apos;introduire une coquille pour afficher des messages d&apos;erreur. Par exemple, en saisissant incorrectement le champ <code>password</code> ou la fonction <code>placeholder</code>. <strong>Allez-y, cliquez sur le bouton bleu !</strong></p>
 <div class="edit-link"><a href="https://elm-lang.org/examples/forms" target="_blank">Edit</a></div>
 
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
@@ -806,24 +806,24 @@
   <span class="hljs-keyword">else</span>
     div [ style <span class="hljs-string">&quot;color&quot;</span> <span class="hljs-string">&quot;red&quot;</span> ] [ text <span class="hljs-string">&quot;Passwords do not match!&quot;</span> ]
 </code></pre>
-<p>This is pretty similar to our <a href="text_fields.html">text field example</a> but with more fields.</p>
+<p>Ce programme est similaire à celui sur les <a href="text_fields.html">zones de texte</a> mais avec plus de champs.</p>
 <h1 id="model">Model</h1>
-<p>I always start out by guessing at the <code>Model</code>. We know there are going to be three text fields, so let&apos;s just go with that:</p>
+<p>Commençons par le modèle. Sachant qu&apos;il y aura trois champs textuels, nous pouvons définir :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
   { name : <span class="hljs-type">String</span>
   , password : <span class="hljs-type">String</span>
   , passwordAgain : <span class="hljs-type">String</span>
   }
 </code></pre>
-<p>I usually try to start with a minimal model, maybe with just one field. I then attempt to write the <code>view</code> and <code>update</code> functions. That often reveals that I need to add more to my <code>Model</code>. Building the model gradually like this means I can have a working program through the development process. It may not have all the features yet, but it is getting there!</p>
+<p>Il est préférable de démarrer avec un modèle minimal, même s&apos;il ne contient qu&apos;un seul champ, suivi de l&apos;écriture des fonctions <code>view</code> et <code>update</code>. Ces étapes révèlent souvent les modifications supplémentaires à apporter au modèle. Cette construction progressive du modèle permet d&apos;avoir un programme fonctionnel tout au long du développement. Toutes les caractéristiques ne sont pas encore présentes, mais chaque chose en son temps.</p>
 <h2 id="update">Update</h2>
-<p>Sometimes you have a pretty good idea of what the basic update code will look like. We know we need to be able to change our three fields, so we need messages for each case.</p>
+<p>Nous avons souvent une bonne intuition de ce à quoi la mise à jour du modèle va ressembler. Nous aurons besoin de changer les valeurs des trois champs du modèle, ce qui nécessite la définition d&apos;un message pour chacun.</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
   = <span class="hljs-type">Name</span> <span class="hljs-type">String</span>
   | <span class="hljs-type">Password</span> <span class="hljs-type">String</span>
   | <span class="hljs-type">PasswordAgain</span> <span class="hljs-type">String</span>
 </code></pre>
-<p>This means our <code>update</code> needs a case for all three variations:</p>
+<p>La fonction <code>update</code> doit donc traiter chacune des trois variantes du message :</p>
 <pre><code class="lang-elm"><span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Model</span>
 <span class="hljs-title">update</span> msg model =
   <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
@@ -836,10 +836,10 @@
     <span class="hljs-type">PasswordAgain</span> password -&gt;
       { model | passwordAgain = password }
 </code></pre>
-<p>Each case uses the record update syntax to make sure the appropriate field is transformed. This is similar to the previous example, except with more cases.</p>
-<p>We get a little bit fancier than normal in our <code>view</code> though.</p>
+<p>Chaque cas utilise la syntaxe de modification d&apos;enregistrement pour transformer le champ du modèle concerné. Cela reste semblable à d&apos;autres exemples vus précédemment, mais avec plus de cas.</p>
+<p>Nous ferons plus dans l&apos;originalité du coté de la fonction <code>view</code>.</p>
 <h2 id="view">View</h2>
-<p>This <code>view</code> function is using <strong>helper functions</strong> to make things a bit more organized:</p>
+<p>Notre fonction <code>view</code> utilise des <strong>fonctions utilitaires</strong> pour une meilleure organisation du code :</p>
 <pre><code class="lang-elm"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
 <span class="hljs-title">view</span> model =
   div []
@@ -849,15 +849,15 @@
     , viewValidation model
     ]
 </code></pre>
-<p>In previous examples we were using <code>input</code> and <code>div</code> directly. Why did we stop?</p>
-<p>The neat thing about HTML in Elm is that <code>input</code> and <code>div</code> are just normal functions. They take (1) a list of attributes and (2) a list of child nodes. <strong>Since we are using normal Elm functions, we have the full power of Elm to help us build our views!</strong> We can refactor repetitive code out into customized helper functions. That is exactly what we are doing here!</p>
-<p>So our <code>view</code> function has three calls to <code>viewInput</code>:</p>
+<p>Dans les exemples précédents, nous utilisions <code>input</code> et <code>div</code> directement. Pourquoi faire différemment cette fois ?</p>
+<p>Une caractéristique importante du HTML en Elm est que <code>input</code> et <code>div</code> sont de simples fonctions. Chacune prend (1) une liste de champs et (2) une liste de nœuds enfants. <strong>Comme nous manipulons des fonctions Elm, nous pouvons utiliser toute la puissance de Elm à notre disposition pour construire nos vues !</strong> Notamment, nous pouvons factoriser le code répétitif dans des fonctions séparées, comme nous allons le voir par la suite.</p>
+<p>Notre fonction <code>view</code> procède à trois appels de la fonction <code>viewInput</code> :</p>
 <pre><code class="lang-elm"><span class="hljs-title">viewInput</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span> -&gt; (<span class="hljs-type">String</span> -&gt; msg) -&gt; <span class="hljs-type">Html</span> msg
 <span class="hljs-title">viewInput</span> t p v toMsg =
   input [ type_ t, placeholder p, value v, onInput toMsg ] []
 </code></pre>
-<p>This means that writing <code>viewInput &quot;text&quot; &quot;Name&quot; &quot;Bill&quot; Name</code> in Elm would turn into an HTML value like <code>&lt;input type=&quot;text&quot; placeholder=&quot;Name&quot; value=&quot;Bill&quot;&gt;</code> when shown on screen.</p>
-<p>The fourth entry is more interesting. It is a call to <code>viewValidation</code>:</p>
+<p>Un appel tel que <code>viewInput &quot;text&quot; &quot;Name&quot; &quot;Bill&quot; Name</code> en Elm produira la valeur HTML <code>&lt;input type=&quot;text&quot; placeholder=&quot;Name&quot; value=&quot;Bill&quot;&gt;</code> une fois montré à l&apos;écran.</p>
+<p>Le quatrième appel à <code>viewValidation</code> est intéressant :</p>
 <pre><code class="lang-elm"><span class="hljs-title">viewValidation</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> msg
 <span class="hljs-title">viewValidation</span> model =
   <span class="hljs-keyword">if</span> model.password == model.passwordAgain <span class="hljs-keyword">then</span>
@@ -865,17 +865,17 @@
   <span class="hljs-keyword">else</span>
     div [ style <span class="hljs-string">&quot;color&quot;</span> <span class="hljs-string">&quot;red&quot;</span> ] [ text <span class="hljs-string">&quot;Passwords do not match!&quot;</span> ]
 </code></pre>
-<p>This function first compares the two passwords. If they match, you get green text and a positive message. If they do not match, you get red text and a helpful message.</p>
-<p>These helper functions begin to show the benefits of having our HTML library be normal Elm code. We <em>could</em> put all that code into our <code>view</code>, but making helper functions is totally normal in Elm, even in view code. &quot;Is this getting hard to understand? Maybe I can break out a helper function!&quot;</p>
+<p>Cette fonction compare les deux mots de passe saisis. S&apos;ils correspondent, un message de confirmation s&apos;affiche en vert. S&apos;ils diffèrent, un message d&apos;erreur s&apos;affiche en rouge.</p>
+<p>Ces fonctions utilitaires montrent l&apos;avantage d&apos;avoir une bibliothèque HTML écrite en Elm. Il est possible d&apos;intégrer ce code directement dans la fonction <code>view</code>, mais écrire des fonctions réutilisables est normal en Elm, même pour la partie visuelle. Si le code devient difficile à comprendre, peut-être vaut-il mieux le décomposer en plusieurs fonctions utilitaires.</p>
 <blockquote>
-<p><strong>Exercises:</strong> Go look at this example in the online editor <a href="https://elm-lang.org/examples/forms" target="_blank">here</a>. Try to add the following features to the <code>viewValidation</code> helper function:</p>
+<p><strong>Exercices:</strong> Regardez cet <a href="https://elm-lang.org/examples/forms" target="_blank">exemple</a> sur l&apos;éditeur en ligne. Essayez d&apos;ajouter les caractéristiques suivantes à la fonction utilitaire <code>viewValidation</code>:</p>
 <ul>
-<li>Check that the password is longer than 8 characters.</li>
-<li>Make sure the password contains upper case, lower case, and numeric characters.</li>
+<li>Vérifiez que le mot de passe saisi contient plus de 8 caractères.</li>
+<li>Assurez-vous que le mot de passe contienne un mélange de caractères majuscules, minuscules, et numériques.</li>
 </ul>
-<p>Use the functions from the <a href="https://package.elm-lang.org/packages/elm/core/latest/String" target="_blank"><code>String</code></a> module for these exercises!</p>
-<p><strong>Warning:</strong> We need to learn a lot more before we start sending HTTP requests. Keep reading all the way to the section on HTTP before trying it yourself. It will be significantly easier with proper guidance!</p>
-<p><strong>Note:</strong> It seems like efforts to make generic validation libraries have not been too successful. I think the problem is that the checks are usually best captured by normal Elm functions. Take some args, give back a <code>Bool</code> or <code>Maybe</code>. E.g. Why use a library to check if two strings are equal? So as far as we know, the simplest code comes from writing the logic for your particular scenario without any special extras. So definitely give that a shot before deciding you need something more complex!</p>
+<p>Utilisez les fonctionnalités du module <a href="https://package.elm-lang.org/packages/elm/core/latest/String" target="_blank"><code>String</code></a> pour résoudre ces exercices !</p>
+<p><strong>Attention:</strong> Plus de connaissances sont nécessaires avant de commencer à envoyer des requêtes HTTP. Pour plus de facilité, nous vous recommandons de continuez la lecture jusqu&apos;à la section HTTP avant de vous y essayer.</p>
+<p><strong>Note:</strong> Aucune tentative d&apos;implémentation d&apos;une bibliothèque de validation générique ne s&apos;est avérée concluante pour le moment. La logique de validation est souvent mieux exprimée par des fonctions Elm classiques adaptées au problème traité et retournant un résultat de type <code>Bool</code> ou <code>Maybe</code>. Commencez par là avant de choisir une solution plus complexe.</p>
 </blockquote>
 
                                 
@@ -920,7 +920,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Forms","level":"1.3.3","depth":2,"next":{"title":"Les types","level":"1.4","depth":1,"path":"types/README.md","ref":"types/README.md","articles":[{"title":"Lire les types","level":"1.4.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},{"title":"Les alias de types","level":"1.4.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},{"title":"Types personnalisés","level":"1.4.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},{"title":"Pattern Matching","level":"1.4.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]}]},"previous":{"title":"Text Fields","level":"1.3.2","depth":2,"path":"architecture/text_fields.md","ref":"architecture/text_fields.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/forms.md","mtime":"2022-03-10T16:18:43.028Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-27T10:12:44.322Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Forms","level":"1.3.3","depth":2,"next":{"title":"Les types","level":"1.4","depth":1,"path":"types/README.md","ref":"types/README.md","articles":[{"title":"Lire les types","level":"1.4.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},{"title":"Les alias de types","level":"1.4.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},{"title":"Types personnalisés","level":"1.4.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},{"title":"Pattern Matching","level":"1.4.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]}]},"previous":{"title":"Text Fields","level":"1.3.2","depth":2,"path":"architecture/text_fields.md","ref":"architecture/text_fields.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/forms.md","mtime":"2022-03-28T07:04:14.338Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-28T07:06:04.852Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

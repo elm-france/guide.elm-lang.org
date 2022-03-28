@@ -722,30 +722,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="asset-size">Asset Size</h1>
-<p>The only thing that is slower than touching the DOM is talking to servers. Especially for folks on mobile phones with slow internet. So you can optimize your code all day with <code>Html.Lazy</code> and <code>Html.Keyed</code>, but your application will still feel slow if it loads slowly!</p>
-<p>A great way to improve is to send fewer bits. For example, if a 122kb asset can become a 9kb asset, it will load faster! We get results like that by using the following techniques:</p>
+                                <h1 id="taille-des-ressources">Taille des ressources</h1>
+<p>La seule chose plus lente que de manipuler le DOM est la communication entre serveurs, en particulier pour les usagers mobiles ou avec une connexion limitée. Vous pouvez passer du temps à optimiser votre code avec <code>Html.Lazy</code> et <code>Html.Keyed</code>, votre application restera aussi lente que son chargement.</p>
+<p>Celui-ci peut être améliorer grandement en transférant moins d&apos;octets. Par exemple, si la taille d&apos;une ressource de 122ko peut-être réduite à 9ko, alors son chargement sera accéléré! Ce genre de résultats peut être obtenu en utilisant les techniques suivantes :</p>
 <ul>
-<li><strong>Compilation.</strong> The Elm compiler can perform optimizations like dead code elimination and record field renaming. So it can cut unused code and shorten record field names like <code>userStatus</code> in the generated code.</li>
-<li><strong>Minification.</strong> In the JavaScript world, there are tools called “minifiers” that do a bunch of transformations. They shorten variables. They inline. They convert <code>if</code> statements to ternary operators. They turn <code>&apos;\u0041&apos;</code> to <code>&apos;A&apos;</code>. Anything to save a few bits!</li>
-<li><strong>Compression.</strong> Once you have gotten the code as small as possible, you can use a compression algorithm like gzip to shrink it even further. It does particularly well with keywords like <code>function</code> and <code>return</code> that you just cannot get rid of in the code itself.</li>
+<li><strong>Compilation.</strong> Le compilateur Elm peut réaliser des optimisations comme l&apos;élimination de code mort ou le renommage de champs. Il peut retirer le code non utilisé et raccourcir les noms de champs comme <code>userStatus</code> dans le code généré.</li>
+<li><strong>Minification.</strong> Dans l&apos;univers JavaScript, il existe des outils appelés &quot;minifiers&quot; qui réalisent des transformations diverses : ils raccourcissent des variables, génèrent du code en ligne, traduisent des instructions <code>if</code> en opérateur ternaire, ou encore convertissent <code>&apos;\u0041&apos;</code> en <code>&apos;A&apos;</code>. Tout ce qui peut économiser quelques octets!</li>
+<li><strong>Compression.</strong> Une fois le code raccourci au maximum, il est possible d&apos;utiliser un algorithme de compression comme gzip pour en réduire la taille. C&apos;est particulièrement efficace pour les mots-clés tels que <code>function</code> et <code>return</code> dont il est impossible de se débarrasser dans le code lui-même.</li>
 </ul>
-<p>Elm makes it pretty easy to get all this set up for your project. No need for some complex build system. It is just two terminal commands!</p>
+<p>Elm facilite la mise en place de tout ça dans votre projet, sans recours à un système de construction complexe. Il suffit de deux commandes depuis le terminal!</p>
 <h2 id="instructions">Instructions</h2>
-<p>Step one is to compile with the <code>--optimize</code> flag. This does things like shortening record field names.</p>
-<p>Step two is to minify the resulting JavaScript code. I use a minifier called <code>uglifyjs</code>, but you can use a different one if you want. The neat thing about <code>uglifyjs</code> is all its special flags. These flags unlock optimizations that are unreliable in normal JS code, but thanks to the design of Elm, they are totally safe for us!</p>
-<p>Putting those together, we can optimize <code>src/Main.elm</code> with two terminal commands:</p>
+<p>La première étape consiste à compiler avec l&apos;option <code>--optimize</code>. C&apos;est elle qui réalise les optimisations comme le renommage de champs.</p>
+<p>La seconde étape est de minifier le code JavaScript produit. J’utilise <code>uglifyjs</code>, mais libre à vous d&apos;utiliser un autre outil. L&apos;intérêt d&apos;<code>uglifyjs</code> réside dans ses options spéciales. Celles-ci débloquent des optimisations d&apos;ordinaire peu fiables sur du code JavaScript standard, mais qui s&apos;avèrent très efficace sur le code généré par Elm grâce à sa conception.</p>
+<p>En combinant ces deux étapes, optimiser <code>src/Main.elm</code> revient à exécuter:</p>
 <pre><code class="lang-bash">elm make src/Main.elm --optimize --output=elm.js
 uglifyjs elm.js --compress <span class="hljs-string">&apos;pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe&apos;</span> | uglifyjs --mangle --output elm.min.js
 </code></pre>
-<p>After this you will have an <code>elm.js</code> and a smaller <code>elm.min.js</code> file!</p>
+<p>En sortie, vous obtiendrez un fichier <code>elm.js</code> et plus petit fichier <code>elm.min.js</code>!</p>
 <blockquote>
-<p><strong>Note 1:</strong> <code>uglifyjs</code> is called twice there. First to <code>--compress</code> and second to <code>--mangle</code>. This is necessary! Otherwise <code>uglifyjs</code> will ignore our <code>pure_funcs</code> flag.</p>
-<p><strong>Note 2:</strong> If the <code>uglifyjs</code> command is not available in your terminal, you can run the command <code>npm install uglify-js --global</code> to download it. If you do not have <code>npm</code> either, you can get it with <a href="https://nodejs.org/" target="_blank">nodejs</a>.</p>
+<p><strong>Note 1:</strong> <code>uglifyjs</code> est exécuté deux fois ici. D&apos;abord avec l&apos;option <code>--compress</code>, puis avec l&apos;option <code>--mangle</code>. Sans cela, <code>uglifyjs</code> ignorera l&apos;option <code>pure_funcs</code>.</p>
+<p><strong>Note 2:</strong> Si <code>uglifyjs</code> n&apos;est pas disponible dans votre terminal, il est possible de l&apos;installer avec <code>npm install uglify-js --global</code>. Si <code>npm</code> n&apos;est pas non plus disponible, obtenez le avec <a href="https://nodejs.org/" target="_blank">nodejs</a>.</p>
 </blockquote>
 <h2 id="scripts">Scripts</h2>
-<p>It is hard to remember all those flags for <code>uglifyjs</code>, so it is probably better to write a script that does this.</p>
-<p>Say we want a bash script that produces <code>elm.js</code> and <code>elm.min.js</code> files. On Mac or Linux, we can define <code>optimize.sh</code> like this:</p>
+<p>Étant donné qu&apos;il est difficile de se rappeler toutes les options à utiliser pour <code>uglifyjs</code>, nous vous recommandons d&apos;écrire un script.</p>
+<p>Dans l&apos;hypothèse où nous voulons un script Bash qui produise les fichiers <code>elm.js</code> et <code>elm.min.js</code>, nous pouvons définir <code>optimize.sh</code> pour MacOS ou Linux comme ci-dessous :</p>
 <pre><code class="lang-bash"><span class="hljs-meta">#!/bin/sh</span>
 
 <span class="hljs-built_in">set</span> -e
@@ -761,16 +761,16 @@ uglifyjs <span class="hljs-variable">$js</span> --compress <span class="hljs-str
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Minified size:<span class="hljs-subst">$(wc $min -c)</span> bytes  (<span class="hljs-variable">$min</span>)&quot;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Gzipped size: <span class="hljs-subst">$(gzip $min -c | wc -c)</span> bytes&quot;</span>
 </code></pre>
-<p>Now if I run <code>./optimize.sh src/Main.elm</code> on my <a href="https://github.com/evancz/elm-todomvc" target="_blank">TodoMVC</a> code, I see something like this in the terminal:</p>
+<p>En lançant <code>./optimize.sh src/Main.elm</code> sur l&apos;application <a href="https://github.com/evancz/elm-todomvc" target="_blank">TodoMVC</a>, j&apos;obtiens le résultat suivant :</p>
 <pre><code>Compiled size:  122297 bytes  (elm.js)
 Minified size:   24123 bytes  (elm.min.js)
 Gzipped size:     9148 bytes
-</code></pre><p>Pretty neat! We only need to send about 9kb to get this program to people!</p>
-<p>The important commands here are <code>elm</code> and <code>uglifyjs</code> which work on any platform, so it should not be too tough to do something similar on Windows.</p>
-<h2 id="advice">Advice</h2>
-<p>I recommend writing a <code>Browser.application</code> and compiling to a single JavaScript file as we have seen here. It will get downloaded (and cached) when people first visit. Elm creates quite small files compared to the popular competitors, as you can see <a href="https://elm-lang.org/blog/small-assets-without-the-headache" target="_blank">here</a>, so this strategy can take you quite far.</p>
+</code></pre><p>Plutôt correct ! Seulement 9ko à transférer à l&apos;utilisateur.</p>
+<p>Les commandes importantes sont ici <code>elm</code> et <code>uglifyjs</code>, qui sont toutes deux disponibles sur toutes les plateformes. Il ne devrait donc pas y avoir de difficultés à faire fonctionner ce script sous Windows.</p>
+<h2 id="conseils">Conseils</h2>
+<p>Il est recommandé d&apos;écrire une <code>Browser.application</code> et de la compiler en un seul fichier JavaScript comme détaillé précédemment. Celui-ci sera téléchargé (et mis en cache) dès la première visite. Elm génère des fichiers plutôt compacts par rapport à ses concurrents, comme présenté <a href="https://elm-lang.org/blog/small-assets-without-the-headache" target="_blank">ici</a>. Cette stratégie peut donc vous mener loin.</p>
 <blockquote>
-<p><strong>Note:</strong> In theory, it is possible to get even smaller assets with Elm. It is not possible right now, but if you are working on 50k lines of Elm or more, we would like to learn about your situation as part of a user study. More details <a href="https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7" target="_blank">here</a>!</p>
+<p><strong>Note:</strong> En théorie, il serait possible d&apos;obtenir des ressources encore plus compacts avec Elm. Ce n&apos;est pas possible pour le moment, mais, si vous travaillez sur des bases de code Elm supérieures à 50k lignes, nous serions intéressés par vos retours d&apos;expérience. Pour plus d&apos;informations, c&apos;est par <a href="https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7" target="_blank">ici</a>!</p>
 </blockquote>
 
                                 
@@ -815,7 +815,7 @@ Gzipped size:     9148 bytes
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Minification","level":"1.10.3","depth":2,"next":{"title":"Prochaines étapes","level":"1.11","depth":1,"path":"next_steps.md","ref":"next_steps.md","articles":[]},"previous":{"title":"Html.keyed","level":"1.10.2","depth":2,"path":"optimization/keyed.md","ref":"optimization/keyed.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"optimization/asset_size.md","mtime":"2022-03-10T16:18:43.036Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-27T10:12:44.322Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Minification","level":"1.10.3","depth":2,"next":{"title":"Prochaines étapes","level":"1.11","depth":1,"path":"next_steps.md","ref":"next_steps.md","articles":[]},"previous":{"title":"Html.keyed","level":"1.10.2","depth":2,"path":"optimization/keyed.md","ref":"optimization/keyed.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"optimization/asset_size.md","mtime":"2022-03-28T06:53:42.349Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-28T07:06:04.852Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
