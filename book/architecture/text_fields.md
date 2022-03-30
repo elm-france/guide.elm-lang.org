@@ -96,8 +96,8 @@ view model =
 Un élément `<div>` est généré avec deux enfants, dont le plus intéressant est le nœud `<input>` ayant les attributs suivants :
 
 - `placeholder` est le texte affiché en l'absence de saisie
-- `value` est la valeur de saisie courante dans `<input>`
-- `onInput` envoie un message quand utilisateur saisit du texte
+- `value` est la valeur courante de la saisie dans `<input>`
+- `onInput` envoie un message à chaque changement dans la saisie
 
 Par exemple, la saisie du mort "bard" produira les quatre messages suivants :
 
