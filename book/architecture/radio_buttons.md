@@ -4,7 +4,7 @@
 #### Suivez l'exemple sur l'[éditeur en ligne](https://elm-lang.org/examples/radio-buttons).
 ---
 
-Imaginez un site web concentré sur la lecture, comme ce guide ! Dans ces circonstances, il est désirable d'offrir le choix entre différentes tailles de police (petite, moyenne ou grande) pour que vos lecteurs puissent l'ajuster selon leurs préférences. Ce qui peut se traduire par le code HTML suivant :
+Imaginez un site web concentré sur la lecture, comme ce guide ! Dans ces circonstances, il est désirable d'offrir le choix entre différentes tailles de police (petite, moyenne ou grande) pour que vos lecteurs puissent l'ajuster selon leurs préférences. Cela peut se traduire par le code HTML suivant :
 
 ```html
 <fieldset>
