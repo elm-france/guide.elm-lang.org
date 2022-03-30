@@ -124,17 +124,16 @@ update msg model =
       { model | content = newContent }
 ```
 
-La valeur du champ `content` du modèle est mis à jour à la réception du message de modification du nœud `<input>`. Par conséquent, à la saisie du texte  `bard`, les messages reçus par la fonction `update` produiront les modèles suivants :
+La valeur du champ `content` du modèle est mise à jour à la réception du message de modification du nœud `<input>`. Par conséquent, à la saisie du texte  `bard`, les messages reçus par la fonction `update` produiront successivement les modèles suivants :
 
 1. `{ content = "b" }`
 2. `{ content = "ba" }`
 3. `{ content = "bar" }`
 4. `{ content = "bard" }`
 
-Il est nécessaire de stocker l'information de manière explicite dans le modèle, auquel cas il ne sera pas possible d'inverser le texte dans la fonction `view`.
+Il est nécessaire de stocker l'information de manière explicite dans le modèle, auquel cas il ne serait pas possible d'inverser le texte dans la fonction `view`.
 
 > **Exercice:** Regardez cet [exemple](https://elm-lang.org/examples/text-fields) et afficher la taille de `content` dans la fonction `view`. Pour cela, utilisez la fonction [`String.length`](https://package.elm-lang.org/packages/elm/core/latest/String#length) !
 >
 > **Note:** Pour plus d'informations concernant le fonctionnement de `Change`, rendez-vous à la section sur les [types personnalisés](/types/custom_types.html) et le [pattern matching](/types/pattern_matching.html).
-
-
+> 
