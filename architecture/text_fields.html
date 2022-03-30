@@ -722,9 +722,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="text-fields">Text Fields</h1>
-<p>We are about to create a simple app that reverses the contents of a text field.</p>
-<p>Click the blue button to look at this program in the online editor. Try to check out the hint for the <code>type</code> keyword. <strong>Click the blue button now!</strong></p>
+                                <h1 id="zones-de-texte">Zones de texte</h1>
+<p>Nous allons créer une application simple qui intervertit le contenu d&apos;une zone de saisie de texte.</p>
+<p><strong>Cliquez sur le bouton bleu</strong> pour consulter le code de l&apos;application. Regardez notamment le conseil affiché sur le mot-clé <code>type</code>.</p>
 <div class="edit-link"><a href="https://elm-lang.org/examples/text-fields" target="_blank">Edit</a></div>
 
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
@@ -781,19 +781,19 @@
     , div [] [ text (<span class="hljs-type">String</span>.reverse model.content) ]
     ]
 </code></pre>
-<p>This code is a slight variant of the previous example. You set up a model. You define some messages. You say how to <code>update</code>. You make your <code>view</code>. The difference is just in how we filled this skeleton in. Let&apos;s walk through that!</p>
+<p>Ce code est une légère variante de l&apos;exemple précédent. Nous définissons le même squelette applicatif avec un modèle, quelques messages, la mise à jour du modèle dans la fonction <code>update</code> et l&apos;affichage dans la fonction <code>view</code>. Les différences résident dans l&apos;implémentation, dont nous allons détailler le contenu.</p>
 <h2 id="model">Model</h2>
-<p>I always start by guessing at what my <code>Model</code> should be. We know we have to keep track of whatever the user has typed into the text field. We need that information to know how to render the reversed text. So we go with this:</p>
+<p>Commençons par le modèle. Nous aurons besoin de stocker le texte saisi par l&apos;utilisateur, qui devra être affiché en inversé par la suite.</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
   { content : <span class="hljs-type">String</span>
   }
 </code></pre>
-<p>This time I chose to represent the model as a record. The record stores the user input in the <code>content</code> field.</p>
+<p>Cette fois, le modèle est représenté sous la forme d&apos;un record, dont le champ <code>content</code> contiendra le texte saisi par l&apos;utilisateur.</p>
 <blockquote>
-<p><strong>Note:</strong> You may be wondering, why bother having a record if it only holds one entry? Couldn&apos;t you just use the string directly? Sure! But starting with a record makes it easy to add more fields as our app gets more complicated. When the time comes where we want <em>two</em> text inputs, we will have to do much less fiddling around.</p>
+<p><strong>Note:</strong> Quel est l&apos;intérêt d&apos;utiliser un record avec un seul champ plutôt qu&apos;un <code>String</code> directement ? Afin de faciliter l&apos;évolution du code quand l&apos;application deviendra plus complexe. Il est en effet très simple d&apos;étendre un record avec un nouveau champ.</p>
 </blockquote>
 <h2 id="view">View</h2>
-<p>We have our model, so I usually proceed by creating a <code>view</code> function:</p>
+<p>Maintenant que le modèle est défini, procédons à la création de la fonction <code>view</code> :</p>
 <pre><code class="lang-elm"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
 <span class="hljs-title">view</span> model =
   div []
@@ -801,22 +801,22 @@
     , div [] [ text (<span class="hljs-type">String</span>.reverse model.content) ]
     ]
 </code></pre>
-<p>We create a <code>&lt;div&gt;</code> with two children. The interesting child is the <code>&lt;input&gt;</code> node which has three attributes:</p>
+<p>Un élément <code>&lt;div&gt;</code> est généré avec deux enfants, dont le plus intéressant est le nœud <code>&lt;input&gt;</code> ayant les attributs suivants :</p>
 <ul>
-<li><code>placeholder</code> is the text that shows when there is no content</li>
-<li><code>value</code> is the current content of this <code>&lt;input&gt;</code></li>
-<li><code>onInput</code> sends messages when the user types in this <code>&lt;input&gt;</code> node</li>
+<li><code>placeholder</code> est le texte affiché en l&apos;absence de saisie</li>
+<li><code>value</code> est la valeur courante de la saisie dans <code>&lt;input&gt;</code></li>
+<li><code>onInput</code> envoie un message à chaque changement dans la saisie</li>
 </ul>
-<p>Typing in &quot;bard&quot; this would produce four messages:</p>
+<p>Par exemple, la saisie du mort &quot;bard&quot; produira les quatre messages suivants :</p>
 <ol>
 <li><code>Change &quot;b&quot;</code></li>
 <li><code>Change &quot;ba&quot;</code></li>
 <li><code>Change &quot;bar&quot;</code></li>
 <li><code>Change &quot;bard&quot;</code></li>
 </ol>
-<p>These would be fed into our <code>update</code> function.</p>
+<p>Ces messages seront traités par la fonction <code>update</code>.</p>
 <h2 id="update">Update</h2>
-<p>There is only one kind of message in this program, so our <code>update</code> only has to handle one case:</p>
+<p>Ce programme ne définissant qu&apos;un type de message, la fonction <code>update</code> n&apos;a qu&apos;un seul cas à traiter :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
   = <span class="hljs-type">Change</span> <span class="hljs-type">String</span>
 
@@ -826,17 +826,17 @@
     <span class="hljs-type">Change</span> newContent -&gt;
       { model | content = newContent }
 </code></pre>
-<p>When we receive a message that the <code>&lt;input&gt;</code> node has changed, we update the <code>content</code> of our model. So if you typed in &quot;bard&quot; the resulting messages would produce the following models:</p>
+<p>La valeur du champ <code>content</code> du modèle est mise à jour à la réception du message de modification du nœud <code>&lt;input&gt;</code>. Par conséquent, à la saisie du texte  <code>bard</code>, les messages reçus par la fonction <code>update</code> produiront successivement les modèles suivants :</p>
 <ol>
 <li><code>{ content = &quot;b&quot; }</code></li>
 <li><code>{ content = &quot;ba&quot; }</code></li>
 <li><code>{ content = &quot;bar&quot; }</code></li>
 <li><code>{ content = &quot;bard&quot; }</code></li>
 </ol>
-<p>We need to track this information explicitly in our model, otherwise there is no way to show the reversed text in our <code>view</code> function!</p>
+<p>Il est nécessaire de stocker l&apos;information de manière explicite dans le modèle, auquel cas il ne serait pas possible d&apos;inverser le texte dans la fonction <code>view</code>.</p>
 <blockquote>
-<p><strong>Exercise:</strong> Go to the example in the online editor <a href="https://elm-lang.org/examples/text-fields" target="_blank">here</a> and show the length of the <code>content</code> in your <code>view</code> function. Use the <a href="https://package.elm-lang.org/packages/elm/core/latest/String#length" target="_blank"><code>String.length</code></a> function!</p>
-<p><strong>Note:</strong> If you want more info on exactly how the <code>Change</code> values are working in this program, jump ahead to the sections on <a href="../types/custom_types.html">custom types</a> and <a href="../types/pattern_matching.html">pattern matching</a>.</p>
+<p><strong>Exercice:</strong> Regardez cet <a href="https://elm-lang.org/examples/text-fields" target="_blank">exemple</a> et afficher la taille de <code>content</code> dans la fonction <code>view</code>. Pour cela, utilisez la fonction <a href="https://package.elm-lang.org/packages/elm/core/latest/String#length" target="_blank"><code>String.length</code></a> !</p>
+<p><strong>Note:</strong> Pour plus d&apos;informations concernant le fonctionnement de <code>Change</code>, rendez-vous à la section sur les <a href="../types/custom_types.html">types personnalisés</a> et le <a href="../types/pattern_matching.html">pattern matching</a>.</p>
 </blockquote>
 
                                 
@@ -881,7 +881,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Champs texte","level":"1.3.2","depth":2,"next":{"title":"Formulaires","level":"1.3.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]},"previous":{"title":"Boutons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/text_fields.md","mtime":"2022-03-10T16:18:43.029Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-28T12:04:34.607Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Champs texte","level":"1.3.2","depth":2,"next":{"title":"Formulaires","level":"1.3.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]},"previous":{"title":"Boutons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/text_fields.md","mtime":"2022-03-30T14:53:06.545Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-30T14:53:31.057Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
