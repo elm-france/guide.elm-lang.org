@@ -137,14 +137,14 @@ viewPicker attributes options =
 Voire des attributs spécifiques pour chaque bouton radio pour une flexibilité maximum ! Les possibilités de configuration sont multiples simplement en ajoutant plus d'informations à un argument de fonction.
 
 
-## Too Much Reuse?
+## Trop de réutilisation ?
 
-In this case, we saw quite a few ways to write the same code. But which way is the *right* way to do it? A good rule to pick an API is **choose the absolute simplest thing that does everything you need**. Here are some scenarios that test this rule:
+Nous venons de voir plusieurs manières d'écrire le même code. Parmi ces manières, laquelle est considérée la plus *correcte* ? Une bonne heuristique de conception d'API consiste à **choisir la solution la plus simple répondant à vos besoins**. Testons cette heuristique pour quelques scenario : 
 
-  1. There is the only radio button thing on your page. In that case, just make them! Do not worry about making a highly configurable and reusable function for radio buttons. Refactoring is easy in Elm, so wait for a legitimate need before doing that work!
+  1. La page ne contient qu'un seul bouton radio. Dans ce cas, pas besoin d'une solution configurable et réutilisable, il suffit de le créer et de l'afficher. La factorisation s'effectuant facilement en Elm, autant attendre le moment opportun où le besoin s'en ressent.
 
-  2. There are a couple radio button things on your page, all with the same styling. That is how the options on this guide look. This is a great case for sharing a view function. You may not even need to change any classes or add any custom attributes. If you do not need that, do not design for it! It is easy to add later.
+  2. La page contient quelques boutons radio, tous avec les mêmes contraintes de style. C'est le cas couvert par l'exemple de ce chapitre. C'est une bonne opportunité de factoriser le code d'affichage de ces boutons radio en de l'utiliser dans la fonction `view`. En l'absence de contraintes de style supplémentaires (comme des classes ou des attributs personnalisés), il est inutile de pousser la conception plus loin.
 
-  3. There are a couple radio button things on your page, but they are very different. You could do an extremely flexible picker that lets you configure everything, but at some point, things that *look* similar are not actually similar enough for this to be worth it. So if you ever find yourself with tons of complex arguments configuring a view function, you may have overdone it on the reuse. I personally would prefer to have two chunks of *similar* view code that are both simple and easy to change than one chunk of view code that is complex and hard to understand.
+  3. La page contient plusieurs boutons radio, tous avec des contraintes de style différentes. Imaginons une interface de sélection flexible et configurable, où chaque élément *se ressemble*, mais dont les différences sont suffisamment prononcées pour nécessiter une distinction dans le code. Si vous vous retrouvez à surcharger la fonction `view` avec une liste d'arguments complexes, alors il est possible que la factorisation soit trop prononcée. Dans ce cas, il est préférable de séparer le traitement d'un affichage *similaire* en deux sous-fonctions avec du code *similaire*, mais dont la maintenance et la compréhension seront plus simples indépendamment.
 
-Point is, there is no magic recipe here. The answer will depend on the particulars of your application, and you should always try to find the simplest approach. Sometimes that means sharing code. Sometimes it means writing *similar* code. It takes practice and experience to get good at this, so do not be afraid to experiment to find simpler ways!
+Pour résumer, il n'y a pas de recette toute faite. La solution doit être adaptée aux besoins applicatifs, tout en restant la plus simple possible. Dans certains cas, elle demande de factoriser du code, dans d'autres de dupliquer des portions *similaires*. Ce n'est que par la pratique et l'expérience que l'intuition se construit, l'essentiel étant de favoriser la simplicité.
