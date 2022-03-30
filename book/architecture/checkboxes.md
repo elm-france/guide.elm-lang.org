@@ -7,7 +7,7 @@
 Pour celles et ceux venant du monde JavaScript, vous vous demandez certainement **&ldquo;où sont passés mes composants ?&rdquo;** et &ldquo;comment se passe la communication parent-enfant entre eux ?&rdquo;. Ces questions sont centrales en JavaScript, mais les choses fonctionnent différemment en Elm. Elm étant un langage fonctionnel, **nous ne résonnons pas en terme de composants, mais en terme de fonctions.**
 
 
-Votre application sera probablement amenée à exposer des éléments de configuration à l'utilisateur, comme l'envoi d'une notification ou la lecture automatique de contenu vidéo. Cela peut se traduire par le code HTML suivant :
+Votre application sera probablement amenée à exposer des éléments de configuration à l'utilisateur, comme l'envoi de notifications par courriel ou la lecture automatique de contenu vidéo. Cela peut se traduire par le code HTML suivant :
 
 ```html
 <fieldset>
