@@ -92,7 +92,7 @@ radio msg name =
 
 Après factorisation, la fonction `view` est devenue bien plus lisible !
 
-If that is the only chunk of radio buttons on your page, you are done. But perhaps you have a couple sets of radio buttons. For example, this guide not only lets you set font size, but also color scheme and whether you use a serif or sans-serif font. Each of those can be implemented as a set of radio buttons, so we could do a bit more refactoring, like this:
+Si vous n'avez pas d'autres boutons radio à afficher sur la page, vous pouvez vous en tenir à ça. Si vous désirez en afficher plus, comme sur l'exemple ci-dessous où il est possible de choisir la couleur et la sérigraphie de la police, alors il possible de factoriser le code d'affichage pour un ensemble de boutons radio.
 
 ```elm
 view : Model -> Html Msg
@@ -118,7 +118,7 @@ radio (name, msg) =
     ]
 ```
 
-So if we want to let users choose a color scheme or toggle serifs, the `view` can reuse `viewPicker` for each case. If we do that, we may want to add additional arguments to the `viewPicker` function. If we want to be able to set a class on each `<fieldset>`, we could add an argument like this:
+Ici, la fonction `view` appelle la fonction réutilisable `viewPicker` permettant d'afficher le choix des taille, couleur et sérigraphie de la police. Il est maintenant possible d'étendre cette fonction avec des arguments supplémentaires pour ajouter une classe à chaque `<fieldset>` :
 
 ```elm
 viewPicker : String -> List (String, msg) -> Html msg
@@ -126,7 +126,7 @@ viewPicker pickerClass options =
   fieldset [ class pickerClass ] (List.map radio options)
 ```
 
-Or if we wanted even more flexibility, we could let people pass in whatever attributes they please, like this:
+Ou même une liste arbitraire d'attributs pour plus de flexibilité :
 
 ```elm
 viewPicker : List (Attribute msg) -> List (String, msg) -> Html msg
@@ -134,7 +134,7 @@ viewPicker attributes options =
   fieldset attributes (List.map radio options)
 ```
 
-And if we wanted even MORE flexibility, we could let people pass in attributes for each radio button too! There is really no end to what can be configured. You just add a bit more information to an argument.
+Voire des attributs spécifiques pour chaque bouton radio pour une flexibilité maximum ! Les possibilités de configuration sont multiples simplement en ajoutant plus d'informations à un argument de fonction.
 
 
 ## Too Much Reuse?
