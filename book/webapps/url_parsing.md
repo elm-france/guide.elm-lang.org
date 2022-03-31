@@ -148,4 +148,4 @@ Les nouveautés :
 
 Rien de bien compliqué. Tant mieux !
 
-Bon, mais il se passe quoi avec 10 pages différentes ? Ou 20 ? Ou 100 ? On met tout dans notre `view` ? On va pas laisser tout ça dans un seul fichier, si ? Mais alors, combien de fichiers ? Dans quelle arborescende de répertoires ? C'est ce qu'on va voir dans la partie suivante !
+Bon, mais il se passe quoi avec 10 pages différentes ? Ou 20 ? Ou 100 ? On met tout dans notre `view` ? On va pas laisser tout ça dans un seul fichier, si ? Mais alors, combien de fichiers ? Dans quelle arborescende de répertoires ? C’est ce qu'on va voir dans la partie suivante !
