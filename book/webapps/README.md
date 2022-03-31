@@ -44,7 +44,7 @@ Le résultat sera un fichier nommé `index.html` que nous pourrons servir comme 
 elm make src/Main.elm --output=main.js
 ```
 
-Cela va produire un fichier `main.js`, que l'on peut alors référencer dans un fichier HTML, comme ceci :
+Cela va produire un fichier `main.js`, que l’on peut alors référencer dans un fichier HTML, comme ceci :
 
 ```html
 <!DOCTYPE HTML>
