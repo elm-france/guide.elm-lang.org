@@ -4,7 +4,7 @@ Elm propose des **modules** pour gérer proprement l’augmentation de la quanti
 
 ## Création d'un module
 
-Idéalement, les modules Elm sont construits autour d'un type central. Par exemple, le module `List` est consacré au type `List`. Imaginons que l'on cherche à construire un module autour du type `Post` pour notre site de blog. On peut écrire quelque chose du genre :
+Idéalement, les modules Elm sont construits autour d'un type central. Par exemple, le module `List` est consacré au type `List`. Imaginons que l’on cherche à construire un module autour du type `Post` pour notre site de blog. On peut écrire quelque chose du genre :
 
 ```elm
 module Post exposing (Post, tempsDeLecture, encode, decoder)
