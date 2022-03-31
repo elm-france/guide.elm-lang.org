@@ -1,6 +1,6 @@
 # Applications web
 
-Jusqu'à présent, nous avons créé des programmes Elm avec `Browser.element`, qui nous permet de contrôler un élément HTML au sein d'une application plus grande. C'est très bien pour _commencer_ à utiliser Elm au travail (comme expliqué [ici - lien en anglais](https://elm-lang.org/blog/how-to-use-elm-at-work)), mais après ? Comment généraliser l'utilisation de Elm ?
+Jusqu’à présent, nous avons créé des programmes Elm avec `Browser.element`, qui nous permet de contrôler un élément HTML au sein d’une application plus grande. C'est très bien pour _commencer_ à utiliser Elm au travail (comme expliqué [ici - lien en anglais](https://elm-lang.org/blog/how-to-use-elm-at-work)), mais après ? Comment généraliser l’utilisation de Elm ?
 
 Dans ce chapitre, nous allons voir comment créer une application web avec tout un tas de pages qui s'intègrent parfaitement les unes avec les autres. Mais, avant ça, voyons comment contrôler une seule page.
 
