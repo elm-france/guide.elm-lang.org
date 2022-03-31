@@ -18,7 +18,7 @@ document :
   -> Program flags model msg
 ```
 
-Les arguments sont presque les mêmes que pour `Browser.element`, à l'exception de la fonction `view`. Plutôt que de retourner du `Html`, elle retourne maintenant un [`Document`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#Document) de ce type :
+Les arguments sont presque les mêmes que pour `Browser.element`, à l’exception de la fonction `view`. Plutôt que de retourner du `Html`, elle retourne maintenant un [`Document`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#Document) de ce type :
 
 ```elm
 type alias Document msg =
