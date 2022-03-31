@@ -132,7 +132,7 @@ docsParser =
 -- /           ==>  Nothing
 ```
 
-Et hop, c'est bon pour les fragments !
+Et hop, c’est bon pour les fragments !
 
 ## Synthèse
 
