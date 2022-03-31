@@ -61,7 +61,7 @@ Cela va produire un fichier `main.js`, que l'on peut alors référencer dans un 
 </html>
 ```
 
-Ce fichier HTML est très simple. On charge ce dont on a besoin dans la balise `<head>` et on initialise le programme Elm dans le `<body>`. Le programme Elm s'occupe du reste et affiche l'application entière !
+Ce fichier HTML est très simple. On charge ce dont on a besoin dans la balise `<head>` et on initialise le programme Elm dans le `<body>`. Le programme Elm s’occupe du reste et affiche l’application entière !
 
 Quelle que soit la méthode choisie, on dispose maintenant d'un fichier HTML, lisible par les navigateurs. Pour donner accès à ce HTML, on peut utiliser des services gratuits comme [GitHub Pages](https://pages.github.com/) ou [Netlify](https://www.netlify.com/), ou bien monter son propre serveur sur un VPS avec un service comme [OVH](https://www.ovhcloud.com/fr/vps/) ou [Digital Ocean](https://m.do.co/c/c47faa1916d2). Peu importe, du moment qu'on peut rendre notre HTML accessible à un navigateur !
 
