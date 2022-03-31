@@ -10,7 +10,7 @@ Oui, mais comment faire ? En utilisant [`elm/url`](https://package.elm-lang.org
 
 ## Exemple n°1
 
-Disons que nous avons un site d'art, et que nous voulons proposer les adresses suivantes :
+Disons que nous avons un site d’art, et que nous voulons proposer les adresses suivantes :
 
 - `/sujet/architecture`
 - `/sujet/peinture`
