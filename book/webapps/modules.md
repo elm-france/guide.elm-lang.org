@@ -51,7 +51,7 @@ decoder =
     (D.field "contenu" D.string)
 ```
 
-La seule nouvelle syntaxe ici est la ligne `module Post exposing (Post, tempsDeLecture, encode, decoder)` tout en haut. Cela signifie que le module est connu sous le nom de `Post` et que seule une partie de ses valeurs sont exposées à l'extérieur. Comme c'est écrit là, la fonction `nombreDeMots` n'est utilisable qu'à _l'intérieur_ du module `Post`. En Elm, masquer certaines fonctions d'un module est une technique très importante.
+La seule nouvelle syntaxe ici est la première ligne `module Post exposing (Post, tempsDeLecture, encode, decoder)`. Cela signifie que le module est connu sous le nom de `Post` et que seule une partie de ses valeurs sont exposées à l’extérieur. Comme c'est écrit là, la fonction `nombreDeMots` n'est utilisable qu'à _l'intérieur_ du module `Post`. En Elm, masquer certaines fonctions d'un module est une technique très importante.
 
 > **Note :** Quand on omet la déclaration de module, Elm utilisera celle-ci par défaut :
 >
