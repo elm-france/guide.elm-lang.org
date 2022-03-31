@@ -1,6 +1,6 @@
 # Les modules
 
-Elm propose des **modules** pour gérer proprement l'augmentation de la quantité de code. Au niveau le plus basique, les modules permettent de séparer le code en plusieurs fichiers.
+Elm propose des **modules** pour gérer proprement l’augmentation de la quantité de code. Au niveau le plus basique, les modules permettent de séparer le code en plusieurs fichiers.
 
 ## Création d'un module
 
