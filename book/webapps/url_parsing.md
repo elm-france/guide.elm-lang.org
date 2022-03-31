@@ -143,7 +143,7 @@ TODO
 ```
 
 Les nouveautés :
-1. notre fonction `update` parse l'URL quand elle reçoit un message `UrlChanged`.
+1. notre fonction `update` parse l’URL quand elle reçoit un message `UrlChanged` ;
 2. notre fonction `view` montre des choses différentes selon les adresses !
 
 Rien de bien compliqué. Tant mieux !
