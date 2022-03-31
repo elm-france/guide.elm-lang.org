@@ -38,7 +38,7 @@ Le compilateur produit du HTML par défaut ; il suffit donc de compiler le code
 elm make src/Main.elm
 ```
 
-Le résultat sera un fichier nommé `index.html` que nous pourrons servir comme n'importe quel autre fichier HTML. Cette méthode fonctionne très bien ! On peut néanmoins obtenir un peu plus de flexibilité en (1) compilant Elm vers Javascript et (2) créant un fichier HTML personnalisé. Pour ce faire, on lance le compilateur comme ceci :
+Le résultat sera un fichier nommé `index.html` que nous pourrons servir comme n’importe quel autre fichier HTML. Cette méthode fonctionne très bien ! On peut néanmoins obtenir un peu plus de flexibilité en (1) compilant Elm vers Javascript et (2) créant un fichier HTML personnalisé. Pour ce faire, on lance le compilateur comme ceci :
 
 ```bash
 elm make src/Main.elm --output=main.js
