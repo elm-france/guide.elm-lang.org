@@ -1,14 +1,13 @@
-# Checkboxes
+# Boîtes à cocher
 
 ---
-#### Follow along in the [online editor](https://elm-lang.org/examples/checkboxes).
+#### Parcourez cet exemple avec l'[éditeur en ligne](https://elm-lang.org/examples/checkboxes).
 ---
 
-If you are coming from JavaScript, you may be wondering **&ldquo;where are my components?&rdquo;** and &ldquo;how do I do parent-child communication between them?&rdquo; A great deal of time and effort is spent on these questions in JavaScript, but it just works different in Elm. **We do not think in terms of components. Instead, we focus on functions.** It is a functional language after all!
+Pour celles et ceux venant du monde JavaScript, vous vous demandez certainement **&ldquo;où sont passés mes composants ?&rdquo;** et &ldquo;comment se passe la communication parent-enfant entre eux ?&rdquo;. Ces questions sont centrales en JavaScript, mais les choses fonctionnent différemment en Elm. Elm étant un langage fonctionnel, **nous ne résonnons pas en terme de composants, mais en terme de fonctions.**
 
-TODO transition
 
-Your app will probably have some options people can mess with. If something happens, should you send them an email notification? If they come across a video, should it start playing by itself? That kind of thing. So you will need to create some HTML like this:
+Votre application sera probablement amenée à exposer des éléments de configuration à l'utilisateur, comme l'envoi de notifications par courriel ou la lecture automatique de contenu vidéo. Cela peut se traduire par le code HTML suivant :
 
 ```html
 <fieldset>
@@ -18,7 +17,9 @@ Your app will probably have some options people can mess with. If something happ
 </fieldset>
 ```
 
-That will let people toggle the checkboxes, and using `<label>` means they get a much bigger area they can click on. Let’s write an Elm program that manages all this interaction! As always, we will take a guess at our `Model`. We know we need to track the user’s settings so we will put them in our model:
+Ce code expose des éléments de configuration par le biais de boîtes à cocher (*checkbox* en anglais), l'usage de l'élément `<label>` offrant une plus grande surface d’interaction à l'utilisateur.
+
+Voyons comment gérer ces interactions côté Elm. Tout d'abord, commençons par la définition du modèle. Celui-ci devra conserver l'état de la configuration sélectionnée par l'utilisateur :
 
 ```elm
 type alias Model =
@@ -28,7 +29,7 @@ type alias Model =
   }
 ```
 
-From there, we will want to figure out our messages and update function. Maybe something like this:
+Ensuite, définissons les messages à traiter et la fonction de mise à jour du modèle. Voici une proposition :
 
 ```elm
 type Msg
@@ -49,7 +50,7 @@ update msg model =
       { model | location = not model.location }
 ```
 
-That seems fine. Now to create our view!
+Enfin, nous définirons la fonction d'affichage suivante :
 
 ```elm
 view : Model -> Html Msg
@@ -70,7 +71,7 @@ view model =
     ]
 ```
 
-This is not too crazy, but we are repeating ourselves a bit. How can we make our `view` function nicer? If you are coming from JavaScript, your first instinct is probably that we should make a &ldquo;labeled checkbox component&rdquo; but it is easier to just create a helper function! Here is the `view` function with a `checkbox` helper function:
+L'implémentation est relativement simple, mais il y a de la répétition dans le code. Notamment, il est possible de rendre la fonction `view` plus lisible. Les habitué.e.s du JavaScript auront plutôt tendance à définir un nouveau composant de type &ldquo;boîte à cocher labellisé&rdquo;. En Elm, il est plus simple de recourir à des fonctions réutilisables. Voici ce que donne une tentative de factorisation de la fonction `view` :
 
 ```elm
 view : Model -> Html Msg
@@ -89,15 +90,15 @@ checkbox msg name =
     ]
 ```
 
-Now we have a highly configurable `checkbox` function. It takes two arguments to configure how it works: the message it produces on clicks and some text to show next to the checkbox. Now if we decide we want all checkboxes to have a certain `class`, we just add it in the `checkbox` function and it shows up everywhere! This is the essence of **reusable views** in Elm. Create helper functions!
+Dorénavant, `view` fait appel à une fonction utilitaire `checkbox` bien plus configurable. Celle-ci accepte deux arguments : le message produit à chaque clic sur la boîte à cocher et le texte à afficher à côté de celle-ci. Si nous décidons plus tard d'attribuer une classe commune à toutes les boîtes à cocher, alors il suffira de modifier la fonction `checkbox`. La factorisation de code dans des fonctions utilitaires est le principe de base permettant l'implémentation de **vues réutilisables**.
 
 
-## Comparing Reusable Views to Reusable Components
+## Comparaison entre vues et composants réutilisables
 
-We now have enough information to do a simple comparison of these approaches. Reusable views have a few major advantages over components:
+Nous avons maintenant suffisamment d'informations pour comparer ces deux approches. Les vues réutilisables présentent des avantages significatifs par rapport aux composants :
 
-  - **It is just functions.** We are not doing anything special here. Functions have all the power we need, and they are very simple to create. It is the most basic building block of Elm!
+  - **Ce sont des fonctions, tout simplement.** Il n'y a rien de spécial à rajouter. Les fonctions offrent suffisamment de puissance et sont très simples à créer, car elles font partie des fondamentaux du langage Elm.
 
-  - **No parent-child communication.** If we had made a &ldquo;checkbox component&rdquo; we would have to figure out how to synchronize the state in the checkbox component with our overall model. &ldquo;That checkbox says notifications are on, but the model says they are off!&rdquo; Maybe we need a Flux store now? By using functions instead, we are able to have reuse in our view *without* disrupting our `Model` or `update`. They work exactly the same as before, no need to touch them!
+  - **Pas de communication parent-enfant.** L'implémentation d'un composant &ldquo;boîte à cocher&rdquo; aurait nécessité un effort de synchronisation entre l'état du composant et celui du modèle. Cela peut amener des incohérences, comme le fait d'afficher la boîte des notifications cochée malgré un modèle indiquant leur désactivation. À l'inverse, l'utilisation des fonctions en Elm permet d'isoler la logique d'affichage, sans recourir à des modifications du modèle lui-même ou de sa mise à jour.
 
-This means we can always create reusable `view` code without changing our overall architecture or introducing any fancy ideas. Just write smaller functions. That sounds nice, but let’s see some more examples to make sure it is true!
+En Elm, il est toujours possible de factoriser le code d'affichage sans modifier l'architecture globale d'une application. Il suffit simplement d'écrire des fonctions plus petites. Nous le vérifierons sur d'autres exemples par la suite.
