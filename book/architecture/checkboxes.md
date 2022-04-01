@@ -71,7 +71,7 @@ view model =
     ]
 ```
 
-L'implémentation est relativement simple, mais il y a de la répétition dans le code. Notamment, il est possible de rendre la fonction `view` plus lisible. Les habitué.e.s du JavaScript auront plutôt tendance à définir un nouveau composant de type &ldquo;boîte à cocher labellisé&rdquo;. En Elm, il est plus simple d'avoir recours à des fonctions réutilisables. Voyons ce que donne une tentative de factorisation de la fonction `view` :
+L'implémentation est relativement simple, mais il y a de la répétition dans le code. Notamment, il est possible de rendre la fonction `view` plus lisible. Les habitué.e.s du JavaScript auront plutôt tendance à définir un nouveau composant de type &ldquo;boîte à cocher labellisé&rdquo;. En Elm, il est plus simple de recourir à des fonctions réutilisables. Voici ce que donne une tentative de factorisation de la fonction `view` :
 
 ```elm
 view : Model -> Html Msg
@@ -90,7 +90,7 @@ checkbox msg name =
     ]
 ```
 
-Dorénavant, `view` fait appel à une fonction utilitaire `checkbox` bien plus configurable. Celle-ci accepte deux arguments : le message produit à chaque clic sur la boîte à cocher, et le texte à afficher à côté de celle-ci. Si nous décidons plus tard d'attribuer une classe commune à toutes les boîtes à cocher, alors il suffira de l'ajouter à la fonction `checkbox`. La factorisation en fonctions utilitaires est le principe de base permettant l'implémentation de **vues réutilisables**.
+Dorénavant, `view` fait appel à une fonction utilitaire `checkbox` bien plus configurable. Celle-ci accepte deux arguments : le message produit à chaque clic sur la boîte à cocher et le texte à afficher à côté de celle-ci. Si nous décidons plus tard d'attribuer une classe commune à toutes les boîtes à cocher, alors il suffira de modifier la fonction `checkbox`. La factorisation de code dans des fonctions utilitaires est le principe de base permettant l'implémentation de **vues réutilisables**.
 
 
 ## Comparaison entre vues et composants réutilisables
@@ -99,6 +99,6 @@ Nous avons maintenant suffisamment d'informations pour comparer ces deux approch
 
   - **Ce sont des fonctions, tout simplement.** Il n'y a rien de spécial à rajouter. Les fonctions offrent suffisamment de puissance et sont très simples à créer, car elles font partie des fondamentaux du langage Elm.
 
-  - **Pas de communication parent-enfant.** L'implémentation d'un composant &ldquo;boîte à cocher&rdquo; aurait nécessité un effort de synchronisation entre l'état du composant et celui du modèle. Cela peut amener des incohérences, comme le fait d'afficher la boîte des notifications cochée malgré un modèle indiquant leur désactivation. À l'inverse, l'utilisation des fonctions en Elm permet de factoriser la logique d'affichage, sans recourir à une modification du modèle lui-même ou de sa mise à jour.
+  - **Pas de communication parent-enfant.** L'implémentation d'un composant &ldquo;boîte à cocher&rdquo; aurait nécessité un effort de synchronisation entre l'état du composant et celui du modèle. Cela peut amener des incohérences, comme le fait d'afficher la boîte des notifications cochée malgré un modèle indiquant leur désactivation. À l'inverse, l'utilisation des fonctions en Elm permet d'isoler la logique d'affichage, sans recourir à des modifications du modèle lui-même ou de sa mise à jour.
 
-En Elm, il est toujours possible de factoriser le code d'affichage sans modifier l'architecture globale d'une application. Il suffit simplement d'écrire des fonctions plus petites. Nous le vérifierons par la suite sur d'autres exemples.
+En Elm, il est toujours possible de factoriser le code d'affichage sans modifier l'architecture globale d'une application. Il suffit simplement d'écrire des fonctions plus petites. Nous le vérifierons sur d'autres exemples par la suite.
