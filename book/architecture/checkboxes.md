@@ -17,7 +17,7 @@ Votre application sera probablement amenée à exposer des éléments de configu
 </fieldset>
 ```
 
-Ce code permet d'exposer des éléments de configuration à cocher par l'utilisateur, l'usage de `<label>` offrant une plus grande surface d’interaction.
+Ce code expose des éléments de configuration par le biais de boîtes à cocher, l'usage de l'élément `<label>` offrant une plus grande surface d’interaction à l'utilisateur.
 
 Voyons comment gérer ces interactions côté Elm. Tout d'abord, commençons par la définition du modèle. Celui-ci devra conserver l'état de la configuration sélectionnée par l'utilisateur :
 
