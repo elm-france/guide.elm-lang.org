@@ -63,7 +63,11 @@
 .book.color-theme-2 .book-summary ul.summary li.active > a,
 .book.color-theme-2 .book-summary ul.summary li span
 {
-    font-weight: normal;
+	font-weight: normal;
+}
+
+.book.color-theme-2 #book-search-results .search-results .has-results .search-results-item {
+	color: #bdcadb;
 }
 
 .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1,
