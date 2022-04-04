@@ -727,7 +727,7 @@
 <p>L&apos;objectif est de vous familiariser avec les <strong>valeurs</strong> et les <strong>fonctions</strong> afin que vous soyez plus confiant dans la lecture du code Elm lorsque nous aborderons des exemples plus importants par la suite.</p>
 <h2 id="valeurs">Valeurs</h2>
 <p>Le plus petit bloc de construction dans Elm est appelé une <strong>valeur</strong>. Cela inclut des choses comme <code>42</code>, <code>True</code>, et <code>&quot;Hello !&quot;</code>.</p>
-<p>Commençons par regarder les nombres :</p>
+<p>Commençons par regarder les nombres :</p>
 <p><div class="elm-repl">
 [
     {
@@ -755,13 +755,13 @@
 ]
 </div></p>
 <p>Essayez d&apos;assembler quelques chaînes de caractères avec l&apos;opérateur <code>(++)</code> ⬆️</p>
-<p>Ces valeurs primitives deviennent plus intéressantes quand on commence à écrire des fonctions pour les transformer !</p>
+<p>Ces valeurs primitives deviennent plus intéressantes quand on commence à écrire des fonctions pour les transformer !</p>
 <blockquote>
 <p><strong>Note:</strong> Vous pouvez en apprendre plus sur les opérateurs comme  <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics#+" target="_blank"><code>(+)</code></a> et <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics#/" target="_blank"><code>(/)</code></a> et <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics#++" target="_blank"><code>(++)</code></a> dans la documentation du module <a href="https://package.elm-lang.org/packages/elm/core/latest/Basics" target="_blank"><code>Basics</code></a>. Ça vaudra la peine de lire toute la documentation de ce paquet à un moment donné !</p>
 </blockquote>
 <h2 id="fonctions">Fonctions</h2>
 <p>Une <strong>fonction</strong> est une manière de transformer des valeurs. Elle prend en entrée une valeur et en produit une autre en sortie.</p>
-<p>Par exemple, voici une fonction <code>greet</code> qui prend en entrée un et nom et dit bonjour :</p>
+<p>Par exemple, voici une fonction <code>greet</code> qui prend en entrée un et nom et dit bonjour :</p>
 <p><div class="elm-repl">
 [
     {
@@ -784,7 +784,7 @@
 </div></p>
 <p>Essayer de dire bonjour à quelqu&apos;un d&apos;autre, comme <code>&quot;Stokely&quot;</code> ou <code>&quot;Kwame&quot;</code> ⬆️</p>
 <p>Les valeurs passées en entrée de la fonction sont généralement appelée <strong>arugments</strong>, on pourrait alors dire que «<code>greet</code> est une fonction qui prend un argument ».</p>
-<p>Maintenant que la politesse peut être mise de côté, que diriez-vous d&apos;une fonction qui prend <em>deux</em> arguments ?</p>
+<p>Maintenant que la politesse peut être mise de côté, que diriez-vous d&apos;une fonction qui prend <em>deux</em> arguments ?</p>
 <p><div class="elm-repl">
 [
     {
@@ -806,9 +806,9 @@
 ]
 </div></p>
 <p>Essayez de passer deux arguments à la fonction <code>madlib</code> ⬆️</p>
-<p>Notez comment nous avons utilisé des parenthèses pour grouper <code>&quot;butter&quot; ++ &quot;fly&quot;</code> ensemble dans le deuxième exemple. Chaque argument doit être une valeur primitive comme <code>&quot;cat&quot;</code> ou doit obligatoirement se trouver entre parenthèses !</p>
+<p>Notez comment nous avons utilisé des parenthèses pour grouper <code>&quot;butter&quot; ++ &quot;fly&quot;</code> ensemble dans le deuxième exemple. Chaque argument doit être une valeur primitive comme <code>&quot;cat&quot;</code> ou doit obligatoirement se trouver entre parenthèses !</p>
 <blockquote>
-<p><strong>Note:</strong> Les personnes venant de langages comme Javascript pourraient être suprises par l&apos;aspect différent qu&apos;ont les foncitons :</p>
+<p><strong>Note:</strong> Les personnes venant de langages comme Javascript pourraient être suprises par l&apos;aspect différent qu&apos;ont les foncitons :</p>
 <pre><code>madlib &quot;cat&quot; &quot;ergonomic&quot;                  -- Elm
 madlib(&quot;cat&quot;, &quot;ergonomic&quot;)                // JavaScript
 
@@ -818,7 +818,7 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
 </blockquote>
 <h2 id="expressions-if">Expressions If</h2>
 <p>Lorsque que l&apos;on veut obtenir un comportement conditionnel en Elm, on utilise une expression <code>if</code>.</p>
-<p>Faisons une nouvelle fonction <code>greet</code> qui respecte à sa juste valeur le président Abraham Lincoln :</p>
+<p>Faisons une nouvelle fonction <code>greet</code> qui respecte à sa juste valeur le président Abraham Lincoln :</p>
 <p><div class="elm-repl">
 [
     {
@@ -839,10 +839,10 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
     }
 ]
 </div></p>
-<p>Il y a sûrement d&apos;autres cas à gérer, mais on va dire que c&apos;est suffisant comme ça pour l&apos;instant !</p>
+<p>Il y a sûrement d&apos;autres cas à gérer, mais on va dire que c&apos;est suffisant comme ça pour l&apos;instant !</p>
 <h2 id="listes">Listes</h2>
 <p>Les listes sont une des structures de données les plus courantes en Elm. Elles contiennent une séquence de choses similaires, comme les tableaux en JavaScript</p>
-<p>Les listes peuvent contenir plusieurs valeurs. Ces valeurs doivent toutes avoir le même type. Voici quelques exemples qui utilisent des fonctions du module <a href="https://package.elm-lang.org/packages/elm/core/latest/List" target="_blank"><code>List</code></a> :</p>
+<p>Les listes peuvent contenir plusieurs valeurs. Ces valeurs doivent toutes avoir le même type. Voici quelques exemples qui utilisent des fonctions du module <a href="https://package.elm-lang.org/packages/elm/core/latest/List" target="_blank"><code>List</code></a> :</p>
 <p><div class="elm-repl">
 [
     {
@@ -891,9 +891,9 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
 ]
 </div></p>
 <p>Essayez de construire votre propre liste et d&apos;utiliser des fonction comme <code>List.length</code> ⬆️</p>
-<p>Et n&apos;oubliez pas : tous les éléments d&apos;une liste doivent avoir le même type !</p>
+<p>Et n&apos;oubliez pas : tous les éléments d&apos;une liste doivent avoir le même type !</p>
 <h2 id="tuples">Tuples</h2>
-<p>Les tuples sont un autre type de structure de données utile. Un tuple peut contenir deux ou trois valeurs et chaque valeur peut être de n&apos;importe quel type. Il est classiquement utilisé lorsque l&apos;on veut retourner plus d&apos;une valeur dans une fonction. La fonction suivante prend un nom et retourne un message à l&apos;utilisateur :</p>
+<p>Les tuples sont un autre type de structure de données utile. Un tuple peut contenir deux ou trois valeurs et chaque valeur peut être de n&apos;importe quel type. Il est classiquement utilisé lorsque l&apos;on veut retourner plus d&apos;une valeur dans une fonction. La fonction suivante prend un nom et retourne un message à l&apos;utilisateur :</p>
 <p><div class="elm-repl">
 [
     {
@@ -912,7 +912,7 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
 <p>Ça peu être pratique, mais lorsque les choses commencent à se compliquer, il est souvent préférable d&apos;utiliser des <em>records</em> au lieux des tuples.</p>
 <h2 id="records">Records</h2>
 <p>Un <em><strong>record</strong></em> peut contenir plusieurs valeurs, et chaque valeur est associée à un nom.</p>
-<p>Voici un <em>record</em> qui représente l&apos;économiste britannique John A. Hobson :</p>
+<p>Voici un <em>record</em> qui représente l&apos;économiste britannique John A. Hobson :</p>
 <p><div class="elm-repl">
 [
     {
@@ -930,7 +930,7 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
 </div></p>
 <p>Nous avons défini un <em>record</em> avec trois <strong>champs</strong> qui contiennent des informations au sujet du nom et de l&apos;âge de John.</p>
 <p>Essayez d&apos;accéder à d&apos;autres champs comme <code>john.age</code> ⬆️</p>
-<p>Vous pouvez aussi accéder aux champs d&apos;un <em>record</em> en utilisant une « fonction d&apos;accès à un champ » comme ceci :</p>
+<p>Vous pouvez aussi accéder aux champs d&apos;un <em>record</em> en utilisant une « fonction d&apos;accès à un champ » comme ceci :</p>
 <p><div class="elm-repl">
 [
     {
@@ -951,7 +951,7 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
     }
 ]
 </div></p>
-<p>Il est souvent utile de <strong>mettre à jour</strong> les valeurs d&apos;un <em>record</em> :</p>
+<p>Il est souvent utile de <strong>mettre à jour</strong> les valeurs d&apos;un <em>record</em> :</p>
 <p><div class="elm-repl">
 [
     {
@@ -972,9 +972,9 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
     }
 ]
 </div></p>
-<p>Si vous vouliez prononcer ces expressions à haute voix, vous diriez quelque chose comme cela : « Je veux une nouvelle version de John pour laquelle son nom est Adams », ou « john dont l&apos;âge est 22 ».</p>
-<p>Notez que lorsque nous mettons à jour des champs de <code>john</code>, nous créons un tout nouveau <em>record</em> : ça n&apos;écrase pas celui qui existe déjà. Elm rend cette opération efficace en partageant le maximum de contenu possible. Si vous mettez à jour un champs sur dix, le nouveau <em>record</em> va partager les neuf valeurs qui n&apos;ont pas été modifiées.</p>
-<p>Une fonction pour mettre à jour d&apos;âge ressemblerait à quelque chose comme cela :</p>
+<p>Si vous vouliez prononcer ces expressions à haute voix, vous diriez quelque chose comme cela : « Je veux une nouvelle version de John pour laquelle son nom est Adams », ou « john dont l&apos;âge est 22 ».</p>
+<p>Notez que lorsque nous mettons à jour des champs de <code>john</code>, nous créons un tout nouveau <em>record</em> : ça n&apos;écrase pas celui qui existe déjà. Elm rend cette opération efficace en partageant le maximum de contenu possible. Si vous mettez à jour un champs sur dix, le nouveau <em>record</em> va partager les neuf valeurs qui n&apos;ont pas été modifiées.</p>
+<p>Une fonction pour mettre à jour d&apos;âge ressemblerait à quelque chose comme cela :</p>
 <p><div class="elm-repl">
 [
     {
@@ -996,7 +996,7 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
     }
 ]
 </div></p>
-<p>Mettre à jour les champs des <em>records</em> de cette manière est très courant, nous verrons donc beaucoup d&apos;autres exemples dans la section suivante !</p>
+<p>Mettre à jour les champs des <em>records</em> de cette manière est très courant, nous verrons donc beaucoup d&apos;autres exemples dans la section suivante !</p>
 
                                 
                                 </section>
@@ -1040,7 +1040,7 @@ madlib(&quot;butter&quot; + &quot;fly&quot;, &quot;metallic&quot;)       // Java
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bases du langage","level":"1.2","depth":1,"next":{"title":"L'Architecture Elm","level":"1.3","depth":1,"path":"architecture/README.md","ref":"architecture/README.md","articles":[{"title":"Boutons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},{"title":"Champs texte","level":"1.3.2","depth":2,"path":"architecture/text_fields.md","ref":"architecture/text_fields.md","articles":[]},{"title":"Formulaires","level":"1.3.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"bases_du_langage.md","mtime":"2022-04-01T16:24:17.133Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-01T23:48:59.920Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Bases du langage","level":"1.2","depth":1,"next":{"title":"L'Architecture Elm","level":"1.3","depth":1,"path":"architecture/README.md","ref":"architecture/README.md","articles":[{"title":"Boutons","level":"1.3.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},{"title":"Champs texte","level":"1.3.2","depth":2,"path":"architecture/text_fields.md","ref":"architecture/text_fields.md","articles":[]},{"title":"Formulaires","level":"1.3.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"bases_du_langage.md","mtime":"2022-04-01T16:24:17.133Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-04T13:15:22.973Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -723,8 +723,8 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="valeurs-aléatoires">Valeurs aléatoires</h1>
-<p>Jusqu&apos;à présent, nous n&apos;avons vu que des commandes pour effectuer des requêtes HTTP, mais nous pouvons commander d&apos;autres choses également, comme générer des valeurs aléatoires ! Nous allons donc créer une application qui lance des dés et produit un nombre aléatoire entre 1 et 6.</p>
-<p>Cliquez sur le bouton bleu &quot;Edit&quot; pour voir cet exemple en action. Générez quelques nombres aléatoires, et regardez le code pour essayer de comprendre comment cela fonctionne. <strong>Cliquez sur le bouton bleu maintenant !</strong></p>
+<p>Jusqu&apos;à présent, nous n&apos;avons vu que des commandes pour effectuer des requêtes HTTP, mais nous pouvons commander d&apos;autres choses également, comme générer des valeurs aléatoires ! Nous allons donc créer une application qui lance des dés et produit un nombre aléatoire entre 1 et 6.</p>
+<p>Cliquez sur le bouton bleu &quot;Edit&quot; pour voir cet exemple en action. Générez quelques nombres aléatoires, et regardez le code pour essayer de comprendre comment cela fonctionne. <strong>Cliquez sur le bouton bleu maintenant !</strong></p>
 <div class="edit-link"><a href="https://elm-lang.org/examples/numbers" target="_blank">Edit</a></div>
 
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
@@ -805,13 +805,13 @@
     , button [ onClick <span class="hljs-type">Roll</span> ] [ text <span class="hljs-string">&quot;Roll&quot;</span> ]
     ]
 </code></pre>
-<p>La nouveauté ici est la commande émise dans la fonction <code>update</code> :</p>
+<p>La nouveauté ici est la commande émise dans la fonction <code>update</code> :</p>
 <pre><code class="lang-elm"><span class="hljs-type">Random</span>.generate <span class="hljs-type">NewFace</span> (<span class="hljs-type">Random</span>.int <span class="hljs-number">1</span> <span class="hljs-number">6</span>)
 </code></pre>
-<p>La génération de valeurs aléatoires fonctionne un peu différemment que dans des langages comme JavaScript, Python, Java, etc. Voyons donc comment cela fonctionne dans Elm !</p>
+<p>La génération de valeurs aléatoires fonctionne un peu différemment que dans des langages comme JavaScript, Python, Java, etc. Voyons donc comment cela fonctionne dans Elm !</p>
 <h2 id="générateurs-aléatoires">Générateurs aléatoires</h2>
 <p>Nous utilisons le paquet <a href="https://package.elm-lang.org/packages/elm/random/latest" target="_blank"><code>elm/random</code></a> pour cela. Le module <a href="https://package.elm-lang.org/packages/elm/random/latest/Random" target="_blank"><code>Random</code></a> en particulier.</p>
-<p>L&apos;idée de base est que nous avons un <code>Generator</code> aléatoire qui décrit <em>comment</em> générer une valeur aléatoire. Par exemple :</p>
+<p>L&apos;idée de base est que nous avons un <code>Generator</code> aléatoire qui décrit <em>comment</em> générer une valeur aléatoire. Par exemple :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Random
 
 <span class="hljs-title">probability</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Float</span>
@@ -827,12 +827,12 @@
   <span class="hljs-type">Random</span>.weighted (<span class="hljs-number">80</span>, <span class="hljs-type">True</span>) [ (<span class="hljs-number">20</span>, <span class="hljs-type">False</span>) ]
 </code></pre>
 <p>Nous avons donc ici trois générateurs aléatoires. Le générateur <code>roll</code> dit qu&apos;il produira un <code>Int</code>, et plus précisément, qu&apos;il produira un entier entre <code>1</code> et <code>6</code> inclus. De même, le générateur <code>usuallyTrue</code> dit qu&apos;il produira un <code>Bool</code>, et plus précisément, qu&apos;il sera vrai 80% du temps.</p>
-<p>En réalité, nous ne sommes pas encore en train de générer les valeurs. Nous décrivons simplement <em>comment</em> les générer. À partir de là, vous pouvez utiliser <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#generate" target="_blank"><code>Random.generate</code></a> pour la transformer en commande :</p>
+<p>En réalité, nous ne sommes pas encore en train de générer les valeurs. Nous décrivons simplement <em>comment</em> les générer. À partir de là, vous pouvez utiliser <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#generate" target="_blank"><code>Random.generate</code></a> pour la transformer en commande :</p>
 <pre><code class="lang-elm"><span class="hljs-title">generate</span> : (a -&gt; msg) -&gt; <span class="hljs-type">Generator</span> a -&gt; <span class="hljs-type">Cmd</span> msg
 </code></pre>
-<p>Lorsque la commande est exécutée, le <code>Generator</code> produit une valeur, qui est ensuite transformée en un message pour votre fonction <code>update</code>. Ainsi, dans notre exemple, le <code>Generator</code> produit une valeur entre 1 et 6, et la transforme en un message comme <code>NewFace 1</code> ou <code>NewFace 4</code>. C&apos;est tout ce que nous avons besoin de savoir pour obtenir nos lancers de dés aléatoires, mais les générateurs peuvent faire beaucoup plus !</p>
+<p>Lorsque la commande est exécutée, le <code>Generator</code> produit une valeur, qui est ensuite transformée en un message pour votre fonction <code>update</code>. Ainsi, dans notre exemple, le <code>Generator</code> produit une valeur entre 1 et 6, et la transforme en un message comme <code>NewFace 1</code> ou <code>NewFace 4</code>. C&apos;est tout ce que nous avons besoin de savoir pour obtenir nos lancers de dés aléatoires, mais les générateurs peuvent faire beaucoup plus !</p>
 <h2 id="combiner-des-générateurs">Combiner des générateurs</h2>
-<p>Une fois que nous avons des générateurs simples comme <code>probability</code> et <code>usuallyTrue</code>, nous pouvons commencer à les assembler avec des fonctions comme <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#map3" target="_blank"><code>map3</code></a>. Imaginons que nous voulions créer une simple machine à sous. Nous pourrions créer un générateur comme celui-ci :</p>
+<p>Une fois que nous avons des générateurs simples comme <code>probability</code> et <code>usuallyTrue</code>, nous pouvons commencer à les assembler avec des fonctions comme <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#map3" target="_blank"><code>map3</code></a>. Imaginons que nous voulions créer une simple machine à sous. Nous pourrions créer un générateur comme celui-ci :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Random
 
 <span class="hljs-keyword">type</span> <span class="hljs-type">Symbol</span> = <span class="hljs-type">Cherry</span> | <span class="hljs-type">Seven</span> | <span class="hljs-type">Bar</span> | <span class="hljs-type">Grapes</span>
@@ -855,7 +855,7 @@
 <p>À partir de là, nous utilisons <code>map3</code> pour les combiner dans un nouveau générateur <code>spin</code>. Il est dit de générer trois symboles et de les combiner en un <code>Spin</code>.</p>
 <p>Ce qui est important ici est que, à partir de petits blocs de construction, nous pouvons créer un <code>Generator</code> qui décrit un comportement assez complexe. Ensuite, dans notre application, il suffit de dire quelque chose comme <code>Random.generate NewSpin spin</code>&quot; pour obtenir la prochaine valeur aléatoire.</p>
 <blockquote>
-<p><strong>Exercices:</strong> Voici quelques idées pour rendre le code d&apos;exemple de cette page un peu plus intéressant !</p>
+<p><strong>Exercices:</strong> Voici quelques idées pour rendre le code d&apos;exemple de cette page un peu plus intéressant !</p>
 <ul>
 <li>Au lieu de montrer un nombre, montrez la face du dé sous forme d&apos;image.</li>
 <li>Au lieu d&apos;afficher une image de la face d&apos;un dé, utilisez <a href="https://package.elm-lang.org/packages/elm/svg/latest/" target="_blank"><code>elm/svg</code></a> pour la dessiner vous-même.</li>
@@ -907,7 +907,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Random","level":"1.6.3","depth":2,"next":{"title":"Time","level":"1.6.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"previous":{"title":"JSON","level":"1.6.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"effects/random.md","mtime":"2022-04-01T16:24:17.135Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-01T23:48:59.920Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Random","level":"1.6.3","depth":2,"next":{"title":"Time","level":"1.6.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"previous":{"title":"JSON","level":"1.6.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"effects/random.md","mtime":"2022-04-01T16:24:17.135Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-04T13:15:22.973Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

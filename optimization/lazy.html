@@ -725,24 +725,24 @@
                                 <h1 id="htmllazy"><code>Html.Lazy</code></h1>
 <p>Le paquet <a href="https://package.elm-lang.org/packages/elm/html/latest/" target="_blank"><code>elm/html</code></a> est utilisé pour afficher des choses à l&apos;écran. Pour comprendre comment l&apos;optimiser, voyons d&apos;abord comment il fonctionne !</p>
 <h2 id="quest-ce-que-le-dom-">Qu&apos;est-ce que le DOM ?</h2>
-<p>Lorsque vous créez un fichier HTML, vous écrivez du HTML directement comme ça :</p>
+<p>Lorsque vous créez un fichier HTML, vous écrivez du HTML directement comme ça :</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Parmi les alternatives aux chaises, on trouve :<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Parmi les alternatives aux chaises, on trouve<span class="hljs-symbol">&amp;nbsp;</span>:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>seiza<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>chabudai<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
-<p>On peut y penser comme produisant cette structure DOM en coulisses :</p>
+<p>On peut y penser comme produisant cette structure DOM en coulisses :</p>
 <p><img src="diagrams/dom.svg" alt></p>
 <p>Les boîtes noires représentent des objets DOM lourds avec des centaines d&apos;attributs. Et un changement de n&apos;importe lequel d&apos;entre eux peut déclencher des calculs très coûteux pour redessiner et réarranger le contenu de la page.</p>
 <h2 id="quest-ce-que-le-virtual-dom-">Qu&apos;est-ce que le <em>Virtual DOM</em> ?</h2>
-<p>Si vous créez un fichier Elm, vous utiliserez plutôt <code>elm/html</code> pour avoir ce genre de code :</p>
+<p>Si vous créez un fichier Elm, vous utiliserez plutôt <code>elm/html</code> pour avoir ce genre de code :</p>
 <pre><code class="lang-elm"><span class="hljs-title">viewChairAlts</span> : <span class="hljs-type">List</span> <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Html</span> msg
 <span class="hljs-title">viewChairAlts</span> chairAlts =
   div []
-    [ p [] [ text <span class="hljs-string">&quot;Parmi les alternatives aux chaises, on trouve :&quot;</span> ]
+    [ p [] [ text <span class="hljs-string">&quot;Parmi les alternatives aux chaises, on trouve&amp;nbsp;:&quot;</span> ]
     , ul [] (<span class="hljs-type">List</span>.map viewAlt chairAlts)
     ]
 
@@ -750,36 +750,36 @@
 <span class="hljs-title">viewAlt</span> chairAlt =
   li [] [ text chairAlt ]
 </code></pre>
-<p>On peut voir <code>viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code> comme produisant en coulisse la structure de “DOM Virtuel“ suivante :</p>
+<p>On peut voir <code>viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code> comme produisant en coulisse la structure de “DOM Virtuel“ suivante :</p>
 <p><img src="diagrams/vdom.svg" alt></p>
 <p>Les boîtes blanches représentent des objets JavaScript légers. Ils contiennent uniquement les attributs que vous spécifiez. Leur création n&apos;engendredra jamais de calculs pour redessiner et réarranger la page. En bref, comparés aux nœuds DOM, ils sont beaucoup moins chers à allouer !</p>
 <h2 id="render"><em>Render</em></h2>
-<p>Si nous travaillons toujours avec ces nœuds virtuels en Elm, comment sont-ils convertis vers le DOM affiché à l&apos;écran ? Au démarrage d&apos;un programme Elm, il se passe les choses suivantes :</p>
+<p>Si nous travaillons toujours avec ces nœuds virtuels en Elm, comment sont-ils convertis vers le DOM affiché à l&apos;écran ? Au démarrage d&apos;un programme Elm, il se passe les choses suivantes :</p>
 <ul>
 <li>appel à <code>init</code> pour avoir le <code>Model</code> initial,</li>
 <li>appel à <code>view</code> pour avoir les nœuds virtuels initiaux.</li>
 </ul>
-<p>Maintenant que nous avons les nœuds virtuels, on en produit une réplique exacte dans le DOM réel :</p>
+<p>Maintenant que nous avons les nœuds virtuels, on en produit une réplique exacte dans le DOM réel :</p>
 <p><img src="diagrams/render.svg" alt></p>
 <p>Super ! Mais que se passe-t-il lorsqu&apos;il y a du changement ? Re-construire le DOM en entier à chaque <em>frame</em> ne fonctionne pas, que pouvons nous donc faire à la place ?</p>
 <h2 id="diffing"><em>Diffing</em></h2>
 <p>Une fois qu&apos;on a le DOM initial, on travaillera principalement sur les nœuds virtuels. À chaque fois que le <code>Model</code> change, on exécute <code>view</code> à nouveau. À partir de là, on calcule le <em>“diff”</em> sur les nœuds virtuels obtenus afin de trouver comment toucher au DOM le moins possible.</p>
 <p>Supposons par exemple qu&apos;une nouvelle alternative aux chaises soit listée dans notre <code>Model</code> ; nous voulons alors ajouter un nouveau nœud <code>li</code> pour elle. En coulisses, Elm calcule le <em>diff</em> entre les nœuds virtuels <strong>actuels</strong> et les <strong>suivants</strong> pour détecter le moindre changement :</p>
 <p><img src="diagrams/diff.svg" alt></p>
-<p>Elm a remarqué qu&apos;un troisième <code>li</code> a été ajouté. Je l&apos;ai marqué en vert. Elm sait maintenant exactement comment modifier le DOM réel pour le faire correspondre. Il faut juste insérer ce nouveau <code>li</code> :</p>
+<p>Elm a remarqué qu&apos;un troisième <code>li</code> a été ajouté. Je l&apos;ai marqué en vert. Elm sait maintenant exactement comment modifier le DOM réel pour le faire correspondre. Il faut juste insérer ce nouveau <code>li</code> :</p>
 <p><img src="diagrams/patch.svg" alt></p>
 <p>Ce processus de <em>diff</em> permet de modifier le DOM le moins possible. Et si aucune différence n&apos;est détectée, on ne touche pas du tout au DOM ! Donc ce processus minimise le besoin de redessiner et réarranger le contenu de la page.</p>
 <p>Mais peut-on faire encore moins de calculs?</p>
 <h2 id="htmllazy"><code>Html.Lazy</code></h2>
-<p>Le module <a href="https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/" target="_blank"><code>Html.Lazy</code></a> permet de ne même pas construire les nœuds virtuels ! L&apos;idée principale est la fonction <code>lazy</code> (NdT : <em>&quot;lazy&quot;</em> signifie &quot;paresseux&quot; en anglais) :</p>
+<p>Le module <a href="https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/" target="_blank"><code>Html.Lazy</code></a> permet de ne même pas construire les nœuds virtuels ! L&apos;idée principale est la fonction <code>lazy</code> (NdT : <em>&quot;lazy&quot;</em> signifie &quot;paresseux&quot; en anglais) :</p>
 <pre><code class="lang-elm"><span class="hljs-title">lazy</span> : (a -&gt; <span class="hljs-type">Html</span> msg) -&gt; a -&gt; <span class="hljs-type">Html</span> msg
 </code></pre>
-<p>Revenons sur notre exemple de chaises, on avait appelé <code>viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code>, mais nous aurions pu appeler <code>lazy viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code> à la place. La version paresseuse alloue alors un seul nœud “paresseux“ :</p>
+<p>Revenons sur notre exemple de chaises, on avait appelé <code>viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code>, mais nous aurions pu appeler <code>lazy viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code> à la place. La version paresseuse alloue alors un seul nœud “paresseux“ :</p>
 <p><img src="diagrams/lazy.svg" alt></p>
 <p>Le nœud garde juste une référence vers la fonction et les arguments. Elm peut recombiner la fonction et les arguments pour générer toute la structure si nécessaire, mais ce n&apos;est pas toujours nécessaire !</p>
-<p>Un des trucs cool avec Elm est cette garantie des fonctions : “même entrée, même sortie“. Donc à chaque fois qu&apos;on rencontre deux nœuds “paresseux“ dans le calcul du <em>diff</em> des nœuds virtuels, on se demande : la fonction est-elle la même ? les arguments sont-ils les mêmes ? S&apos;ils sont tous identiques, on sait que les nœuds virtuels résultants seront également les mêmes ! <strong>Donc on peut entièrement économiser la construction des nœuds virtuels !</strong> Si l&apos;un d&apos;eux a changé, on peut construire le nœud virtuel et faire un <em>diff</em> normal.</p>
+<p>Un des trucs cool avec Elm est cette garantie des fonctions : “même entrée, même sortie“. Donc à chaque fois qu&apos;on rencontre deux nœuds “paresseux“ dans le calcul du <em>diff</em> des nœuds virtuels, on se demande : la fonction est-elle la même ? les arguments sont-ils les mêmes ? S&apos;ils sont tous identiques, on sait que les nœuds virtuels résultants seront également les mêmes ! <strong>Donc on peut entièrement économiser la construction des nœuds virtuels !</strong> Si l&apos;un d&apos;eux a changé, on peut construire le nœud virtuel et faire un <em>diff</em> normal.</p>
 <blockquote>
-<p><strong>Note :</strong> à quelle condition deux valeurs sont-elles “les mêmes“? Pour optimiser les performances, on utilise l&apos;opérateur <code>===</code> de JavaScript en coulisses :</p>
+<p><strong>Note :</strong> à quelle condition deux valeurs sont-elles “les mêmes“? Pour optimiser les performances, on utilise l&apos;opérateur <code>===</code> de JavaScript en coulisses :</p>
 <ul>
 <li>L&apos;égalité structurelle est utilisée pour <code>Int</code>, <code>Float</code>, <code>String</code>, <code>Char</code> et <code>Bool</code>.</li>
 <li>L&apos;égalité référentielle est utilisée pour les <em>records</em>, listes, <em>custom types</em>, dictionnaires, etc.</li>
@@ -788,7 +788,7 @@
 </blockquote>
 <h2 id="usage">Usage</h2>
 <p>Le lieu idéal pour utiliser un nœud paresseux est à la racine de votre application. De nombreuses applications ont plusieurs régions visuelles distinctes comme des <em>headers</em>, <em>sidebars</em>, résultats de recherche, etc. Et quand on change une région, on change rarement les autres. Cela appelle naturellement l&apos;utilisation de <code>lazy</code> !</p>
-<p>Par exemple, dans <a href="https://github.com/evancz/elm-todomvc/" target="_blank">mon implémentation de TodoMVC</a>, la fonction <code>view</code> est définie par :</p>
+<p>Par exemple, dans <a href="https://github.com/evancz/elm-todomvc/" target="_blank">mon implémentation de TodoMVC</a>, la fonction <code>view</code> est définie par :</p>
 <pre><code class="lang-elm"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
 <span class="hljs-title">view</span> model =
   div
@@ -852,7 +852,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Html.lazy","level":"1.10.1","depth":2,"next":{"title":"Html.keyed","level":"1.10.2","depth":2,"path":"optimization/keyed.md","ref":"optimization/keyed.md","articles":[]},"previous":{"title":"Optimisation","level":"1.10","depth":1,"path":"optimization/README.md","ref":"optimization/README.md","articles":[{"title":"Html.lazy","level":"1.10.1","depth":2,"path":"optimization/lazy.md","ref":"optimization/lazy.md","articles":[]},{"title":"Html.keyed","level":"1.10.2","depth":2,"path":"optimization/keyed.md","ref":"optimization/keyed.md","articles":[]},{"title":"Minification","level":"1.10.3","depth":2,"path":"optimization/asset_size.md","ref":"optimization/asset_size.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"optimization/lazy.md","mtime":"2022-04-01T16:24:17.141Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-01T23:48:59.920Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Html.lazy","level":"1.10.1","depth":2,"next":{"title":"Html.keyed","level":"1.10.2","depth":2,"path":"optimization/keyed.md","ref":"optimization/keyed.md","articles":[]},"previous":{"title":"Optimisation","level":"1.10","depth":1,"path":"optimization/README.md","ref":"optimization/README.md","articles":[{"title":"Html.lazy","level":"1.10.1","depth":2,"path":"optimization/lazy.md","ref":"optimization/lazy.md","articles":[]},{"title":"Html.keyed","level":"1.10.2","depth":2,"path":"optimization/keyed.md","ref":"optimization/keyed.md","articles":[]},{"title":"Minification","level":"1.10.3","depth":2,"path":"optimization/asset_size.md","ref":"optimization/asset_size.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"optimization/lazy.md","mtime":"2022-04-01T16:24:17.141Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-04T13:15:22.973Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

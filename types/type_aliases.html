@@ -723,13 +723,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="les-alias-de-type">Les alias de type</h1>
-<p>Les annotations peuvent devenir très longues, particulièrement si vous avez des <a href="../bases_du_langage.html#records"><em>records</em></a> contenant de nombreux champs… C&apos;est pour répondre à ce problème que les <em>alias</em> ont été conçus. Un <strong>alias de type</strong> est en quelque sorte un diminutif pour ce dernier, permettant de le référencer en utilisant un nom plus court. Par exemple, vous pourriez créer un alias <code>User</code> de cette façon :</p>
+<p>Les annotations peuvent devenir très longues, particulièrement si vous avez des <a href="../bases_du_langage.html#records"><em>records</em></a> contenant de nombreux champs… C&apos;est pour répondre à ce problème que les <em>alias</em> ont été conçus. Un <strong>alias de type</strong> est en quelque sorte un diminutif pour ce dernier, permettant de le référencer en utilisant un nom plus court. Par exemple, vous pourriez créer un alias <code>User</code> de cette façon :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">User</span> =
   { name : <span class="hljs-type">String</span>
   , age : <span class="hljs-type">Int</span>
   }
 </code></pre>
-<p>Plutôt que d&apos;écrire le type du record complet systématiquement, on peut juste le référencer en utilisant <code>User</code>, ce qui nous permet d&apos;écrire des annotations beaucoup plus simples :</p>
+<p>Plutôt que d&apos;écrire le type du record complet systématiquement, on peut juste le référencer en utilisant <code>User</code>, ce qui nous permet d&apos;écrire des annotations beaucoup plus simples :</p>
 <pre><code class="lang-elm"><span class="hljs-comment">-- AVEC ALIAS</span>
 
 <span class="hljs-title">isOldEnoughToVote</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">Bool</span>
@@ -745,15 +745,15 @@
 </code></pre>
 <p>Ces deux déclarations sont équivalentes, mais celle utilisant un alias — plus courte — est plus facile à lire. Ici nous utilisons simplement un <strong>alias</strong> qui se substitue à un type verbeux.</p>
 <h2 id="modèles">Modèles</h2>
-<p>Il est très courant d&apos;utiliser des alias de type quand on crée un modèle. Lorsque nous avons étudié l&apos;<a href="../architecture">Architecture Elm</a>, nous avons utilisé ce <code>Model</code> :</p>
+<p>Il est très courant d&apos;utiliser des alias de type quand on crée un modèle. Lorsque nous avons étudié l&apos;<a href="../architecture">Architecture Elm</a>, nous avons utilisé ce <code>Model</code> :</p>
 <pre><code>type alias Model =
   { name : String
   , password : String
   , passwordAgain : String
   }
-</code></pre><p>Les alias de type se révèlent particulièrement intéressants pour écrire les annotations des fonctions <code>update</code> et <code>view</code> : écrire <code>Msg -&gt; Model -&gt; Model</code> est tellement plus simple et confortable que de recopier la forme verbeuse du record correspondant… En plus, si nous ajoutons des champs à notre modèle, nous n&apos;avons pas besoin de mettre à jours nos annotations.</p>
+</code></pre><p>Les alias de type se révèlent particulièrement intéressants pour écrire les annotations des fonctions <code>update</code> et <code>view</code> : écrire <code>Msg -&gt; Model -&gt; Model</code> est tellement plus simple et confortable que de recopier la forme verbeuse du record correspondant… En plus, si nous ajoutons des champs à notre modèle, nous n&apos;avons pas besoin de mettre à jours nos annotations.</p>
 <h2 id="constructeurs-de-record">Constructeurs de record</h2>
-<p>Quand vous créez un alias de record, cela génère du même coup un <strong>constructeur de record</strong>. Si vous définissez un alias de type <code>User</code>, vous pouvez construire les records correspondants comme ceci :</p>
+<p>Quand vous créez un alias de record, cela génère du même coup un <strong>constructeur de record</strong>. Si vous définissez un alias de type <code>User</code>, vous pouvez construire les records correspondants comme ceci :</p>
 <p><div class="elm-repl show-types">
 [
     {
@@ -778,7 +778,7 @@
 ]
 </div></p>
 <p>Essayez de créer un nouvel enregistrement <code>User</code>, puis de créer votre propre alias ⬆️</p>
-<p>Notez que l&apos;ordre des arguments passés au constructeur de record correspond à l&apos;ordre des champs dans l&apos;alias de type !</p>
+<p>Notez que l&apos;ordre des arguments passés au constructeur de record correspond à l&apos;ordre des champs dans l&apos;alias de type !</p>
 <p>Encore une fois, ceci n&apos;est <strong>valable que pour les records.</strong> Créer des alias pour d&apos;autres types ne fournira pas de constructeur.</p>
 
                                 
@@ -823,7 +823,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Les alias de types","level":"1.4.2","depth":2,"next":{"title":"Types personnalisés","level":"1.4.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"previous":{"title":"Lire les types","level":"1.4.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"types/type_aliases.md","mtime":"2022-04-01T16:24:17.144Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-01T23:48:59.920Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Les alias de types","level":"1.4.2","depth":2,"next":{"title":"Types personnalisés","level":"1.4.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"previous":{"title":"Lire les types","level":"1.4.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"types/type_aliases.md","mtime":"2022-04-01T16:24:17.144Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-04T13:15:22.973Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

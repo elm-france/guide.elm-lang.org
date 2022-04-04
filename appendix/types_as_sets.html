@@ -721,11 +721,11 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="les-types-sous-formes-densembles">Les types sous formes d&apos;ensembles</h1>
-<p>Nous avons vu des types primitifs comme <code>Bool</code> et <code>String</code>. Nous avons créé nos propres types personnalisés comme ceci :</p>
+<p>Nous avons vu des types primitifs comme <code>Bool</code> et <code>String</code>. Nous avons créé nos propres types personnalisés comme ceci :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Couleur</span> = <span class="hljs-type">Rouge</span> | <span class="hljs-type">Jaune</span> | <span class="hljs-type">Vert</span>
 </code></pre>
 <p>L&apos;une des techniques les plus importantes de la programmation Elm consiste à faire en sorte que <strong>les valeurs possibles dans le code</strong> correspondent exactement aux <strong>valeurs valides dans la vie réelle</strong>. Cela ne laisse aucune place aux données invalides, et c&apos;est pourquoi j&apos;encourage toujours les gens à se concentrer sur les types personnalisés et les structures de données.</p>
-<p>Dans la poursuite de cet objectif, j&apos;ai trouvé utile de comprendre la relation entre les types et les ensembles. Ça a l&apos;air de venir de loin, mais cela aide vraiment à développer votre compréhension !</p>
+<p>Dans la poursuite de cet objectif, j&apos;ai trouvé utile de comprendre la relation entre les types et les ensembles. Ça a l&apos;air de venir de loin, mais cela aide vraiment à développer votre compréhension !</p>
 <h2 id="les-ensembles">Les ensembles</h2>
 <p>On peut voir les types comme des ensembles de valeurs.</p>
 <ul>
@@ -735,7 +735,7 @@
 <li><code>Float</code> est l&apos;ensemble <code>{ ... 0.9, 0.99, 0.999 ... 1.0 ... }</code></li>
 <li><code>String</code> est l&apos;ensemble <code>{ &quot;&quot;, &quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot; ... &quot;bonjour&quot; ... }</code></li>
 </ul>
-<p>Ainsi, lorsque vous dites <code>x : Bool</code>, cela revient à dire que <code>x</code> est dans l&apos;ensemble <code>{ True, False }</code>.</p>
+<p>Ainsi, lorsque vous dites <code>x&amp;nbsp;: Bool</code>, cela revient à dire que <code>x</code> est dans l&apos;ensemble <code>{ True, False }</code>.</p>
 <h2 id="cardinalité">Cardinalité</h2>
 <p>Des choses intéressantes se produisent lorsque vous commencez à déterminer le nombre de valeurs dans ces ensembles. Par exemple, l&apos;ensemble <code>Bool</code> <code>{ True, False }</code> contient deux valeurs. Ainsi, les mathématiciens disent que <code>Bool</code> a une <a href="https://fr.wikipedia.org/wiki/Cardinalit%C3%A9" target="_blank">cardinalité</a> de deux. Donc conceptuellement :</p>
 <ul>
@@ -750,20 +750,20 @@
 <p><strong>Remarque :</strong> La cardinalité pour <code>Int</code> et <code>Float</code> est en fait inférieure à l&apos;infini. Les ordinateurs doivent contraindre les nombres dans un nombre fixe de bits (comme décrit <a href="types_as_bits.html">ici</a>) donc c&apos;est plutôt cardinalité(<code>Int32</code>) = 2^32 and cardinalité(<code>Float32</code>) = 2^32. Au bout du compte, ça fait beaucoup.</p>
 </blockquote>
 <h2 id="multiplication-tuples-et-records">Multiplication (Tuples et Records)</h2>
-<p>Lorsque vous combinez des types avec des tuples, les cardinalités sont multipliées :</p>
+<p>Lorsque vous combinez des types avec des tuples, les cardinalités sont multipliées :</p>
 <ul>
 <li>cardinalité(<code>(Bool, Bool)</code>) = cardinalité(<code>Bool</code>) × cardinalité(<code>Bool</code>) = 2 × 2 = 4</li>
 <li>cardinalité(<code>(Bool, Couleur)</code>) = cardinalité(<code>Bool</code>) × cardinalité(<code>Couleur</code>) = 2 × 3 = 6</li>
 </ul>
-<p>Pour vous en assurer, essayez de lister toutes les valeurs possibles de <code>(Bool, Bool)</code> et <code>(Bool, Couleur)</code>. Correspondent-elles aux chiffres que nous avons prédits ? Et pour <code>(Couleur, Couleur)</code> ?</p>
-<p>Mais que se passe-t-il lorsque nous utilisons des ensembles infinis comme <code>Int</code> et <code>String</code> ?</p>
+<p>Pour vous en assurer, essayez de lister toutes les valeurs possibles de <code>(Bool, Bool)</code> et <code>(Bool, Couleur)</code>. Correspondent-elles aux chiffres que nous avons prédits ? Et pour <code>(Couleur, Couleur)</code> ?</p>
+<p>Mais que se passe-t-il lorsque nous utilisons des ensembles infinis comme <code>Int</code> et <code>String</code> ?</p>
 <ul>
 <li>cardinalité(<code>(Bool, String)</code>) = 2 × ∞</li>
 <li>cardinalité(<code>(Int, Int)</code>) = ∞ × ∞</li>
 </ul>
 <p>Personnellement, j&apos;aime beaucoup l&apos;idée d&apos;avoir deux infinis. Un ne suffisait pas ? Et puis avoir des infinis infinis. N&apos;allons-nous pas en manquer à un moment donné?</p>
 <blockquote>
-<p><strong>Remarque :</strong> Jusqu&apos;à présent, nous avons utilisé des tuples, mais les records fonctionnent exactement de la même manière :</p>
+<p><strong>Remarque :</strong> Jusqu&apos;à présent, nous avons utilisé des tuples, mais les records fonctionnent exactement de la même manière :</p>
 <ul>
 <li>cardinalité(<code>(Bool, Bool)</code>) = cardinalité(<code>{ x : Bool, y : Bool }</code>)</li>
 <li>cardinalité(<code>(Bool, Couleur)</code>) = cardinalité(<code>{ active : Bool, color : Color }</code>)</li>
@@ -777,15 +777,15 @@
 <li>cardinalité(<code>Maybe Bool</code>) = 1 + cardinalité(<code>Bool</code>) = 1 + 2 = 3</li>
 <li>cardinalité(<code>Maybe Int</code>) = 1 + cardinalité(<code>Int</code>) = 1 + ∞</li>
 </ul>
-<p>Pour vous persuader que c&apos;est vrai, essayez de lister toutes les valeurs possibles dans les ensembles <code>Maybe Bool</code> et <code>Result Bool Couleur</code>. Est-ce que cela correspond aux chiffres que nous avons obtenus ?</p>
-<p>Voici quelques autres exemples :</p>
+<p>Pour vous persuader que c&apos;est vrai, essayez de lister toutes les valeurs possibles dans les ensembles <code>Maybe Bool</code> et <code>Result Bool Couleur</code>. Est-ce que cela correspond aux chiffres que nous avons obtenus ?</p>
+<p>Voici quelques autres exemples :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Hauteur</span>
   = <span class="hljs-type">Pouces</span> <span class="hljs-type">Int</span>
   | <span class="hljs-type">Metres</span> <span class="hljs-type">Float</span>
 
 <span class="hljs-comment">-- cardinalité(Hauteur)</span>
 <span class="hljs-comment">-- = cardinalité(Int) + cardinality(Float)</span>
-<span class="hljs-comment">-- = ∞ + ∞</span>
+<span class="hljs-comment">-- = ∞&amp;nbsp;+ ∞</span>
 
 
 <span class="hljs-keyword">type</span> <span class="hljs-type">Emplacement</span>
@@ -804,9 +804,9 @@
 </ol>
 <p>En d&apos;autres termes, j&apos;écris quelques lignes de code qui sont <em>similaires</em> à d&apos;autres lignes de codes, mais cela me donne un niveau de clarté et de contrôle extrêmement précieux pour les grandes bases de code et les équipes.</p>
 <h2 id="on-sen-fout-">On s&apos;en fout ?</h2>
-<p>Voir les « types comme des ensembles » aide à expliquer une classe importante de bogues : les <strong>données invalides</strong>. Par exemple, imaginons que nous voulons représenter la couleur d&apos;un feu de circulation. L&apos;ensemble des valeurs valides est { rouge, orange, vert } mais comment coder cela ? Voici trois approches différentes :</p>
+<p>Voir les « types comme des ensembles » aide à expliquer une classe importante de bogues : les <strong>données invalides</strong>. Par exemple, imaginons que nous voulons représenter la couleur d&apos;un feu de circulation. L&apos;ensemble des valeurs valides est { rouge, orange, vert } mais comment coder cela ? Voici trois approches différentes :</p>
 <ul>
-<li><p><code>type alias Couleur = String</code> — Nous pourrions décider que <code>&quot;rouge&quot;</code>, <code>&quot;orange&quot;</code>, <code>&quot;vert&quot;</code> sont les trois chaînes que nous utiliserons, et que toutes les autres sont des <em>données invalides</em>. Mais que se passe-t-il si des données invalides sont produites ? Peut-être que quelqu&apos;un fait une faute de frappe comme <code>&quot;roug&quot;</code>. Peut-être que quelqu&apos;un tape <code>&quot;ROUGE&quot;</code> à la place. Toutes les fonctions devraient-elles vérifier les arguments de couleur entrants ? Toutes les fonctions devraient-elles avoir des tests pour s&apos;assurer que les résultats de couleur sont valides ? Le problème fondamental est que cardinalité(<code>Couleur</code>) = ∞, ce qui signifie qu&apos;il y a (∞ - 3) valeurs invalides. Nous devrons faire beaucoup de vérifications pour nous assurer qu&apos;aucune d&apos;entre elles n&apos;apparaît jamais !</p>
+<li><p><code>type alias Couleur = String</code> — Nous pourrions décider que <code>&quot;rouge&quot;</code>, <code>&quot;orange&quot;</code>, <code>&quot;vert&quot;</code> sont les trois chaînes que nous utiliserons, et que toutes les autres sont des <em>données invalides</em>. Mais que se passe-t-il si des données invalides sont produites ? Peut-être que quelqu&apos;un fait une faute de frappe comme <code>&quot;roug&quot;</code>. Peut-être que quelqu&apos;un tape <code>&quot;ROUGE&quot;</code> à la place. Toutes les fonctions devraient-elles vérifier les arguments de couleur entrants ? Toutes les fonctions devraient-elles avoir des tests pour s&apos;assurer que les résultats de couleur sont valides ? Le problème fondamental est que cardinalité(<code>Couleur</code>) = ∞, ce qui signifie qu&apos;il y a (∞ - 3) valeurs invalides. Nous devrons faire beaucoup de vérifications pour nous assurer qu&apos;aucune d&apos;entre elles n&apos;apparaît jamais !</p>
 </li>
 <li><p><code>type alias Couleur = { rouge : Bool, orange : Bool, vert : Bool }</code> — L&apos;idée ici est que l&apos;idée de &quot;rouge&quot; est représentée par <code>Couleur True False False</code>. Mais qu&apos;en est-il de <code>Couleur True True True</code> ? Qu&apos;est-ce que cela signifie d&apos;être de toutes les couleurs à la fois ? Il s&apos;agit de <em>données invalides</em>. Tout comme avec la représentation <code>String</code>, nous finissons par écrire des vérifications dans notre code et des tests pour nous assurer qu&apos;il n&apos;y a pas d&apos;erreurs. Dans ce cas, cardinalité(<code>Color</code>) = 2 × 2 × 2 = 8, il n&apos;y a donc que 5 valeurs invalides. Il y a certainement moins de façons de se tromper, mais nous devrions encore avoir quelques vérifications et tests.</p>
 </li>
@@ -825,7 +825,7 @@
 <li><p><strong>JavaScript</strong> — Là encore, il existe des valeurs primitives telles que <code>Bool</code> et <code>String</code>. De là, vous pouvez créer des objets avec un ensemble dynamique de champs, vous permettant de multiplier les cardinalités. C&apos;est beaucoup plus léger que de créer des classes. Mais tout comme en Java, faire des additions de cardinalités n&apos;est pas particulièrement facile. Par exemple, vous pouvez simuler <code>Maybe Int</code> avec des objets comme <code>{ tag: &quot;just&quot;, value: 42 }</code> et <code>{ tag: &quot;nothing&quot; }</code>, mais c&apos;est dans les faits une multiplication de cardinalité. Il est donc assez difficile de faire correspondre exactement l&apos;ensemble de valeurs valides dans la vie réelle. Je pense donc que les gens trouvent JavaScript &quot;facile&quot; car concevoir un type avec cardinalité (∞ × ∞ × ∞) est super facile et cela peut convenir à peu près à tout, mais d&apos;autres le trouvent &quot;prône aux erreurs&quot; car concevoir un type avec cardinalité 5 n&apos;est pas vraiment possible, laissant beaucoup de place pour les données invalides.</p>
 </li>
 </ul>
-<p>Fait intéressant, certains langages impératifs ont des types personnalisés ! Rust en est un excellent exemple. Ils les appellent <a href="https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html" target="_blank">enums</a> pour profiter des habitudes que les gens peuvent avoir de C et Java. Ainsi, en Rust, l&apos;ajout de cardinalités est aussi simple que en Elm, et cela apporte les mêmes avantages !</p>
+<p>Fait intéressant, certains langages impératifs ont des types personnalisés ! Rust en est un excellent exemple. Ils les appellent <a href="https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html" target="_blank">enums</a> pour profiter des habitudes que les gens peuvent avoir de C et Java. Ainsi, en Rust, l&apos;ajout de cardinalités est aussi simple que en Elm, et cela apporte les mêmes avantages !</p>
 <p>Je pense que le point ici est que « l&apos;addition » de types est extraordinairement sous-estimée en général, et penser aux « types comme des ensembles » aide à clarifier pourquoi certaines conceptions de langages peuvent produire certaines frustrations.</p>
 </blockquote>
 
@@ -867,7 +867,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Les types sous forme d'ensembles","level":"1.12.1","depth":2,"next":{"title":"Les types sous forme de bits","level":"1.12.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},"previous":{"title":"Annexes","level":"1.12","depth":1,"ref":"","articles":[{"title":"Les types sous forme d'ensembles","level":"1.12.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},{"title":"Les types sous forme de bits","level":"1.12.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},{"title":"Types de fonctions","level":"1.12.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"appendix/types_as_sets.md","mtime":"2022-04-01T16:24:17.129Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-01T23:48:59.920Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Les types sous forme d'ensembles","level":"1.12.1","depth":2,"next":{"title":"Les types sous forme de bits","level":"1.12.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},"previous":{"title":"Annexes","level":"1.12","depth":1,"ref":"","articles":[{"title":"Les types sous forme d'ensembles","level":"1.12.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},{"title":"Les types sous forme de bits","level":"1.12.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},{"title":"Types de fonctions","level":"1.12.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"appendix/types_as_sets.md","mtime":"2022-04-01T16:24:17.129Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-04T13:15:22.973Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

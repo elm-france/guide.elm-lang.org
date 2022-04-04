@@ -723,7 +723,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="installer-elm">Installer Elm</h1>
-<p>La page précédente nous a montré comment installer un éditeur de code Elm, maintenant il nous faut obtenir un exécutable <code>elm</code>. Voici les liens d&apos;installation :</p>
+<p>La page précédente nous a montré comment installer un éditeur de code Elm, maintenant il nous faut obtenir un exécutable <code>elm</code>. Voici les liens d&apos;installation :</p>
 <ul>
 <li><strong>Mac</strong> - <a href="https://github.com/elm/compiler/releases/download/0.19.1/installer-for-mac.pkg" target="_blank">installer</a></li>
 <li><strong>Linux</strong> - <a href="https://github.com/elm/compiler/blob/master/installers/linux/README.md" target="_blank">instructions</a></li>
@@ -731,7 +731,7 @@
 </ul>
 <p>Une fois l&apos;installation effectuée, ouvrez un terminal sur votre ordinateur. Sur Windows, le programme correspondant s&apos;appelle <code>cmd.exe</code> ou <code>Invite de Commande</code>.</p>
 <p><img src="images/terminal.png" alt="terminal"></p>
-<p>Dans le terminal, commencez par naviguer vers votre Bureau :</p>
+<p>Dans le terminal, commencez par naviguer vers votre Bureau :</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># Mac et Linux</span>
 <span class="hljs-built_in">cd</span> ~/Desktop
 
@@ -741,24 +741,24 @@
 <p>Ensuite, familiarisons-nous avec la commande <code>elm</code>. L&apos;utilisation de la ligne de commande est souvent difficile pour les débutants, aussi nous avons beaucoup travaillé à rendre la commande <code>elm</code> confortable à utiliser. Regardons quelques cas d&apos;utilisation courants.</p>
 <p><br></p>
 <h2 id="elm-init"><span style="font-family:Consolas,&apos;Liberation Mono&apos;,Menlo,Courier,monospace;">elm init</span></h2>
-<p>Vous pouvez initialiser une nouveau projet Elm de cette façon :</p>
+<p>Vous pouvez initialiser une nouveau projet Elm de cette façon :</p>
 <pre><code class="lang-bash">elm init
 </code></pre>
-<p>Lancez cette commande pour créer un fichier <code>elm.json</code> et un dossier <code>src</code> :</p>
+<p>Lancez cette commande pour créer un fichier <code>elm.json</code> et un dossier <code>src</code> :</p>
 <ul>
-<li><a href="https://github.com/elm/compiler/blob/master/docs/elm.json/application.md" target="_blank"><code>elm.json</code></a> décrit votre projet ;</li>
+<li><a href="https://github.com/elm/compiler/blob/master/docs/elm.json/application.md" target="_blank"><code>elm.json</code></a> décrit votre projet ;</li>
 <li><code>src/</code> contient tous vos fichiers Elm.</li>
 </ul>
 <p>Maintenant, essayons de créer un fichier <code>src/Main.elm</code> dans notre éditeur, et d&apos;y copier le code d&apos;<a href="https://elm-lang.org/examples/buttons" target="_blank">exemple de boutons</a>.</p>
 <p><br></p>
 <h2 id="elm-reactor"><span style="font-family:Consolas,&apos;Liberation Mono&apos;,Menlo,Courier,monospace;">elm reactor</span></h2>
-<p><code>elm reactor</code> vous aide à construire des projets Elm sans avoir à manipuler le terminal trop fréquemment. Vous pouvez simplement lancer la commande à la racine, comme ceci :</p>
+<p><code>elm reactor</code> vous aide à construire des projets Elm sans avoir à manipuler le terminal trop fréquemment. Vous pouvez simplement lancer la commande à la racine, comme ceci :</p>
 <pre><code class="lang-bash">elm reactor
 </code></pre>
-<p>La commande démarre un serveur Web local à l&apos;adresse <a href="http://localhost:8000" target="_blank"><code>http://localhost:8000</code></a>, que vous pouvez ouvrir dans votre navigateur préféré. Vous pouvez naviguer au travers des différents fichiers Elm et regarder à quoi ils ressemblent. Lancez <code>elm reactor</code>, suivez le lien <code>localhost</code> et essayez de contempler votre fichier <code>src/Main.elm</code> !</p>
+<p>La commande démarre un serveur Web local à l&apos;adresse <a href="http://localhost:8000" target="_blank"><code>http://localhost:8000</code></a>, que vous pouvez ouvrir dans votre navigateur préféré. Vous pouvez naviguer au travers des différents fichiers Elm et regarder à quoi ils ressemblent. Lancez <code>elm reactor</code>, suivez le lien <code>localhost</code> et essayez de contempler votre fichier <code>src/Main.elm</code> !</p>
 <p><br></p>
 <h2 id="elm-make"><span style="font-family:Consolas,&apos;Liberation Mono&apos;,Menlo,Courier,monospace;">elm make</span></h2>
-<p>Vous pouvez compiler votre code Elm en HTML ou en JavaScript avec cette famille de commandes :</p>
+<p>Vous pouvez compiler votre code Elm en HTML ou en JavaScript avec cette famille de commandes :</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># Crée un fichier index.html que vous pouvez ouvrir dans un navigateur.</span>
 elm make src/Main.elm
 
@@ -767,24 +767,24 @@ elm make src/Main.elm --optimize --output=elm.js
 </code></pre>
 <p>Essayez de lancer ces commandes sur votre fichier <code>src/Main.elm</code>.</p>
 <p>C&apos;est la façon la plus courante de compiler du code Elm. C&apos;est très pratique une fois que vos projets deviennent trop complexes pour <code>elm reactor</code>.</p>
-<p>Cette commande produit les mêmes messages que vous avez déjà vu en utilisant l&apos;éditeur en ligne ou <code>elm reactor</code>. Des années de travail ont été engloutis dans ces outils, mais n&apos;hésitez pas à remonter les messages difficiles à comprendre <a href="https://github.com/elm/error-message-catalog/issues" target="_blank">ici</a>. Nous sommes convaincus qu&apos;ils sont toujours améliorables !</p>
+<p>Cette commande produit les mêmes messages que vous avez déjà vu en utilisant l&apos;éditeur en ligne ou <code>elm reactor</code>. Des années de travail ont été engloutis dans ces outils, mais n&apos;hésitez pas à remonter les messages difficiles à comprendre <a href="https://github.com/elm/error-message-catalog/issues" target="_blank">ici</a>. Nous sommes convaincus qu&apos;ils sont toujours améliorables !</p>
 <p><br></p>
 <h2 id="elm-install"><span style="font-family:Consolas,&apos;Liberation Mono&apos;,Menlo,Courier,monospace;">elm install</span></h2>
 <p>Les paquets Elm sont tous disponibles sur <a href="https://package.elm-lang.org/" target="_blank"><code>package.elm-lang.org</code></a>.</p>
-<p>Imaginons qu&apos;on ait besoin de <a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a> et <a href="https://package.elm-lang.org/packages/elm/json/latest" target="_blank"><code>elm/json</code></a> pour faire quelques requêtes HTTP. Nous pouvons les installer au moyen de ces deux commandes :</p>
+<p>Imaginons qu&apos;on ait besoin de <a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a> et <a href="https://package.elm-lang.org/packages/elm/json/latest" target="_blank"><code>elm/json</code></a> pour faire quelques requêtes HTTP. Nous pouvons les installer au moyen de ces deux commandes :</p>
 <pre><code class="lang-bash">elm install elm/http
 elm install elm/json
 </code></pre>
 <p>La commande a ajouté ces deux dépendances à notre fichier <code>elm.json</code>, les rendant disponibles pour notre projet. Cela nous permet d&apos;écrire <code>import Http</code> et d&apos;appeler des fonctions comme <code>Http.get</code> dans notre code Elm.</p>
 <p><br></p>
 <h2 id="trucs-et-astuces">Trucs et astuces</h2>
-<p><strong>D&apos;abord</strong>, ne vous inquiétez surtout pas si vous ne vous souvenez pas de tout par cœur !</p>
+<p><strong>D&apos;abord</strong>, ne vous inquiétez surtout pas si vous ne vous souvenez pas de tout par cœur !</p>
 <p>Vous pouvez toujours lancez la commande <code>elm --help</code> pour avoir la documentation de tout ce que la commande est capable de faire.</p>
 <p>Vous pouvez également lancer des commandes comme <code>elm make --help</code> ou <code>elm repl --help</code> pour accéder à l&apos;aide d&apos;une commande en particulier. C&apos;est très pratique pour découvrir les options disponibles et ce qu&apos;elles permettent.</p>
 <p><strong>Ensuite</strong>, ne vous inquiétez pas si ça prend un peu de temps pour être à l&apos;aise avec l&apos;utilisation de la ligne de commande et du terminal en général.</p>
-<p>Même après des années d&apos;expérience, il est fréquent d&apos;oublier comment on compresse un fichier, comment on trouve tous les fichiers Elm dans un répertoire, etc. Il n&apos;est jamais grave de nous rafraîchir la mémoire !</p>
+<p>Même après des années d&apos;expérience, il est fréquent d&apos;oublier comment on compresse un fichier, comment on trouve tous les fichiers Elm dans un répertoire, etc. Il n&apos;est jamais grave de nous rafraîchir la mémoire !</p>
 <hr>
-<p>Maintenant que nous avons installé et configuré notre éditeur, et que la commande <code>elm</code> fonctionne dans notre terminal, on peut continuer notre découverte de Elm !</p>
+<p>Maintenant que nous avons installé et configuré notre éditeur, et que la commande <code>elm</code> fonctionne dans notre terminal, on peut continuer notre découverte de Elm !</p>
 
                                 
                                 </section>
@@ -828,7 +828,7 @@ elm install elm/json
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Elm","level":"1.7.2","depth":2,"next":{"title":"Interopérabilité avec JavaScript","level":"1.8","depth":1,"path":"interop/README.md","ref":"interop/README.md","articles":[{"title":"Flags","level":"1.8.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},{"title":"Ports","level":"1.8.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},{"title":"Custom Elements","level":"1.8.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},{"title":"Limites","level":"1.8.4","depth":2,"path":"interop/limits.md","ref":"interop/limits.md","articles":[]}]},"previous":{"title":"Éditeur de code","level":"1.7.1","depth":2,"path":"install/editor.md","ref":"install/editor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"install/elm.md","mtime":"2022-04-01T16:24:17.139Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-01T23:48:59.920Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Elm","level":"1.7.2","depth":2,"next":{"title":"Interopérabilité avec JavaScript","level":"1.8","depth":1,"path":"interop/README.md","ref":"interop/README.md","articles":[{"title":"Flags","level":"1.8.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},{"title":"Ports","level":"1.8.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},{"title":"Custom Elements","level":"1.8.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},{"title":"Limites","level":"1.8.4","depth":2,"path":"interop/limits.md","ref":"interop/limits.md","articles":[]}]},"previous":{"title":"Éditeur de code","level":"1.7.1","depth":2,"path":"install/editor.md","ref":"install/editor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"install/elm.md","mtime":"2022-04-01T16:24:17.139Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-04T13:15:22.973Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
