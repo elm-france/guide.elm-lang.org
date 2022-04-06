@@ -10,7 +10,7 @@
   "scripts": {
     "link-all": "npm link gitbook-plugin-elm-repl honkit-plugin-french-typography",
     "build": "honkit build",
-    "deploy": "npm run link-all && npm run build && gh-pages -d _book",
+    "deploy": "npm run link-all && npm run build && gh-pages -d _book --add",
     "serve": "npm run link-all && honkit serve"
   }
 }
