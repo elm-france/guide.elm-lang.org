@@ -62,3 +62,8 @@ Vous pouvez obtenir certains avantages en programmant dans un *style* fonctionne
 Aucune combinaison de bibliothèques JS ne peut vous donner toutes ces garanties car elles proviennent de la conception même du langage ! Et grâce à ces garanties, il est assez courant pour les programmeurs Elm de dire qu'ils ne se sont jamais sentis aussi **confiants** en programmant. Confiants pour ajouter des fonctionnalités rapidement. Confiants pour remanier des milliers de lignes. Mais sans l'angoisse de manquer quelque chose d'important !
 
 J'ai mis l'accent sur la facilité d'apprentissage et d'utilisation d'Elm, donc tout ce que je vous demande, c'est d'essayer Elm et de voir ce que vous en pensez. J'espère que vous serez agréablement surpris !
+
+
+## Origine du guide
+
+Ce guide est le fruit d'un travail de traduction entrepris par la communauté [elm-france](https://elm-france.fr/) du [guide officiel](https://guide.elm-lang.org/) écrit par Evan Czaplicki. Les codes sources des guides [officiel](https://github.com/elm-guides/elm-lang.org) (en anglais) et [français](https://github.com/elm-france/guide.elm-lang.org) sont disponibles sous license [Creative Commons BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0).
