@@ -1,4 +1,4 @@
-# Les types sous formes d'ensembles
+# Les types en tant qu'ensembles
 
 Nous avons vu des types primitifs comme `Bool` et `String`. Nous avons créé nos propres types personnalisés comme ceci :
 
@@ -22,7 +22,7 @@ On peut voir les types comme des ensembles de valeurs.
 - `Float` est l'ensemble `{ ... 0.9, 0.99, 0.999 ... 1.0 ... }`
 - `String` est l'ensemble `{ "", "a", "aa", "aaa" ... "bonjour" ... }`
 
-Ainsi, lorsque vous dites `x : Bool`, cela revient à dire que `x` est dans l'ensemble `{ True, False }`.
+Ainsi, lorsque vous dites `x : Bool`, cela revient à dire que `x` est dans l'ensemble `{ True, False }`.
 
 
 ## Cardinalité
@@ -40,7 +40,7 @@ Cela devient plus intéressant lorsque nous commençons à penser à des types c
 > **Remarque :** La cardinalité pour `Int` et `Float` est en fait inférieure à l'infini. Les ordinateurs doivent contraindre les nombres dans un nombre fixe de bits (comme décrit [ici](/appendix/types_as_bits.html)) donc c'est plutôt cardinalité(`Int32`) = 2^32 and cardinalité(`Float32`) = 2^32. Au bout du compte, ça fait beaucoup.
 
 
-## Multiplication (Tuples et Records)
+## Multiplication (*Tuples* et *Records*)
 
 Lorsque vous combinez des types avec des tuples, les cardinalités sont multipliées :
 
@@ -56,7 +56,7 @@ Mais que se passe-t-il lorsque nous utilisons des ensembles infinis comme `Int` 
 
 Personnellement, j'aime beaucoup l'idée d'avoir deux infinis. Un ne suffisait pas ? Et puis avoir des infinis infinis. N'allons-nous pas en manquer à un moment donné?
 
-> **Remarque :** Jusqu'à présent, nous avons utilisé des tuples, mais les records fonctionnent exactement de la même manière :
+> **Remarque :** Jusqu'à présent, nous avons utilisé des tuples, mais les *records* fonctionnent exactement de la même manière :
 >
 > - cardinalité(`(Bool, Bool)`) = cardinalité(`{ x : Bool, y : Bool }`)
 > - cardinalité(`(Bool, Couleur)`) = cardinalité(`{ active : Bool, color : Color }`)
@@ -82,8 +82,8 @@ type Hauteur
   | Metres Float
 
 -- cardinalité(Hauteur)
--- = cardinalité(Int) + cardinality(Float)
--- = ∞ + ∞
+-- = cardinalité(Int) + cardinalité(Float)
+-- = ∞ + ∞
 
 
 type Emplacement
@@ -99,36 +99,36 @@ type Emplacement
 Envisager les types personnalisés de cette manière nous aide à voir quand deux types sont équivalents. Par exemple, `Emplacement` est équivalent à `Maybe (Float, Float)`. Une fois que vous savez cela, lequel devez-vous utiliser ? Je préfère `Emplacement` pour deux raisons :
 
 1. Le code devient plus auto-documenté. Pas besoin de se demander si `Just (1.6, 1.8)` est un emplacement ou une paire de hauteurs.
-2. Le module `Maybe` peut exposer des fonctions qui n'ont pas de sens pour mes données particulières. Par exemple, la combinaison de deux emplacements ne devrait probablement pas fonctionner comme `Maybe.map2`. Est-ce qu'un `NullePart` combiné à un `QuelquePart x y` devrait donner `NullePart` ? Ça semble bizarre!
+2. Le module `Maybe` peut exposer des fonctions qui n'ont pas de sens pour mes données particulières. Par exemple, la combinaison de deux emplacements ne devrait probablement pas fonctionner comme `Maybe.map2`. Est-ce qu'un `NullePart` combiné à un `QuelquePart x y` devrait donner `NullePart` ? Ça semble bizarre !
 
 En d'autres termes, j'écris quelques lignes de code qui sont _similaires_ à d'autres lignes de codes, mais cela me donne un niveau de clarté et de contrôle extrêmement précieux pour les grandes bases de code et les équipes.
 
 
-## On s'en fout ?
+## Pourquoi est-ce utile ?
 
 Voir les « types comme des ensembles » aide à expliquer une classe importante de bogues : les **données invalides**. Par exemple, imaginons que nous voulons représenter la couleur d'un feu de circulation. L'ensemble des valeurs valides est { rouge, orange, vert } mais comment coder cela ? Voici trois approches différentes :
 
-- `type alias Couleur = String` &mdash; Nous pourrions décider que `"rouge"`, `"orange"`, `"vert"` sont les trois chaînes que nous utiliserons, et que toutes les autres sont des _données invalides_. Mais que se passe-t-il si des données invalides sont produites ? Peut-être que quelqu'un fait une faute de frappe comme `"roug"`. Peut-être que quelqu'un tape `"ROUGE"` à la place. Toutes les fonctions devraient-elles vérifier les arguments de couleur entrants ? Toutes les fonctions devraient-elles avoir des tests pour s'assurer que les résultats de couleur sont valides ? Le problème fondamental est que cardinalité(`Couleur`) = ∞, ce qui signifie qu'il y a (∞ - 3) valeurs invalides. Nous devrons faire beaucoup de vérifications pour nous assurer qu'aucune d'entre elles n'apparaît jamais !
+- `type alias Couleur = String` &mdash; Nous pourrions décider que `"rouge"`, `"orange"`, `"vert"` sont les trois chaînes que nous utiliserons, et que toutes les autres sont des _données invalides_. Mais que se passe-t-il si des données invalides sont produites ? Peut-être que quelqu'un fait une faute de frappe comme `"roug"`. Peut-être que quelqu'un tape `"ROUGE"` à la place. Toutes les fonctions devraient-elles vérifier les arguments de couleur entrants ? Toutes les fonctions devraient-elles avoir des tests pour s'assurer que les résultats de couleur sont valides ? Le problème fondamental est que cardinalité(`Couleur`) = ∞, ce qui signifie qu'il y a (∞ - 3) valeurs invalides. Nous devrons faire beaucoup de vérifications pour nous assurer qu'aucune d'entre elles n'apparaît !
 
-- `type alias Couleur = { rouge : Bool, orange : Bool, vert : Bool }` &mdash; L'idée ici est que l'idée de "rouge" est représentée par `Couleur True False False`. Mais qu'en est-il de `Couleur True True True` ? Qu'est-ce que cela signifie d'être de toutes les couleurs à la fois ? Il s'agit de _données invalides_. Tout comme avec la représentation `String`, nous finissons par écrire des vérifications dans notre code et des tests pour nous assurer qu'il n'y a pas d'erreurs. Dans ce cas, cardinalité(`Color`) = 2 × 2 × 2 = 8, il n'y a donc que 5 valeurs invalides. Il y a certainement moins de façons de se tromper, mais nous devrions encore avoir quelques vérifications et tests.
+- `type alias Couleur = { rouge : Bool, orange : Bool, vert : Bool }` &mdash; L'idée ici est que l'idée de "rouge" est représentée par `Couleur True False False`. Mais qu'en est-il de `Couleur True True True` ? Qu'est-ce que cela signifie d'être de toutes les couleurs à la fois ? Il s'agit de _données invalides_. Tout comme avec la représentation `String`, nous finissons par écrire des vérifications dans notre code et des tests pour nous assurer qu'il n'y a pas d'erreur. Dans ce cas, cardinalité(`Color`) = 2 × 2 × 2 = 8, il n'y a donc que 5 valeurs invalides. Il y a certainement moins de façons de se tromper, mais nous devrions encore avoir quelques vérifications et tests.
 
 - `type Couleur = Rouge | Orange | Vert` &mdash; Dans ce cas, les données invalides sont impossibles. cardinalité(`Color`) = 1 + 1 + 1 = 3, correspondant exactement à l'ensemble des trois valeurs dans la vie réelle. Il est donc inutile de vérifier les données de couleur non valides dans notre code ou nos tests. Elles ne peuvent pas exister !
 
-Donc, l'essentiel ici est que **exclure les données non valides rend votre code plus court, plus simple et plus fiable.** En s'assurant que l'ensemble de valeurs _possibles_ dans le code correspond exactement à l'ensemble de valeurs _valides_ dans la vie réelle, de nombreux problèmes disparaissent. C'est un couteau bien aiguisé !
+Donc, l'essentiel ici est qu'**exclure les données non valides rend votre code plus court, plus simple et plus fiable.** En s'assurant que l'ensemble de valeurs _possibles_ dans le code correspond exactement à l'ensemble de valeurs _valides_ dans la vie réelle, de nombreux problèmes disparaissent. C'est un couteau bien aiguisé !
 
-Au fur et à mesure que votre programme change, l'ensemble de valeurs possibles dans le code peut commencer à diverger de l'ensemble de valeurs valides dans la vie réelle. **Je vous recommande fortement de revoir périodiquement vos types pour les faire correspondre à nouveau.** C'est comme remarquer que votre couteau est devenu émoussé, et l'aiguiser avec une pierre à aiguiser. Ce type de maintenance est au cœur de la programmation dans Elm.
+Au fur et à mesure que votre programme change, l'ensemble de valeurs possibles dans le code peut commencer à diverger de l'ensemble de valeurs valides dans la vie réelle. **Je vous recommande fortement de revoir périodiquement vos types pour les faire correspondre à nouveau.** C'est comme remarquer que votre couteau est devenu émoussé et l'aiguiser avec une pierre à aiguiser. Ce type de maintenance est au cœur de la programmation dans Elm.
 
 **Lorsque vous commencez à penser de cette façon, vous finissez par avoir besoin de moins de tests, tout en ayant un code plus fiable.** Vous commencez à utiliser moins de dépendances, tout en accomplissant les choses plus rapidement. De même, quelqu'un habile avec un couteau n'achètera probablement pas un [SlapChop](https://www.slapchop.com/). Il y a bien sûr une place pour les mixeurs et les robots culinaires, mais elle est plus petite que vous ne le pensez. Personne ne fait de publicité sur la façon dont vous pouvez être indépendant et autosuffisant sans aucun inconvénient sérieux. Il n'y a pas d'argent à se faire dans ce domaine !
 
 
-> ## Parenthèse sur la conception de langeage
+> ## Parenthèse sur la conception des langages
 > 
-> Considérer les types comme des ensembles de cette manière peut également être utile pour expliquer pourquoi un langage semblerait « facile », « restrictif » ou « prône aux erreurs » pour certaines personnes. Par exemple:
+> Considérer les types comme des ensembles de cette manière peut également être utile pour expliquer pourquoi un langage semblerait « facile », « restrictif » ou « sujets aux erreurs » pour certaines personnes. Par exemple:
 >
 > - **Java** &mdash; Il existe des valeurs primitives comme `Bool` et `String`. À partir de là, vous pouvez créer des classes avec un ensemble fixe de champs de différents types. Cela ressemble beaucoup aux enregistrements dans Elm, vous permettant de multiplier les cardinalités. Mais il est assez difficile d'avoir l'addition de cardinalité. Vous pouvez le faire avec le sous-typage, mais c'est un processus assez complexe. Ainsi, là où `Result Bool Couleur` est facile en Elm, c'est assez difficile en Java. Je pense que certaines personnes trouvent Java "restrictif" car concevoir un type avec une cardinalité de 5 est assez difficile, donnant souvent l'impression que cela n'en vaut pas la peine.
 >
-> - **JavaScript** &mdash; Là encore, il existe des valeurs primitives telles que `Bool` et `String`. De là, vous pouvez créer des objets avec un ensemble dynamique de champs, vous permettant de multiplier les cardinalités. C'est beaucoup plus léger que de créer des classes. Mais tout comme en Java, faire des additions de cardinalités n'est pas particulièrement facile. Par exemple, vous pouvez simuler `Maybe Int` avec des objets comme `{ tag: "just", value: 42 }` et `{ tag: "nothing" }`, mais c'est dans les faits une multiplication de cardinalité. Il est donc assez difficile de faire correspondre exactement l'ensemble de valeurs valides dans la vie réelle. Je pense donc que les gens trouvent JavaScript "facile" car concevoir un type avec cardinalité (∞ × ∞ × ∞) est super facile et cela peut convenir à peu près à tout, mais d'autres le trouvent "prône aux erreurs" car concevoir un type avec cardinalité 5 n'est pas vraiment possible, laissant beaucoup de place pour les données invalides.
+> - **JavaScript** &mdash; Là encore, il existe des valeurs primitives telles que `Bool` et `String`. De là, vous pouvez créer des objets avec un ensemble dynamique de champs, vous permettant de multiplier les cardinalités. C'est beaucoup plus léger que de créer des classes. Mais tout comme en Java, faire des additions de cardinalités n'est pas particulièrement facile. Par exemple, vous pouvez simuler `Maybe Int` avec des objets comme `{ tag: "just", value: 42 }` et `{ tag: "nothing" }`, mais c'est dans les faits une multiplication de cardinalité. Il est donc assez difficile de faire correspondre exactement l'ensemble de valeurs valides dans la vie réelle. Je pense donc que les gens trouvent JavaScript "facile" car concevoir un type avec cardinalité (∞ × ∞ × ∞) est super facile et cela peut convenir à peu près à tout, mais d'autres le trouvent "sujet aux erreurs" car concevoir un type avec cardinalité 5 n'est pas vraiment possible, laissant beaucoup de place pour les données invalides.
 >
-> Fait intéressant, certains langages impératifs ont des types personnalisés ! Rust en est un excellent exemple. Ils les appellent [enums](https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html) pour profiter des habitudes que les gens peuvent avoir de C et Java. Ainsi, en Rust, l'ajout de cardinalités est aussi simple que en Elm, et cela apporte les mêmes avantages !
+> Fait intéressant, certains langages impératifs ont des types personnalisés ! Rust en est un excellent exemple. Ils les appellent [enums](https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html) pour profiter des habitudes que les gens peuvent avoir de C et Java. Ainsi, en Rust, l'ajout de cardinalités est aussi simple qu'en Elm, et cela apporte les mêmes avantages !
 >
-> Je pense que le point ici est que « l'addition » de types est extraordinairement sous-estimée en général, et penser aux « types comme des ensembles » aide à clarifier pourquoi certaines conceptions de langages peuvent produire certaines frustrations.
+> Je pense que le point ici est que « l'addition » de types est extraordinairement sous-estimée en général, et prendre les types comme  des ensembles aide à clarifier pourquoi certaines conceptions de langages peuvent produire certaines frustrations.

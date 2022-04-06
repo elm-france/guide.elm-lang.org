@@ -62,7 +62,7 @@ Une fois familiarisés avec le code, nous devrions nous poser quelques questions
 
 ## Le point d'entrée `main`
 
-La valeur `main` est spéciale en Elm. Elle décrit ce qui sera affiché à l'écran. En l'occurrence, nous allons initialiser notre application avec la valeur `init`, la fonction `view` affichera tout ce qu'il y a à afficher à l'écran, et les entrées utilisateur seront transmises à la function `update`. C'est en quelque sorte la description générale de notre programme.
+La valeur `main` est spéciale en Elm. Elle décrit ce qui sera affiché à l'écran. En l'occurrence, nous allons initialiser notre application avec la valeur `init`, la fonction `view` affichera tout ce qu'il y a à afficher à l'écran, et les entrées utilisateur seront transmises à la fonction `update`. C'est en quelque sorte la description générale de notre programme.
 
 ## Le Modèle
 

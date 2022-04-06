@@ -37,4 +37,4 @@ toPost title content =
 
 Plutôt que de nous contenter de dire que la saisie est “invalide”, nous décrivons ici chaque situation d'échec. Si nous disposons d'une fonction `viewPreview : MaybePost -> Html msg` pour prévisualiser notre billet, nous pouvons désormais détailler la nature des erreurs rencontrées !
 
-Ce type de situation est extrêmement courant. Il est souvent utile de créer un type personnalisé particulièrement adapté à votre cas, mais pour les cas simples vous pouvez recourir à des types standard comme `Maybe` ou `Result`. Dans la suite de ce chapitre, nous allons les étudier afin d'illustrer comment ils sont à même de traiter vos erreurs comme de la donnée !
+Ce type de situation est extrêmement courant. Il est souvent utile de créer un type personnalisé particulièrement adapté à votre cas, mais pour les cas simples vous pouvez recourir à des types standards comme `Maybe` ou `Result`. Dans la suite de ce chapitre, nous allons les étudier afin d'illustrer comment ils sont à même de traiter vos erreurs comme de la donnée !

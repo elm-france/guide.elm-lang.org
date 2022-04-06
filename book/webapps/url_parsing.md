@@ -1,12 +1,12 @@
 # Parser les URLs
 
-Dans la vraie vie, on veut que notre application montre des choses différentes selon les URLs :
+Dans une vraie application web, on veut que notre application montre des choses différentes selon les URLs :
 
 - `/search`
 - `/search?q=seiza`
 - `/settings`
 
-Oui, mais comment faire ? En utilisant [`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/) pour parser ces chaînes brutes en structures de données en Elm. Le plus simple pour comprendre ce que fait ce paquet, c'est de regarder des exemples, alors faisons ça !
+Oui, mais comment faire ? En utilisant [`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/) pour analyser ces chaînes brutes en structures de données en Elm. Le plus simple pour comprendre ce que fait ce paquet, c'est de regarder des exemples, alors faisons ça !
 
 ## Exemple n°1
 
@@ -23,7 +23,7 @@ Disons que nous avons un site d'art, et que nous voulons proposer les adresses s
 - `/user/sue/comment/11`
 - `/user/sue/comment/51`
 
-On a donc des pages sur des sujets, des posts de blog, des pages de profil, et un moyen d'afficher un commentaire d'utilisateur en particulier. On pourra utiliser le module [`Url.Parser`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser) pour écrire le parseur d'URL suivant :
+On a donc des pages sur des sujets, des articles de blog, des pages de profil, et un moyen d'afficher un commentaire d'utilisateur en particulier. On pourra utiliser le module [`Url.Parser`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser) pour écrire l'analyseur d'URL suivant :
 
 ```elm
 import Url.Parser exposing (Parser, (</>), int, map, oneOf, s, string)
@@ -64,7 +64,7 @@ Le module `Url.Parser` permet, de manière très concise, de transformer complè
 
 ## Exemple n°2
 
-Maintenant, disons que nous avons un blog perso, et que les adresses suivantes sont valides :
+Maintenant, disons que nous avons un blog personnel et que les adresses suivantes sont valides :
 
 - `/blog/12/the-history-of-chairs`
 - `/blog/13/the-endless-september`
@@ -73,7 +73,7 @@ Maintenant, disons que nous avons un blog perso, et que les adresses suivantes s
 - `/blog?q=whales`
 - `/blog?q=seiza`
 
-Dans le cas présent, nous avons des posts de blog individuels et une vue d'ensemble du blog avec un paramètre de recherche optionnel. Il faut ajouter le module [`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query) pour pouvoir écrire notre parser :
+Dans le cas présent, nous avons des articles de blog individuels et une vue d'ensemble du blog avec un paramètre de recherche optionnel. Il faut ajouter le module [`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query) pour pouvoir écrire notre analyseur :
 
 ```elm
 import Url.Parser exposing (Parser, (</>), (<?>), int, map, oneOf, s, string)
@@ -100,11 +100,11 @@ routeParser =
 -- /blog/?query=whales   ==>  Just (BlogQuery Nothing)
 ```
 
-Les opérateurs `</>` et `<?>` permettent d'écrire des parsers qui ressemblent fort aux URLs qu'ils cherchent à parser. Et grâce à `Url.Parser.Query`, on peut gérer les paramètres de recherche comme `?q=seiza`.
+Les opérateurs `</>` et `<?>` permettent d'écrire des analyseurs qui ressemblent fort aux URLs qu'ils cherchent à analyser. Et grâce à `Url.Parser.Query`, on peut gérer les paramètres de recherche comme `?q=seiza`.
 
 ## Exemple n°3
 
-On a maintenant un site de documentation avec des adresses comme ça :
+On a maintenant un site de documentation avec des adresses comme celles-ci :
 
 - `/Basics`
 - `/Maybe`
@@ -113,7 +113,7 @@ On a maintenant un site de documentation avec des adresses comme ça :
 - `/List#filter`
 - `/List#foldl`
 
-On peut utiliser le parser [`fragment`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment) du module `Url.Parser` pour gérer ce type d'adresses :
+On peut utiliser l'analyseur [`fragment`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment) du module `Url.Parser` pour gérer ce type d'adresses :
 
 ```elm
 type alias Docs =
@@ -132,20 +132,20 @@ docsParser =
 -- /           ==>  Nothing
 ```
 
-Et hop, c'est bon pour les fragments !
+Maintenant nous pouvons également gérer les fragments d'URL !
 
 ## Synthèse
 
-Maintenant qu'on a vu quelques parsers, regardons comment tout ça s'intègre dans un programme `Browser.application`. Plutôt que de se contenter d'enregistrer l'URL comme la dernière fois, si on essayait de la transformer en donnée utile et de l'afficher ?
+Maintenant qu'on a vu quelques analyseurs, regardons comment tout ça s'intègre dans un programme `Browser.application`. Plutôt que de se contenter d'enregistrer l'URL comme la dernière fois, si on essayait de la transformer en donnée utile et de l'afficher ?
 
 ```elm
 TODO
 ```
 
 Les nouveautés :
-1. notre fonction `update` parse l'URL quand elle reçoit un message `UrlChanged` ;
+1. notre fonction `update` analyse l'URL quand elle reçoit un message `UrlChanged` ;
 2. notre fonction `view` montre des choses différentes selon les adresses !
 
 Rien de bien compliqué. Tant mieux !
 
-Bon, mais il se passe quoi avec 10 pages différentes ? Ou 20 ? Ou 100 ? On met tout dans notre `view` ? On va pas laisser tout ça dans un seul fichier, si ? Mais alors, combien de fichiers ? Dans quelle arborescence de répertoires ? C'est ce qu'on va voir dans la partie suivante !
+Bon, mais il se passe quoi avec 10 pages différentes ? Ou 20 ? Ou 100 ? Doit-on tout mettre dans notre `view` ? Peut-on laisser tout ça dans un seul fichier ? Mais alors, combien de fichiers ? Dans quelle arborescence de répertoires ? C'est ce qu'on va voir dans la partie suivante !

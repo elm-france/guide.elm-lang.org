@@ -55,7 +55,7 @@ Comme dans les autres exemples de ce chapitre, nous invoquons `Elm.Main.init()`,
 - Nous envoyons des messages par le biais du port `sendMessage` ;
 - Nous recevons les nouveaux messages entrants grâce au port `messageReceiver`.
 
-Ces ports sont, vous vous en doutez, implémentés en Elm.
+Ces ports, vous vous en doutez, sont implémentés en Elm.
 
 ## Les ports, côté Elm
 
@@ -149,7 +149,7 @@ update msg model =
 -- SUBSCRIPTIONS
 
 
--- Ici on souscrit au port `messageReceiver` pour écouter les messages entrants
+-- Ici on s'abonne au port `messageReceiver` pour écouter les messages entrants
 -- envoyés depuis JavaScript. Inspectez le fichier index.html pour voir comment
 -- c'est câblé en JavaScript.
 --
@@ -192,7 +192,7 @@ ifIsEnter msg =
 
 Notez la déclaration `port module` au lieu de `module` sur la première ligne, qui autorise la définition de ports dans le module.
 
-Examinons plus précisément l'implémentation Elm des ports `sendMessage` and `messageReceiver`.
+Examinons plus précisément l'implémentation Elm des ports `sendMessage` et `messageReceiver`.
 
 ## Messages sortants (`Cmd`)
 
@@ -213,9 +213,9 @@ app.ports.sendMessage.subscribe(function(message) {
 });
 ```
 
-Ce code JavaScript souscrit à tous les messages sortants et les envoie sur la socket. Les méthodes `subscribe` et `unsubscribe` vous permettent de souscrire à de multiples fonctions et de résilier la souscription à une fonction par référence, mais une approche simple et statique suffira la majeur partie du temps.
+Ce code JavaScript s'abonne à tous les messages sortants et les envoie sur la *socket*. Les méthodes `subscribe` et `unsubscribe` vous permettent de s'abonner à de multiples fonctions et de résilier l'abonnement à une fonction par référence, mais une approche simple et statique suffira la majeur partie du temps.
 
-Nous vous recommandons également d'envoyer des messages sortants *riches* plutôt que d'implémenter de multiples ports individuels. Cela peut impliquer de définir un type spécifique permettant de modéliser l'ensemble des informations que vous souhaitez transmettre à JavaScript, en utilisant [`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode) pour le sérialiser et l'envoyer à une souscription unique côté JS. De nombreux utilisateurs apprécient la meilleure [séparation des responsabilités](https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pr%C3%A9occupations) que cette approche procure.
+Nous vous recommandons également d'envoyer des messages sortants *riches* plutôt que d'implémenter de multiples ports individuels. Cela peut impliquer de définir un type spécifique permettant de modéliser l'ensemble des informations que vous souhaitez transmettre à JavaScript, en utilisant [`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode) pour le sérialiser et l'envoyer à un abonnement unique côté JS. De nombreux utilisateurs apprécient la meilleure [séparation des responsabilités](https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pr%C3%A9occupations) que cette approche procure.
 
 ## Messages entrants (`Sub`)
 
@@ -227,13 +227,13 @@ port messageReceiver : (String -> msg) -> Sub msg
 
 Ici nous recevons des valeurs de type `String`, mais comme dans le cas des messages sortants, nous pourrions décider de recevoir des messages de tout autre type compatible pouvant être importés via les *flags* ou les messages sortants.
 
-Comme pour les messages sortants, nous pouvons invoquer `messageReceiver` comme n'importe quelle autre fonction. Ici, nous appelons `messageReceiver Recv` au moment de définir nos souscriptions pour intercepter tous les messages entrants provenant de JavaScript, nous permettant de recevoir des messages comme `Recv "comment ça va ?"` dans notre fonction `update`.
+Comme pour les messages sortants, nous pouvons invoquer `messageReceiver` comme n'importe quelle autre fonction. Ici, nous appelons `messageReceiver Recv` au moment de définir nos abonnements pour intercepter tous les messages entrants provenant de JavaScript, nous permettant de recevoir des messages comme `Recv "comment ça va ?"` dans notre fonction `update`.
 
 Côté JavaScript, nous sommes capables d'envoyer des données à ce port à n'importe quel moment :
 
 ```javascript
 socket.addEventListener("message", function(event) {
-    console.log(event.data); // "comment ça va ?"
+    console.log(event.data); // "comment ça va ?"
     app.ports.messageReceiver.send(event.data);
 });
 ```
@@ -250,8 +250,8 @@ Voici quelques conseils simples et pièges courants à éviter :
 
 - **Tous les ports doivent être déclarés dans un `port module`.** Il est par ailleurs préférable de déclarer tous vos ports dans un module unique afin d'accéder simplement à l'intégralité de son interface.
 
-- **Les ports sont destinés aux applications.** Il n'est possible d'exposer un module de ports que dans une application, pas dans un package. De cette façon, les auteurs d'applications bénéficient d'une souplesse totale, mais les packages restent intégralement écrits en Elm. Nous pensons que c'est ce qui permet de garantir la meilleure fiabilité de l'écosystème sur le long terme, et nous développons nos arguments en ce sens [dans la section suivante](/interop/limits.html).
+- **Les ports sont destinés aux applications.** Il n'est possible d'exposer un module de ports que dans une application, pas dans un paquet. De cette façon, les auteurs d'applications bénéficient d'une souplesse totale, mais les paquets restent intégralement écrits en Elm. Nous pensons que c'est ce qui permet de garantir la meilleure fiabilité de l'écosystème sur le long terme, et nous développons nos arguments en ce sens [dans la section suivante](/interop/limits.html).
 
-- **Les ports non exploités peuvent être supprimés.** Elm dispose d'une [stratégie d'elimination de code mort](https://fr.wikipedia.org/wiki/R%C3%A9usinage_de_code#Suppression_du_code_mort) agressive qui supprimera les ports qui ne sont jamais invoqués par le code Elm. Le compilateur ne sait jamais ce qui se passe en JavaScript, donc commencez toujours par développer vos ports en Elm avant de les exploiter en JavaScript.
+- **Les ports non exploités peuvent être supprimés.** Elm dispose d'une [stratégie d'élimination de code mort](https://fr.wikipedia.org/wiki/R%C3%A9usinage_de_code#Suppression_du_code_mort) agressive qui supprimera les ports qui ne sont jamais invoqués par le code Elm. Le compilateur ne sait jamais ce qui se passe en JavaScript, donc commencez toujours par développer vos ports en Elm avant de les exploiter en JavaScript.
 
-Nous espérons que ces informations vous aideront à introduire Elm dans votre existant JavaScript ! Ce n'est certes pas aussi enthousiasmant que de tout réécrire en Elm *from scratch*, mais l'histoire nous a montré que c'est une approche souvent plus efficace.
+Nous espérons que ces informations vous aideront à introduire Elm dans votre existant en JavaScript ! Ce n'est certes pas aussi enthousiasmant que de tout réécrire en Elm, mais l'histoire nous a montré que c'est une approche souvent plus efficace.

@@ -1,8 +1,8 @@
 # JSON
 
-Nous venons de voir un exemple qui utilise HTTP pour obtenir le contenu d'un livre. C'est très bien, mais un grand nombre de serveurs renvoient des données dans un format spécial appelé JavaScript Object Notation, ou JSON en abrégé.
+Nous venons de voir un exemple qui utilise HTTP pour obtenir le contenu d'un livre. C'est très bien, mais un grand nombre de serveurs renvoient des données dans un format spécial appelé _JavaScript Object Notation_, ou JSON en abrégé.
 
-L'exemple suivant montre donc comment récupérer des données JSON, ce qui nous permet d'appuyer sur un bouton pour afficher des GIFs de chats aléatoires. Cliquez sur le bouton bleu "Edit" et regardez un peu le programme. Essayez de ne pas regarder uniquement les chats ! **Cliquez sur le bouton bleu maintenant !**
+L'exemple suivant montre donc comment récupérer des données JSON, ce qui nous permet d'appuyer sur un bouton pour afficher des GIFs aléatoires de chats. Cliquez sur le bouton bleu "Edit" et regardez un peu le programme. Essayez de ne pas regarder uniquement les chats ! **Cliquez sur le bouton bleu maintenant !**
 
 <div class="edit-link"><a href="https://elm-lang.org/examples/cat-gifs">Edit</a></div>
 
@@ -128,7 +128,7 @@ gifDecoder =
 Cet exemple est assez similaire au précédent :
 
 - `init` nous fait démarrer dans l'état `Loading`, avec une commande pour obtenir un GIF de chat aléatoire.
-- `update` gère le message `GotGif` à chaque fois qu'un nouveau GIF est disponible. Quoi qu'il se passe ici, nous n'avons pas de commandes supplémentaires. Il gère également le message `MorePlease` lorsque quelqu'un appuie sur le bouton, émettant une commande pour obtenir plus de chats aléatoires.
+- `update` gère le message `GotGif` à chaque fois qu'un nouveau GIF est disponible. Quoi qu'il se passe ici, nous n'avons pas de commande supplémentaire. Il gère également le message `MorePlease` lorsque quelqu'un appuie sur le bouton, émettant une commande pour obtenir plus de chats aléatoires.
 - `view` vous montre les chats !
 
 La principale différence réside dans la définition de `getRandomCatGif`. Au lieu d'utiliser `Http.expectString`, nous sommes passés à `Http.expectJson`. Quel est le problème avec ça ?
@@ -160,7 +160,7 @@ Nous n'avons aucune garantie sur quelconque de ces informations. Le serveur peut
 
 En JavaScript, l'approche consiste à transformer le JSON en objets JavaScript et à espérer que tout se passe bien. Mais s'il y a une faute de frappe ou des données inattendues, vous obtenez une exception d'exécution quelque part dans votre code. Le code était-il mauvais ? Les données étaient-elles erronées ? Il est temps de commencer à creuser pour le découvrir !
 
-Dans Elm, nous validons le JSON avant qu'il n'entre dans notre programme. Ainsi, si les données ont une structure inattendue, nous l'apprenons immédiatement. Il n'y a aucun moyen pour de mauvaises données de se faufiler et de provoquer une exception d'exécution trois fichiers plus loin. Ceci est rendu possible grâce aux décodeurs JSON.
+Dans Elm, nous validons le JSON avant qu'il n'entre dans notre programme. Ainsi, si les données ont une structure inattendue, nous l'apprenons immédiatement. Il n'y a aucun moyen pour une mauvaise donnée de se faufiler et de provoquer une exception d'exécution trois fichiers plus loin. Ceci est rendu possible grâce aux décodeurs JSON.
 
 
 ## Décodeurs JSON
@@ -256,7 +256,7 @@ Vous vous rappelez des données de `api.giphy.com` ?
 }
 ```
 
-Nous voulions accéder à `response.data.image_url` pour afficher un GIF aléatoire. Eh bien, nous avons les outils pour le faire maintenant !
+Nous voulions accéder à `response.data.image_url` pour afficher un GIF aléatoire. Eh bien, nous avons les outils pour le faire, maintenant !
 
 ```elm
 import Json.Decode exposing (Decoder, field, string)
@@ -308,10 +308,10 @@ Il y a un grand nombre de fonctions importantes dans `Json.Decode` que nous n'av
 - [`dict`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#dict) : `Decoder a -> Decoder (Dict String a)`
 - [`oneOf`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#oneOf) : `List (Decoder a) -> Decoder a`
 
-Il existe donc des moyens d'extraire toutes sortes de structures de données. La fonction `oneOf` est particulièrement utile pour du JSON bordélique. Par exemple, parfois vous obtenez un `Int` et d'autres fois vous obtenez une `String` contenant des chiffres. Tellement pénible !
+Il existe donc des moyens d'extraire toutes sortes de structures de données. La fonction `oneOf` est particulièrement utile pour du JSON un peu chaotique. Par exemple, parfois vous obtenez un `Int` et d'autres fois vous obtenez une `String` contenant des chiffres. C'est tellement pénible !
 
 
 Il y a aussi [`map3`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map3), [`map4`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4), et quelques autres pour gérer les objets avec plus de deux champs. Mais lorsque vous commencez à travailler avec des objets JSON de plus grande taille, cela vaut la peine de consulter [`NoRedInk/elm-json-decode-pipeline`](https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest). Les types y sont un peu plus sophistiqués, mais certaines personnes les trouvent beaucoup plus faciles à lire et à utiliser.
 
 
-> **Fait amusant : ** J'ai entendu un tas d'histoires de personnes qui ont trouvé des bugs dans leur code _serveur_ lorsqu'ils sont passés de JS à Elm. Les décodeurs que les personnes écrivent finissent par fonctionner comme une phase de validation, attrapant des trucs bizarres dans les valeurs JSON. Ainsi, lorsque NoRedInk est passé de React à Elm, cela a révélé quelques bugs dans leur code Ruby !
+> **Fait amusant : ** J'ai entendu plusieurs histoires de personnes qui ont trouvé des bugs dans leur code _serveur_ lorsqu'ils sont passés de JS à Elm. Les décodeurs que les personnes écrivent finissent par fonctionner comme une phase de validation, capturant des bizarreries dans les valeurs JSON. Ainsi, lorsque NoRedInk est passé de React à Elm, cela a révélé quelques bugs dans leur code Ruby !

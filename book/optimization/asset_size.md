@@ -24,7 +24,7 @@ elm make src/Main.elm --optimize --output=elm.js
 uglifyjs elm.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output elm.min.js
 ```
 
-En sortie, vous obtiendrez un fichier `elm.js` et plus petit fichier `elm.min.js`!
+En sortie, vous obtiendrez un fichier `elm.js` et un plus petit fichier `elm.min.js`!
 
 > **Note 1:** `uglifyjs` est exécuté deux fois ici. D'abord avec l'option `--compress`, puis avec l'option `--mangle`. Sans cela, `uglifyjs` ignorera l'option `pure_funcs`.
 >
@@ -64,11 +64,11 @@ Gzipped size:     9148 bytes
 
 Plutôt correct ! Seulement 9ko à transférer à l'utilisateur.
 
-Les commandes importantes sont ici `elm` et `uglifyjs`, qui sont toutes deux disponibles sur toutes les plateformes. Il ne devrait donc pas y avoir de difficultés à faire fonctionner ce script sous Windows.
+Les commandes importantes sont ici `elm` et `uglifyjs`, qui sont toutes deux disponibles sur toutes les plateformes. Il ne devrait donc pas y avoir de difficulté à faire fonctionner ce script sous Windows.
 
 
 ## Conseils
 
 Il est recommandé d'écrire une `Browser.application` et de la compiler en un seul fichier JavaScript comme détaillé précédemment. Celui-ci sera téléchargé (et mis en cache) dès la première visite. Elm génère des fichiers plutôt compacts par rapport à ses concurrents, comme présenté [ici](https://elm-lang.org/blog/small-assets-without-the-headache). Cette stratégie peut donc vous mener loin.
 
-> **Note:** En théorie, il serait possible d'obtenir des ressources encore plus compacts avec Elm. Ce n'est pas possible pour le moment, mais, si vous travaillez sur des bases de code Elm supérieures à 50k lignes, nous serions intéressés par vos retours d'expérience. Pour plus d'informations, c'est par [ici](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)!
+> **Note:** En théorie, il serait possible d'obtenir des ressources encore plus compactes avec Elm. Ce n'est pas possible pour le moment, mais, si vous travaillez sur des bases de code Elm supérieures à 50k lignes, nous serions intéressés par vos retours d'expérience. Pour plus d'informations, c'est par [ici](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)!

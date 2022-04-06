@@ -9,7 +9,7 @@ type alias User =
   }
 ```
 
-Plutôt que d'écrire le type du record complet systématiquement, on peut juste le référencer en utilisant `User`, ce qui nous permet d'écrire des annotations beaucoup plus simples :
+Plutôt que d'écrire le type du _record_ complet systématiquement, on peut juste le référencer en utilisant `User`, ce qui nous permet d'écrire des annotations beaucoup plus simples :
 
 ```elm
 -- AVEC ALIAS
@@ -41,12 +41,12 @@ type alias Model =
   }
 ```
 
-Les alias de type se révèlent particulièrement intéressants pour écrire les annotations des fonctions `update` et `view` : écrire `Msg -> Model -> Model` est tellement plus simple et confortable que de recopier la forme verbeuse du record correspondant… En plus, si nous ajoutons des champs à notre modèle, nous n'avons pas besoin de mettre à jours nos annotations.
+Les alias de type se révèlent particulièrement intéressants pour écrire les annotations des fonctions `update` et `view` : écrire `Msg -> Model -> Model` est tellement plus simple et confortable que de recopier la forme verbeuse du _record_ correspondant… En plus, si nous ajoutons des champs à notre modèle, nous n'avons pas besoin de mettre à jour nos annotations.
 
 
-## Constructeurs de record
+## Constructeurs de _record_
 
-Quand vous créez un alias de record, cela génère du même coup un **constructeur de record**. Si vous définissez un alias de type `User`, vous pouvez construire les records correspondants comme ceci :
+Quand vous créez un alias de _record_, cela génère du même coup un **constructeur de _record_**. Si vous définissez un alias de type `User`, vous pouvez construire les _records_ correspondants comme ceci :
 
 {% replWithTypes %}
 [
@@ -74,6 +74,6 @@ Quand vous créez un alias de record, cela génère du même coup un **construct
 
 Essayez de créer un nouvel enregistrement `User`, puis de créer votre propre alias ⬆️
 
-Notez que l'ordre des arguments passés au constructeur de record correspond à l'ordre des champs dans l'alias de type !
+Notez que l'ordre des arguments passés au constructeur de _record_ correspond à l'ordre des champs dans l'alias de type !
 
-Encore une fois, ceci n'est **valable que pour les records.** Créer des alias pour d'autres types ne fournira pas de constructeur.
+Encore une fois, ceci n'est **valable que pour les _records_.** Créer des alias pour d'autres types ne fournira pas de constructeur.

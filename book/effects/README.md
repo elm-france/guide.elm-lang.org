@@ -1,8 +1,8 @@
 # Commandes et Souscriptions
 
-Plus tôt dans ce livre nous avons vu comment l'**Architecture Elm** gérait les interactions avec le clavier et la souris, mais qu'en est-il de la communication avec des serveurs ? De la génération de nombres aléatoires ?
+Plus tôt dans ce livre nous avons vu comment l'**Architecture Elm** gérait les interactions avec le clavier et la souris, mais qu'en est-il de la communication avec des serveurs ou de la génération de nombres aléatoires ?
 
-Pour répondre à ces questions, il va nous être utile d'en apprendre un peu plus sur comment fonctionne l'**Architecture Elm** en coulisses. Cela va permettre de comprendre pourquoi est-ce que les choses fonctionnent un peu différemment en Elm par rapport aux autres langages comme Javascript, Python, etc.
+Pour répondre à ces questions, il va nous être utile d'en apprendre un peu plus sur comment fonctionne l'**Architecture Elm** en coulisses. Cela va permettre de comprendre pourquoi les choses fonctionnent un peu différemment en Elm par rapport aux autres langages comme Javascript, Python, etc.
 
 
 ## `sandbox`
@@ -13,9 +13,9 @@ Vous pouvez considérer `Browser.sandbox` comme un système de ce type :
 
 ![](diagrams/sandbox.svg)
 
-Nous pouvons rester dans le monde de Elm, c'est à dire écrire des fonctions et transformer de la donnée. Ceci est lié au **runtime system** de Elm. Le _runtime system_ se charge de trouver comment afficher l'`Html` de manière efficace. Est-ce que quelque chose a changé ? Quelle est la modification minimale du DOM requise ? Il se charge aussi de gérer lorsque quelqu'un clique sur un bouton ou saisit quelque chose dans un champs texte. Il transforme cela en un `Msg` et le transmet à notre code Elm.
+Nous pouvons rester dans le monde de Elm, c'est à dire écrire des fonctions et transformer de la donnée. Ceci est lié au **_runtime system_** de Elm. Le _runtime system_ se charge de trouver comment afficher l'`Html` de manière efficace. Est-ce que quelque chose a changé ? Quelle est la modification minimale du DOM requise ? Il se charge aussi de gérer lorsque quelqu'un clique sur un bouton ou saisit quelque chose dans un champ texte. Il transforme cela en un `Msg` et le transmet à notre code Elm.
 
-En séparant proprement toutes les manipulations du DOM, il devient possible d'utiliser des optimisations extrêmement agressives. Le **runtime system** d'Elm est en grande partie responsable d'une fait qu'Elm soit [une des options disponibles les plus rapides][benchmark].
+En séparant proprement toutes les manipulations du DOM, il devient possible d'utiliser des optimisations extrêmement agressives. Le **runtime system** d'Elm est en grande partie responsable du fait qu'Elm soit [une des options disponibles les plus rapides][benchmark].
 
 [sandbox]: https://package.elm-lang.org/packages/elm/browser/latest/Browser#sandbox
 [benchmark]: https://elm-lang.org/blog/blazing-fast-html-round-two
@@ -35,14 +35,14 @@ Je pense que les commandes et les souscriptions prennent tout leur sens lorsque 
 
 [element]: https://package.elm-lang.org/packages/elm/browser/latest/Browser#element
 
-> **Note 1:** Certains lecteurs pourraient être inquiets au sujet de la taille des fichiers. « Un _runtime système_ ? Ça a l'air énorme ! » Mais en fait, ça ne l'est pas. Les fichiers Elm sont [exceptionnellement petits](https://elm-lang.org/blog/small-assets-without-the-headache) par rapport aux autres alternatives populaires.
+> **Note 1:** Certains lecteurs pourraient être inquiets au sujet de la taille des fichiers. « Un _runtime system_ ? Ça a l'air énorme ! » Mais en fait, ça ne l'est pas. Les fichiers Elm sont [exceptionnellement petits](https://elm-lang.org/blog/small-assets-without-the-headache) par rapport aux autres alternatives populaires.
 >
-> **Note 2:** Nous allons utiliser des packages provenant de [`package.elm-lang.org`](https://package.elm-lang.org) dans les exemples qui arrivent. Nous avons déjà utilisé quelques uns :
+> **Note 2:** Nous allons utiliser des packages provenant de [`package.elm-lang.org`](https://package.elm-lang.org) dans les exemples qui arrivent. Nous en avons déjà utilisé quelques-uns :
 >
 > - [`elm/core`](https://package.elm-lang.org/packages/elm/core/latest/)
 > - [`elm/html`](https://package.elm-lang.org/packages/elm/html/latest/)
 >
-> Mais à partir de maintenant, nous allons nous intéresser à quelques autres un peu plus sophistiqués :
+> Mais à partir de maintenant, nous allons nous intéresser à d'autres un peu plus sophistiqués :
 >
 > - [`elm/http`](https://package.elm-lang.org/packages/elm/http/latest/)
 > - [`elm/json`](https://package.elm-lang.org/packages/elm/json/latest/)

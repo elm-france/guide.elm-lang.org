@@ -2,9 +2,9 @@
 
 Les *flags* sont des valeurs transmises à Elm lors de la phase d'initialisation.
 
-Ils sont typiquement utilisés pour passer à Elm des clés d'API, des variables d'environnement ou des données utilisateur, et ils s'avèrent particulièrement pratiques si vous générez du HTML dynamiquement. Les flags peuvent également servir à charger des informations depuis `localStorage`, comme [dans cet exemple](https://github.com/elm-community/js-integration-examples/tree/master/localStorage).
+Ils sont typiquement utilisés pour passer à Elm des clés d'API, des variables d'environnement ou des données utilisateur, et ils s'avèrent particulièrement pratiques si vous générez du HTML dynamiquement. Les *flags* peuvent également servir à charger des informations depuis `localStorage`, comme [dans cet exemple](https://github.com/elm-community/js-integration-examples/tree/master/localStorage).
 
-## Les flags en HTML
+## Les *flags* en HTML
 
 Reprenons notre exemple précédent de page HTML, en passant un argument `flags` à la fonction `Elm.Main.init()` :
 
@@ -32,9 +32,9 @@ Ici nous passons la date courante en millisecondes, mais n'importe quelle autre 
 
 > **Note :** Ces données supplémentaires sont appelées *flags* car elles évoquent les options passées à une ligne de commande. Vous pouvez appeler la commande `elm make src/Main.elm` et y passer des *flags* (options) comme `--optimize` ou `--output=main.js` pour modifier son comportement. C'est le même principe.
 
-## Les flags en Elm
+## Les *flags* en Elm
 
-Pour gérer les flags dans le code Elm, nous avons besoin de modifier notre fonction `init` :
+Pour gérer les *flags* dans le code Elm, nous avons besoin de modifier notre fonction `init` :
 
 ```elm
 module Main exposing (..)
@@ -89,17 +89,17 @@ subscriptions _ =
   Sub.none
 ```
 
-L'élément le plus important ici est que notre fonction `init` accepte désormais un argument de type `Int`. C'est de cette façon qu'Elm accède aux flags passés depuis JavaScript. Une fois ces données reçues, vous pouvez les exploiter dans votre modèle ou déclencher des commandes.
+L'élément le plus important ici est que notre fonction `init` accepte désormais un argument de type `Int`. C'est de cette façon qu'Elm accède aux *flags* passés depuis JavaScript. Une fois ces données reçues, vous pouvez les exploiter dans votre modèle ou déclencher des commandes.
 
-Si vous êtes curieux, [cet exemple utilisant `localStorage`](https://github.com/elm-community/js-integration-examples/tree/master/localStorage) met en œuvre les flags de façon beaucoup plus intéressante !
+Si vous êtes curieux, [cet exemple utilisant `localStorage`](https://github.com/elm-community/js-integration-examples/tree/master/localStorage) met en œuvre les *flags* de façon beaucoup plus intéressante !
 
-## Vérification des flags
+## Vérification des *flags*
 
-Attendez, que se passe t-il si `init` accepte un flag de type `Int` et qu'un petit malin essaye d'initialiser l'application avec `Elm.Main.init({ flags: "bazinga" })` ?
+Attendez, que se passe t-il si `init` accepte un *flag* de type `Int` et qu'un petit malin essaye d'initialiser l'application avec `Elm.Main.init({ flags: "bazinga" })` ?
 
-Elm effectue s'assure que les flags sont exactement de la nature escomptée. Sans ces vérifications, n'importe quels types de valeur pourraient être passés, déclenchant des erreurs Elm à l'exécution !
+Elm effectue s'assure que les *flags* sont exactement de la nature escomptée. Sans ces vérifications, n'importe quels types de valeur pourraient être passés, déclenchant des erreurs Elm à l'exécution !
 
-Il existe un certain nombre de types Elm natifs pouvant être utilisés pour les flags :
+Il existe un certain nombre de types Elm natifs pouvant être utilisés pour les *flags* :
 
 - `Bool`
 - `Int`
@@ -138,4 +138,4 @@ Les autres types supportés ont été implémentés à une époque où les déco
   - `["Bob", "4"]` => erreur
   - `["Joe", 9, 9]` => erreur
 
-Notez que quand une conversion se passe mal, **vous obtenez une erreur JavaScript !**. Dans ce type de cas, Elm adopte une stratégie d'échec rapide (*fail fast*) ; plutôt que de propager l'erreur dans le code Elm, nous la rapportons avant même qu'elle l'atteigne. C'est une raison supplémentaire qui fait privilégier par beaucoup l'utilisation de `Json.Decode.Value` pour les flags. Plutôt que de déclencher des erreurs JavaScript, la valeur erronée transite par un décodeur, nous obligeant ainsi à traiter ces cas d'erreurs au travers des garanties qu'apporte Elm à ce niveau.
+Notez que quand une conversion se passe mal, **vous obtenez une erreur JavaScript !**. Dans ce type de cas, Elm adopte une stratégie d'échec rapide (*fail fast*) ; plutôt que de propager l'erreur dans le code Elm, nous la rapportons avant même qu'elle ne l'atteigne. C'est une raison supplémentaire qui fait privilégier par beaucoup l'utilisation de `Json.Decode.Value` pour les *flags*. Plutôt que de déclencher des erreurs JavaScript, la valeur erronée transite par un décodeur, nous obligeant ainsi à traiter ces cas d'erreurs au travers des garanties qu'apporte Elm à ce niveau.

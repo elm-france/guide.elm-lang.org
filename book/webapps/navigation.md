@@ -38,7 +38,7 @@ Ce programme ajoute des fonctionnalités à `Browser.document` dans trois scéna
 
 **Quand quelqu'un clique sur un lien**, comme `<a href="/accueil">Accueil</a>`, le clic est intercepté et transformé en [`UrlRequest`][ur]. Plutôt que de charger du nouveau HTML, avec tous les inconvénients déjà mentionnés, `onUrlRequest` crée un message pour la fonction `update` qui permet de décider exactement ce que l'on souhaite faire. Cela peut être d'enregistrer la position du scroll, persister de la donnée, modifier l'URL programmatiquement, etc.
 
-**Quand l'URL change**, la nouvelle `Url` est envoyée à `onUrlChange`. Le message résultant est envoyé à `update`, où l'on peut décider quoi montrer pour cette nouvelle page.
+**Quand l'URL change**, la nouvelle `Url` est envoyée à `onUrlChange`. Le message résultant est envoyé à `update`, où l'on peut décider quoi afficher pour cette nouvelle page.
 
 Ensemble, ces trois ajouts permettent d'avoir le contrôle complet sur les changements d'URL. Voyons ce que ça donne à l'usage !
 
@@ -216,7 +216,7 @@ C'est pourquoi il est très utile d'avoir un message `UrlChanged` indépendant 
 
 Dans notre exemple basique, on se contente de stocker la nouvelle URL dans le `Model`, mais dans une vraie application web, on devrait parser l'URL pour déduire la page à afficher. C'est ce dont nous allons parler ensuite !
 
-> **Note:** Je n'ai pas mentionné [`Nav.Key`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#Key) pour nous concentrer sur les concepts importants, mais je vais en parler ici pour ceux que cela intéresse !
+> **Note:** Je n'ai pas mentionné [`Nav.Key`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#Key) pour se concentrer sur les concepts importants, mais je vais en parler ici pour ceux que cela intéresse !
 >
 > Une `Key` (`Clef`) de navigation est requise pour pouvoir créer des commandes de navigation (comme `pushUrl`) qui modifient l'URL. La `Key` est obtenue uniquement lors de la création du programme via `Browser.application`, pour garantir que le programme est équipé pour détecter les changements d'URL. Si les `Key` étaient accessibles à d'autres programmes, les développeuses et développeurs se retrouveraient confrontés à des [bugs pénibles][bugs] et devraient se débrouiller tant bien que mal pour découvrir les bonnes techniques.
 >

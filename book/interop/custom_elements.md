@@ -8,9 +8,9 @@ Au cours des précédentes pages, nous avons vu :
 
 Mais devinez quoi ? Il existe un autre moyen de faire communiquer ces deux environnements !
 
-Les navigateurs Web supportent de mieux en mieux les [custom elements](https://developer.mozilla.org/fr/docs/Web/Web_Components/Using_custom_elements) (composants Web personnalisés), qui vont s'avérer très utile pour intégrer du JavaScript à nos applications Elm.
+Les navigateurs Web supportent de mieux en mieux les [*custom elements*](https://developer.mozilla.org/fr/docs/Web/Web_Components/Using_custom_elements) (composants Web personnalisés), qui vont s'avérer très utile pour intégrer du JavaScript à nos applications Elm.
 
-Voici un [exemple minimaliste](https://github.com/elm-community/js-integration-examples/tree/master/internationalization) illustrant la façon dont on peut exploiter ces custom elements pour gérer l'internationalisation et la localisation.
+Voici un [exemple minimaliste](https://github.com/elm-community/js-integration-examples/tree/master/internationalization) illustrant la façon dont on peut exploiter ces *custom elements* pour gérer l'internationalisation et la localisation.
 
 ## Créer des Custom Elements
 
@@ -35,7 +35,7 @@ function localizeDate(lang, year, month)
 }
 ```
 
-Mais comment utiliser notre fonction en Elm ?! Les navigateurs modernes vous permettent de créer des nouveaux éléments HTML comme ceci :
+Mais comment utiliser notre fonction en Elm ? Les navigateurs modernes vous permettent de créer des nouveaux éléments HTML comme ceci :
 
 ```javascript
 //
@@ -63,7 +63,7 @@ customElements.define('intl-date',
 );
 ```
 
-Les éléments remarquables ici sont les fonctions `attributeChangedCallback` et `observedAttributes`, qui sont nécessaires pur intercepter les changements d'attributs intéressants.
+Les éléments remarquables ici sont les fonctions `attributeChangedCallback` et `observedAttributes`, qui sont nécessaires pour intercepter les changements d'attributs intéressants.
 
 En vous assurant de charger ce code JavaScript avant d'initialiser votre application Elm, vous serez capables d'écrire du code Elm de ce type :
 
@@ -88,6 +88,6 @@ Vous pouvez accéder à la version complète de cet exemple [ici](https://github
 
 ## Plus d'information
 
-Luke a beaucoup plus d'expérience avec les custom elements, et cette [conférence à Elm Europe](https://www.youtube.com/watch?v=tyFe9Pw6TVE) est une excellente introduction !
+Luke a beaucoup plus d'expérience avec les *custom elements*, et cette [conférence à Elm Europe](https://www.youtube.com/watch?v=tyFe9Pw6TVE) est une excellente introduction !
 
-La documentation autour des custom elements peut être un peu indigeste, mais nous espérons qu'elle restera utile si vous souhaitez commencer à internationaliser très simplement vos applications ou d'embarquer de gros composants React si vous estimez cela nécessaire à votre projet.
+La documentation autour des *custom elements* peut être un peu indigeste, mais nous espérons qu'elle restera utile si vous souhaitez commencer à internationaliser très simplement vos applications ou d'embarquer de gros composants React si vous estimez cela nécessaire à votre projet.

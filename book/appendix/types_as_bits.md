@@ -1,6 +1,6 @@
-# Les types sous formes de bits
+# Les types en tant que bits
 
-Il y a plein de sortes de types en Elm :
+Il y a de nombreux types possibles en Elm :
 
 - `Bool`
 - `Int`
@@ -9,13 +9,13 @@ Il y a plein de sortes de types en Elm :
 - `Maybe Int`
 - ...
 
-Nous en avons une compréhension conceptuelle à présent, mais comment sont-ils compris par un ordinateur ? Comment est-ce que `Maybe Int` est stocké sur le disque dur ?
+Nous en avons une compréhension conceptuelle à présent, mais comment sont-ils compris par un ordinateur ? Comment `Maybe Int` est-il stocké sur le disque dur ?
 
 ## Bits
 
-Un **bit** est une petite boite qui a deux états. Zéro ou un. Allumé ou éteint. La mémoire d'un ordinateur est une séquence de bits super longue.
+Un **bit** est une petite boite qui a deux états. Zéro ou un. Allumé ou éteint. La mémoire d'un ordinateur est une séquence de bits extrêmement longue.
 
-Ok, donc nous avons un gros tas de 0s et de 1s. Maintenant il nous faut _tout_ représenter avec ça !
+Ok, donc nous avons un gros ensemble de 0 et de 1. Maintenant il nous faut _tout_ représenter avec ça !
 
 
 ## `Bool`
@@ -25,7 +25,7 @@ Une valeur `Bool` peut être soit `True` ou `False`. Ça correspond exactement �
 
 ## `Int`
 
-Une valeur `Int` est un nombre entier comme `0`, `1`, `2`, etc. On ne peut pas stocker ça dans un seul bit, donc la seule autre solution est d'utiliser plusieurs bits. Donc, normalement, un `Int` serait une séquence de bits, comme ceux-ci :
+Une valeur `Int` est un nombre entier comme `0`, `1`, `2`, etc. On ne peut pas stocker ça dans un seul bit, donc la seule solution est d'utiliser plusieurs bits. Un `Int` serait donc normalement une séquence de bits, comme celle-ci :
 
 ```
 00000000
@@ -64,12 +64,12 @@ On s'est fait une bonne idée pour les caractères, mais comment l'ordinateur sa
 
 De nos jours, les langages ont tendance à le faire en stockant la **longueur** de la chaîne. Ainsi, une chaîne comme `"hello"` pourrait ressembler à `5` `h` `e` `l` `l` `o` en mémoire. Vous savez donc qu'une `String` commence toujours par 32 bits représentant la longueur. Et que la longueur soit 0 ou 9000, vous savez exactement où s'arrêtent les caractères.
 
-> **Remarque :** À un moment donné, les gens ont voulu d'autres langues que l'anglais. Cet effort a finalement abouti au codage [UTF-8](https://fr.wikipedia.org/wiki/UTF-8). C'est vraiment génial en fait, et je vous encourage à en apprendre davantage. Il s'avère que « obtenir le 5e caractère » est plus difficile qu'il n'y paraît !
+> **Remarque :** À un moment donné, les gens ont voulu d'autres langues que l'anglais. Cet effort a finalement abouti au codage [UTF-8](https://fr.wikipedia.org/wiki/UTF-8). C'est en réalité génial et je vous encourage à en apprendre davantage. Il s'avère que « obtenir le 5e caractère » est plus difficile qu'il n'y paraît !
 
 
 ## `(Int, Int)`
 
-Qu'en est-il des tuples ? Eh bien, `(Int, Int)` correspond à deux valeurs `Int`, et chacune est une séquence de bits. Mettons simplement ces deux séquences l'une à côté de l'autre en mémoire restons-en là !
+Qu'en est-il des tuples ? Eh bien, `(Int, Int)` correspond à deux valeurs `Int`, et chacune est une séquence de bits. Mettons simplement ces deux séquences l'une à côté de l'autre en mémoire et appelons ça un jour calendaire !
 
 
 ## Types personnalisés
@@ -82,23 +82,23 @@ type Couleur = Rouge | Jaune | Vert
 
 Nous pouvons attribuer un numéro à chaque cas : `Rouge = 0`, `Jaune = 1` et `Vert = 2`. Nous pouvons maintenant utiliser la représentation `Int`. Ici, nous n'avons besoin que de deux bits pour couvrir tous les cas possibles, donc '00' est rouge, '01' est jaune, '10' est vert et '11' est inutilisé.
 
-Mais qu'en est-il des types personnalisés contenant des données supplémentaires ? Comme `Maybe Int` ? L'approche typique consiste à mettre de côté quelques bits pour "étiqueter" les données, afin que nous puissions décider que "Nothing = 0" et "Just = 1". Voici quelques exemples:
+Mais qu'en est-il des types personnalisés contenant des données supplémentaires ? Comme `Maybe Int` ? L'approche typique consiste à mettre de côté quelques bits pour "tagger" les données, afin que nous puissions décider que "Nothing = 0" et "Just = 1". Voici quelques exemples:
 
 
 - `Nothing` = `0`
 - `Just 12` = `1` `00001100`
 - `Just 16` = `1` `00010000`
 
-Une expression `case` regarde toujours cette "étiquette" avant de décider quoi faire ensuite. Si elle voit un `0`, elle sait qu'il n'y a plus de données. Si elle voit un `1`, elle sait qu'il est suivi d'une séquence de bits représentant les données.
+Une expression `case` regarde toujours ce "tag" avant de décider quoi faire ensuite. Si elle voit un `0`, elle sait qu'il n'y a plus de données. Si elle voit un `1`, elle sait qu'il est suivi d'une séquence de bits représentant les données.
 
-Cette idée d'"étiquette" revient à placer la longueur au début des valeurs `String`. Les valeurs peuvent être de tailles différentes, mais le code peut toujours déterminer où elles commencent et se terminent.
+Cette idée de "tag" revient à placer la longueur au début des valeurs `String`. Les valeurs peuvent être de tailles différentes, mais le code peut toujours déterminer où elles commencent et se terminent.
 
 
 
 ## Résumé
 
-Au bout du compte, toutes les valeurs doivent être représentées en bits. Cette page donne un aperçu approximatif de la façon dont cela fonctionne réellement.
+Au bout du compte, toutes les valeurs doivent être représentées sous forme de bits. Cette page donne un aperçu approximatif de la façon dont cela fonctionne réellement.
 
-Normalement, il n'y a pas vraiment de raison d'y penser, mais j'ai trouvé cela utile pour approfondir ma compréhension des types personnalisés et des expressions `case`. J'espère que cela vous sera également utile !
+Habituellement, il n'y a pas vraiment de raison de penser à tout ceci, mais j'ai trouvé cela utile pour approfondir ma compréhension des types personnalisés et des expressions `case`. J'espère que cela vous sera également utile !
 
-> **Remarque :** Si vous pensez que cela est intéressant, il peut être amusant d'en savoir plus sur le processus de ["rammasse-miette"](https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)). J'ai trouvé que [The Garbage Collection Handbook](http://gchandbook.org/) (en anglais) est une excellente mine d'informations sur le sujet !
+> **Remarque :** Si vous pensez que cela est intéressant, il peut être amusant d'en savoir plus sur le processus de ["ramasse-miettes"](https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)). J'ai trouvé que [The Garbage Collection Handbook](http://gchandbook.org/) (en anglais) est une excellente mine d'informations sur le sujet !

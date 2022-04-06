@@ -26,7 +26,7 @@ Tous les exemples de cette page sont interactifs. Cliquez sur la boîte noire au
 
 Essayez de taper des choses comme `30 * 60 * 1000` et `2 ^ 4`. Cela devrait fonctionner comme une calculatrice !
 
-Faire des maths, c'est symapthique, mais c'est étonnamment rare dans la plupart des programmes ! Il est beaucoup plus courant de travailler avec des **chaînes de caractères** comme ceci :
+Faire des maths, c'est sympathique, mais c'est étonnamment rare dans la plupart des programmes ! Il est beaucoup plus courant de travailler avec des **chaînes de caractères** comme ceci :
 
 
 {% repl %}
@@ -82,7 +82,7 @@ Par exemple, voici une fonction `greet` qui prend en entrée un et nom et dit bo
 
 Essayer de dire bonjour à quelqu'un d'autre, comme `"Stokely"` ou `"Kwame"` ⬆️
 
-Les valeurs passées en entrée de la fonction sont généralement appelée **arugments**, on pourrait alors dire que «`greet` est une fonction qui prend un argument ».
+Les valeurs passées en entrée de la fonction sont généralement appelée **arguments**, on pourrait alors dire que «`greet` est une fonction qui prend un argument ».
 
 Maintenant que la politesse peut être mise de côté, que diriez-vous d'une fonction qui prend _deux_ arguments ?
 
@@ -112,7 +112,7 @@ Essayez de passer deux arguments à la fonction `madlib` ⬆️
 
 Notez comment nous avons utilisé des parenthèses pour grouper `"butter" ++ "fly"` ensemble dans le deuxième exemple. Chaque argument doit être une valeur primitive comme `"cat"` ou doit obligatoirement se trouver entre parenthèses !
 
-> **Note:** Les personnes venant de langages comme Javascript pourraient être suprises par l'aspect différent qu'ont les foncitons :
+> **Note:** Les personnes venant de langages comme Javascript pourraient être surprises par l'aspect différent qu'ont les fonctions :
 
 >     madlib "cat" "ergonomic"                  -- Elm
 >     madlib("cat", "ergonomic")                // JavaScript
@@ -120,7 +120,7 @@ Notez comment nous avons utilisé des parenthèses pour grouper `"butter" ++ "fl
 >     madlib ("butter" ++ "fly") "metallic"      -- Elm
 >     madlib("butter" + "fly", "metallic")       // JavaScript
 >
-> Ça peut paraître surprenant au début, mais ce style permet d'utiliser moins de parenthèses et de virgules. Il donne une sensation de propreté et de minimalisme au langage une fois que vous y êtes habitué !
+> Ça peut paraître surprenant au début, mais ce style permet d'utiliser moins de parenthèses et de virgules. Il donne une sensation de propreté et de minimalisme au langage une fois que vous y êtes habitué(e) !
 
 
 ## Expressions If

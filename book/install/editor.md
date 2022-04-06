@@ -19,7 +19,7 @@ Configurer un éditeur de texte peut parfois s'avérer un peu compliqué… voyo
 - [Linux](https://github.com/evancz/elm-syntax-highlighting/blob/master/install/linux.md)
 - [Windows](https://github.com/evancz/elm-syntax-highlighting/blob/master/install/windows.md)
 
-Ceci fait, vous devriez pouvoir ouvrir les fichiers Elm en bénéficiant de la coloration syntaxique. Les mot-cés comme `import` et `type` devrait être colorisés, facilitant la lecture du code.
+Ceci fait, vous devriez pouvoir ouvrir les fichiers Elm en bénéficiant de la coloration syntaxique. Les mot-clés comme `import` et `type` devraient être colorisés, facilitant la lecture du code.
 
 
 > **Note :** Il y a d'autres possibilités ! Les membres de la communauté ont créé des extensions pour Atom, Emacs, IntelliJ, Vim, VS Code, et plein d'autres. Nous essayons d'en garder à jour une liste exhaustive sur [cette page](https://github.com/elm/editor-plugins) !

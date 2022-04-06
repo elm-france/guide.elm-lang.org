@@ -31,7 +31,7 @@ toName user =
 
 L'expression `case..of` nous permet de distinguer chaque variante, de façon à pouvoir afficher le nom de Kate ou de Thomas quel que soit le statut de leur compte.
 
-Et si nous essayons de passer des arguments invalides comme  `toName (Visitor "kate95")` ou `toName Anonymous`, le compilateur nous le signale immédiatement. Cela veut dire que ce genre d'erreurs mineures peuvent être réglées en quelque secondes, plutôt que d'attendre que le problème survienne en production et prenne beaucoup plus de temps à régler au final.
+Et si nous essayons de passer des arguments invalides comme  `toName (Visitor "kate95")` ou `toName Anonymous`, le compilateur nous le signale immédiatement. Cela veut dire que ce genre d'erreurs mineures peuvent être réglées en quelques secondes, plutôt que d'attendre que le problème survienne en production et prenne beaucoup plus de temps à régler au final.
 
 
 ## Jokers

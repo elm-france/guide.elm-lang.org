@@ -1,6 +1,6 @@
 # Valeurs aléatoires
 
-Jusqu'à présent, nous n'avons vu que des commandes pour effectuer des requêtes HTTP, mais nous pouvons commander d'autres choses également, comme générer des valeurs aléatoires ! Nous allons donc créer une application qui lance des dés et produit un nombre aléatoire entre 1 et 6.
+Jusqu'à présent, nous n'avons vu que des commandes pour effectuer des requêtes HTTP, mais nous pouvons commander d'autres choses, comme générer des valeurs aléatoires ! Nous allons donc créer une application qui lance des dés et produit un nombre aléatoire entre 1 et 6.
 
 Cliquez sur le bouton bleu "Edit" pour voir cet exemple en action. Générez quelques nombres aléatoires, et regardez le code pour essayer de comprendre comment cela fonctionne. **Cliquez sur le bouton bleu maintenant !**
 
@@ -161,9 +161,9 @@ spin =
 Nous créons d'abord `Symbol` pour décrire les images qui peuvent apparaître sur la machine à sous. Nous créons ensuite un générateur aléatoire qui génère chaque symbole avec une probabilité égale.
 
 
-À partir de là, nous utilisons `map3` pour les combiner dans un nouveau générateur `spin`. Il est dit de générer trois symboles et de les combiner en un `Spin`.
+À partir de là, nous utilisons `map3` pour les combiner dans un nouveau générateur `spin`. Il dit de générer trois symboles et de les combiner en un `Spin`.
 
-Ce qui est important ici est que, à partir de petits blocs de construction, nous pouvons créer un `Generator` qui décrit un comportement assez complexe. Ensuite, dans notre application, il suffit de dire quelque chose comme `Random.generate NewSpin spin`" pour obtenir la prochaine valeur aléatoire.
+Ce qui est important ici est qu'à partir de petits blocs de construction, nous pouvons créer un `Generator` qui décrit un comportement assez complexe. Ensuite, dans notre application, il suffit de dire quelque chose comme `Random.generate NewSpin spin` pour obtenir la prochaine valeur aléatoire.
 
 
 > **Exercices:** Voici quelques idées pour rendre le code d'exemple de cette page un peu plus intéressant !

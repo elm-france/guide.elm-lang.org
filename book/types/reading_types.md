@@ -34,7 +34,7 @@ Que se passe t-il concrètement ici ? Chaque entrée affiche une valeur suivie 
 - La valeur `"hello"` est une `String` (une chaîne de caractère).
 - La valeur `False` est un `Bool` (un booléen).
 - La valeur `3` est un `Int` (un nombre entier).
-- La valeur `3.1415` est un `Float` (un nombre flottant).
+- La valeur `3.1415` est un `Float` (un nombre à virgule flottante).
 
 Elm est capable de deviner le type de n'importe quelle valeur que vous lui envoyez ! Regardons ce que ça donne avec les listes :
 
@@ -142,7 +142,7 @@ Ajouter des annotations de type n'est pas obligatoire, mais c'est fortement reco
 1. **Qualité des messages d'erreur** &mdash; Quand vous ajoutez une annotation de type, le compilateur comprend ce que vous _essayez_ de faire. Votre implémentation peut comporter des erreurs, mais le compilateur peut maintenant les comparer à votre intention initiale. &ldquo;Vous avez dit que `powerLevel` était un `Int`, mais il est utilisé comme une `String` !&rdquo;
 2. **Documentation** &mdash; Quand vous revenez sur une base de code ancienne (ou quand d'autres collègues la découvrent pour la première fois), c'est très pratique de lire directement ce qui rentre et sort d'une fonction, sans avoir à lire l'implémentation très attentivement.
 
-Il est toutefois possible de se tromper en écrivant des annotations… du coup, que se passe t-il si une annotation ne correspond pas à son implémentation ? Le compilateur infère tous les types et vérifie que votre annotation colle systématiquement à la réalité. En d'autres termes, le compilateur vérifie en permanence que toutes les annotations que vous ajoutez sont cohérentes. Ainsi, vous disposez des meilleurs messages d'erreur possible _et_ d'une documentation toujours à jour !
+Il est toutefois possible de se tromper en écrivant des annotations… du coup, que se passe t-il si une annotation ne correspond pas à son implémentation ? Le compilateur infère tous les types et vérifie que votre annotation colle systématiquement à la réalité. En d'autres termes, le compilateur vérifie en permanence que toutes les annotations que vous ajoutez sont cohérentes. Ainsi, vous disposez des meilleurs messages d'erreur possibles _et_ d'une documentation toujours à jour !
 
 
 ## Variables de type

@@ -29,7 +29,7 @@ thomas = { status = Regular, name = "Thomas" }
 kate95 = { status = Visitor, name = "kate95" }
 ```
 
-De cette façon, nous pouvons déterminer si nos usagers disposent d'un compte (`Regular`) ou pas (`Visitor`). Ce n'est pas trop compliqué, mais on peut rendre ça encore plus simple !
+De cette façon, nous pouvons déterminer si chaque usager est un (`Regular`) qui dispose d'un compte ou juste un (`Visitor`). Ce n'est pas trop compliqué, mais on peut rendre ça encore plus simple !
 
 Plutôt que de créer un type personnalisé *et* un alias de type, on peut représenter l'ensemble au moyen *d'un seul* type personnalisé. Les variantes `Regular` et `Visitor` se voient chacune associée à un identifiant de type `String` :
 
@@ -42,9 +42,9 @@ thomas = Regular "Thomas"
 kate95 = Visitor "kate95"
 ```
 
-La donnée étant attachée directement à la variante, il n'y a même plus besoin de record.
+La donnée étant attachée directement à la variante, il n'y a même plus besoin de _record_.
 
-Un autre avantage de cette approche est que chaque variante peut avoir des données associées de types différents. Admettons qu'on propose à nos usagers `Regular` d'ajouter leur âge à la création de leur compte. Il n'y a pas de moyen évident de modéliser ça avec un record, mais avec un type personnalisé, aucun problème. Ajoutons quelques données spécifiques à notre variante `Regular` :
+Un autre avantage de cette approche est que chaque variante peut avoir des données associées de types différents. Admettons qu'on propose à nos usagers `Regular` d'ajouter leur âge à la création de leur compte. Il n'y a pas de moyen évident de modéliser ça avec un _record_, mais avec un type personnalisé, aucun problème. Ajoutons quelques données spécifiques à notre variante `Regular` :
 
 {% replWithTypes %}
 [
@@ -101,7 +101,7 @@ type Msg
   | ClickedExit
 ```
 
-Nous avons quatre variantes. Deux d'entre elles n'ont aucune donnée associée, d'autres en ont. Notez que `ReceivedMessage` dispose d'un record associé : c'est tout à fait valide ! On peut associer n'importe quel type à une variante, ce qui permet de décrire les interactions applicatives de façon très précise.
+Nous avons quatre variantes. Deux d'entre elles n'ont aucune donnée associée, d'autres en ont. Notez que `ReceivedMessage` dispose d'un _record_ associé : c'est tout à fait valable ! On peut associer n'importe quel type à une variante, ce qui permet de décrire les interactions applicatives de façon très précise.
 
 
 ## Modélisation
@@ -119,4 +119,4 @@ Ici on peut démarrer par `Loading` et transitionner vers `Failure` ou `Success`
 
 Maintenant que nous savons créer des types personnalisés, la section suivante va nous montrer comment les utiliser !
 
-> **Note : Les types personnalisés sont la fonctionnalité la plus importante de Elm.** Ils apportent énormément de profondeur et de précision dans la modélisation des scénarios applicatifs. Nous avons essayé de détailler un peu de cette profondeur dans les sections [Les types sous forme d'ensembles](/appendix/types_as_sets.html) et [Les types sous forme de bits](/appendix/types_as_bits.html). Nous espérons qu'elles vous seront utiles !
+> **Note : Les types personnalisés sont la fonctionnalité la plus importante de Elm.** Ils apportent énormément de profondeur et de précision dans la modélisation des scénarios applicatifs. Nous avons essayé de détailler un peu de cette profondeur dans les sections [Les types en tant qu'ensembles](/appendix/types_as_sets.html) et [Les types en tant que bits](/appendix/types_as_bits.html). Nous espérons qu'elles vous seront utiles !

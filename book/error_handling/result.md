@@ -62,6 +62,6 @@ type Error
 -- Err NetworkError   : Result Error String
 ```
 
-Dans ce type de cas et comme vu précédemment, nous pouvons afficher des messages très explicites, mais nous pouvons aussi essayer d'effectuer une récupération sur incident ! Si nous obtenons un `Timeout`, ça peut valoir le coup d'attendre un peu et retenter la requête. Alors que si nous obtenons une `BadStatus 404`, aucun intérêt puisque la ressource n'existe pas ou plus.
+Dans ce type de cas et comme vu précédemment, nous pouvons afficher des messages très explicites, mais nous pouvons aussi essayer d'effectuer une récupération sur incident ! Si nous obtenons un `Timeout`, ça peut valoir le coup d'attendre un peu et retenter la requête. Alors que si nous obtenons un `BadStatus 404`, aucun intérêt puisque la ressource n'existe pas ou plus.
 
-Le chapitre suivant aborde comment effectuer des requêtes HTTP, alors préparez vous à rencontrer les types `Result` et `Error` à nouveau très vite !
+Le chapitre suivant aborde comment effectuer des requêtes HTTP, alors préparez-vous à rencontrer les types `Result` et `Error` à nouveau très vite !

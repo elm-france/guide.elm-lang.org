@@ -12,11 +12,11 @@ Quand l'algorithme de comparaison (décrit dans la page précédente) reçoit un
 
 - Il compare le 1er élément courant avec le 1er élément suivant.
 - Il compare le 2ème élément courant avec le 2ème élément suivant.
-- ...
+- etc...
 
-Mais quand l'ordre de tri est changé, toutes les paires le sont également ! Cela génère beaucoup d'opérations sur le DOM qu'il suffirait simplement de réorganiser certains noeuds.
+Mais quand l'ordre de tri est changé, toutes les paires le sont également ! Cela génère beaucoup d'opérations sur le DOM alors qu'il suffirait simplement de réorganiser certains noeuds.
 
-Idem concernant l'insertion et la suppression. En retirant le 1er des 100 éléments, l'ensemble sera décalé d'un élément et toutes les paires seront différentes. La comparaison produira 99 différences et une suppression à la fin. Peut mieux faire !
+Le problème est le même concernant l'insertion et la suppression des éléments de la liste. En retirant le 1er des 100 éléments, l'ensemble sera décalé d'un élément et toutes les paires seront différentes. La comparaison produira 99 différences et une suppression à la fin. Peut mieux faire !
 
 
 ## La solution
@@ -46,9 +46,9 @@ viewPresident president =
 
 Chaque nœud enfant est associé à une clé. Il est donc possible d'effectuer des comparaisons par clé au lieu d'utiliser les paires.
 
-Dorénavant, le DOM virtuel peut reconnaître quand l'ordre de la liste est changée. D'abord, chaque président est associé à sa clé, puis les clés sont comparées entre elles. En utilisant `lazy` pour chaque entrée, nous n'avons pas à nous préoccuper de tout ça. Parfait ! Il peut ensuite déterminer comment réarranger les nœuds dans l'ordre souhaité. Par conséquent, la version utilisant les clés demandera moins d'opérations.
+Dorénavant, le DOM virtuel peut reconnaître quand l'ordre de la liste est changée. D'abord, chaque président est associé à sa clé, puis les clés sont comparées entre elles. En utilisant `lazy` pour chaque entrée, nous n'avons pas à nous préoccuper de tout ça. C'est parfait ! Il peut ensuite déterminer comment réarranger les nœuds dans l'ordre souhaité. Par conséquent, la version utilisant les clés demandera moins d'opérations.
 
-Réordonner nous aide à comprendre le fonctionnement, mais ce n'est pas le cas le plus commun nécessitant vraiment cette optimisation. Les **nœuds avec clé sont particulièrement importants lors des insertions et des suppressions**. Lors du retrait du 1er des 100 éléments, utiliser des noeuds avec clé permet au DOM virtuel de reconnaître immédiatement cette action. Ce qui aura pour effet une seule suppression et non 99 comparaisons.
+Réordonner la liste nous aide à comprendre le fonctionnement, mais ce n'est pas le cas le plus commun nécessitant vraiment cette optimisation. Les **nœuds avec clé sont particulièrement importants lors des insertions et des suppressions**. Lors du retrait du 1er des 100 éléments, utiliser des noeuds avec clé permet au DOM virtuel de reconnaître immédiatement cette action. Ce qui aura pour effet une seule suppression et non 99 comparaisons.
 
 
 ## Résumé

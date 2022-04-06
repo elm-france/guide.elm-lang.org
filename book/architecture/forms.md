@@ -187,6 +187,6 @@ Ces fonctions utilitaires montrent l'avantage d'avoir une bibliothèque HTML éc
 >
 > Utilisez les fonctionnalités du module [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) pour résoudre ces exercices !
 >
-> **Attention:** Plus de connaissances sont nécessaires avant de commencer à envoyer des requêtes HTTP. Pour plus de facilité, nous vous recommandons de continuez la lecture jusqu'à la section HTTP avant de vous y essayer.
+> **Attention:** Plus de connaissances sont nécessaires avant de commencer à envoyer des requêtes HTTP. Pour plus de facilité, nous vous recommandons de continuer la lecture jusqu'à la section HTTP avant de vous y essayer.
 >
 > **Note:** Aucune tentative d'implémentation d'une bibliothèque de validation générique ne s'est avérée concluante pour le moment. La logique de validation est souvent mieux exprimée par des fonctions Elm classiques adaptées au problème traité et retournant un résultat de type `Bool` ou `Maybe`. Commencez par là avant de choisir une solution plus complexe.

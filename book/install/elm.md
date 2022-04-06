@@ -2,9 +2,9 @@
 
 La page précédente nous a montré comment installer un éditeur de code Elm, maintenant il nous faut obtenir un exécutable `elm`. Voici les liens d'installation :
 
-- **Mac** - [installer](https://github.com/elm/compiler/releases/download/0.19.1/installer-for-mac.pkg)
+- **Mac** - [installateur](https://github.com/elm/compiler/releases/download/0.19.1/installer-for-mac.pkg)
 - **Linux** - <a href="https://github.com/elm/compiler/blob/master/installers/linux/README.md" target="_blank">instructions</a>
-- **Windows** - [installer](https://github.com/elm/compiler/releases/download/0.19.1/installer-for-windows.exe)
+- **Windows** - [installateur](https://github.com/elm/compiler/releases/download/0.19.1/installer-for-windows.exe)
 
 Une fois l'installation effectuée, ouvrez un terminal sur votre ordinateur. Sur Windows, le programme correspondant s'appelle `cmd.exe` ou `Invite de Commande`.
 
@@ -106,7 +106,7 @@ Vous pouvez également lancer des commandes comme `elm make --help` ou `elm repl
 
 **Ensuite**, ne vous inquiétez pas si ça prend un peu de temps pour être à l'aise avec l'utilisation de la ligne de commande et du terminal en général.
 
-Même après des années d'expérience, il est fréquent d'oublier comment on compresse un fichier, comment on trouve tous les fichiers Elm dans un répertoire, etc. Il n'est jamais grave de nous rafraîchir la mémoire !
+Même après des années d'expérience, il est fréquent d'oublier comment on compresse un fichier, comment on trouve tous les fichiers Elm dans un répertoire, etc. Il est toujours utile de se rafraîchir la mémoire !
 
 * * *
 

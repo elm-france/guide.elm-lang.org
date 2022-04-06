@@ -17,7 +17,7 @@ Lorsque vous créez un fichier HTML, vous écrivez du HTML directement comme ça
 </div>
 ```
 
-On peut y penser comme produisant cette structure DOM en coulisses :
+On peut se le représenter comme produisant cette structure DOM en coulisses :
 
 ![](diagrams/dom.svg)
 
@@ -46,7 +46,7 @@ On peut voir `viewChairAlts ["seiza","chabudai"]` comme produisant en coulisse l
 
 ![](diagrams/vdom.svg)
 
-Les boîtes blanches représentent des objets JavaScript légers. Ils contiennent uniquement les attributs que vous spécifiez. Leur création n'engendredra jamais de calculs pour redessiner et réarranger la page. En bref, comparés aux nœuds DOM, ils sont beaucoup moins chers à allouer !
+Les boîtes blanches représentent des objets JavaScript légers. Ils contiennent uniquement les attributs que vous spécifiez. Leur création n'engendredra aucun calcul pour redessiner et réarranger la page. En bref, comparés aux nœuds DOM, ils sont beaucoup plus légers à allouer !
 
 ## _Render_
 
@@ -59,18 +59,18 @@ Maintenant que nous avons les nœuds virtuels, on en produit une réplique exact
 
 ![](diagrams/render.svg)
 
-Super ! Mais que se passe-t-il lorsqu'il y a du changement ? Re-construire le DOM en entier à chaque _frame_ ne fonctionne pas, que pouvons nous donc faire à la place ?
+Parfait ! Mais que se passe-t-il lorsqu'il y a un changement ? Re-construire le DOM en entier à chaque _frame_ ne fonctionne pas. Que pouvons nous faire à la place ?
 
 
-## _Diffing_
+## Calcul de différence
 
-Une fois qu'on a le DOM initial, on travaillera principalement sur les nœuds virtuels. À chaque fois que le `Model` change, on exécute `view` à nouveau. À partir de là, on calcule le _“diff”_ sur les nœuds virtuels obtenus afin de trouver comment toucher au DOM le moins possible.
+Une fois qu'on a le DOM initial, on travaillera principalement sur les nœuds virtuels. À chaque fois que le `Model` change, on exécute `view` à nouveau. À partir de là, on calcule la différence entre le nouveau DOM virtuel et l'ancien afin de trouver comment toucher au DOM réel le moins possible.
 
 Supposons par exemple qu'une nouvelle alternative aux chaises soit listée dans notre `Model` ; nous voulons alors ajouter un nouveau nœud `li` pour elle. En coulisses, Elm calcule le _diff_ entre les nœuds virtuels **actuels** et les **suivants** pour détecter le moindre changement :
 
 ![](diagrams/diff.svg)
 
-Elm a remarqué qu'un troisième `li` a été ajouté. Je l'ai marqué en vert. Elm sait maintenant exactement comment modifier le DOM réel pour le faire correspondre. Il faut juste insérer ce nouveau `li` :
+Elm a remarqué qu'un troisième `li` a été ajouté. Je l'ai dessiné en vert. Elm sait maintenant exactement comment modifier le DOM réel pour le faire correspondre. Il faut juste insérer ce nouveau `li` :
 
 ![](diagrams/patch.svg)
 

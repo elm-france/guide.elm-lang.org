@@ -1,6 +1,6 @@
 # Interopérabilité avec JavaScript
 
-À ce stade, nous avons étudié **l'Architecture Elm**, les **types**, les **commandes**, les **souscriptions** et installé Elm sur notre machine.
+À ce stade, nous avons étudié **l'Architecture Elm**, les **types**, les **commandes**, les **abonnements** et installé Elm sur notre machine.
 
 Mais que se passe t-il quand on essaye de s'interfacer avec JavaScript ? Peut-être avons nous besoin d'exploiter une API du navigateur qui n'est pas encore supportée par un paquet Elm ? Ou peut-être désirez-vous embarquer un composant JavaScript dans votre application Elm ? Ce chapitre va mettre en lumière les différents mécanismes d'interopérabilité avec JavaScript :
 
@@ -55,7 +55,7 @@ Arrêtons-nous quelques instants sur quelques éléments importants :
 
 - `<head>` - Une ligne charge notre fichier `main.js` compilé. Si vous compilez un module Elm appelé `Main`, vous obtenez une fonction JavaScript `Elm.Main.init()`. Si vous compilez un module Elm appelé `Home`, vous obtiendrez une fonction JavaScript `Elm.Home.init()`, etc.
 
-- `<body>` - Nous avons besoin de procéder à deux opérations ici ; d'abord, nous définissons une balise `<div>` que nous associons à notre programme Elm et qui sera par conséquent notre conteneur applicatif. Peut-être qu'elle est incluse au milieu d'une page HTML beaucoup plus grande, au milieu de plein d'autres éléments ? Pas de problème ! Ensuite, nous avons une balise `<script>` qui initialise notre programme Elm en appelant la fonction `Elm.Main.init()` et en lui passant une référence au conteneur.
+- `<body>` - Nous avons besoin de procéder à deux opérations ici ; d'abord, nous définissons une balise `<div>` que nous associons à notre programme Elm et qui sera par conséquent notre conteneur applicatif. Peut-être est-elle incluse au milieu d'une page HTML beaucoup plus grande, au milieu de plein d'autres éléments ? Pas de problème ! Ensuite, nous avons une balise `<script>` qui initialise notre programme Elm en appelant la fonction `Elm.Main.init()` en lui passant une référence au conteneur.
 
 Maintenant que nous savons comment intégrer un programme Elm à une page HTML, il est temps d'explorer nos trois mécanismes d'interopérabilité : les *flags*, les *ports* et les *custom elements* !
 

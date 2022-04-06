@@ -2,7 +2,7 @@
 
 Il est souvent utile de récupérer des informations ailleurs sur Internet.
 
-Par exemple, imaginons que nous voulions charger le texte complet de _Public Opinion_ de Walter Lippmann. Publié en 1922, ce livre offre une perspective historique sur la montée des médias de masse et ses implications pour la démocratie. Pour ce qui nous amène ici, nous allons nous concentrer sur la façon d'utiliser le paquetage [`elm/http`][http] pour charger ce livre dans notre programme !
+Par exemple, imaginons que nous voulions charger le texte complet de _Public Opinion_ de Walter Lippmann. Publié en 1922, ce livre offre une perspective historique sur la montée des médias de masse et ses implications pour la démocratie. Pour ce qui nous amène ici, nous allons nous concentrer sur la façon d'utiliser le paquet [`elm/http`][http] pour charger ce livre dans notre programme !
 
 Cliquez sur le bouton bleu "Edit" pour regarder ce programme dans l'éditeur en ligne. Vous verrez probablement l'écran afficher "Loading..." avant que le livre complet n'apparaisse. **Cliquez sur le bouton bleu maintenant !**
 
@@ -95,7 +95,7 @@ view model =
       pre [] [ text fullText ]
 ```
 
-Certaines parties du code ci-dessus devraient vous être familières grâce aux précédents exemples de l'Architecture Elm. Nous avons toujours un `Model` de notre application. Nous avons toujours un `update` qui répond aux messages. Nous avons toujours une function `view` qui montre le tout à l'écran.
+Certaines parties du code ci-dessus devraient vous être familières grâce aux précédents exemples de l'Architecture Elm. Nous avons toujours un `Model` de notre application. Nous avons toujours un `update` qui répond aux messages. Nous avons toujours une fonction `view` qui montre le tout à l'écran.
 
 Les nouvelles parties étendent le principe de base que nous avions vu précédemment avec des changements dans `init` et dans `update` et l'ajout de `subscription`.
 
@@ -121,7 +121,7 @@ Comme toujours, nous devons produire le `Model` initial, mais maintenant nous pr
 Le site web de notre livre commence dans l'état `Loading`, et nous voulons récupérer le texte complet de notre livre. Lorsque l'on fait une requête GET avec [`Http.get`][get], on spécifie l'`url` des données que l'on veut récupérer, et on spécifie ce que l'on attend (`expect`) de ces données. Dans notre cas, l'`url` pointe vers des données sur le site web d'Elm, et nous nous attendons (`expect`) à ce que ce soit une grande `String` que nous pouvons montrer à l'écran.
 
 
-La ligne `Http.expectString GotText` indique un peu plus que juste le fait que nous _attendons_ (`expect`) un `String`. Elle dit aussi que lorsque nous recevons une réponse, elle doit être transformée en un message `GotText` :
+La ligne `Http.expectString GotText` indique un peu plus de choses que le simple fait d'_attendre_ (`expect`) une `String`. Elle dit aussi que lorsque nous recevons une réponse, celle-ci doit être transformée en un message `GotText` :
 
 ```elm
 type Msg
@@ -136,7 +136,7 @@ Remarquez que nous utilisons le type `Result` que nous avons déjà utilisé que
 
 [get]: https://package.elm-lang.org/packages/elm/http/latest/Http#get
 
-> **Note:** Si vous vous demandez pourquoi `init` est une fonction (et pourquoi nous en ignorons l'argument), nous en parlerons dans le prochain chapitre sur l'interopérabilité JavaScript ! (Aperçu : l'argument nous permet d'obtenir des informations venant de JavaScript à l'initialisation).
+> **Note:** Si vous vous demandez pourquoi `init` est une fonction (et pourquoi nous en ignorons l'argument), nous en parlerons dans le prochain chapitre sur l'interopérabilité avec JavaScript ! (Aperçu : l'argument nous permet d'obtenir des informations venant de JavaScript à l'initialisation).
 
 ## `update`
 
@@ -161,7 +161,7 @@ En ce qui concerne l'implémentation, nous faisons du [_pattern matching_](/type
 
 Ainsi, dans le cas où nous avons obtenu le texte complet avec succès, nous disons `Cmd.none` pour indiquer qu'il n'y a plus de travail à faire car nous avons déjà obtenu le texte complet !
 
-Et dans le cas où il y a une erreur, nous disons également `Cmd.none` et nous abandonnons. Le texte du livre n'a pas été chargé. Si nous voulions être plus fantaisistes, nous pourrions faire un _pattern matching_ sur le [`Http.Error`][Error] et réessayer la requête si nous obtenons un timeout ou autre.
+Et dans le cas où il y a une erreur, nous disons également `Cmd.none` et nous abandonnons. Le texte du livre n'a pas été chargé. Si nous voulions être plus fantaisistes, nous pourrions faire un _pattern matching_ sur le [`Http.Error`][Error] et réessayer la requête si nous obtenons un _timeout_ ou autre.
 
 Ce qu'il faut retenir, c'est que quelle que soit la façon dont nous décidons de mettre à jour notre modèle, nous sommes également libres d'émettre de nouvelles commandes. J'ai besoin de plus de données ! Je veux un nombre aléatoire ! Etc.
 
@@ -181,4 +181,4 @@ Lorsque nous créons un programme avec `Browser.element`, nous mettons en place 
 
 ![](diagrams/element.svg)
 
-Nous avons la possibilité d'émettre des **commandes** depuis `init` et `update`. Cela nous permet de faire des choses comme des requêtes HTTP lorsque le besoin s'en fait sentir. Nous avons également la possibilité de nous **abonner** (**subscribe**) à des informations intéressantes. (Nous verrons un exemple d'abonnement plus tard !)
+Nous avons la possibilité d'émettre des **commandes** depuis `init` et `update`. Cela nous permet de faire des choses comme des requêtes HTTP lorsque le besoin s'en fait sentir. Nous avons également la possibilité de nous **abonner** (_subscribe_) à des informations intéressantes. (Nous verrons un exemple d'abonnement plus tard !)
