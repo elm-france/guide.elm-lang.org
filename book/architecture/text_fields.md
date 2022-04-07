@@ -1,4 +1,4 @@
-# Zones de texte
+# Champs texte
 
 Nous allons créer une application simple qui intervertit le contenu d'une zone de saisie de texte.
 

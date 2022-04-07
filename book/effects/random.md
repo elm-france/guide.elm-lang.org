@@ -1,4 +1,4 @@
-# Valeurs aléatoires
+# Random (Valeurs aléatoires)
 
 Jusqu'à présent, nous n'avons vu que des commandes pour effectuer des requêtes HTTP, mais nous pouvons commander d'autres choses, comme générer des valeurs aléatoires ! Nous allons donc créer une application qui lance des dés et produit un nombre aléatoire entre 1 et 6.
 

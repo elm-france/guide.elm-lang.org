@@ -1,4 +1,4 @@
-# Temps
+# Time (gestion du Temps)
 
 Nous allons maintenant fabriquer une horloge numérique. (L'analogique sera un exercice !)
 

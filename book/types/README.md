@@ -1,4 +1,4 @@
-# Types
+# Les types
 
 L'un des points forts de Elm est de garantir l'**absence d'erreurs à l'exécution** — ou, plus précisément, de rendre impossible la levée d'exceptions à l'exécution du programme. Le compilateur analyse très rapidement le code source pour étudier comment les valeurs circulent dans l'application. Si une valeur est utilisée de façon erronée, le compilateur vous en avertit au moyen d'un message d'erreur informatif. On appelle cela l'*inférence de types* : le compilateur devine quels *types* de valeurs passent par vos fonctions.
 
