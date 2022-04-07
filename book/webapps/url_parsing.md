@@ -6,7 +6,7 @@ Dans une vraie application web, on veut que notre application montre des choses 
 - `/search?q=seiza`
 - `/settings`
 
-Oui, mais comment faire ? En utilisant [`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/) pour analyser ces chaînes brutes en structures de données en Elm. Le plus simple pour comprendre ce que fait ce paquet, c'est de regarder des exemples, alors faisons ça !
+Oui, mais comment faire ? En utilisant [`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/) pour transformer ces chaînes brutes en structures de données en Elm. Le plus simple pour comprendre ce que fait ce paquet, c'est de regarder des exemples, alors faisons ça !
 
 ## Exemple n°1
 
