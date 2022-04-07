@@ -6,7 +6,7 @@ Ce guide va :
 
   - Vous apprendre les fondamentaux de la programmation en Elm.
   - Vous montrer comment réaliser des applications intéractives à l'aide de **l'Architecture Elm**.
-  - Mettre l'accent sur des principes et des _patterns_ valables dans d'autres langages de programmation.
+  - Mettre l'accent sur des principes et des pratiques valables dans d'autres langages de programmation.
 
 
 J'espère qu'à la fin de ce guide, vous serez non seulement capable de créer de superbes applications Web avec Elm, mais aussi de comprendre les idées et les concepts fondamentaux qui rendent Elm agréable à utiliser.
