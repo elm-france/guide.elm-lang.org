@@ -113,7 +113,7 @@ On a maintenant un site de documentation avec des adresses comme celles-ci :
 - `/List#filter`
 - `/List#foldl`
 
-On peut utiliser l'analyseur [`fragment`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment) du module `Url.Parser` pour gérer ce type d'adresses :
+On peut utiliser le parser [`fragment`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment) du module `Url.Parser` pour gérer ce type d'adresses :
 
 ```elm
 type alias Docs =
