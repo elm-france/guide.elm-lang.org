@@ -17,6 +17,7 @@ jobs:
     - name: Install and Build 🔧
       run: |
         (cd repl && npm link && bash build.sh)
+        (cd honkit-plugin-french-typography && npm link)
         npm ci
         npm run link-all
         npm run build --if-present
