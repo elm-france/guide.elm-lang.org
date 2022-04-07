@@ -73,7 +73,7 @@ Maintenant, disons que nous avons un blog personnel et que les adresses suivante
 - `/blog?q=whales`
 - `/blog?q=seiza`
 
-Dans le cas présent, nous avons des articles de blog individuels et une vue d'ensemble du blog avec un paramètre de recherche optionnel. Il faut ajouter le module [`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query) pour pouvoir écrire notre analyseur :
+Dans le cas présent, nous avons des articles de blog individuels et une vue d'ensemble du blog avec un paramètre de recherche optionnel. Il faut ajouter le module [`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query) pour pouvoir écrire notre parser :
 
 ```elm
 import Url.Parser exposing (Parser, (</>), (<?>), int, map, oneOf, s, string)
