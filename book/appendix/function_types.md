@@ -86,7 +86,7 @@ L'expression `(String.repeat 2)` est une fonction `String -> String`, donc on pe
 
 Elm utilise également la convention selon laquelle **la structure des données est toujours le dernier argument** dans l'écosystème. Cela signifie que les fonctions sont généralement conçues avec cette utilisation possible à l'esprit, ce qui en fait une technique assez courante.
 
-Maintenant, il est important de se rappeler que **cela peut être surutilisé !** C'est parfois pratique et clair, mais je trouve qu'il vaut mieux l'utiliser avec modération. Je recommande donc de toujours décomposer les fonctions utilitaires de haut niveau lorsque les choses deviennent même _légèrement_ compliquées. De cette façon, elles ont un nom clair, les arguments sont nommés et il est facile de tester ces nouvelles fonctions utilitaires. Dans notre exemple, cela signifie créer :
+Maintenant, il est important de se rappeler que **cela peut être surutilisé !** C'est parfois pratique et clair, mais je trouve qu'il vaut mieux l'utiliser avec modération. Je recommande donc de toujours décomposer les fonctions utilitaires de haut niveau lorsque les choses deviennent _un tant soit peu_ compliquées. De cette façon, elles portent un nom clair, leurs arguments sont nommés et il est facile de les tester. Dans notre exemple, cela signifie créer :
 
 ```elm
 -- List.map redoublement ["ha","choo"]
