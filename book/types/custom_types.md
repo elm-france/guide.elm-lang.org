@@ -29,7 +29,7 @@ thomas = { status = Regular, name = "Thomas" }
 kate95 = { status = Visitor, name = "kate95" }
 ```
 
-De cette façon, nous pouvons déterminer si chaque usager est un (`Regular`) qui dispose d'un compte ou juste un (`Visitor`). Ce n'est pas trop compliqué, mais on peut rendre ça encore plus simple !
+De cette façon, nous pouvons déterminer si l'usager dispose d'un compte (`Regular`) ou non (`Visitor`). Ce n'est pas trop compliqué, mais on peut rendre ça encore plus simple !
 
 Plutôt que de créer un type personnalisé *et* un alias de type, on peut représenter l'ensemble au moyen *d'un seul* type personnalisé. Les variantes `Regular` et `Visitor` se voient chacune associée à un identifiant de type `String` :
 
