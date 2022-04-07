@@ -131,4 +131,4 @@ Au fur et à mesure que votre programme change, l'ensemble de valeurs possibles 
 >
 > Fait intéressant, certains langages impératifs ont des types personnalisés ! Rust en est un excellent exemple. Ils les appellent [enums](https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html) pour profiter des habitudes que les gens peuvent avoir de C et Java. Ainsi, en Rust, l'ajout de cardinalités est aussi simple qu'en Elm, et cela apporte les mêmes avantages !
 >
-> Je pense que le point ici est que « l'addition » de types est extraordinairement sous-estimée en général, et prendre les types comme  des ensembles aide à clarifier pourquoi certaines conceptions de langages peuvent produire certaines frustrations.
+> Je pense que le point ici est que « l'addition » de types est extraordinairement sous-estimée en général, et considérer les types comme  des ensembles aide à clarifier pourquoi certaines conceptions de langages peuvent produire certaines frustrations.
