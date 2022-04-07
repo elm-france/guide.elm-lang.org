@@ -64,6 +64,6 @@ Aucune combinaison de bibliothèques JS ne peut vous donner toutes ces garanties
 J'ai mis l'accent sur la facilité d'apprentissage et d'utilisation d'Elm, donc tout ce que je vous demande, c'est d'essayer Elm et de voir ce que vous en pensez. J'espère que vous serez agréablement surpris !
 
 
-## Origine du guide
-
-Ce guide est le fruit d'un travail de traduction entrepris par la communauté [elm-france](https://elm-france.fr/) du [guide officiel](https://guide.elm-lang.org/) écrit par Evan Czaplicki. Les codes sources des guides [officiel](https://github.com/elm-guides/elm-lang.org) (en anglais) et [français](https://github.com/elm-france/guide.elm-lang.org) sont disponibles sous license [Creative Commons BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0).
+> ## Origine du guide
+>
+> Ce guide est le fruit d'un travail de traduction entrepris par la communauté [elm-france](https://elm-france.fr/) du [guide officiel](https://guide.elm-lang.org/) écrit par Evan Czaplicki. Les codes sources des guides [officiel](https://github.com/elm-guides/elm-lang.org) (en anglais) et [français](https://github.com/elm-france/guide.elm-lang.org) sont disponibles sous license [Creative Commons BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0).
