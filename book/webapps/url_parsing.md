@@ -100,7 +100,7 @@ routeParser =
 -- /blog/?query=whales   ==>  Just (BlogQuery Nothing)
 ```
 
-Les opérateurs `</>` et `<?>` permettent d'écrire des analyseurs qui ressemblent fort aux URLs qu'ils cherchent à analyser. Et grâce à `Url.Parser.Query`, on peut gérer les paramètres de recherche comme `?q=seiza`.
+Les opérateurs `</>` et `<?>` permettent d'écrire des *parsers* (analyseurs syntaxiques) qui ressemblent fortement aux URLs qu'ils cherchent à analyser. Et grâce à `Url.Parser.Query`, on peut gérer les paramètres de recherche comme `?q=seiza`.
 
 ## Exemple n°3
 
