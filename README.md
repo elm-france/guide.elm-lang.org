@@ -12,12 +12,17 @@ La traduction est encore en cours, les contributions sont les bienvenues !
     sudo npm link
     bash build.sh
 
+### Installer le plugin pour les typos FR
+
+    cd honkit-plugin-french-typography
+    npm link
+
 ### Installer Honkit
 
 Placez-vous à la racine du projet, puis :
 
     npm install
-    npm link gitbook-plugin-elm-repl
+    npm run link-all
 
 ## Générer le livre
 
