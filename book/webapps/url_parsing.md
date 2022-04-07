@@ -136,7 +136,7 @@ Maintenant nous pouvons également gérer les fragments d'URL !
 
 ## Synthèse
 
-Maintenant qu'on a vu quelques analyseurs, regardons comment tout ça s'intègre dans un programme `Browser.application`. Plutôt que de se contenter d'enregistrer l'URL comme la dernière fois, si on essayait de la transformer en donnée utile et de l'afficher ?
+Maintenant qu'on a vu quelques parsers, regardons comment tout ça s'intègre dans un programme `Browser.application`. Plutôt que de se contenter d'enregistrer l'URL comme la dernière fois, si on essayait de la transformer en donnée utile et de l'afficher ?
 
 ```elm
 TODO
