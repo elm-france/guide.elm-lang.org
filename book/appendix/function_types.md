@@ -73,7 +73,7 @@ La fonction `List.map` est couramment utilisée dans les programmes Elm :
 List.map : (a -> b) -> List a -> List b
 ```
 
-Elle prend deux arguments : une fonction et une liste. Elle transforme chaque élément de la liste en utilisant cette fonction. Voici quelques exemples :
+Elle prend deux arguments, une fonction et une liste, et transforme chaque élément de la liste en utilisant cette fonction. Voici quelques exemples :
 
 - `List.map String.reverse ["part","are"] == ["trap","era"]`
 - `List.map String.length ["part","are"] == [4,3]`
