@@ -23,7 +23,7 @@ Disons que nous avons un site d'art, et que nous voulons proposer les adresses s
 - `/user/sue/comment/11`
 - `/user/sue/comment/51`
 
-On a donc des pages sur des sujets, des articles de blog, des pages de profil, et un moyen d'afficher un commentaire d'utilisateur en particulier. On pourra utiliser le module [`Url.Parser`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser) pour écrire l'analyseur d'URL suivant :
+On a donc des pages sur des sujets, des articles de blog, des pages de profil, et un moyen d'afficher un commentaire d'utilisateur en particulier. On pourra utiliser le module [`Url.Parser`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser) pour écrire le parser d'URL suivant :
 
 ```elm
 import Url.Parser exposing (Parser, (</>), int, map, oneOf, s, string)
