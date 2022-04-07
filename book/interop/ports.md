@@ -213,7 +213,7 @@ app.ports.sendMessage.subscribe(function(message) {
 });
 ```
 
-Ce code JavaScript s'abonne à tous les messages sortants et les envoie sur la *socket*. Les méthodes `subscribe` et `unsubscribe` vous permettent de s'abonner à de multiples fonctions et de résilier l'abonnement à une fonction par référence, mais une approche simple et statique suffira la majeur partie du temps.
+Ce code JavaScript s'abonne à tous les messages sortants et les envoie sur la *socket*. Les méthodes `subscribe` et `unsubscribe` permettent de s'abonner à de multiples fonctions et de résilier l'abonnement à une fonction par référence, mais une approche simple et statique suffira la majeure partie du temps.
 
 Nous vous recommandons également d'envoyer des messages sortants *riches* plutôt que d'implémenter de multiples ports individuels. Cela peut impliquer de définir un type spécifique permettant de modéliser l'ensemble des informations que vous souhaitez transmettre à JavaScript, en utilisant [`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode) pour le sérialiser et l'envoyer à un abonnement unique côté JS. De nombreux utilisateurs apprécient la meilleure [séparation des responsabilités](https://fr.wikipedia.org/wiki/S%C3%A9paration_des_pr%C3%A9occupations) que cette approche procure.
 
