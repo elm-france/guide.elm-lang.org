@@ -730,8 +730,8 @@
 <li>Comment gérer la communication entre Elm et JavaScript avec les <em>ports</em>.</li>
 </ol>
 <p>Mais devinez quoi ? Il existe un autre moyen de faire communiquer ces deux environnements !</p>
-<p>Les navigateurs Web supportent de mieux en mieux les <a href="https://developer.mozilla.org/fr/docs/Web/Web_Components/Using_custom_elements" target="_blank">custom elements</a> (composants Web personnalisés), qui vont s&apos;avérer très utile pour intégrer du JavaScript à nos applications Elm.</p>
-<p>Voici un <a href="https://github.com/elm-community/js-integration-examples/tree/master/internationalization" target="_blank">exemple minimaliste</a> illustrant la façon dont on peut exploiter ces custom elements pour gérer l&apos;internationalisation et la localisation.</p>
+<p>Les navigateurs Web supportent de mieux en mieux les <a href="https://developer.mozilla.org/fr/docs/Web/Web_Components/Using_custom_elements" target="_blank"><em>custom elements</em></a> (composants Web personnalisés), qui vont s&apos;avérer très utile pour intégrer du JavaScript à nos applications Elm.</p>
+<p>Voici un <a href="https://github.com/elm-community/js-integration-examples/tree/master/internationalization" target="_blank">exemple minimaliste</a> illustrant la façon dont on peut exploiter ces <em>custom elements</em> pour gérer l&apos;internationalisation et la localisation.</p>
 <h2 id="créer-des-custom-elements">Créer des Custom Elements</h2>
 <p>Imaginons vouloir traduire des dates mais que cette fonctionnalité n&apos;est pas encore disponible dans un paquet Elm. Peut-être pourrions-nous écrire une fonction JavaScript permettant de le faire :</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">//</span>
@@ -751,7 +751,7 @@
     <span class="hljs-keyword">return</span> dateTimeFormat.format(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(year, month));
 }
 </code></pre>
-<p>Mais comment utiliser notre fonction en Elm ?! Les navigateurs modernes vous permettent de créer des nouveaux éléments HTML comme ceci :</p>
+<p>Mais comment utiliser notre fonction en Elm ? Les navigateurs modernes vous permettent de créer des nouveaux éléments HTML comme ceci :</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">//</span>
 <span class="hljs-comment">//   &lt;intl-date lang=&quot;sr-RS&quot; year=&quot;2012&quot; month=&quot;5&quot;&gt;</span>
 <span class="hljs-comment">//   &lt;intl-date lang=&quot;en-GB&quot; year=&quot;2012&quot; month=&quot;5&quot;&gt;</span>
@@ -776,7 +776,7 @@ customElements.define(<span class="hljs-string">&apos;intl-date&apos;</span>,
     }
 );
 </code></pre>
-<p>Les éléments remarquables ici sont les fonctions <code>attributeChangedCallback</code> et <code>observedAttributes</code>, qui sont nécessaires pur intercepter les changements d&apos;attributs intéressants.</p>
+<p>Les éléments remarquables ici sont les fonctions <code>attributeChangedCallback</code> et <code>observedAttributes</code>, qui sont nécessaires pour intercepter les changements d&apos;attributs intéressants.</p>
 <p>En vous assurant de charger ce code JavaScript avant d&apos;initialiser votre application Elm, vous serez capables d&apos;écrire du code Elm de ce type :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, node)
 <span class="hljs-keyword">import</span> Html.Attributes (attribute)
@@ -793,8 +793,8 @@ customElements.define(<span class="hljs-string">&apos;intl-date&apos;</span>,
 <p>Maintenant, vous pouvez appeler la fonction <code>viewDate</code> dès que vous désirez afficher des dates internationalisées dans vos vues.</p>
 <p>Vous pouvez accéder à la version complète de cet exemple <a href="https://github.com/elm-community/js-integration-examples/tree/master/internationalization" target="_blank">ici</a>.</p>
 <h2 id="plus-dinformation">Plus d&apos;information</h2>
-<p>Luke a beaucoup plus d&apos;expérience avec les custom elements, et cette <a href="https://www.youtube.com/watch?v=tyFe9Pw6TVE" target="_blank">conférence à Elm Europe</a> est une excellente introduction !</p>
-<p>La documentation autour des custom elements peut être un peu indigeste, mais nous espérons qu&apos;elle restera utile si vous souhaitez commencer à internationaliser très simplement vos applications ou d&apos;embarquer de gros composants React si vous estimez cela nécessaire à votre projet.</p>
+<p>Luke a beaucoup plus d&apos;expérience avec les <em>custom elements</em>, et cette <a href="https://www.youtube.com/watch?v=tyFe9Pw6TVE" target="_blank">conférence à Elm Europe</a> est une excellente introduction !</p>
+<p>La documentation autour des <em>custom elements</em> peut être un peu indigeste, mais nous espérons qu&apos;elle restera utile si vous souhaitez commencer à internationaliser très simplement vos applications ou d&apos;embarquer de gros composants React si vous estimez cela nécessaire à votre projet.</p>
 <hr>
 <p><a href="https://github.com/elm-france/guide.elm-lang.org/tree/master/book/interop/custom_elements.md" target="_blank">Source de cette page</a> —
 <a href="https://github.com/elm-france/guide.elm-lang.org/edit/master/book/interop/custom_elements.md" target="_blank">Suggérer une modification</a></p>
@@ -841,7 +841,7 @@ customElements.define(<span class="hljs-string">&apos;intl-date&apos;</span>,
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Custom Elements","level":"1.8.3","depth":2,"next":{"title":"Limites","level":"1.8.4","depth":2,"path":"interop/limits.md","ref":"interop/limits.md","articles":[]},"previous":{"title":"Ports","level":"1.8.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"interop/custom_elements.md","mtime":"2022-04-07T09:25:43.209Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-07T09:25:55.292Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Custom Elements","level":"1.8.3","depth":2,"next":{"title":"Limites","level":"1.8.4","depth":2,"path":"interop/limits.md","ref":"interop/limits.md","articles":[]},"previous":{"title":"Ports","level":"1.8.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"interop/custom_elements.md","mtime":"2022-04-07T15:17:01.367Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-07T15:17:15.156Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

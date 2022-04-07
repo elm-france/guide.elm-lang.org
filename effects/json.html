@@ -723,8 +723,8 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="json">JSON</h1>
-<p>Nous venons de voir un exemple qui utilise HTTP pour obtenir le contenu d&apos;un livre. C&apos;est très bien, mais un grand nombre de serveurs renvoient des données dans un format spécial appelé JavaScript Object Notation, ou JSON en abrégé.</p>
-<p>L&apos;exemple suivant montre donc comment récupérer des données JSON, ce qui nous permet d&apos;appuyer sur un bouton pour afficher des GIFs de chats aléatoires. Cliquez sur le bouton bleu &quot;Edit&quot; et regardez un peu le programme. Essayez de ne pas regarder uniquement les chats ! <strong>Cliquez sur le bouton bleu maintenant !</strong></p>
+<p>Nous venons de voir un exemple qui utilise HTTP pour obtenir le contenu d&apos;un livre. C&apos;est très bien, mais un grand nombre de serveurs renvoient des données dans un format spécial appelé <em>JavaScript Object Notation</em>, ou JSON en abrégé.</p>
+<p>L&apos;exemple suivant montre donc comment récupérer des données JSON, ce qui nous permet d&apos;appuyer sur un bouton pour afficher des GIFs aléatoires de chats. Cliquez sur le bouton bleu &quot;Edit&quot; et regardez un peu le programme. Essayez de ne pas regarder uniquement les chats ! <strong>Cliquez sur le bouton bleu maintenant !</strong></p>
 <div class="edit-link"><a href="https://elm-lang.org/examples/cat-gifs" target="_blank">Edit</a></div>
 
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
@@ -846,7 +846,7 @@
 <p>Cet exemple est assez similaire au précédent :</p>
 <ul>
 <li><code>init</code> nous fait démarrer dans l&apos;état <code>Loading</code>, avec une commande pour obtenir un GIF de chat aléatoire.</li>
-<li><code>update</code> gère le message <code>GotGif</code> à chaque fois qu&apos;un nouveau GIF est disponible. Quoi qu&apos;il se passe ici, nous n&apos;avons pas de commandes supplémentaires. Il gère également le message <code>MorePlease</code> lorsque quelqu&apos;un appuie sur le bouton, émettant une commande pour obtenir plus de chats aléatoires.</li>
+<li><code>update</code> gère le message <code>GotGif</code> à chaque fois qu&apos;un nouveau GIF est disponible. Quoi qu&apos;il se passe ici, nous n&apos;avons pas de commande supplémentaire. Il gère également le message <code>MorePlease</code> lorsque quelqu&apos;un appuie sur le bouton, émettant une commande pour obtenir plus de chats aléatoires.</li>
 <li><code>view</code> vous montre les chats !</li>
 </ul>
 <p>La principale différence réside dans la définition de <code>getRandomCatGif</code>. Au lieu d&apos;utiliser <code>Http.expectString</code>, nous sommes passés à <code>Http.expectJson</code>. Quel est le problème avec ça ?</p>
@@ -870,7 +870,7 @@
 </code></pre>
 <p>Nous n&apos;avons aucune garantie sur quelconque de ces informations. Le serveur peut changer les noms des champs, et les champs peuvent avoir des types différents dans des situations différentes. C&apos;est un monde sauvage !</p>
 <p>En JavaScript, l&apos;approche consiste à transformer le JSON en objets JavaScript et à espérer que tout se passe bien. Mais s&apos;il y a une faute de frappe ou des données inattendues, vous obtenez une exception d&apos;exécution quelque part dans votre code. Le code était-il mauvais ? Les données étaient-elles erronées ? Il est temps de commencer à creuser pour le découvrir !</p>
-<p>Dans Elm, nous validons le JSON avant qu&apos;il n&apos;entre dans notre programme. Ainsi, si les données ont une structure inattendue, nous l&apos;apprenons immédiatement. Il n&apos;y a aucun moyen pour de mauvaises données de se faufiler et de provoquer une exception d&apos;exécution trois fichiers plus loin. Ceci est rendu possible grâce aux décodeurs JSON.</p>
+<p>Dans Elm, nous validons le JSON avant qu&apos;il n&apos;entre dans notre programme. Ainsi, si les données ont une structure inattendue, nous l&apos;apprenons immédiatement. Il n&apos;y a aucun moyen pour une mauvaise donnée de se faufiler et de provoquer une exception d&apos;exécution trois fichiers plus loin. Ceci est rendu possible grâce aux décodeurs JSON.</p>
 <h2 id="décodeurs-json">Décodeurs JSON</h2>
 <p>Disons que nous avons du JSON :</p>
 <pre><code class="lang-json">{
@@ -930,7 +930,7 @@
   }
 }
 </code></pre>
-<p>Nous voulions accéder à <code>response.data.image_url</code> pour afficher un GIF aléatoire. Eh bien, nous avons les outils pour le faire maintenant !</p>
+<p>Nous voulions accéder à <code>response.data.image_url</code> pour afficher un GIF aléatoire. Eh bien, nous avons les outils pour le faire, maintenant !</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, string)
 
 <span class="hljs-title">gifDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">String</span>
@@ -966,10 +966,10 @@
 <li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#dict" target="_blank"><code>dict</code></a> : <code>Decoder a -&gt; Decoder (Dict String a)</code></li>
 <li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#oneOf" target="_blank"><code>oneOf</code></a> : <code>List (Decoder a) -&gt; Decoder a</code></li>
 </ul>
-<p>Il existe donc des moyens d&apos;extraire toutes sortes de structures de données. La fonction <code>oneOf</code> est particulièrement utile pour du JSON bordélique. Par exemple, parfois vous obtenez un <code>Int</code> et d&apos;autres fois vous obtenez une <code>String</code> contenant des chiffres. Tellement pénible !</p>
+<p>Il existe donc des moyens d&apos;extraire toutes sortes de structures de données. La fonction <code>oneOf</code> est particulièrement utile pour du JSON un peu chaotique. Par exemple, parfois vous obtenez un <code>Int</code> et d&apos;autres fois vous obtenez une <code>String</code> contenant des chiffres. C&apos;est tellement pénible !</p>
 <p>Il y a aussi <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map3" target="_blank"><code>map3</code></a>, <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4" target="_blank"><code>map4</code></a>, et quelques autres pour gérer les objets avec plus de deux champs. Mais lorsque vous commencez à travailler avec des objets JSON de plus grande taille, cela vaut la peine de consulter <a href="https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest" target="_blank"><code>NoRedInk/elm-json-decode-pipeline</code></a>. Les types y sont un peu plus sophistiqués, mais certaines personnes les trouvent beaucoup plus faciles à lire et à utiliser.</p>
 <blockquote>
-<p><strong>Fait amusant : </strong> J&apos;ai entendu un tas d&apos;histoires de personnes qui ont trouvé des bugs dans leur code <em>serveur</em> lorsqu&apos;ils sont passés de JS à Elm. Les décodeurs que les personnes écrivent finissent par fonctionner comme une phase de validation, attrapant des trucs bizarres dans les valeurs JSON. Ainsi, lorsque NoRedInk est passé de React à Elm, cela a révélé quelques bugs dans leur code Ruby !</p>
+<p><strong>Fait amusant : </strong> J&apos;ai entendu plusieurs histoires de personnes qui ont trouvé des bugs dans leur code <em>serveur</em> lorsqu&apos;ils sont passés de JS à Elm. Les décodeurs que les personnes écrivent finissent par fonctionner comme une phase de validation, capturant des bizarreries dans les valeurs JSON. Ainsi, lorsque NoRedInk est passé de React à Elm, cela a révélé quelques bugs dans leur code Ruby !</p>
 </blockquote>
 <hr>
 <p><a href="https://github.com/elm-france/guide.elm-lang.org/tree/master/book/effects/json.md" target="_blank">Source de cette page</a> —
@@ -1017,7 +1017,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JSON","level":"1.6.2","depth":2,"next":{"title":"Random","level":"1.6.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},"previous":{"title":"HTTP","level":"1.6.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"effects/json.md","mtime":"2022-04-07T09:25:43.209Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-07T09:25:55.292Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JSON","level":"1.6.2","depth":2,"next":{"title":"Random","level":"1.6.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},"previous":{"title":"HTTP","level":"1.6.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"effects/json.md","mtime":"2022-04-07T15:17:01.363Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-07T15:17:15.156Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

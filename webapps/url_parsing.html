@@ -723,13 +723,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="parser-les-urls">Parser les URLs</h1>
-<p>Dans la vraie vie, on veut que notre application montre des choses différentes selon les URLs :</p>
+<p>Dans une vraie application web, on veut que notre application montre des choses différentes selon les URLs :</p>
 <ul>
 <li><code>/search</code></li>
 <li><code>/search?q=seiza</code></li>
 <li><code>/settings</code></li>
 </ul>
-<p>Oui, mais comment faire ? En utilisant <a href="https://package.elm-lang.org/packages/elm/url/latest/" target="_blank"><code>elm/url</code></a> pour parser ces chaînes brutes en structures de données en Elm. Le plus simple pour comprendre ce que fait ce paquet, c&apos;est de regarder des exemples, alors faisons ça !</p>
+<p>Oui, mais comment faire ? En utilisant <a href="https://package.elm-lang.org/packages/elm/url/latest/" target="_blank"><code>elm/url</code></a> pour transformer ces chaînes brutes en structures de données en Elm. Le plus simple pour comprendre ce que fait ce paquet, c&apos;est de regarder des exemples, alors faisons ça !</p>
 <h2 id="exemple-n°1">Exemple n°1</h2>
 <p>Disons que nous avons un site d&apos;art, et que nous voulons proposer les adresses suivantes :</p>
 <ul>
@@ -744,7 +744,7 @@
 <li><code>/user/sue/comment/11</code></li>
 <li><code>/user/sue/comment/51</code></li>
 </ul>
-<p>On a donc des pages sur des sujets, des posts de blog, des pages de profil, et un moyen d&apos;afficher un commentaire d&apos;utilisateur en particulier. On pourra utiliser le module <a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser" target="_blank"><code>Url.Parser</code></a> pour écrire le parseur d&apos;URL suivant :</p>
+<p>On a donc des pages sur des sujets, des articles de blog, des pages de profil, et un moyen d&apos;afficher un commentaire d&apos;utilisateur en particulier. On pourra utiliser le module <a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser" target="_blank"><code>Url.Parser</code></a> pour écrire le parser d&apos;URL suivant :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Url.Parser <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Parser</span>, (&lt;/&gt;), int, map, oneOf, s, string)
 
 <span class="hljs-keyword">type</span> <span class="hljs-type">Route</span>
@@ -779,7 +779,7 @@
 </code></pre>
 <p>Le module <code>Url.Parser</code> permet, de manière très concise, de transformer complètement des URLs valides en données Elm !</p>
 <h2 id="exemple-n°2">Exemple n°2</h2>
-<p>Maintenant, disons que nous avons un blog perso, et que les adresses suivantes sont valides :</p>
+<p>Maintenant, disons que nous avons un blog personnel et que les adresses suivantes sont valides :</p>
 <ul>
 <li><code>/blog/12/the-history-of-chairs</code></li>
 <li><code>/blog/13/the-endless-september</code></li>
@@ -788,7 +788,7 @@
 <li><code>/blog?q=whales</code></li>
 <li><code>/blog?q=seiza</code></li>
 </ul>
-<p>Dans le cas présent, nous avons des posts de blog individuels et une vue d&apos;ensemble du blog avec un paramètre de recherche optionnel. Il faut ajouter le module <a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query" target="_blank"><code>Url.Parser.Query</code></a> pour pouvoir écrire notre parser :</p>
+<p>Dans le cas présent, nous avons des articles de blog individuels et une vue d&apos;ensemble du blog avec un paramètre de recherche optionnel. Il faut ajouter le module <a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query" target="_blank"><code>Url.Parser.Query</code></a> pour pouvoir écrire notre parser :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Url.Parser <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Parser</span>, (&lt;/&gt;), (&lt;?&gt;), int, map, oneOf, s, string)
 <span class="hljs-keyword">import</span> Url.Parser.Query <span class="hljs-keyword">as</span> Query
 
@@ -812,9 +812,9 @@
 <span class="hljs-comment">-- /blog/?q=whales       ==&gt;  Just (BlogQuery (Just &quot;whales&quot;))</span>
 <span class="hljs-comment">-- /blog/?query=whales   ==&gt;  Just (BlogQuery Nothing)</span>
 </code></pre>
-<p>Les opérateurs <code>&lt;/&gt;</code> et <code>&lt;?&gt;</code> permettent d&apos;écrire des parsers qui ressemblent fort aux URLs qu&apos;ils cherchent à parser. Et grâce à <code>Url.Parser.Query</code>, on peut gérer les paramètres de recherche comme <code>?q=seiza</code>.</p>
+<p>Les opérateurs <code>&lt;/&gt;</code> et <code>&lt;?&gt;</code> permettent d&apos;écrire des <em>parsers</em> (analyseurs syntaxiques) qui ressemblent fortement aux URLs qu&apos;ils cherchent à analyser. Et grâce à <code>Url.Parser.Query</code>, on peut gérer les paramètres de recherche comme <code>?q=seiza</code>.</p>
 <h2 id="exemple-n°3">Exemple n°3</h2>
-<p>On a maintenant un site de documentation avec des adresses comme ça :</p>
+<p>On a maintenant un site de documentation avec des adresses comme celles-ci :</p>
 <ul>
 <li><code>/Basics</code></li>
 <li><code>/Maybe</code></li>
@@ -839,18 +839,18 @@
 <span class="hljs-comment">-- /List/map   ==&gt;  Nothing</span>
 <span class="hljs-comment">-- /           ==&gt;  Nothing</span>
 </code></pre>
-<p>Et hop, c&apos;est bon pour les fragments !</p>
+<p>Maintenant nous pouvons également gérer les fragments d&apos;URL !</p>
 <h2 id="synthèse">Synthèse</h2>
 <p>Maintenant qu&apos;on a vu quelques parsers, regardons comment tout ça s&apos;intègre dans un programme <code>Browser.application</code>. Plutôt que de se contenter d&apos;enregistrer l&apos;URL comme la dernière fois, si on essayait de la transformer en donnée utile et de l&apos;afficher ?</p>
 <pre><code class="lang-elm"><span class="hljs-type">TODO</span>
 </code></pre>
 <p>Les nouveautés :</p>
 <ol>
-<li>notre fonction <code>update</code> parse l&apos;URL quand elle reçoit un message <code>UrlChanged</code> ;</li>
+<li>notre fonction <code>update</code> analyse l&apos;URL quand elle reçoit un message <code>UrlChanged</code> ;</li>
 <li>notre fonction <code>view</code> montre des choses différentes selon les adresses !</li>
 </ol>
 <p>Rien de bien compliqué. Tant mieux !</p>
-<p>Bon, mais il se passe quoi avec 10 pages différentes ? Ou 20 ? Ou 100 ? On met tout dans notre <code>view</code> ? On va pas laisser tout ça dans un seul fichier, si ? Mais alors, combien de fichiers ? Dans quelle arborescence de répertoires ? C&apos;est ce qu&apos;on va voir dans la partie suivante !</p>
+<p>Bon, mais il se passe quoi avec 10 pages différentes ? Ou 20 ? Ou 100 ? Doit-on tout mettre dans notre <code>view</code> ? Peut-on laisser tout ça dans un seul fichier ? Mais alors, combien de fichiers ? Dans quelle arborescence de répertoires ? C&apos;est ce qu&apos;on va voir dans la partie suivante !</p>
 <hr>
 <p><a href="https://github.com/elm-france/guide.elm-lang.org/tree/master/book/webapps/url_parsing.md" target="_blank">Source de cette page</a> —
 <a href="https://github.com/elm-france/guide.elm-lang.org/edit/master/book/webapps/url_parsing.md" target="_blank">Suggérer une modification</a></p>
@@ -897,7 +897,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"URL Parsing","level":"1.9.2","depth":2,"next":{"title":"Modules","level":"1.9.3","depth":2,"path":"webapps/modules.md","ref":"webapps/modules.md","articles":[]},"previous":{"title":"Navigation","level":"1.9.1","depth":2,"path":"webapps/navigation.md","ref":"webapps/navigation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"webapps/url_parsing.md","mtime":"2022-04-07T09:25:43.213Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-07T09:25:55.292Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"URL Parsing","level":"1.9.2","depth":2,"next":{"title":"Modules","level":"1.9.3","depth":2,"path":"webapps/modules.md","ref":"webapps/modules.md","articles":[]},"previous":{"title":"Navigation","level":"1.9.1","depth":2,"path":"webapps/navigation.md","ref":"webapps/navigation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"webapps/url_parsing.md","mtime":"2022-04-07T15:17:01.367Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-07T15:17:15.156Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

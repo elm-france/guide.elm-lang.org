@@ -722,8 +722,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="les-types-sous-formes-de-bits">Les types sous formes de bits</h1>
-<p>Il y a plein de sortes de types en Elm :</p>
+                                <h1 id="les-types-en-tant-que-bits">Les types en tant que bits</h1>
+<p>Il y a de nombreux types possibles en Elm :</p>
 <ul>
 <li><code>Bool</code></li>
 <li><code>Int</code></li>
@@ -732,14 +732,14 @@
 <li><code>Maybe Int</code></li>
 <li>...</li>
 </ul>
-<p>Nous en avons une compréhension conceptuelle à présent, mais comment sont-ils compris par un ordinateur ? Comment est-ce que <code>Maybe Int</code> est stocké sur le disque dur ?</p>
+<p>Nous en avons une compréhension conceptuelle à présent, mais comment sont-ils compris par un ordinateur ? Comment <code>Maybe Int</code> est-il stocké sur le disque dur ?</p>
 <h2 id="bits">Bits</h2>
-<p>Un <strong>bit</strong> est une petite boite qui a deux états. Zéro ou un. Allumé ou éteint. La mémoire d&apos;un ordinateur est une séquence de bits super longue.</p>
-<p>Ok, donc nous avons un gros tas de 0s et de 1s. Maintenant il nous faut <em>tout</em> représenter avec ça !</p>
+<p>Un <strong>bit</strong> est une petite boite qui a deux états. Zéro ou un. Allumé ou éteint. La mémoire d&apos;un ordinateur est une séquence de bits extrêmement longue.</p>
+<p>Ok, donc nous avons un gros ensemble de 0 et de 1. Maintenant il nous faut <em>tout</em> représenter avec ça !</p>
 <h2 id="bool"><code>Bool</code></h2>
 <p>Une valeur <code>Bool</code> peut être soit <code>True</code> ou <code>False</code>. Ça correspond exactement à un bit !</p>
 <h2 id="int"><code>Int</code></h2>
-<p>Une valeur <code>Int</code> est un nombre entier comme <code>0</code>, <code>1</code>, <code>2</code>, etc. On ne peut pas stocker ça dans un seul bit, donc la seule autre solution est d&apos;utiliser plusieurs bits. Donc, normalement, un <code>Int</code> serait une séquence de bits, comme ceux-ci :</p>
+<p>Une valeur <code>Int</code> est un nombre entier comme <code>0</code>, <code>1</code>, <code>2</code>, etc. On ne peut pas stocker ça dans un seul bit, donc la seule solution est d&apos;utiliser plusieurs bits. Un <code>Int</code> serait donc normalement une séquence de bits, comme celle-ci :</p>
 <pre><code>00000000
 00000001
 00000010
@@ -763,28 +763,28 @@
 <p>On s&apos;est fait une bonne idée pour les caractères, mais comment l&apos;ordinateur saura-t-il où se termine la <code>String</code> et où commence la donnée suivante ? Ce ne sont que des bits. Les caractères ressemblent vraiment à des valeurs <code>Int</code> ! Nous avons donc besoin d&apos;un moyen de marquer la fin.</p>
 <p>De nos jours, les langages ont tendance à le faire en stockant la <strong>longueur</strong> de la chaîne. Ainsi, une chaîne comme <code>&quot;hello&quot;</code> pourrait ressembler à <code>5</code> <code>h</code> <code>e</code> <code>l</code> <code>l</code> <code>o</code> en mémoire. Vous savez donc qu&apos;une <code>String</code> commence toujours par 32 bits représentant la longueur. Et que la longueur soit 0 ou 9000, vous savez exactement où s&apos;arrêtent les caractères.</p>
 <blockquote>
-<p><strong>Remarque :</strong> À un moment donné, les gens ont voulu d&apos;autres langues que l&apos;anglais. Cet effort a finalement abouti au codage <a href="https://fr.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8</a>. C&apos;est vraiment génial en fait, et je vous encourage à en apprendre davantage. Il s&apos;avère que « obtenir le 5e caractère » est plus difficile qu&apos;il n&apos;y paraît !</p>
+<p><strong>Remarque :</strong> À un moment donné, les gens ont voulu d&apos;autres langues que l&apos;anglais. Cet effort a finalement abouti au codage <a href="https://fr.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8</a>. C&apos;est en réalité génial et je vous encourage à en apprendre davantage. Il s&apos;avère que « obtenir le 5e caractère » est plus difficile qu&apos;il n&apos;y paraît !</p>
 </blockquote>
 <h2 id="int-int"><code>(Int, Int)</code></h2>
-<p>Qu&apos;en est-il des tuples ? Eh bien, <code>(Int, Int)</code> correspond à deux valeurs <code>Int</code>, et chacune est une séquence de bits. Mettons simplement ces deux séquences l&apos;une à côté de l&apos;autre en mémoire restons-en là !</p>
+<p>Qu&apos;en est-il des tuples ? Eh bien, <code>(Int, Int)</code> correspond à deux valeurs <code>Int</code>, et chacune est une séquence de bits. Mettons simplement ces deux séquences l&apos;une à côté de l&apos;autre en mémoire et appelons ça un jour calendaire !</p>
 <h2 id="types-personnalisés">Types personnalisés</h2>
 <p>Un type personnalisé consiste à combiner différents types. Ces différents types peuvent avoir toutes sortes de formes différentes. Nous allons commencer par le type <code>Couleur</code> :</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Couleur</span> = <span class="hljs-type">Rouge</span> | <span class="hljs-type">Jaune</span> | <span class="hljs-type">Vert</span>
 </code></pre>
 <p>Nous pouvons attribuer un numéro à chaque cas : <code>Rouge = 0</code>, <code>Jaune = 1</code> et <code>Vert = 2</code>. Nous pouvons maintenant utiliser la représentation <code>Int</code>. Ici, nous n&apos;avons besoin que de deux bits pour couvrir tous les cas possibles, donc &apos;00&apos; est rouge, &apos;01&apos; est jaune, &apos;10&apos; est vert et &apos;11&apos; est inutilisé.</p>
-<p>Mais qu&apos;en est-il des types personnalisés contenant des données supplémentaires ? Comme <code>Maybe Int</code> ? L&apos;approche typique consiste à mettre de côté quelques bits pour &quot;étiqueter&quot; les données, afin que nous puissions décider que &quot;Nothing = 0&quot; et &quot;Just = 1&quot;. Voici quelques exemples:</p>
+<p>Mais qu&apos;en est-il des types personnalisés contenant des données supplémentaires ? Comme <code>Maybe Int</code> ? L&apos;approche typique consiste à mettre de côté quelques bits pour &quot;tagger&quot; les données, afin que nous puissions décider que &quot;Nothing = 0&quot; et &quot;Just = 1&quot;. Voici quelques exemples:</p>
 <ul>
 <li><code>Nothing</code> = <code>0</code></li>
 <li><code>Just 12</code> = <code>1</code> <code>00001100</code></li>
 <li><code>Just 16</code> = <code>1</code> <code>00010000</code></li>
 </ul>
-<p>Une expression <code>case</code> regarde toujours cette &quot;étiquette&quot; avant de décider quoi faire ensuite. Si elle voit un <code>0</code>, elle sait qu&apos;il n&apos;y a plus de données. Si elle voit un <code>1</code>, elle sait qu&apos;il est suivi d&apos;une séquence de bits représentant les données.</p>
-<p>Cette idée d&apos;&quot;étiquette&quot; revient à placer la longueur au début des valeurs <code>String</code>. Les valeurs peuvent être de tailles différentes, mais le code peut toujours déterminer où elles commencent et se terminent.</p>
+<p>Une expression <code>case</code> regarde toujours ce &quot;tag&quot; avant de décider quoi faire ensuite. Si elle voit un <code>0</code>, elle sait qu&apos;il n&apos;y a plus de données. Si elle voit un <code>1</code>, elle sait qu&apos;il est suivi d&apos;une séquence de bits représentant les données.</p>
+<p>Cette idée de &quot;tag&quot; revient à placer la longueur au début des valeurs <code>String</code>. Les valeurs peuvent être de tailles différentes, mais le code peut toujours déterminer où elles commencent et se terminent.</p>
 <h2 id="résumé">Résumé</h2>
-<p>Au bout du compte, toutes les valeurs doivent être représentées en bits. Cette page donne un aperçu approximatif de la façon dont cela fonctionne réellement.</p>
-<p>Normalement, il n&apos;y a pas vraiment de raison d&apos;y penser, mais j&apos;ai trouvé cela utile pour approfondir ma compréhension des types personnalisés et des expressions <code>case</code>. J&apos;espère que cela vous sera également utile !</p>
+<p>Au bout du compte, toutes les valeurs doivent être représentées sous forme de bits. Cette page donne un aperçu approximatif de la façon dont cela fonctionne réellement.</p>
+<p>Habituellement, il n&apos;y a pas vraiment de raison de penser à tout ceci, mais j&apos;ai trouvé cela utile pour approfondir ma compréhension des types personnalisés et des expressions <code>case</code>. J&apos;espère que cela vous sera également utile !</p>
 <blockquote>
-<p><strong>Remarque :</strong> Si vous pensez que cela est intéressant, il peut être amusant d&apos;en savoir plus sur le processus de <a href="https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique" target="_blank">&quot;rammasse-miette&quot;</a>). J&apos;ai trouvé que <a href="http://gchandbook.org/" target="_blank">The Garbage Collection Handbook</a> (en anglais) est une excellente mine d&apos;informations sur le sujet !</p>
+<p><strong>Remarque :</strong> Si vous pensez que cela est intéressant, il peut être amusant d&apos;en savoir plus sur le processus de <a href="https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique" target="_blank">&quot;ramasse-miettes&quot;</a>). J&apos;ai trouvé que <a href="http://gchandbook.org/" target="_blank">The Garbage Collection Handbook</a> (en anglais) est une excellente mine d&apos;informations sur le sujet !</p>
 </blockquote>
 <hr>
 <p><a href="https://github.com/elm-france/guide.elm-lang.org/tree/master/book/appendix/types_as_bits.md" target="_blank">Source de cette page</a> —
@@ -832,7 +832,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Les types sous forme de bits","level":"1.12.2","depth":2,"next":{"title":"Types de fonctions","level":"1.12.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]},"previous":{"title":"Les types sous forme d'ensembles","level":"1.12.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"appendix/types_as_bits.md","mtime":"2022-04-07T09:25:43.205Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-07T09:25:55.292Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Les types sous forme de bits","level":"1.12.2","depth":2,"next":{"title":"Types de fonctions","level":"1.12.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]},"previous":{"title":"Les types sous forme d'ensembles","level":"1.12.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["elm-repl","bulk-redirect","-sharing","french-typography"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"elm-repl":{},"french-typography":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Une introduction à Elm","gitbook":"*","description":"Apprenez les fondamentaux de la programmation en Elm, construisez des applications Web et découvrez la programmation fonctionnelle."},"file":{"path":"appendix/types_as_bits.md","mtime":"2022-04-07T15:17:01.363Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-04-07T15:17:15.156Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
