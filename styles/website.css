@@ -14,6 +14,15 @@
 	margin: 2em;
 }
 
+.markdown-section blockquote h1,
+.markdown-section blockquote h2,
+.markdown-section blockquote h3,
+.markdown-section blockquote h4,
+.markdown-section blockquote h5,
+.markdown-section blockquote h6 {
+	margin-top: 0;
+}
+
 
 /* EDIT LINK */
 
