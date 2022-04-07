@@ -96,7 +96,7 @@ redoublement string =
   String.repeat 2 string
 ```
 
-Ce cas est vraiment simple, mais (1) il est maintenant plus clair que je m'intéresse au phénomène linguistique connu sous le nom de [redoublement](https://fr.wikipedia.org/wiki/Redoublement_(linguistique\)) et (2) ce sera assez facile d'ajouter une nouvelle logique à `redoublement` au fur et à mesure que mon programme évolue. Peut-être qu'il me faudra un [redoublement expressif](https://fr.wikipedia.org/wiki/Redoublement_(linguistique\)#Redoublement_expressif) à un moment donné ?
+Ce cas est vraiment simple, mais (1) il est maintenant plus clair que je m'intéresse au phénomène linguistique connu sous le nom de [redoublement](https://fr.wikipedia.org/wiki/Redoublement_\(linguistique\)) et (2) ce sera assez facile d'ajouter une nouvelle logique à `redoublement` au fur et à mesure que mon programme évolue. Peut-être qu'il me faudra un [redoublement expressif](https://fr.wikipedia.org/wiki/Redoublement_\(linguistique\)#Redoublement_expressif) à un moment donné ?
 
 En d'autres termes, **si votre application partielle devient longue, faites-en une fonction utilitaire.** Et si elle est multiligne, elle devrait _absolument_ être transformée en une fonction utilitaire au niveau supérieur ! Ce conseil s'applique également à l'utilisation des fonctions anonymes.
 
