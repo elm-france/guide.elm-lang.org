@@ -1,8 +1,8 @@
 # Result
 
-Le type `Maybe` est très utile pour une fonction pouvant échouer, mais ne nous explique pas *pourquoi* elle a échoué. Imaginez qu'un compilateur ne vous affiche que “`Nothing`” en cas d'erreur au niveau de votre code… Bon courage pour identifier le souci !
+Le type `Maybe` est très utile pour une fonction pouvant échouer, mais ne nous explique pas *pourquoi* celle-ci a échoué. Imaginez qu'un compilateur ne vous affiche que “`Nothing`” en cas d'erreur au niveau de votre code… Bon courage pour identifier le souci !
 
-C'est en cela que le type [`Result`][Result] est particulièrement utile. Il est défini de cette façon :
+C'est en cela que le type [`Result`](https://package.elm-lang.org/packages/elm-lang/core/latest/Result#Result) est particulièrement utile. Il est défini de cette façon :
 
 ```elm
 type Result error value
@@ -11,8 +11,6 @@ type Result error value
 ```
 
 Son but est de fournir des informations supplémentaires en cas de problème. C'est particulièrement utile pour rapporter les erreurs et réagir plus efficacement quand elles surviennent !
-
-[Result]: https://package.elm-lang.org/packages/elm-lang/core/latest/Result#Result
 
 
 ## Rapport d'erreur
@@ -42,7 +40,7 @@ isReasonableAge input =
 -- isReasonableAge "150" == Err ...
 ```
 
-Non seulement nous validons l'âge, mais nous pouvons également afficher à nos utilisateurs des messages d'erreur utiles quand ils saisissent n'importe quoi. Ce type de feedback est tout de même bien plus intéressant que `Nothing` !
+Non seulement nous validons l'âge, mais nous pouvons également afficher à nos utilisateurs des messages d'erreur utiles quand ils saisissent n'importe quoi. Ce genre de retour est tout de même bien plus intéressant que `Nothing` !
 
 
 ## Résilience

@@ -1,14 +1,11 @@
 # Bases du langage
 
-Commençons par nous familiariser avec le code Elm !
-
-L'objectif est de vous familiariser avec les **valeurs** et les **fonctions** afin que vous soyez plus confiant dans la lecture du code Elm lorsque nous aborderons des exemples plus importants par la suite.
+L'objectif est de vous familiariser avec les **valeurs** et les **fonctions** afin de faciliter votre lecture du code Elm quand nous aborderons des exemples plus avancés par la suite.
 
 
 ## Valeurs
 
-
-Le plus petit bloc de construction dans Elm est appelé une **valeur**. Cela inclut des choses comme `42`, `True`, et `"Hello !"`.
+Le plus petit bloc de construction dans Elm est appelé une **valeur**, comme `42`, `True`, et `"Hello !"` par exemple.
 
 Commençons par regarder les nombres :
 
@@ -22,11 +19,11 @@ Commençons par regarder les nombres :
 ]
 {% endrepl %}
 
-Tous les exemples de cette page sont interactifs. Cliquez sur la boîte noire au dessus ⬆️ et le curseur devrait commencer à clignoter. Tapez `2 + 2` et appuyez sur la touche _Entrée_. Le résultat devrait être "4". Vous devriez pouvoir interagir avec tous les exemples de cette page de la même manière !
+Tous les exemples de cette page sont interactifs. Cliquez sur la boîte noire au dessus ⬆️ et le curseur va commencer à clignoter. Tapez `2 + 2` et appuyez sur la touche _Entrée_ pour afficher le résultat `4`. Vous pourrez interagir avec tous les exemples de cette page de la même manière.
 
-Essayez de taper des choses comme `30 * 60 * 1000` et `2 ^ 4`. Cela devrait fonctionner comme une calculatrice !
+Essayez de taper autre chose comme `30 * 60 * 1000` ou `2 ^ 4`. Cela fonctionne comme une calculatrice.
 
-Faire des maths, c'est sympathique, mais c'est étonnamment rare dans la plupart des programmes ! Il est beaucoup plus courant de travailler avec des **chaînes de caractères** comme ceci :
+Au-delà des calculs mathématiques, il est bien plus courant de travailler avec des **chaînes de caractères** comme ceci :
 
 
 {% repl %}
@@ -47,17 +44,16 @@ Faire des maths, c'est sympathique, mais c'est étonnamment rare dans la plupart
 
 Essayez d'assembler quelques chaînes de caractères avec l'opérateur `(++)` ⬆️
 
-Ces valeurs primitives deviennent plus intéressantes quand on commence à écrire des fonctions pour les transformer !
+Ces valeurs primitives deviennent plus intéressantes quand on commence à écrire des fonctions pour les transformer.
 
-
-> **Note:** Vous pouvez en apprendre plus sur les opérateurs comme  [`(+)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#+) et [`(/)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#/) et [`(++)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#++) dans la documentation du module [`Basics`](https://package.elm-lang.org/packages/elm/core/latest/Basics). Ça vaudra la peine de lire toute la documentation de ce paquet à un moment donné !
+> **Note:** Pour en apprendre davantage sur les opérateurs comme [`(+)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#+) et [`(/)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#/) et [`(++)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#++), consultez la documentation du module [`Basics`](https://package.elm-lang.org/packages/elm/core/latest/Basics) (en anglais).
 
 
 ## Fonctions
 
-Une **fonction** est une manière de transformer des valeurs. Elle prend en entrée une valeur et en produit une autre en sortie.
+Une **fonction** est une manière de transformer des valeurs. Elle prend une valeur en entrée et en produit une autre en sortie.
 
-Par exemple, voici une fonction `greet` qui prend en entrée un et nom et dit bonjour :
+Prenons l'exemple d'une fonction `greet` qui construit une salutation à partir d'un nom :
 
 {% repl %}
 [
@@ -80,11 +76,11 @@ Par exemple, voici une fonction `greet` qui prend en entrée un et nom et dit bo
 ]
 {% endrepl %}
 
-Essayer de dire bonjour à quelqu'un d'autre, comme `"Stokely"` ou `"Kwame"` ⬆️
+Essayer de dire bonjour à quelqu'un d'autre, comme `"Charlie"` ou `"Diane"` ⬆️
 
-Les valeurs passées en entrée de la fonction sont généralement appelée **arguments**, on pourrait alors dire que «`greet` est une fonction qui prend un argument ».
+Les valeurs passées en entrée de la fonction sont généralement appelées **arguments**. On pourrait alors dire que «`greet` est une fonction qui prend un argument ».
 
-Maintenant que la politesse peut être mise de côté, que diriez-vous d'une fonction qui prend _deux_ arguments ?
+Mettons la politesse de côté pour introduire une nouvelle fonction qui prend _deux_ arguments :
 
 {% repl %}
 [
@@ -110,9 +106,9 @@ Maintenant que la politesse peut être mise de côté, que diriez-vous d'une fon
 
 Essayez de passer deux arguments à la fonction `madlib` ⬆️
 
-Notez comment nous avons utilisé des parenthèses pour grouper `"butter" ++ "fly"` ensemble dans le deuxième exemple. Chaque argument doit être une valeur primitive comme `"cat"` ou doit obligatoirement se trouver entre parenthèses !
+Remarquez l'utilisation des parenthèses pour grouper `"butter" ++ "fly"` ensemble dans le deuxième exemple. Chaque argument d'une fonction doit être une valeur primitive comme `"cat"` ou se trouver entre parenthèses.
 
-> **Note:** Les personnes venant de langages comme Javascript pourraient être surprises par l'aspect différent qu'ont les fonctions :
+> **Note:** Les personnes venant de langages comme Javascript peuvent être étonnées par ces différences de notation :
 
 >     madlib "cat" "ergonomic"                  -- Elm
 >     madlib("cat", "ergonomic")                // JavaScript
@@ -120,14 +116,14 @@ Notez comment nous avons utilisé des parenthèses pour grouper `"butter" ++ "fl
 >     madlib ("butter" ++ "fly") "metallic"      -- Elm
 >     madlib("butter" + "fly", "metallic")       // JavaScript
 >
-> Ça peut paraître surprenant au début, mais ce style permet d'utiliser moins de parenthèses et de virgules. Il donne une sensation de propreté et de minimalisme au langage une fois que vous y êtes habitué(e) !
+> Bien que surprenant au début, ce style réduit l'utilisation des parenthèses et des virgules. Il donne une sensation de propreté et de minimalisme au langage une fois habitué(e).
 
 
 ## Expressions If
 
 Lorsque que l'on veut obtenir un comportement conditionnel en Elm, on utilise une expression `if`.
 
-Faisons une nouvelle fonction `greet` qui respecte à sa juste valeur le président Abraham Lincoln :
+Faisons une nouvelle fonction `greet` qui respecte le président Abraham Lincoln à sa juste valeur :
 
 {% repl %}
 [
@@ -150,16 +146,14 @@ Faisons une nouvelle fonction `greet` qui respecte à sa juste valeur le présid
 ]
 {% endrepl %}
 
-Il y a sûrement d'autres cas à gérer, mais on va dire que c'est suffisant comme ça pour l'instant !
+Il y a sûrement d'autres cas à gérer, mais ça devrait suffire pour l'exemple.
 
 
 ## Listes
 
-Les listes sont une des structures de données les plus courantes en Elm. Elles contiennent une séquence de choses similaires, comme les tableaux en JavaScript
+Les listes sont une des structures de données les plus courantes en Elm. Elles contiennent une séquence de choses similaires, comme les tableaux en JavaScript.
 
-Les listes peuvent contenir plusieurs valeurs. Ces valeurs doivent toutes avoir le même type. Voici quelques exemples qui utilisent des fonctions du module [`List`][list] :
-
-[list]: https://package.elm-lang.org/packages/elm/core/latest/List
+Les listes peuvent contenir plusieurs valeurs. Ces valeurs doivent toutes être du même type. Voici quelques exemples qui utilisent des fonctions du module [`List`](https://package.elm-lang.org/packages/elm/core/latest/List) :
 
 {% repl %}
 [
@@ -209,14 +203,14 @@ Les listes peuvent contenir plusieurs valeurs. Ces valeurs doivent toutes avoir 
 ]
 {% endrepl %}
 
-Essayez de construire votre propre liste et d'utiliser des fonction comme `List.length` ⬆️
+Essayez de construire votre propre liste et d'utiliser des fonctions comme `List.length` ⬆️
 
-Et n'oubliez pas : tous les éléments d'une liste doivent avoir le même type !
+Gardez en tête que tous les éléments d'une liste doivent être du même type.
 
 
 ## Tuples
 
-Les tuples sont un autre type de structure de données utile. Un tuple peut contenir deux ou trois valeurs et chaque valeur peut être de n'importe quel type. Il est classiquement utilisé lorsque l'on veut retourner plus d'une valeur dans une fonction. La fonction suivante prend un nom et retourne un message à l'utilisateur :
+Les tuples sont une autre structure de données très utile. Un tuple peut contenir deux ou trois valeurs, chaque valeur pouvant être de type différent. Il est typiquement utilisé pour retourner plusieurs valeurs à partir d'une fonction. La fonction suivante accepte un nom et retourne un message à l'utilisateur :
 
 
 {% repl %}
@@ -235,12 +229,12 @@ Les tuples sont un autre type de structure de données utile. Un tuple peut cont
 ]
 {% endrepl %}
 
-Ça peu être pratique, mais lorsque les choses commencent à se compliquer, il est souvent préférable d'utiliser des _records_ au lieux des tuples.
+Les tuples sont pratiques pour des cas simples, mais il est souvent préférable d'utiliser des _records_ pour des traitements plus complexes.
 
 
 ## Records
 
-Un _**record**_ peut contenir plusieurs valeurs, et chaque valeur est associée à un nom.
+Un _**record**_ (ou enregistrement) peut contenir plusieurs valeurs, chaque valeur étant associée à un nom.
 
 Voici un _record_ qui représente l'économiste britannique John A. Hobson :
 
@@ -260,7 +254,7 @@ Voici un _record_ qui représente l'économiste britannique John A. Hobson :
 ]
 {% endrepl %}
 
-Nous avons défini un _record_ avec trois **champs** qui contiennent des informations au sujet du nom et de l'âge de John.
+Nous avons défini un _record_ composé de trois **champs** qui contiennent des informations au sujet du nom et de l'âge de John.
 
 Essayez d'accéder à d'autres champs comme `john.age` ⬆️
 
@@ -310,9 +304,9 @@ Il est souvent utile de **mettre à jour** les valeurs d'un _record_ :
 ]
 {% endrepl %}
 
-Si vous vouliez prononcer ces expressions à haute voix, vous diriez quelque chose comme cela : « Je veux une nouvelle version de John pour laquelle son nom est Adams », ou « john dont l'âge est 22 ».
+Ces expressions peuvent se lire de la façon suivante : « Donnez-moi une nouvelle version de John dont le nom est Adams » ou « John mais âgé de 22 ans ».
 
-Notez que lorsque nous mettons à jour des champs de `john`, nous créons un tout nouveau _record_ : ça n'écrase pas celui qui existe déjà. Elm rend cette opération efficace en partageant le maximum de contenu possible. Si vous mettez à jour un champs sur dix, le nouveau _record_ va partager les neuf valeurs qui n'ont pas été modifiées.
+Remarquez qu'un tout nouveau _record_ est créé à chaque mise-à-jour de John et que le _record_ original n'est pas écrasé. Elm rend cette opération efficace en partageant le maximum de contenu possible. Si vous mettez à jour un champ sur dix, le nouveau _record_ partagera les neuf valeurs qui n'ont pas été modifiées.
 
 Une fonction pour mettre à jour d'âge ressemblerait à quelque chose comme cela :
 
@@ -338,4 +332,4 @@ Une fonction pour mettre à jour d'âge ressemblerait à quelque chose comme cel
 ]
 {% endrepl %}
 
-Mettre à jour les champs des _records_ de cette manière est très courant, nous verrons donc beaucoup d'autres exemples dans la section suivante !
+Cette syntaxe de mise-à-jour des _records_ est omniprésente en Elm. Nous en verrons donc beaucoup d'autres exemples dans les sections suivantes.

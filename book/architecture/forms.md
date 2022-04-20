@@ -90,7 +90,7 @@ viewValidation model =
 Ce programme est similaire à celui sur les [zones de texte](text_fields.md) mais avec plus de champs.
 
 
-# Model
+# Modèle
 
 Commençons par le modèle. Sachant qu'il y aura trois champs textuels, nous pouvons définir :
 
@@ -104,7 +104,7 @@ type alias Model =
 
 Il est préférable de démarrer avec un modèle minimal, même s'il ne contient qu'un seul champ, suivi de l'écriture des fonctions `view` et `update`. Ces étapes révèlent souvent les modifications supplémentaires à apporter au modèle. Cette construction progressive du modèle permet d'avoir un programme fonctionnel tout au long du développement. Toutes les caractéristiques ne sont pas encore présentes, mais chaque chose en son temps.
 
-## Update
+## Mise à jour du modèle
 
 Nous avons souvent une bonne intuition de ce à quoi la mise à jour du modèle va ressembler. Nous aurons besoin de changer les valeurs des trois champs du modèle, ce qui nécessite la définition d'un message pour chacun.
 
@@ -136,7 +136,7 @@ Chaque cas utilise la syntaxe de modification d'enregistrement pour transformer 
 Nous ferons plus dans l'originalité du coté de la fonction `view`.
 
 
-## View
+## Vue
 
 Notre fonction `view` utilise des **fonctions utilitaires** pour une meilleure organisation du code :
 

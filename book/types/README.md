@@ -38,7 +38,7 @@ Hint: Seems like a record field typo. Maybe firstName should be fistName?
 elm-france
 ```
 
-Le compilateur constate que `toFullName` reçoit un argument du mauvais *type*. Comme le suggère le message d'erreur, quelqu'un a par erreur tapé `fist` au lieu de `first`.
+Le compilateur constate que `toFullName` reçoit un argument du mauvais *type*. Comme le suggère le message d'erreur, quelqu'un a saisi `fist` par erreur au lieu de `first`.
 
 C'est déjà très utile d'avoir un assistant pour des erreurs simples comme celle-ci, mais c'est encore plus précieux quand vous avez des centaines de fichiers et de nombreuses personnes qui collaborent dessus. Quelle que soit la taille et la complexité du projet, le compilateur Elm vérifie que **tout** est correct en se basant simplement sur le code source.
 

@@ -14,7 +14,7 @@ Imaginez un site web concentré sur la lecture, comme ce guide ! Dans ces circon
 </fieldset>
 ```
 
-Ce code expose des choix à l'utilisateur par le bias de boutons radio, une alternative aux boîtes à cocher de l'exemple précédent. L'usage de l'élement `<label>` offre une plus grande surface d'interaction à l'utilisateur.
+Ce code expose des choix à l'utilisateur par le bias de boutons radio, une alternative aux boîtes à cocher de l'exemple précédent. L'usage de l’élément `<label>` offre une plus grande surface d'interaction à l'utilisateur.
 
 Commençons par la définition du modèle. Cette fois-ci nous utiliserons une [union de types](../types/union_types.md) pour plus de fiabilité.
 
@@ -27,7 +27,7 @@ type alias Model =
 type FontSize = Small | Medium | Large
 ```
 
-Une taille de police de type `FontSize` peut prendre exactement trois valeurs : `Small`, `Medium` et `Large`. Le champ `fontSize` ne peut donc être affecté à aucune autre valeur. En JavaScript, l'alternative serait d'utiliser une valeur de type string ou number et de compter sur l'absence de coquilles ou d'erreurs. Rien ne vous empêche d'utiliser ces mêmes valeurs en Elm, au risque de vous exposer à ces types de bug inutilement.
+Une taille de police de type `FontSize` peut prendre exactement trois valeurs : `Small`, `Medium` et `Large`. Le champ `fontSize` ne peut donc être affecté à aucune autre valeur. En JavaScript, l'alternative serait d'utiliser une valeur de type `string` ou `number` et de compter sur l'absence de coquilles ou d'erreurs. Rien ne vous empêche d'utiliser ces mêmes valeurs en Elm, au risque de vous exposer à ces types de bug inutilement.
 
 > **Note :** Essayez de privilégier au maximum l'usage des unions de type dans vos modèles. Le meilleur moyen d'éviter les états invalides reste de rendre leur représentation impossible !
 

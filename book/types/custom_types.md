@@ -13,7 +13,7 @@ Nous pouvons décrire cette situation en définissant un type `UserStatus` lista
 type UserStatus = Regular | Visitor
 ```
 
-Le type `UserStatus` a deux **variantes**. Les usagers peuvent être `Regular` ou `Visitor`. Nous pouvons représenter nos usagers en utilisant un *record*, comme ceci :
+Le type `UserStatus` a deux **variantes**. Un usager peut être `Regular` ou `Visitor`. Nous pouvons représenter nos usagers en utilisant un *record*, comme ceci :
 
 ```elm
 type UserStatus
@@ -29,7 +29,7 @@ thomas = { status = Regular, name = "Thomas" }
 kate95 = { status = Visitor, name = "kate95" }
 ```
 
-De cette façon, nous pouvons déterminer si l'usager dispose d'un compte (`Regular`) ou non (`Visitor`). Ce n'est pas trop compliqué, mais on peut rendre ça encore plus simple !
+De cette façon, nous pouvons déterminer si l'usager dispose d'un compte (`Regular`) ou non (`Visitor`). Ce n'est pas trop compliqué, mais il est possible de faire plus simple !
 
 Plutôt que de créer un type personnalisé *et* un alias de type, on peut représenter l'ensemble au moyen *d'un seul* type personnalisé. Les variantes `Regular` et `Visitor` se voient chacune associée à un identifiant de type `String` :
 
@@ -42,9 +42,9 @@ thomas = Regular "Thomas"
 kate95 = Visitor "kate95"
 ```
 
-La donnée étant attachée directement à la variante, il n'y a même plus besoin de _record_.
+L'information étant rattachée directement à la variante, il n'y a même plus besoin de _record_.
 
-Un autre avantage de cette approche est que chaque variante peut avoir des données associées de types différents. Admettons qu'on propose à nos usagers `Regular` d'ajouter leur âge à la création de leur compte. Il n'y a pas de moyen évident de modéliser ça avec un _record_, mais avec un type personnalisé, aucun problème. Ajoutons quelques données spécifiques à notre variante `Regular` :
+Un autre avantage de cette approche est que chaque variante peut avoir des données associées de types différents. Admettons qu'on propose à nos usagers `Regular` d'ajouter leur âge à la création de leur compte. Il n'y a pas de moyen évident de modéliser ça avec un _record_, aucun problème cependant avec un type personnalisé. Ajoutons quelques données spécifiques à notre variante `Regular` :
 
 {% replWithTypes %}
 [
@@ -77,7 +77,7 @@ Un autre avantage de cette approche est que chaque variante peut avoir des donn�
 
 Essayez de définir un usager `Regular` avec son identifiant et son âge ⬆️
 
-Nous avons simplement ajouté l'âge, mais les variantes d'un type peuvent diverger de façon encore plus spectaculaire. Par exemple, nous pourrions ajouter la localisation des participants de type `Regular` pour leur proposer des salons régionalisés. Ou peut-être souhaitons-nous permettre l'utilisation de notre salon de façon anonyme. Ajoutez une troisième variante `Anonymous`, afin d'obtenir quelque chose de ce genre :
+Nous avons simplement ajouté l'âge, mais les variantes d'un type peuvent diverger de façon encore plus spectaculaire. Par exemple, nous pourrions ajouter la localisation des participants de type `Regular` pour leur proposer des salons régionalisés. Ou peut-être souhaitons-nous permettre l'utilisation d'un salon de façon anonyme. Ajoutez une troisième variante `Anonymous`, afin d'obtenir quelque chose de ce genre :
 
 ```elm
 type User
@@ -115,8 +115,8 @@ type Profile
   | Success { name : String, description : String }
 ```
 
-Ici on peut démarrer par `Loading` et transitionner vers `Failure` ou `Success` en fonction de ce qu'il advient. Cela rend triviale l'écriture d'une fonction `view` qui affichera dans tous les cas quelque chose de pertinent en fonction de l'état du chargement des données.
+Ici, on peut démarrer par `Loading` puis transitionner vers `Failure` ou `Success` en fonction de ce qu'il advient. Cela rend triviale l'écriture d'une fonction `view` qui affichera dans tous les cas quelque chose de pertinent en fonction de l'état du chargement des données.
 
 Maintenant que nous savons créer des types personnalisés, la section suivante va nous montrer comment les utiliser !
 
-> **Note : Les types personnalisés sont la fonctionnalité la plus importante de Elm.** Ils apportent énormément de profondeur et de précision dans la modélisation des scénarios applicatifs. Nous avons essayé de détailler un peu de cette profondeur dans les sections [Les types en tant qu'ensembles](/appendix/types_as_sets.html) et [Les types en tant que bits](/appendix/types_as_bits.html). Nous espérons qu'elles vous seront utiles !
+> **Note : Les types personnalisés sont la fonctionnalité la plus importante de Elm.** Ils apportent énormément de profondeur et de précision dans la modélisation des scénarios applicatifs. Vous trouverez plus de détails dans les sections [Les types en tant qu'ensembles](/appendix/types_as_sets.html) et [Les types en tant que bits](/appendix/types_as_bits.html). Nous espérons qu'elles vous seront utiles !

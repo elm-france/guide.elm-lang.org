@@ -65,7 +65,7 @@ view model =
 Ce code est une légère variante de l'exemple précédent. Nous définissons le même squelette applicatif avec un modèle, quelques messages, la mise à jour du modèle dans la fonction `update` et l'affichage dans la fonction `view`. Les différences résident dans l'implémentation, dont nous allons détailler le contenu.
 
 
-## Model
+## Modèle
 
 Commençons par le modèle. Nous aurons besoin de stocker le texte saisi par l'utilisateur, qui devra être affiché en inversé par la suite.
 
@@ -80,7 +80,7 @@ Cette fois, le modèle est représenté sous la forme d'un record, dont le champ
 > **Note:** Quel est l'intérêt d'utiliser un record avec un seul champ plutôt qu'un `String` directement ? Afin de faciliter l'évolution du code quand l'application deviendra plus complexe. Il est en effet très simple d'étendre un record avec un nouveau champ.
 
 
-## View
+## Vue
 
 Maintenant que le modèle est défini, procédons à la création de la fonction `view` :
 
@@ -109,7 +109,7 @@ Par exemple, la saisie du mort "bard" produira les quatre messages suivants :
 Ces messages seront traités par la fonction `update`.
 
 
-## Update
+## Mise à jour du modèle
 
 Ce programme ne définissant qu'un type de message, la fonction `update` n'a qu'un seul cas à traiter :
 

@@ -2,7 +2,7 @@
 
 Notre premier exemple est un compteur qui peut être incrémenté ou décrémenté.
 
-J'ai ajouté le programme complet ci-dessous. Cliquez sur le bouton bleu "Éditer" pour jouer avec l'éditeur en ligne. Essayez de changer le texte sur un des boutons.
+La totalité du programme est disponible ci-dessous. Cliquez sur le bouton bleu "Éditer" pour jouer avec l'éditeur en ligne. Essayez de changer le texte sur un des boutons.
 **Cliquez maintenant sur le bouton bleu !**
 
 <div class="edit-link"><a href="https://elm-lang.org/examples/buttons">Éditer</a></div>
@@ -62,9 +62,9 @@ Une fois familiarisés avec le code, nous devrions nous poser quelques questions
 
 ## Le point d'entrée `main`
 
-La valeur `main` est spéciale en Elm. Elle décrit ce qui sera affiché à l'écran. En l'occurrence, nous allons initialiser notre application avec la valeur `init`, la fonction `view` affichera tout ce qu'il y a à afficher à l'écran, et les entrées utilisateur seront transmises à la fonction `update`. C'est en quelque sorte la description générale de notre programme.
+La valeur `main` est spéciale en Elm. Elle décrit ce qui sera affiché à l'écran. En l'occurrence, l'application sera initialisée avec la valeur `init`, la fonction `view` affichera tout ce qu'il y a à afficher à l'écran, et les entrées utilisateur seront transmises à la fonction `update`. C'est en quelque sorte la description générale de notre programme.
 
-## Le Modèle
+## Le modèle
 
 La modélisation des données est extrêmement importante en Elm. L'intérêt du **modèle** est de projeter tous les détails de votre application sous forme de données.
 
@@ -74,7 +74,7 @@ Pour réaliser un compteur, nous devons garder trace d'un nombre qui augmente ou
 type alias Model = Int
 ```
 
-Nous avons juste besoin d'une valeur `Int` (un nombre entier) pour stocker la valeur courante du compteur :
+Nous avons simplement besoin d'une valeur entière de type `Int` pour stocker la valeur courante du compteur :
 
 ```elm
 init : Model
@@ -82,11 +82,11 @@ init =
   0
 ```
 
-La valeur initiale est zéro, elle augmentera ou diminuera au fur et à mesure que les utilisateurs cliqueront sur les différents boutons.
+La valeur initiale est zéro, puis elle augmentera ou diminuera au fur et à mesure que les utilisateurs cliqueront sur les différents boutons.
 
 ## La vue
 
-Nous avons un modèle mais comment allons-nous l'afficher à l'écran ? C'est le rôle de la fonction `view` :
+Maintenant que nous avons un modèle, il faut pouvoir l'afficher à l'écran. C'est le rôle de la fonction `view` :
 
 ```elm
 view : Model -> Html Msg
@@ -116,7 +116,7 @@ Nous avons défini deux messages qu'elle pourra recevoir :
 type Msg = Increment | Decrement
 ```
 
-À partir de là, la fonction `update` décrit simplement ce qu'il faut faire lorsqu'elle reçoit un des messages.
+À partir de là, la fonction `update` décrit simplement ce qu'il faut faire lorsqu'elle reçoit un de ces messages.
 
 ```elm
 update : Msg -> Model -> Model
@@ -135,7 +135,7 @@ Si vous recevez un message `Increment`, vous incrémentez le modèle. Si vous re
 
 ## En résumé
 
-Maintenant que nous avons abordé toutes les parties d'un programme Elm, il est peut-être un peu plus facile de voir comment elles s'intègrent dans le diagramme que nous avons vu précédemment :
+Maintenant que nous avons abordé toutes les parties d'un programme Elm, il est désormais plus facile de comprendre comment celles-ci s'intègrent dans le diagramme vu précédemment :
 
 ![Diagram of The Elm Architecture](buttons.svg)
 

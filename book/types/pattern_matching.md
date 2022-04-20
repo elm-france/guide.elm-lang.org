@@ -1,6 +1,6 @@
 # Le Pattern Matching (ou *filtrage par motif*)
 
-Nous venons d'apprendre à créer des [types personnalisés](/types/custom_types.html) avec le mot-clé `type`. Notre exemple principal était un type `User` dans un salon de discussion :
+Nous venons d'apprendre à créer des [types personnalisés](/types/custom_types.html) avec le mot-clé `type` au travers d'un exemple de salon de discussion dont les usagers sont de type `User` :
 
 ```elm
 type User
@@ -29,14 +29,14 @@ toName user =
 -- toName (Visitor "kate95")    == "kate95"
 ```
 
-L'expression `case..of` nous permet de distinguer chaque variante, de façon à pouvoir afficher le nom de Kate ou de Thomas quel que soit le statut de leur compte.
+L'expression `case..of` permet de distinguer chaque variante, de façon à pouvoir afficher le nom de Kate ou de Thomas quel que soit le statut de leur compte.
 
-Et si nous essayons de passer des arguments invalides comme  `toName (Visitor "kate95")` ou `toName Anonymous`, le compilateur nous le signale immédiatement. Cela veut dire que ce genre d'erreurs mineures peuvent être réglées en quelques secondes, plutôt que d'attendre que le problème survienne en production et prenne beaucoup plus de temps à régler au final.
+Et si nous essayons de passer des arguments invalides comme  `toName (Visitor "kate95")` ou `toName Anonymous`, le compilateur nous le signale immédiatement. Ce genre d'erreur mineure peut donc être réglé en quelques secondes, plutôt que d'attendre que le problème survienne en production et demande plus de temps pour le solutionner.
 
 
 ## Jokers
 
-La fonction `toName` que nous venons de définir fonctionne très bien, mais on se rend compte que la valeur `age` n'est pas utilisée. Dans pareil cas, quand une donnée associée n'est pas utilisée, il est courant d'utiliser un “joker” plutôt que de lui donner un nom :
+La fonction `toName` que nous venons de définir fonctionne très bien, mais la valeur `age` n'est pas utilisée. Pour signifier qu'une donnée associée n'est pas utilisée, il est courant d'utiliser un “joker” plutôt que de lui donner un nom :
 
 ```elm
 toName : User -> String
